@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('has-anims');</script>
+  <title>Import Metadata to Platform, Eliska Dolezalova</title>
+  <meta name="description" content="Case study: redesigning the metadata import flow at Ataccama.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 0 C12 6.6 6.6 12 0 12 C6.6 12 12 17.4 12 24 C12 17.4 17.4 12 24 12 C17.4 12 12 6.6 12 0 Z"/>
+        </svg>
+        eliska
+      </a>
+      <ul class="nav-links">
+        <li><a href="work.html" data-i18n="nav.work">Work</a></li>
+        <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <span class="lang-toggle-sep">·</span>
+          <button type="button" data-lang="cs">CS</button>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
+        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="case-hero">
+    <div class="container">
+      <div class="case-hero-tags" data-anim>
+        <span>Case study</span>
+        <span>Data Catalog</span>
+        <span>Ataccama</span>
+      </div>
+      <h1 data-anim data-anim-delay="1">
+        Import metadata to platform.
+        <span class="muted-text scroll-words">From a six-click, source-by-source journey to one shared surface.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- META -->
+  <section class="case-meta">
+    <dl class="case-meta-grid">
+      <div class="case-meta-item" data-anim>
+        <dt>Role</dt>
+        <dd>Product designer (intern) at Ataccama</dd>
+      </div>
+      <div class="case-meta-item" data-anim data-anim-delay="1">
+        <dt>Timeline</dt>
+        <dd>~3 weeks</dd>
+      </div>
+      <div class="case-meta-item" data-anim data-anim-delay="2">
+        <dt>Surface</dt>
+        <dd>Ataccama ONE · Data Catalog</dd>
+      </div>
+      <div class="case-meta-item" data-anim data-anim-delay="3">
+        <dt>Output</dt>
+        <dd>Figma · Engineering handoff</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- BODY -->
+  <aside class="case-toc" aria-label="Case study sections">
+    <div class="case-toc-label">On this page</div>
+    <ul>
+      <li><a href="#context">Context</a></li>
+      <li><a href="#problem">The problem</a></li>
+      <li><a href="#before-after">Before / after</a></li>
+      <li><a href="#what-i-designed">What I designed</a></li>
+      <li><a href="#the-four-moves">The four moves</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#what-i-learned">What I learned</a></li>
+    </ul>
+  </aside>
+
+  <section class="case-body">
+    <div class="container">
+
+      <div class="case-section" data-anim id="context">
+        <div class="section-label">Context</div>
+        <h2>The Data Catalog is where it all begins.</h2>
+        <p>Ataccama ONE is an enterprise data governance platform. The <strong>Data Catalog</strong> is where data stewards, analysts, and consultants discover what data the organization owns. Before they can govern data, they need to import its metadata, schema, types, structure, from a connected database.</p>
+        <p>It's a high-frequency action performed by the same handful of people, over and over. It was also one of the most fragmented flows in the product.</p>
+      </div>
+
+      <div class="case-section" data-anim id="problem">
+        <div class="section-label">The problem</div>
+        <h2>Six clicks. One source at a time. Zero visibility.</h2>
+        <p>To import metadata, a user had to leave the catalog, navigate to a source, open its Connections tab, expand a tree, select tables, and click Import. The flow was technically possible, but forced users into mental bookkeeping the product should have done for them.</p>
+      </div>
+
+      <div class="case-section" data-anim id="before-after">
+        <div class="section-label">Before / after</div>
+        <h2>From source-by-source to one canonical entry point.</h2>
+        <div class="before-after">
+          <div class="ba-block">
+            <div class="ba-label">Before</div>
+            <h4>Six steps to a single import</h4>
+            <ol>
+              <li>Leave the Data Catalog</li>
+              <li>Navigate to Sources</li>
+              <li>Open a specific source</li>
+              <li>Open Connections tab</li>
+              <li>Expand a connection</li>
+              <li>Select tables, click Import</li>
+            </ol>
+          </div>
+          <div class="ba-block">
+            <div class="ba-label">After</div>
+            <h4>One modal, every source</h4>
+            <p>"Import asset" button opens a modal rooted at Source level. One session can span the entire catalog.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-section" data-anim id="what-i-designed">
+        <div class="section-label">What I designed</div>
+        <h2>A single modal triggered from the catalog listing.</h2>
+        <p>Rooted at Source level so one session can span multiple sources. Lazy-loaded children with indeterminate-state checkboxes for partial selection. A real-language selection summary that counts only the leaves that actually import.</p>
+        <div class="gallery-pair" data-anim>
+          <figure class="gallery-figure">
+            <img src="images/projects/import-metadata/catalog-with-modal.png" alt="The Data Catalog with the new Import asset modal open over the listing" loading="lazy">
+          </figure>
+          <figure class="gallery-figure">
+            <img src="images/projects/import-metadata/modal-workflow.gif" alt="Import asset modal workflow: cursor selects checkboxes through initial, browsing, and selected states" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="case-section" data-anim id="the-four-moves">
+        <div class="section-label">The four moves</div>
+        <h2>Each decision rebuilt an assumption the old flow was making.</h2>
+        <div class="numbered-list">
+          <div class="numbered-item">
+            <div class="numbered-item-num">01</div>
+            <div>
+              <h4>Tree starts at Source, not Connection</h4>
+              <p>Rooting the tree at the system level meant a single import session could span the entire catalog.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">02</div>
+            <div>
+              <h4>Lazy-loaded children with indeterminate checkboxes</h4>
+              <p>Enterprise tenants have thousands of tables. The tree fetches children only on expand, with a spinner-in-chevron loading state.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">03</div>
+            <div>
+              <h4>Selection summary in real language</h4>
+              <p>"X tables from Y connections from Z sources", counts only the leaves that actually import, qualified by their parents.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">04</div>
+            <div>
+              <h4>Always-visible primary action</h4>
+              <p>SplitButton + Cancel always visible. The modal exists for importing, the primary action shouldn't hide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pullquote" data-anim>
+        <p class="pullquote-text">Every "small" UI decision was implicitly making <span class="muted-text scroll-words">a load-bearing assumption about how customers use the product.</span></p>
+        <p class="pullquote-attr">From the design crit retrospective</p>
+      </div>
+
+      <div class="case-section" data-anim id="process">
+        <div class="section-label">Process</div>
+        <h2>Four passes, and a crit session that reshaped half the design.</h2>
+        <div class="numbered-list">
+          <div class="numbered-item">
+            <div class="numbered-item-num">01</div>
+            <div>
+              <h4>Current-state mapping</h4>
+              <p>Walked through the existing flow as a user. Documented the six-click sequence. Identified that the existing ConnectionBrowseTree could be the foundation, but its root level was wrong for the new flow.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">02</div>
+            <div>
+              <h4>First draft modal</h4>
+              <p>Designed in Figma with Flamingo primitives. Built five states: Initial, Browsing, Selected, Show Selected Only, Loading.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">03</div>
+            <div>
+              <h4>Cross-functional design crit</h4>
+              <p>Five reviewers across design and frontend. Ten pieces of feedback. Selection-counter language, toolbar placement, modal density, and pagination model all changed.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">04</div>
+            <div>
+              <h4>Final design and handoff</h4>
+              <p>Refined typography, density, paginator scope. Wrote a full handoff doc enumerating every element, state, interaction, components used, and open engineering questions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-section" data-anim id="what-i-learned">
+        <div class="section-label">What I learned</div>
+        <h2>Three principles I took into the next project.</h2>
+        <div class="numbered-list">
+          <div class="numbered-item">
+            <div class="numbered-item-num">01</div>
+            <div>
+              <h4>Clarify the unit of measurement</h4>
+              <p>"Items" is ambiguous when one item could be one connection or one table, and they don't equal each other.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">02</div>
+            <div>
+              <h4>Progressive disclosure + pagination = complexity explosion</h4>
+              <p>Pick one. Combining them creates an interaction model engineers can't ship and users can't predict.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">03</div>
+            <div>
+              <h4>For bulk actions, ask: what's the worst case?</h4>
+              <p>This modal can spawn thousands of background jobs. Safeguards belong in the UI, not bolted on after.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CASE NAV -->
+  <div class="case-nav">
+    <a href="index.html">← Back to work</a>
+    <a href="asset-layout-editor.html">Next: Asset Layout Editor →</a>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <section class="site-footer">
+    <div class="site-footer-inner">
+
+      <div class="site-footer-headline">
+        <span class="site-footer-eyebrow" data-anim>Contact</span>
+        <h2 data-anim data-anim-delay="1">
+          Let's start
+          <span class="muted-light scroll-words">creating something good together.</span>
+        </h2>
+        <div class="site-footer-cta" data-anim data-anim-delay="2">
+          <a href="mailto:hello@eliskadolezalova.com" class="btn btn-light">Let's talk</a>
+          <a href="https://linkedin.com/in/eliskadolezalova" class="btn btn-light-ghost" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-grid">
+        <div class="footer-col" data-anim>
+          <div class="footer-col-label">Contact</div>
+          <div class="footer-col-content">
+            <p>hello@eliskadolezalova.com</p>
+            <a href="mailto:hello@eliskadolezalova.com">Get in touch ↗</a>
+          </div>
+        </div>
+        <div class="footer-col" data-anim data-anim-delay="1">
+          <div class="footer-col-label">Connect</div>
+          <div class="footer-col-content">
+            <a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:hello@eliskadolezalova.com">Email ↗</a>
+          </div>
+        </div>
+        <div class="footer-col" data-anim data-anim-delay="2">
+          <div class="footer-col-label">Navigate</div>
+          <div class="footer-col-content">
+            <a href="work.html">Work</a>
+            <a href="index.html#services">Services</a>
+            <a href="about.html">About</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="footer-strip">
+      <div class="footer-strip-inner">
+        <span>© 2026 Eliska Dolezalova</span>
+        <span>Prague, Czech Republic</span>
+        <span>Available 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      // Case study TOC — active section scrollspy + hide on footer
+      var caseToc = document.querySelector('.case-toc');
+      var tocLinks = document.querySelectorAll('.case-toc a');
+      if (caseToc && tocLinks.length) {
+        var sectionMap = [];
+        tocLinks.forEach(function (link) {
+          var id = link.getAttribute('href').slice(1);
+          var section = document.getElementById(id);
+          if (section) sectionMap.push({ link: link, section: section });
+        });
+        if (sectionMap.length) {
+          var tocObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              var match = sectionMap.find(function (s) { return s.section === entry.target; });
+              if (match && entry.isIntersecting) {
+                tocLinks.forEach(function (l) { l.classList.remove('active'); });
+                match.link.classList.add('active');
+              }
+            });
+          }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+          sectionMap.forEach(function (s) { tocObserver.observe(s.section); });
+        }
+        var siteFooterEl = document.querySelector('.site-footer');
+        if (siteFooterEl) {
+          var footerObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              caseToc.classList.toggle('case-toc--hidden', entry.isIntersecting);
+            });
+          }, { threshold: 0 });
+          footerObserver.observe(siteFooterEl);
+        }
+      }
+
+      // Minimal language toggle (nav labels only — case study body stays EN)
+      var navTranslations = {
+        en: { 'nav.work': 'Work', 'nav.services': 'Services', 'nav.about': 'About', 'nav.contact': 'Contact' },
+        cs: { 'nav.work': 'Práce', 'nav.services': 'Služby', 'nav.about': 'O mně', 'nav.contact': 'Kontakt' }
+      };
+      function applyLanguage(lang) {
+        var dict = navTranslations[lang] || navTranslations.en;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+      }
+      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+        btn.addEventListener('click', function () { applyLanguage(btn.getAttribute('data-lang')); });
+      });
+      applyLanguage(localStorage.getItem('lang') || 'en');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('[data-anim]').forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll('[data-anim]').forEach(function (el) {
+          el.classList.add('in-view');
+        });
+      }
+
+      var wordContainers = [];
+
+      document.querySelectorAll('.scroll-words').forEach(function (el) {
+        var text = el.textContent.trim();
+        var words = text.split(/\s+/);
+        el.innerHTML = words.map(function (w) {
+          return '<span class="word">' + w + '</span>';
+        }).join(' ');
+        var wordEls = el.querySelectorAll('.word');
+        var rect = el.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
+        var inDark = el.closest('.site-footer') !== null;
+        el.classList.add('scroll-driven');
+        var fromColor = inDark ? { r: 237, g: 164, b: 181 } : { r: 200, g: 200, b: 200 };
+          var toColor   = inDark ? { r: 255, g: 255, b: 255 } : { r: 10,  g: 10,  b: 10  };
+        if (inViewOnLoad) {
+          wordContainers.push({
+            el: el, words: wordEls,
+            startRatio: 0.65, endRatio: -0.35,
+            fromColor: fromColor, toColor: toColor
+          });
+        } else {
+          wordContainers.push({
+            el: el, words: wordEls,
+            startRatio: 1.20, endRatio: -0.20,
+            fromColor: fromColor, toColor: toColor
+          });
+        }
+      });
+
+      var ticking = false;
+      function updateScrollWords() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var vh = window.innerHeight;
+          wordContainers.forEach(function (group) {
+            var rect = group.el.getBoundingClientRect();
+            var elementCenter = rect.top + rect.height / 2;
+            var startC = vh * group.startRatio;
+            var endC = vh * group.endRatio;
+            var globalProgress = (startC - elementCenter) / (startC - endC);
+            if (globalProgress < 0) globalProgress = 0;
+            else if (globalProgress > 1) globalProgress = 1;
+            var n = group.words.length;
+            var stretch = 1.6;
+            var halfRange = (stretch / n) / 2;
+            for (var i = 0; i < n; i++) {
+              var center = (i + 0.5) / n;
+              var wStart = center - halfRange;
+              var wEnd = center + halfRange;
+              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
+              if (wProgress < 0) wProgress = 0;
+              else if (wProgress > 1) wProgress = 1;
+              var r = Math.round(group.fromColor.r + (group.toColor.r - group.fromColor.r) * wProgress);
+              var g = Math.round(group.fromColor.g + (group.toColor.g - group.fromColor.g) * wProgress);
+              var b = Math.round(group.fromColor.b + (group.toColor.b - group.fromColor.b) * wProgress);
+              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
+            }
+          });
+          ticking = false;
+        });
+      }
+      window.addEventListener('scroll', updateScrollWords, { passive: true });
+      window.addEventListener('resize', updateScrollWords, { passive: true });
+      updateScrollWords();
+
+      // Scroll progress bar
+      var progressBar = document.querySelector('.scroll-progress-bar');
+      var progressTicking = false;
+      function updateProgress() {
+        if (progressTicking) return;
+        progressTicking = true;
+        requestAnimationFrame(function () {
+          if (progressBar) {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+            progressBar.style.width = p + '%';
+          }
+          progressTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+      updateProgress();
+
+      // Parallax on scroll
+      var parallaxEls = document.querySelectorAll('[data-parallax]');
+      var parallaxTicking = false;
+      function updateParallax() {
+        if (parallaxTicking) return;
+        parallaxTicking = true;
+        requestAnimationFrame(function () {
+          var vh = window.innerHeight;
+          parallaxEls.forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.bottom < -200 || rect.top > vh + 200) return;
+            var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+            var centerOffset = (rect.top + rect.height / 2) - vh / 2;
+            var translateY = -centerOffset * speed;
+            el.style.transform = 'translateY(' + translateY.toFixed(2) + 'px)';
+          });
+          parallaxTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      window.addEventListener('resize', updateParallax, { passive: true });
+      updateParallax();
+
+      // Nav pill on scroll
+      var nav = document.querySelector('.nav');
+      if (nav) {
+        var navTicking = false;
+        function checkNavScroll() {
+          if (navTicking) return;
+          navTicking = true;
+          requestAnimationFrame(function () {
+            if (window.scrollY > 30) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+            navTicking = false;
+          });
+        }
+        window.addEventListener('scroll', checkNavScroll, { passive: true });
+        checkNavScroll();
+      }
+
+      // Mobile nav drawer toggle
+      var hamburger = document.querySelector('.nav-hamburger');
+      var mobileNav = document.querySelector('.mobile-nav');
+      if (hamburger && mobileNav) {
+        function toggleMenu(open) {
+          hamburger.setAttribute('aria-expanded', String(open));
+          mobileNav.classList.toggle('open', open);
+          mobileNav.setAttribute('aria-hidden', String(!open));
+          document.body.classList.toggle('menu-open', open);
+        }
+        hamburger.addEventListener('click', function () {
+          toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
+        });
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () { toggleMenu(false); });
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

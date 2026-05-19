@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('has-anims');</script>
+  <title>About, Eliska Dolezalova</title>
+  <meta name="description" content="Product designer based in Prague, embedded design partner for product teams without internal design. Currently at Ataccama and Shoptet.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="about-page">
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 0 C12 6.6 6.6 12 0 12 C6.6 12 12 17.4 12 24 C12 17.4 17.4 12 24 12 C17.4 12 12 6.6 12 0 Z"/>
+        </svg>
+        eliska
+      </a>
+      <ul class="nav-links">
+        <li><a href="work.html" data-i18n="nav.work">Work</a></li>
+        <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="about.html" aria-current="page" data-i18n="nav.about">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <span class="lang-toggle-sep">·</span>
+          <button type="button" data-lang="cs">CS</button>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
+        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 data-anim>
+        <span data-i18n="about.headline.main">Nice to meet you.</span>
+        <span class="muted-text scroll-words" data-i18n="about.headline.muted">I'm Eliska.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- ABOUT BODY -->
+  <section class="about-page-body">
+    <div class="container">
+
+      <div class="about-intro" data-anim>
+        <div class="about-photo" data-parallax="0.06">
+          <img src="images/eliska.avif" alt="Eliska Dolezalova" loading="lazy">
+        </div>
+        <div class="about-intro-text">
+          <p data-i18n="about.p1">I'm Eliska, a product designer based in Prague. Six years of design across festivals, brand identity, B2B websites, and product UI, coming into product design through graphic and web work for Prague Pride, before training at Ataccama.</p>
+          <p data-i18n="about.p2">I work embedded, not project by project. Most engagements look like a fractional design lead, on Slack, in standups, part of the team. AI-augmented prototyping keeps production fast; product-design rigor keeps the work shipping.</p>
+        </div>
+      </div>
+
+      <div class="about-cv">
+
+        <div class="cv-block" data-anim>
+          <div class="cv-block-header">
+            <h2 class="cv-block-title" data-i18n="cv.collab.label">Notable Collaborations</h2>
+          </div>
+          <ul class="cv-list">
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="collab.apadore.name">Apadore</strong>
+                <span data-i18n="collab.apadore.role">B2B Web Designer</span>
+                <p class="cv-item-desc" data-i18n="collab.apadore.desc">For the Apadore studio, I create B2B websites. In collaboration with the Art Director, we build the brand's visual universe, which I then translate into functional, thoughtful web design.</p>
+              </div>
+              <span class="cv-item-date" data-i18n="collab.apadore.date">April 2025 – February 2026</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="collab.shoptet.name">Shoptet</strong>
+                <span data-i18n="collab.shoptet.role">UX Partner</span>
+                <p class="cv-item-desc" data-i18n="collab.shoptet.desc">Shoptet UX Partner, conducting UX audits and usability reviews for e-commerce stores to improve conversion, navigation, and checkout experiences.</p>
+              </div>
+              <span class="cv-item-date" data-i18n="collab.shoptet.date">From April 2026</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="collab.webit.name">1. Web IT</strong>
+                <span data-i18n="collab.webit.role">Design Partner</span>
+                <p class="cv-item-desc" data-i18n="collab.webit.desc">For 1. Web IT s.r.o., I delivered a complete website redesign and a brand refresh. I continue to work with their team long-term on further brand development and product design for their clients.</p>
+              </div>
+              <span class="cv-item-date" data-i18n="collab.webit.date">From April 2025</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="collab.atacc.name">Ataccama</strong>
+                <span data-i18n="collab.atacc.role">Product Designer</span>
+                <p class="cv-item-desc" data-i18n="collab.atacc.desc">Product Design Intern at Ataccama, working across the full design process, from user research and JTBD synthesis to high-fidelity Figma designs, on B2B data management software for global enterprise customers.</p>
+              </div>
+              <span class="cv-item-date" data-i18n="collab.atacc.date">From January 2026</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="collab.jitro.name">Jitro Design + KVIFF</strong>
+                <span data-i18n="collab.jitro.role">Apprenticeship</span>
+                <p class="cv-item-desc" data-i18n="collab.jitro.desc">In collaboration with the graphic studio Jitro Design, I learned the most about working with typography and composition, and I then completed an internship at the KVIFF festival.</p>
+              </div>
+              <span class="cv-item-date" data-i18n="collab.jitro.date">February 2025 – June 2025</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="collab.pride.name">Prague Pride Festival</strong>
+                <span data-i18n="collab.pride.role">Visual Identity Lead</span>
+                <p class="cv-item-desc" data-i18n="collab.pride.desc">For five years, I've helped create the visual identity and graphics for the Prague Pride festival. After working with agencies, I took over the in-house campaign visuals across online, print, spatial applications, and merch. For my diploma thesis, I redesigned the festival website to improve communication and presentation.</p>
+              </div>
+              <span class="cv-item-date" data-i18n="collab.pride.date">July 2022 – August 2025</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-block" data-anim data-anim-delay="1">
+          <div class="cv-block-header">
+            <h2 class="cv-block-title" data-i18n="about.edu.label">Education</h2>
+            <span class="cv-block-range" data-i18n="cv.education.range">2018–2024</span>
+          </div>
+          <ul class="cv-list">
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="about.edu.master.field">UX design and research</strong>
+                <span data-i18n="about.edu.master.name">Master's degree</span>
+              </div>
+              <span class="cv-item-date" data-i18n="cv.master.date">2022–2024</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="about.edu.multimedia.field">Multimedia Communication</strong>
+                <span data-i18n="about.edu.multimedia.name">Master's studies, secondary specialization</span>
+              </div>
+              <span class="cv-item-date" data-i18n="cv.multimedia.date">2022–2024</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="about.edu.bachelor.field">Information Media and Services</strong>
+                <span data-i18n="about.edu.bachelor.name">Bachelor's studies</span>
+              </div>
+              <span class="cv-item-date" data-i18n="cv.bachelor.date">2018–2022</span>
+            </li>
+            <li class="cv-item">
+              <div class="cv-item-main">
+                <strong data-i18n="about.edu.bont.name">Bont academy</strong>
+                <span data-i18n="about.edu.bont.field">Web design course</span>
+              </div>
+              <span class="cv-item-date" data-i18n="cv.bont.date">Earlier</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS, dark bento grid -->
+  <section class="about-skills-section" data-anim>
+    <div class="container">
+      <h2 class="about-skills-heading" data-i18n="about.skills.heading">Skill set.</h2>
+
+      <div class="about-skills-grid">
+        <article class="skill-card skill-card-feature">
+          <div class="feature-mono">
+            <span data-i18n="about.feature.mono">Claude Code</span>
+            <span class="feature-sparkle" aria-hidden="true">✦</span>
+          </div>
+          <div class="feature-body-wrap">
+            <h3 class="feature-title" data-i18n="about.feature.title">Prototype in code</h3>
+            <p class="feature-body" data-i18n="about.feature.body">AI-augmented with Claude Code. Designs ship as real interfaces, not just static mockups.</p>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.product.cat">Craft</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.product">Product Design</h3>
+          <span class="skill-card-meta">01</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.ux.cat">Discovery</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.ux">UX Research</h3>
+          <span class="skill-card-meta">02</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.brand.cat">Strategy</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.brand">Brand Strategy</h3>
+          <span class="skill-card-meta">03</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.web.cat">Craft</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.web">Web Design</h3>
+          <span class="skill-card-meta">04</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.proto.cat">Craft</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.proto">Prototyping</h3>
+          <span class="skill-card-meta">05</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.system.cat">System</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.system">Design Systems</h3>
+          <span class="skill-card-meta">06</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.ia.cat">Discovery</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.ia">Information Architecture</h3>
+          <span class="skill-card-meta">07</span>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-card-eyebrow" data-i18n="about.skill.visual.cat">Strategy</span>
+          <h3 class="skill-card-title" data-i18n="about.skill.visual">Visual Identity</h3>
+          <span class="skill-card-meta">08</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER -->
+  <section class="site-footer">
+    <div class="site-footer-inner">
+
+      <div class="site-footer-headline">
+        <span class="site-footer-eyebrow" data-anim data-i18n="footer.eyebrow">Contact</span>
+        <h2 data-anim data-anim-delay="1">
+          <span data-i18n="footer.headline.main">Let's start</span>
+          <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
+        </h2>
+        <div class="site-footer-cta" data-anim data-anim-delay="2">
+          <a href="mailto:hello@eliskadolezalova.com" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
+          <a href="https://linkedin.com/in/eliskadolezalova" class="btn btn-light-ghost" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-grid">
+        <div class="footer-col" data-anim>
+          <div class="footer-col-label" data-i18n="footer.col.contact">Contact</div>
+          <div class="footer-col-content">
+            <p>hello@eliskadolezalova.com</p>
+            <a href="mailto:hello@eliskadolezalova.com" data-i18n="footer.col.contact.cta">Get in touch ↗</a>
+          </div>
+        </div>
+        <div class="footer-col" data-anim data-anim-delay="1">
+          <div class="footer-col-label" data-i18n="footer.col.connect">Connect</div>
+          <div class="footer-col-content">
+            <a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:hello@eliskadolezalova.com" data-i18n="footer.col.email">Email ↗</a>
+          </div>
+        </div>
+        <div class="footer-col" data-anim data-anim-delay="2">
+          <div class="footer-col-label" data-i18n="footer.col.navigate">Navigate</div>
+          <div class="footer-col-content">
+            <a href="work.html" data-i18n="nav.work">Work</a>
+            <a href="index.html#services" data-i18n="nav.services">Services</a>
+            <a href="about.html" data-i18n="nav.about">About</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="footer-strip">
+      <div class="footer-strip-inner">
+        <span data-i18n="footer.strip.copyright">© 2026 Eliska Dolezalova</span>
+        <span data-i18n="footer.strip.location">Prague, Czech Republic</span>
+        <span data-i18n="footer.strip.status">Available 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var translations = {
+        en: {
+          'nav.work': 'Work', 'nav.services': 'Services', 'nav.about': 'About', 'nav.contact': 'Contact',
+          'about.headline.main': 'Nice to meet you.',
+          'about.headline.muted': "I'm Eliska.",
+          'about.p1': "I'm Eliska, a product designer based in Prague. Six years of design across festivals, brand identity, B2B websites, and product UI, coming into product design through graphic and web work for Prague Pride, before training at Ataccama.",
+          'about.p2': 'I work embedded, not project by project. Most engagements look like a fractional design lead, on Slack, in standups, part of the team. AI-augmented prototyping keeps production fast; product-design rigor keeps the work shipping.',
+          'cv.collab.label': 'Notable Collaborations',
+          'cv.education.range': '2018–2024',
+          'cv.master.date': '2022–2024',
+          'cv.bachelor.date': '2018–2022',
+          'cv.bont.date': 'Earlier',
+          'collab.apadore.name': 'Apadore',
+          'collab.apadore.role': 'B2B Web Designer',
+          'collab.apadore.desc': "For the Apadore studio, I create B2B websites. In collaboration with the Art Director, we build the brand's visual universe, which I then translate into functional, thoughtful web design.",
+          'collab.apadore.date': 'April 2025 – February 2026',
+          'collab.shoptet.name': 'Shoptet',
+          'collab.shoptet.role': 'UX Partner',
+          'collab.shoptet.desc': 'Shoptet UX Partner, conducting UX audits and usability reviews for e-commerce stores to improve conversion, navigation, and checkout experiences.',
+          'collab.shoptet.date': 'From April 2026',
+          'collab.webit.name': '1. Web IT',
+          'collab.webit.role': 'Design Partner',
+          'collab.webit.desc': 'For 1. Web IT s.r.o., I delivered a complete website redesign and a brand refresh. I continue to work with their team long-term on further brand development and product design for their clients.',
+          'collab.webit.date': 'From April 2025',
+          'collab.atacc.name': 'Ataccama',
+          'collab.atacc.role': 'Product Designer',
+          'collab.atacc.desc': 'Product Design Intern at Ataccama, working across the full design process, from user research and JTBD synthesis to high-fidelity Figma designs, on B2B data management software for global enterprise customers.',
+          'collab.atacc.date': 'From January 2026',
+          'collab.jitro.name': 'Jitro Design + KVIFF',
+          'collab.jitro.role': 'Apprenticeship',
+          'collab.jitro.desc': 'In collaboration with the graphic studio Jitro Design, I learned the most about working with typography and composition, and I then completed an internship at the KVIFF festival.',
+          'collab.jitro.date': 'February 2025 – June 2025',
+          'collab.pride.name': 'Prague Pride Festival',
+          'collab.pride.role': 'Visual Identity Lead',
+          'collab.pride.desc': "For five years, I've helped create the visual identity and graphics for the Prague Pride festival. After working with agencies, I took over the in-house campaign visuals across online, print, spatial applications, and merch. For my diploma thesis, I redesigned the festival website to improve communication and presentation.",
+          'collab.pride.date': 'July 2022 – August 2025',
+          'about.currently.label': 'Currently',
+          'about.currently.atacc.name': 'Ataccama',
+          'about.currently.atacc.role': 'Product Designer',
+          'about.currently.shop.name': 'Shoptet',
+          'about.currently.shop.role': 'UX Partner',
+          'about.edu.label': 'Education',
+          'about.edu.master.field': 'UX design and research',
+          'about.edu.master.name': "Master's degree",
+          'about.edu.multimedia.field': 'Multimedia Communication',
+          'about.edu.multimedia.name': "Master's studies, secondary specialization",
+          'about.edu.bachelor.field': 'Information Media and Services',
+          'about.edu.bachelor.name': "Bachelor's studies",
+          'about.edu.bont.name': 'Bont academy',
+          'about.edu.bont.field': 'Web design course',
+          'cv.multimedia.date': '2022–2024',
+          'about.skills.label': 'Skill set',
+          'about.skills.heading': 'Skill set.',
+          'about.feature.mono': 'Claude Code',
+          'about.feature.title': 'Prototype in code',
+          'about.feature.body': 'AI-augmented with Claude Code. Designs ship as real interfaces, not just static mockups.',
+          'about.skill.product.cat': 'Craft',
+          'about.skill.ux.cat': 'Discovery',
+          'about.skill.brand.cat': 'Strategy',
+          'about.skill.web.cat': 'Craft',
+          'about.skill.proto.cat': 'Craft',
+          'about.skill.system.cat': 'System',
+          'about.skill.ia.cat': 'Discovery',
+          'about.skill.visual.cat': 'Strategy',
+          'about.skill.product': 'Product Design',
+          'about.skill.ux': 'UX Research',
+          'about.skill.brand': 'Brand Strategy',
+          'about.skill.web': 'Web Design',
+          'about.skill.proto': 'Prototyping',
+          'about.skill.system': 'Design Systems',
+          'about.skill.ia': 'Information Architecture',
+          'about.skill.visual': 'Visual Identity',
+          'about.tools.label': 'Tools',
+          'footer.eyebrow': 'Contact', 'footer.headline.main': "Let's start", 'footer.headline.muted': 'creating something good together.',
+          'footer.cta.email': "Let's talk",
+          'footer.col.contact': 'Contact', 'footer.col.contact.cta': 'Get in touch ↗',
+          'footer.col.connect': 'Connect', 'footer.col.email': 'Email ↗', 'footer.col.navigate': 'Navigate',
+          'footer.strip.copyright': '© 2026 Eliska Dolezalova', 'footer.strip.location': 'Prague, Czech Republic', 'footer.strip.status': 'Available 2026'
+        },
+        cs: {
+          'nav.work': 'Práce', 'nav.services': 'Služby', 'nav.about': 'O mně', 'nav.contact': 'Kontakt',
+          'about.headline.main': 'Ahoj.',
+          'about.headline.muted': 'Jsem Eliška.',
+          'about.p1': 'Jsem Eliška, produktová designerka z Prahy. Šest let designu napříč festivaly, brand identitou, B2B weby a produktovým UI, k produktovému designu jsem se dostala přes grafiku a web pro Prague Pride, než jsem se vyškolila v Ataccamě.',
+          'about.p2': 'Pracuji embedded, ne od projektu k projektu. Většina spoluprací vypadá jako fractional design lead, na Slacku, na standupech, jako součást týmu. AI mi zrychluje produkci, produktová důslednost drží práci v pohybu.',
+          'cv.collab.label': 'Vybrané spolupráce',
+          'cv.education.range': '2018–2024',
+          'cv.master.date': '2022–2024',
+          'cv.bachelor.date': '2018–2022',
+          'cv.bont.date': 'Dříve',
+          'collab.apadore.name': 'Apadore',
+          'collab.apadore.role': 'B2B web designerka',
+          'collab.apadore.desc': 'Pro studio Apadore tvořím B2B weby. Ve spolupráci s Art Directorem stavíme vizuální svět značky, který následně překládám do funkčního a promyšleného web designu.',
+          'collab.apadore.date': 'Duben 2025 – únor 2026',
+          'collab.shoptet.name': 'Shoptet',
+          'collab.shoptet.role': 'UX partner',
+          'collab.shoptet.desc': 'Shoptet UX Partner, provádím UX audity a usability review e-shopů s cílem zlepšit konverzi, navigaci a checkout.',
+          'collab.shoptet.date': 'Od dubna 2026',
+          'collab.webit.name': '1. Web IT',
+          'collab.webit.role': 'Design partner',
+          'collab.webit.desc': 'Pro 1. Web IT s.r.o. jsem dodala kompletní redesign webu a refresh brandu. S týmem dlouhodobě spolupracuji na dalším brand developmentu a produktovém designu pro jejich klienty.',
+          'collab.webit.date': 'Od dubna 2025',
+          'collab.atacc.name': 'Ataccama',
+          'collab.atacc.role': 'Produktová designerka',
+          'collab.atacc.desc': 'Product Design Intern v Ataccamě, pracuji napříč celým designovým procesem, od user research a JTBD syntézy po hi-fi Figma návrhy, pro B2B data management software pro globální enterprise zákazníky.',
+          'collab.atacc.date': 'Od ledna 2026',
+          'collab.jitro.name': 'Jitro Design + KVIFF',
+          'collab.jitro.role': 'Stáž',
+          'collab.jitro.desc': 'Ve spolupráci s grafickým studiem Jitro Design jsem se nejvíce naučila pracovat s typografií a kompozicí, následně jsem absolvovala stáž na festivalu KVIFF.',
+          'collab.jitro.date': 'Únor 2025 – červen 2025',
+          'collab.pride.name': 'Prague Pride Festival',
+          'collab.pride.role': 'Vizuální identita',
+          'collab.pride.desc': 'Už pět let pomáhám tvořit vizuální identitu a grafiku pro festival Prague Pride. Po práci s agenturami jsem převzala in-house kampaňové vizuály napříč online, printem, prostorovými aplikacemi a merchem. Pro svou diplomovou práci jsem redesignovala web festivalu pro lepší komunikaci a prezentaci.',
+          'collab.pride.date': 'Červenec 2022 – srpen 2025',
+          'about.currently.label': 'Aktuálně',
+          'about.currently.atacc.name': 'Ataccama',
+          'about.currently.atacc.role': 'Produktová designerka',
+          'about.currently.shop.name': 'Shoptet',
+          'about.currently.shop.role': 'UX partner',
+          'about.edu.label': 'Vzdělání',
+          'about.edu.master.field': 'UX design a výzkum',
+          'about.edu.master.name': 'Magisterský obor',
+          'about.edu.multimedia.field': 'Multimediální komunikace',
+          'about.edu.multimedia.name': 'Magisterské studium, vedlejší specializace',
+          'about.edu.bachelor.field': 'Informační média a služby',
+          'about.edu.bachelor.name': 'Bakalářské studium',
+          'about.edu.bont.name': 'Bont academy',
+          'about.edu.bont.field': 'Kurz web designu',
+          'cv.multimedia.date': '2022–2024',
+          'about.skills.label': 'Skill set',
+          'about.skills.heading': 'Skill set.',
+          'about.feature.mono': 'Claude Code',
+          'about.feature.title': 'Prototypuji v kódu',
+          'about.feature.body': 'AI-augmented v Claude Code. Designy dodávám jako reálné rozhraní, ne jen statické mockupy.',
+          'about.skill.product.cat': 'Řemeslo',
+          'about.skill.ux.cat': 'Discovery',
+          'about.skill.brand.cat': 'Strategie',
+          'about.skill.web.cat': 'Řemeslo',
+          'about.skill.proto.cat': 'Řemeslo',
+          'about.skill.system.cat': 'Systém',
+          'about.skill.ia.cat': 'Discovery',
+          'about.skill.visual.cat': 'Strategie',
+          'about.skill.product': 'Produktový design',
+          'about.skill.ux': 'UX výzkum',
+          'about.skill.brand': 'Brand strategie',
+          'about.skill.web': 'Webdesign',
+          'about.skill.proto': 'Prototypování',
+          'about.skill.system': 'Design systémy',
+          'about.skill.ia': 'Informační architektura',
+          'about.skill.visual': 'Vizuální identita',
+          'about.tools.label': 'Nástroje',
+          'footer.eyebrow': 'Kontakt', 'footer.headline.main': 'Pojďme společně', 'footer.headline.muted': 'rozhýbat váš produkt.',
+          'footer.cta.email': 'Napište mi',
+          'footer.col.contact': 'Kontakt', 'footer.col.contact.cta': 'Napsat e-mail ↗',
+          'footer.col.connect': 'Najdete mě', 'footer.col.email': 'E-mail ↗', 'footer.col.navigate': 'Stránky',
+          'footer.strip.copyright': '© 2026 Eliška Doležalová', 'footer.strip.location': 'Praha, Česká republika', 'footer.strip.status': 'Beru zakázky pro 2026'
+        }
+      };
+
+      var currentLang = localStorage.getItem('lang') || 'en';
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        var dict = translations[lang] || translations.en;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+        if (typeof rebuildScrollWords === 'function') rebuildScrollWords();
+      }
+
+      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLanguage(btn.getAttribute('data-lang'));
+        });
+      });
+      applyLanguage(currentLang);
+
+      // Fade-up reveal
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('[data-anim]').forEach(function (el) { observer.observe(el); });
+      } else {
+        document.querySelectorAll('[data-anim]').forEach(function (el) { el.classList.add('in-view'); });
+      }
+
+      // Scroll-tied word color
+      var wordContainers = [];
+      function rebuildScrollWords() {
+        wordContainers = [];
+        document.querySelectorAll('.scroll-words').forEach(function (el) {
+          var text = el.textContent.trim();
+          var words = text.split(/\s+/);
+          el.innerHTML = words.map(function (w) { return '<span class="word">' + w + '</span>'; }).join(' ');
+          var wordEls = el.querySelectorAll('.word');
+          var rect = el.getBoundingClientRect();
+          var vh = window.innerHeight;
+          var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
+          var inDark = el.closest('.site-footer') !== null;
+          el.classList.add('scroll-driven');
+          var fromColor = inDark ? { r: 237, g: 164, b: 181 } : { r: 200, g: 200, b: 200 };
+          var toColor   = inDark ? { r: 255, g: 255, b: 255 } : { r: 10,  g: 10,  b: 10  };
+          wordContainers.push({
+            el: el, words: wordEls,
+            startRatio: inViewOnLoad ? 0.65 : 1.20,
+            endRatio:   inViewOnLoad ? -0.35 : -0.20,
+            fromColor: fromColor, toColor: toColor
+          });
+        });
+      }
+      rebuildScrollWords();
+
+      var wordTicking = false;
+      function updateScrollWords() {
+        if (wordTicking) return;
+        wordTicking = true;
+        requestAnimationFrame(function () {
+          var vh = window.innerHeight;
+          wordContainers.forEach(function (group) {
+            var rect = group.el.getBoundingClientRect();
+            var elementCenter = rect.top + rect.height / 2;
+            var startC = vh * group.startRatio;
+            var endC = vh * group.endRatio;
+            var globalProgress = (startC - elementCenter) / (startC - endC);
+            if (globalProgress < 0) globalProgress = 0;
+            else if (globalProgress > 1) globalProgress = 1;
+            var n = group.words.length;
+            var stretch = 1.6;
+            var halfRange = (stretch / n) / 2;
+            for (var i = 0; i < n; i++) {
+              var center = (i + 0.5) / n;
+              var wStart = center - halfRange;
+              var wEnd = center + halfRange;
+              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
+              if (wProgress < 0) wProgress = 0;
+              else if (wProgress > 1) wProgress = 1;
+              var r = Math.round(group.fromColor.r + (group.toColor.r - group.fromColor.r) * wProgress);
+              var g = Math.round(group.fromColor.g + (group.toColor.g - group.fromColor.g) * wProgress);
+              var b = Math.round(group.fromColor.b + (group.toColor.b - group.fromColor.b) * wProgress);
+              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
+            }
+          });
+          wordTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateScrollWords, { passive: true });
+      window.addEventListener('resize', updateScrollWords, { passive: true });
+      updateScrollWords();
+
+      // Scroll progress
+      var progressBar = document.querySelector('.scroll-progress-bar');
+      var progressTicking = false;
+      function updateProgress() {
+        if (progressTicking) return;
+        progressTicking = true;
+        requestAnimationFrame(function () {
+          if (progressBar) {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+            progressBar.style.width = p + '%';
+          }
+          progressTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+      updateProgress();
+
+      // Parallax
+      var parallaxEls = document.querySelectorAll('[data-parallax]');
+      var parallaxTicking = false;
+      function updateParallax() {
+        if (parallaxTicking) return;
+        parallaxTicking = true;
+        requestAnimationFrame(function () {
+          var vh = window.innerHeight;
+          parallaxEls.forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.bottom < -200 || rect.top > vh + 200) return;
+            var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+            var centerOffset = (rect.top + rect.height / 2) - vh / 2;
+            var translateY = -centerOffset * speed;
+            el.style.transform = 'translateY(' + translateY.toFixed(2) + 'px)';
+          });
+          parallaxTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      window.addEventListener('resize', updateParallax, { passive: true });
+      updateParallax();
+
+      // Nav pill on scroll
+      var nav = document.querySelector('.nav');
+      if (nav) {
+        var navTicking = false;
+        function checkNavScroll() {
+          if (navTicking) return;
+          navTicking = true;
+          requestAnimationFrame(function () {
+            if (window.scrollY > 30) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+            navTicking = false;
+          });
+        }
+        window.addEventListener('scroll', checkNavScroll, { passive: true });
+        checkNavScroll();
+      }
+
+      // Mobile nav drawer toggle
+      var hamburger = document.querySelector('.nav-hamburger');
+      var mobileNav = document.querySelector('.mobile-nav');
+      if (hamburger && mobileNav) {
+        function toggleMenu(open) {
+          hamburger.setAttribute('aria-expanded', String(open));
+          mobileNav.classList.toggle('open', open);
+          mobileNav.setAttribute('aria-hidden', String(!open));
+          document.body.classList.toggle('menu-open', open);
+        }
+        hamburger.addEventListener('click', function () {
+          toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
+        });
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () { toggleMenu(false); });
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

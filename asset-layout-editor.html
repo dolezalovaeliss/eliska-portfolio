@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('has-anims');</script>
+  <title>Asset Layout Editor, Eliska Dolezalova</title>
+  <meta name="description" content="Case study: replacing a hidden JSON-based layout editor at Ataccama with a research-grounded pin model.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 0 C12 6.6 6.6 12 0 12 C6.6 12 12 17.4 12 24 C12 17.4 17.4 12 24 12 C17.4 12 12 6.6 12 0 Z"/>
+        </svg>
+        eliska
+      </a>
+      <ul class="nav-links">
+        <li><a href="work.html" data-i18n="nav.work">Work</a></li>
+        <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <span class="lang-toggle-sep">·</span>
+          <button type="button" data-lang="cs">CS</button>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
+        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="case-hero">
+    <div class="container">
+      <div class="case-hero-tags" data-anim>
+        <span>Case study</span>
+        <span>Metadata Model</span>
+        <span>Ataccama</span>
+      </div>
+      <h1 data-anim data-anim-delay="1">
+        Asset Layout Editor.
+        <span class="muted-text scroll-words">Replacing a hidden JSON editor with a research-grounded pin model.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- META -->
+  <section class="case-meta">
+    <dl class="case-meta-grid">
+      <div class="case-meta-item" data-anim>
+        <dt>Role</dt>
+        <dd>Product designer (intern) at Ataccama</dd>
+      </div>
+      <div class="case-meta-item" data-anim data-anim-delay="1">
+        <dt>Timeline</dt>
+        <dd>6 weeks</dd>
+      </div>
+      <div class="case-meta-item" data-anim data-anim-delay="2">
+        <dt>Surface</dt>
+        <dd>Metadata Model · Page layout</dd>
+      </div>
+      <div class="case-meta-item" data-anim data-anim-delay="3">
+        <dt>Output</dt>
+        <dd>V5 prototype · Three-audience handoff</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- BODY -->
+  <section class="case-body">
+    <div class="container">
+
+      <div class="case-section" data-anim>
+        <div class="section-label">Context</div>
+        <h2>The JSON editor was technically usable. Nobody could actually use it.</h2>
+        <p>Customers routinely extend Ataccama ONE's metadata model with custom properties, <em>Region</em>, <em>Data Owner</em>, <em>Classification</em>. The historical way to surface them on entity detail pages was a Monaco-based JSON editor hidden behind a feature flag, unusable by anyone who didn't write code.</p>
+        <p>Customer-facing teams complained when the flag came off. The brief: <strong>remove the JSON editor entirely and replace it with something an admin or a consultant could actually use.</strong></p>
+      </div>
+
+      <div class="case-section" data-anim>
+        <div class="section-label">The problem</div>
+        <h2>Real demand, no real solution.</h2>
+        <p>The product inbox held the evidence, concentrated demand across DG, DQ, ONE Platform, and Agentic, going unaddressed because the existing solution was developer-only.</p>
+        <p>The audience was specific: <strong>tenant admins and consultants</strong>, people who understand the metadata model conceptually but don't write code. Explicitly not for end users or developers.</p>
+        <div class="mockup">
+          <div class="mockup-header">
+            <span class="mockup-title">Product Inbox · Active demand</span>
+            <span class="mockup-close"></span>
+          </div>
+          <div class="mockup-row selected">★ PI966 · UI for editing page layout · <strong style="color: var(--text);">6 upvotes</strong></div>
+          <div class="mockup-row">PI411 · Editing layout of side pane</div>
+          <div class="mockup-row">PI444 · Custom property selection · 4 upvotes</div>
+          <div class="mockup-row">PI856 · Custom attribute visibility</div>
+          <div class="mockup-row">PI986 · Custom CI attributes in search</div>
+          <div class="mockup-row">PI765 · Hide/remove sections</div>
+          <div class="mockup-row">PI972 · Configure Attributes expander</div>
+        </div>
+      </div>
+
+      <div class="case-section" data-anim>
+        <div class="section-label">What I designed</div>
+        <h2>One escape hatch. Everything else locked.</h2>
+        <p>A two-zone model: a full-width pinned-properties band where admins curate which fields appear at the top, sitting above a locked default layout that Ataccama owns.</p>
+        <p>The pattern is <strong>"shell-plus-accent"</strong>, universal across every competitor I studied (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
+        <div class="gallery-twin" data-anim>
+          <figure class="gallery-figure">
+            <img src="images/projects/asset-layout-editor/page-layout-empty.png" alt="Empty state: dashed-border Pinned properties drop zone above the locked default layout grid" loading="lazy">
+          </figure>
+          <figure class="gallery-figure">
+            <img src="images/projects/asset-layout-editor/page-layout-pinned.png" alt="Pinned state: DQ score and connection pinned above the layout, with pin indicators on the source rows" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="case-section" data-anim>
+        <div class="section-label">The four design principles</div>
+        <h2>Each one came from a finding in the research.</h2>
+        <div class="numbered-list">
+          <div class="numbered-item">
+            <div class="numbered-item-num">01</div>
+            <div>
+              <h4>Lock the structural scaffolding</h4>
+              <p>Header, widgets, column structure, all curated by Ataccama. Matches Collibra's "system content controlled by Collibra."</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">02</div>
+            <div>
+              <h4>One escape hatch, not a full editor</h4>
+              <p>A single pinned-properties band. Admin curates which fields appear there. Everything else stays where Ataccama designed it.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">03</div>
+            <div>
+              <h4>Tenant-scoped, not per-user</h4>
+              <p>Every data-catalog peer is tenant-scoped. Per-user pins would have broken consultant-shares-screens consistency.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">04</div>
+            <div>
+              <h4>Pin individual properties</h4>
+              <p>The real customer use case is field-level. Section-level customization was over-coarse for the actual need.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pullquote" data-anim>
+        <p class="pullquote-text">V5 wasn't my first idea, <span class="muted-text scroll-words">it was synthesis. Without V1–V4 showing what didn't work, V5 would have looked like V1.</span></p>
+        <p class="pullquote-attr">On building five prototype variants</p>
+      </div>
+
+      <div class="case-section" data-anim>
+        <div class="section-label">Process</div>
+        <h2>Three inflection points across six weeks.</h2>
+        <div class="numbered-list">
+          <div class="numbered-item">
+            <div class="numbered-item-num">01</div>
+            <div>
+              <h4>The PM pivot, April 15</h4>
+              <p>I brought a full layout-editor prototype to my first PM meeting, expecting feedback on interactions. Matej proposed the pin concept in five minutes. <strong>Customization has a cost</strong>, product identity, test stability, upgrade path.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">02</div>
+            <div>
+              <h4>The 22-source research</h4>
+              <p>Going deep on six competitors surfaced one universal pattern: <strong>shell-plus-accent</strong>. A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">03</div>
+            <div>
+              <h4>The buddy meeting</h4>
+              <p>I brought a lean recommendation on each of six open decisions, not open exploration, "take this position and tell me why I'm wrong." We closed all six in 30 minutes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-section" data-anim>
+        <div class="section-label">What I learned</div>
+        <h2>Five principles that travel beyond this project.</h2>
+        <div class="numbered-list">
+          <div class="numbered-item">
+            <div class="numbered-item-num">01</div>
+            <div>
+              <h4>Bring problem + evidence early</h4>
+              <p>Let PM bring constraints. Don't fall in love with your prototype.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">02</div>
+            <div>
+              <h4>Research turns proposals into arguments</h4>
+              <p>"12+ upvotes, Collibra 46% → 74%" is a different conversation than "I think we need this."</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">03</div>
+            <div>
+              <h4>Sketch before prototyping in code</h4>
+              <p>Code iteration is fast but expensive when the direction isn't validated.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">04</div>
+            <div>
+              <h4>Five variants were not waste</h4>
+              <p>V5 was synthesis. Without exploration, "first idea" is rarely the answer.</p>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-num">05</div>
+            <div>
+              <h4>Fast convergence needs lean recommendations</h4>
+              <p>Strong defaults invite quick critique. Open questions invite long meetings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CASE NAV -->
+  <div class="case-nav">
+    <a href="import-metadata.html">← Previous: Import metadata</a>
+    <a href="index.html">Back to work</a>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <section class="site-footer">
+    <div class="site-footer-inner">
+
+      <div class="site-footer-headline">
+        <span class="site-footer-eyebrow" data-anim>Contact</span>
+        <h2 data-anim data-anim-delay="1">
+          Let's start
+          <span class="muted-light scroll-words">creating something good together.</span>
+        </h2>
+        <div class="site-footer-cta" data-anim data-anim-delay="2">
+          <a href="mailto:hello@eliskadolezalova.com" class="btn btn-light">Let's talk</a>
+          <a href="https://linkedin.com/in/eliskadolezalova" class="btn btn-light-ghost" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-grid">
+        <div class="footer-col" data-anim>
+          <div class="footer-col-label">Contact</div>
+          <div class="footer-col-content">
+            <p>hello@eliskadolezalova.com</p>
+            <a href="mailto:hello@eliskadolezalova.com">Get in touch ↗</a>
+          </div>
+        </div>
+        <div class="footer-col" data-anim data-anim-delay="1">
+          <div class="footer-col-label">Connect</div>
+          <div class="footer-col-content">
+            <a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:hello@eliskadolezalova.com">Email ↗</a>
+          </div>
+        </div>
+        <div class="footer-col" data-anim data-anim-delay="2">
+          <div class="footer-col-label">Navigate</div>
+          <div class="footer-col-content">
+            <a href="work.html">Work</a>
+            <a href="index.html#services">Services</a>
+            <a href="about.html">About</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="footer-strip">
+      <div class="footer-strip-inner">
+        <span>© 2026 Eliska Dolezalova</span>
+        <span>Prague, Czech Republic</span>
+        <span>Available 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      // Minimal language toggle (nav labels only — case study body stays EN)
+      var navTranslations = {
+        en: { 'nav.work': 'Work', 'nav.services': 'Services', 'nav.about': 'About', 'nav.contact': 'Contact' },
+        cs: { 'nav.work': 'Práce', 'nav.services': 'Služby', 'nav.about': 'O mně', 'nav.contact': 'Kontakt' }
+      };
+      function applyLanguage(lang) {
+        var dict = navTranslations[lang] || navTranslations.en;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+      }
+      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+        btn.addEventListener('click', function () { applyLanguage(btn.getAttribute('data-lang')); });
+      });
+      applyLanguage(localStorage.getItem('lang') || 'en');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('[data-anim]').forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll('[data-anim]').forEach(function (el) {
+          el.classList.add('in-view');
+        });
+      }
+
+      var wordContainers = [];
+
+      document.querySelectorAll('.scroll-words').forEach(function (el) {
+        var text = el.textContent.trim();
+        var words = text.split(/\s+/);
+        el.innerHTML = words.map(function (w) {
+          return '<span class="word">' + w + '</span>';
+        }).join(' ');
+        var wordEls = el.querySelectorAll('.word');
+        var rect = el.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
+        var inDark = el.closest('.site-footer') !== null;
+        el.classList.add('scroll-driven');
+        var fromColor = inDark ? { r: 237, g: 164, b: 181 } : { r: 200, g: 200, b: 200 };
+          var toColor   = inDark ? { r: 255, g: 255, b: 255 } : { r: 10,  g: 10,  b: 10  };
+        if (inViewOnLoad) {
+          wordContainers.push({
+            el: el, words: wordEls,
+            startRatio: 0.65, endRatio: -0.35,
+            fromColor: fromColor, toColor: toColor
+          });
+        } else {
+          wordContainers.push({
+            el: el, words: wordEls,
+            startRatio: 1.20, endRatio: -0.20,
+            fromColor: fromColor, toColor: toColor
+          });
+        }
+      });
+
+      var ticking = false;
+      function updateScrollWords() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var vh = window.innerHeight;
+          wordContainers.forEach(function (group) {
+            var rect = group.el.getBoundingClientRect();
+            var elementCenter = rect.top + rect.height / 2;
+            var startC = vh * group.startRatio;
+            var endC = vh * group.endRatio;
+            var globalProgress = (startC - elementCenter) / (startC - endC);
+            if (globalProgress < 0) globalProgress = 0;
+            else if (globalProgress > 1) globalProgress = 1;
+            var n = group.words.length;
+            var stretch = 1.6;
+            var halfRange = (stretch / n) / 2;
+            for (var i = 0; i < n; i++) {
+              var center = (i + 0.5) / n;
+              var wStart = center - halfRange;
+              var wEnd = center + halfRange;
+              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
+              if (wProgress < 0) wProgress = 0;
+              else if (wProgress > 1) wProgress = 1;
+              var r = Math.round(group.fromColor.r + (group.toColor.r - group.fromColor.r) * wProgress);
+              var g = Math.round(group.fromColor.g + (group.toColor.g - group.fromColor.g) * wProgress);
+              var b = Math.round(group.fromColor.b + (group.toColor.b - group.fromColor.b) * wProgress);
+              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
+            }
+          });
+          ticking = false;
+        });
+      }
+      window.addEventListener('scroll', updateScrollWords, { passive: true });
+      window.addEventListener('resize', updateScrollWords, { passive: true });
+      updateScrollWords();
+
+      // Scroll progress bar
+      var progressBar = document.querySelector('.scroll-progress-bar');
+      var progressTicking = false;
+      function updateProgress() {
+        if (progressTicking) return;
+        progressTicking = true;
+        requestAnimationFrame(function () {
+          if (progressBar) {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+            progressBar.style.width = p + '%';
+          }
+          progressTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+      updateProgress();
+
+      // Parallax on scroll
+      var parallaxEls = document.querySelectorAll('[data-parallax]');
+      var parallaxTicking = false;
+      function updateParallax() {
+        if (parallaxTicking) return;
+        parallaxTicking = true;
+        requestAnimationFrame(function () {
+          var vh = window.innerHeight;
+          parallaxEls.forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.bottom < -200 || rect.top > vh + 200) return;
+            var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+            var centerOffset = (rect.top + rect.height / 2) - vh / 2;
+            var translateY = -centerOffset * speed;
+            el.style.transform = 'translateY(' + translateY.toFixed(2) + 'px)';
+          });
+          parallaxTicking = false;
+        });
+      }
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      window.addEventListener('resize', updateParallax, { passive: true });
+      updateParallax();
+
+      // Nav pill on scroll
+      var nav = document.querySelector('.nav');
+      if (nav) {
+        var navTicking = false;
+        function checkNavScroll() {
+          if (navTicking) return;
+          navTicking = true;
+          requestAnimationFrame(function () {
+            if (window.scrollY > 30) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+            navTicking = false;
+          });
+        }
+        window.addEventListener('scroll', checkNavScroll, { passive: true });
+        checkNavScroll();
+      }
+
+      // Mobile nav drawer toggle
+      var hamburger = document.querySelector('.nav-hamburger');
+      var mobileNav = document.querySelector('.mobile-nav');
+      if (hamburger && mobileNav) {
+        function toggleMenu(open) {
+          hamburger.setAttribute('aria-expanded', String(open));
+          mobileNav.classList.toggle('open', open);
+          mobileNav.setAttribute('aria-hidden', String(!open));
+          document.body.classList.toggle('menu-open', open);
+        }
+        hamburger.addEventListener('click', function () {
+          toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
+        });
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () { toggleMenu(false); });
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
