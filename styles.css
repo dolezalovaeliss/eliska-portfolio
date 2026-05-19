@@ -2243,6 +2243,20 @@ body.icons-customized .desktop-icon {
   .gallery-row { grid-template-columns: 1fr; }
 }
 
+.gallery-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 28px);
+  align-items: start;
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+.gallery-grid-2 .gallery-figure { margin: 0; }
+
+@media (max-width: 700px) {
+  .gallery-grid-2 { grid-template-columns: 1fr; }
+}
+
 .gallery-twin {
   display: grid;
   grid-template-columns: 1fr 1fr;
