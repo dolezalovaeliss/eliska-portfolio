@@ -1,6 +1,9 @@
 # Pages CMS configuration
 # Edit content via https://pagescms.org after signing in with GitHub.
 
+site:
+  url: https://eliskadolezalova.netlify.app
+
 content:
   - name: site
     label: Site content
