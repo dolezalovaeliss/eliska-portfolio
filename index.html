@@ -898,26 +898,25 @@
     })();
   </script>
 
-  <!-- CMS content override: fetch editable text from content/site.json and apply to matching elements -->
+  <!-- CMS content override: fetch editable text from content/site.json and apply to matching data-i18n elements -->
   <script>
     (function () {
       fetch('/content/site.json', { cache: 'no-store' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (data) {
           if (!data) return;
-          function applyBubble() {
+          function apply() {
             var lang = document.documentElement.lang || localStorage.getItem('lang') || 'en';
-            var key = 'bubble_role_' + (lang === 'cs' ? 'cs' : 'en');
-            var value = data[key];
-            if (!value) return;
-            document.querySelectorAll('[data-i18n="bubble.role"]').forEach(function (el) {
-              el.textContent = value;
+            var dict = data[lang === 'cs' ? 'cs' : 'en'] || {};
+            Object.keys(dict).forEach(function (key) {
+              document.querySelectorAll('[data-i18n="' + key + '"]').forEach(function (el) {
+                el.textContent = dict[key];
+              });
             });
           }
-          applyBubble();
-          // Re-apply when language toggle changes
+          apply();
           document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-            btn.addEventListener('click', function () { setTimeout(applyBubble, 0); });
+            btn.addEventListener('click', function () { setTimeout(apply, 0); });
           });
         })
         .catch(function () { /* fail silently — page works with inline defaults */ });
