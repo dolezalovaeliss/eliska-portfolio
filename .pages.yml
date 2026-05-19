@@ -1,20 +1,152 @@
 # Pages CMS configuration
-# Edit content via https://pagescms.org after signing in with GitHub.
+# Edit content via https://app.pagescms.org after signing in with GitHub.
 
 site:
   url: https://eliskadolezalova.netlify.app
 
 content:
   - name: site
-    label: Site content
+    label: Homepage content
     path: content/site.json
     type: file
     fields:
-      - name: bubble_role_en
-        label: Bubble text (English)
-        description: The line shown in the hero chat-bubble hover card when site is in English mode.
-        type: string
-      - name: bubble_role_cs
-        label: Bubble text (Czech)
-        description: The line shown in the hero chat-bubble hover card when site is in Czech mode.
-        type: string
+      - name: en
+        label: 🇬🇧 English
+        type: object
+        fields:
+          - name: "hero.headline.main"
+            label: "Hero — headline (main)"
+            type: string
+          - name: "hero.headline.muted"
+            label: "Hero — headline (muted continuation)"
+            type: string
+          - name: "hero.cta"
+            label: "Hero — CTA button"
+            type: string
+          - name: "bubble.role"
+            label: "Hero bubble — chat role text"
+            type: string
+          - name: "work.headline.main"
+            label: "Work section — headline (main)"
+            type: string
+          - name: "work.headline.muted"
+            label: "Work section — headline (muted)"
+            type: string
+          - name: "services.headline.main"
+            label: "Services — headline (main)"
+            type: string
+          - name: "services.headline.muted"
+            label: "Services — headline (muted)"
+            type: string
+          - name: "pkg1.title"
+            label: "Service 1 — title"
+            type: string
+          - name: "pkg1.body"
+            label: "Service 1 — body"
+            type: text
+          - name: "pkg2.title"
+            label: "Service 2 — title"
+            type: string
+          - name: "pkg2.body"
+            label: "Service 2 — body"
+            type: text
+          - name: "pkg3.title"
+            label: "Service 3 — title"
+            type: string
+          - name: "pkg3.eyebrow"
+            label: "Service 3 — eyebrow badge (e.g. 'I prefer')"
+            type: string
+          - name: "pkg3.body"
+            label: "Service 3 — body"
+            type: text
+          - name: "about.quote.heading.main"
+            label: "About quote — heading (main)"
+            type: string
+          - name: "about.quote.heading.muted"
+            label: "About quote — heading (muted)"
+            type: string
+          - name: "about.quote.body"
+            label: "About quote — body"
+            type: text
+          - name: "about.quote.role"
+            label: "About quote — role line under signature"
+            type: string
+          - name: "footer.headline.main"
+            label: "Footer — headline (main)"
+            type: string
+          - name: "footer.headline.muted"
+            label: "Footer — headline (muted)"
+            type: string
+          - name: "footer.cta.email"
+            label: "Footer — CTA button"
+            type: string
+      - name: cs
+        label: 🇨🇿 Česky
+        type: object
+        fields:
+          - name: "hero.headline.main"
+            label: "Hero — headline (main)"
+            type: string
+          - name: "hero.headline.muted"
+            label: "Hero — headline (muted continuation)"
+            type: string
+          - name: "hero.cta"
+            label: "Hero — CTA button"
+            type: string
+          - name: "bubble.role"
+            label: "Hero bubble — chat role text"
+            type: string
+          - name: "work.headline.main"
+            label: "Work section — headline (main)"
+            type: string
+          - name: "work.headline.muted"
+            label: "Work section — headline (muted)"
+            type: string
+          - name: "services.headline.main"
+            label: "Services — headline (main)"
+            type: string
+          - name: "services.headline.muted"
+            label: "Services — headline (muted)"
+            type: string
+          - name: "pkg1.title"
+            label: "Service 1 — title"
+            type: string
+          - name: "pkg1.body"
+            label: "Service 1 — body"
+            type: text
+          - name: "pkg2.title"
+            label: "Service 2 — title"
+            type: string
+          - name: "pkg2.body"
+            label: "Service 2 — body"
+            type: text
+          - name: "pkg3.title"
+            label: "Service 3 — title"
+            type: string
+          - name: "pkg3.eyebrow"
+            label: "Service 3 — eyebrow badge"
+            type: string
+          - name: "pkg3.body"
+            label: "Service 3 — body"
+            type: text
+          - name: "about.quote.heading.main"
+            label: "About quote — heading (main)"
+            type: string
+          - name: "about.quote.heading.muted"
+            label: "About quote — heading (muted)"
+            type: string
+          - name: "about.quote.body"
+            label: "About quote — body"
+            type: text
+          - name: "about.quote.role"
+            label: "About quote — role line under signature"
+            type: string
+          - name: "footer.headline.main"
+            label: "Footer — headline (main)"
+            type: string
+          - name: "footer.headline.muted"
+            label: "Footer — headline (muted)"
+            type: string
+          - name: "footer.cta.email"
+            label: "Footer — CTA button"
+            type: string
