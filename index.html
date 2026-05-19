@@ -8,8 +8,6 @@
   <meta name="description" content="Embedded product designer for product teams without internal design.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
-  <!-- Netlify Identity widget: handles invite/confirmation tokens from email links -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -898,19 +896,6 @@
         servicesObserver.observe(servicesSection);
       }
     })();
-  </script>
-
-  <!-- Netlify Identity: redirect logged-in users from / to /admin/ when arriving via invite/confirmation link -->
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', function (user) {
-        if (!user) {
-          window.netlifyIdentity.on('login', function () {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
   </script>
 
   <!-- CMS content override: fetch editable text from content/site.json and apply to matching elements -->
