@@ -734,6 +734,18 @@ body.icons-customized .desktop-icon {
   transform: scale(1.05);
 }
 
+.desktop-icon-subtitle {
+  font-size: 11px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-muted);
+  line-height: 1.2;
+  padding: 0 8px;
+  /* Negative margin to counter parent's flex gap (8px) — tightens to label */
+  margin-top: -6px;
+  pointer-events: none;
+}
+
 .desktop-icon-label {
   font-size: 13px;
   font-weight: 500;
@@ -819,7 +831,7 @@ body.icons-customized .desktop-icon {
   .folder-icon { width: 68px; height: 58px; }
   .desktop-icon-label { font-size: 11px; }
 
-  /* TWO icons above the headline (corners) */
+  /* TWO icons ABOVE the headline (corners) */
   .desktop-icon[data-icon-id="note-about"] {
     top: 24px !important;
     left: 16px !important;
@@ -833,13 +845,18 @@ body.icons-customized .desktop-icon {
     left: auto !important;
   }
 
-  /* ONE icon below the headline (centered) */
+  /* TWO icons BELOW the headline (corners) */
   .desktop-icon[data-icon-id="folder-layout"] {
     top: auto !important;
     bottom: 32px !important;
-    left: 50% !important;
+    left: 16px !important;
     right: auto !important;
-    transform: translateX(-50%);
+  }
+  .desktop-icon[data-icon-id="folder-esens"] {
+    top: auto !important;
+    bottom: 32px !important;
+    right: 16px !important;
+    left: auto !important;
   }
 }
 
