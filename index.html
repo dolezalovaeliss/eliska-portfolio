@@ -7,7 +7,7 @@
   <title>Eliska Dolezalova, Product designer</title>
   <meta name="description" content="Embedded product designer for product teams without internal design.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=16">
+  <link rel="stylesheet" href="styles.css?v=22">
 </head>
 <body>
 
@@ -250,12 +250,12 @@
         <div class="section-label" data-anim data-i18n="clients.label">Clients</div>
         <a class="clients-link" href="about.html#notable-collaborations" data-anim data-anim-delay="1">
           <ul class="clients-stack">
-            <li>Ataccama</li>
-            <li>Apadore</li>
-            <li>Shoptet</li>
-            <li>Prague Pride Festival</li>
-            <li>1.web IT</li>
-            <li>CFG</li>
+            <li><span class="client-name">Ataccama</span><span class="client-role">Product Designer</span></li>
+            <li><span class="client-name">Apadore</span><span class="client-role">B2B Web Designer</span></li>
+            <li><span class="client-name">Shoptet</span><span class="client-role">UX Partner</span></li>
+            <li><span class="client-name">Prague Pride Festival</span><span class="client-role">Brand & Graphic Designer</span></li>
+            <li><span class="client-name">1.web IT</span><span class="client-role">Brand & Web Designer</span></li>
+            <li><span class="client-name">CFG</span><span class="client-role">Brand & Web Designer</span></li>
             <li class="clients-more-link"><span data-i18n="clients.more">and more</span> <span aria-hidden="true">→</span></li>
           </ul>
         </a>
@@ -714,7 +714,11 @@
       // ============ Clients stack — same gray→black interpolation, per-row ============
       var clientsStack = document.querySelector('.clients-stack');
       if (clientsStack) {
-        var clientItems = clientsStack.querySelectorAll('li');
+        // Target client-name spans where present; fall back to li itself (e.g. "and more" row)
+        var clientItems = Array.prototype.map.call(
+          clientsStack.querySelectorAll('li'),
+          function (li) { return li.querySelector('.client-name') || li; }
+        );
         var clientsFrom = { r: 200, g: 200, b: 200 };
         var clientsTo   = { r: 10,  g: 10,  b: 10  };
         var clientsTicking = false;

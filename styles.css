@@ -796,6 +796,53 @@ body.icons-customized .desktop-icon {
   .hero-tags { margin-bottom: 20px; }
 }
 
+/* Mobile — bring desktop folder icons back ABOVE the headline */
+@media (max-width: 700px) {
+  .hero > .container {
+    height: auto;
+    min-height: calc(100vh - var(--nav-height));
+  }
+  .hero-main {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    /* Reserve top space for the two icons above */
+    padding-top: clamp(140px, 22vh, 200px);
+    /* And bottom space for the icon below */
+    padding-bottom: clamp(140px, 20vh, 180px);
+  }
+
+  /* Unhide — overrides the 1280px hide rule */
+  .desktop-icons { display: block; }
+
+  /* Smaller icons for tight screens */
+  .desktop-icon { width: 84px; }
+  .folder-icon { width: 68px; height: 58px; }
+  .desktop-icon-label { font-size: 11px; }
+
+  /* TWO icons above the headline (corners) */
+  .desktop-icon[data-icon-id="note-about"] {
+    top: 24px !important;
+    left: 16px !important;
+    bottom: auto !important;
+    right: auto !important;
+  }
+  .desktop-icon[data-icon-id="folder-import"] {
+    top: 24px !important;
+    right: 16px !important;
+    bottom: auto !important;
+    left: auto !important;
+  }
+
+  /* ONE icon below the headline (centered) */
+  .desktop-icon[data-icon-id="folder-layout"] {
+    top: auto !important;
+    bottom: 32px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-height: 640px) {
   .hero > .container {
     height: auto;
@@ -3190,6 +3237,33 @@ body.icons-customized .desktop-icon {
   line-height: 1.04;
   letter-spacing: -0.03em;
   font-weight: 500;
+  transition: color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.clients-stack li:hover {
+  color: #eda4b5 !important;
+  transform: translateX(12px);
+}
+
+.client-role {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 0.32em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text-muted) !important;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.clients-stack li:hover .client-role {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .clients-more-link {
