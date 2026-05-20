@@ -211,7 +211,7 @@ section { padding: var(--gap-section) 0; }
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 24px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-radius: 0;
@@ -235,7 +235,7 @@ section { padding: var(--gap-section) 0; }
   height: 60px;
   padding: 0 22px;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.96);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.6) inset,
     0 10px 32px rgba(10, 10, 10, 0.10),
@@ -261,31 +261,11 @@ section { padding: var(--gap-section) 0; }
 }
 
 .brand-star {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   color: #eda4b5;
   fill: currentColor;
   flex-shrink: 0;
-  animation: starSpin 10s linear infinite, starPulse 2.4s ease-in-out infinite;
-  transform-origin: center;
-  will-change: transform, opacity;
-}
-
-@keyframes starSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-@keyframes starPulse {
-  0%, 100% { opacity: 0.8; }
-  50%      { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .brand-star {
-    animation: none;
-    opacity: 1;
-  }
 }
 
 .nav-links {
@@ -1191,6 +1171,19 @@ body.icons-customized .desktop-icon {
 .service-row-eyebrow .brand-star {
   width: 14px;
   height: 14px;
+}
+
+.eyebrow-sparkle {
+  display: inline-block;
+  color: #eda4b5;
+  font-size: 14px;
+  line-height: 1;
+  transform-origin: center;
+  animation: sparkleTwinkle 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow-sparkle { animation: none; opacity: 1; }
 }
 
 .service-row-arrow {
@@ -3173,4 +3166,49 @@ body.icons-customized .desktop-icon {
   .btn:hover {
     transform: none;
   }
+}
+
+/* Clients — vertical stacked names, whole block links to Notable Collaborations */
+.clients-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.clients-stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+.clients-stack li {
+  display: block;
+  margin: 0;
+  /* matches h2 token scale */
+  font-size: clamp(36px, 5.5vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.clients-more-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.4em;
+  transition: color 0.3s ease;
+}
+
+.clients-link:hover .clients-more-link {
+  color: #eda4b5 !important;
+}
+
+.clients-link:hover .clients-more-link span:last-child {
+  transform: translateX(6px);
+  transition: transform 0.3s ease;
+}
+
+.clients-more-link span:last-child {
+  transition: transform 0.3s ease;
+  display: inline-block;
 }
