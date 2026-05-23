@@ -268,6 +268,13 @@ section { padding: var(--gap-section) 0; }
   flex-shrink: 0;
 }
 
+.brand-logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
+
 .nav-links {
   display: flex;
   gap: 40px;
@@ -535,6 +542,111 @@ body.menu-open { overflow: hidden; }
   position: relative;
   overflow: hidden;
   padding: 0;
+  z-index: 2;
+}
+
+/* ============ Footer — headline + contact side-by-side ============ */
+.footer-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(80px, 10vw, 144px) 64px clamp(64px, 8vw, 120px);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.footer-top .site-footer-headline {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.footer-top .footer-col-right {
+  flex: 0 0 auto;
+  text-align: right;
+  padding-top: clamp(12px, 2vw, 28px); /* nudge contact to align with headline baseline */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Watermark monogram — tiny, low-opacity detail */
+.footer-watermark {
+  position: absolute;
+  right: 8%;
+  bottom: 16%;
+  width: clamp(56px, 5vw, 84px);
+  height: auto;
+  opacity: 0.2;
+  filter: none; /* black SVG on white = visible dark mark */
+  transition: filter 250ms ease;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+/* On dark bg, invert so it becomes a light mark */
+body.fg-light .footer-watermark {
+  filter: invert(1) brightness(1.8) grayscale(1);
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 48px;
+    padding: 64px 24px;
+  }
+  .footer-top .footer-col-right {
+    text-align: left;
+    padding-top: 0;
+  }
+  .footer-watermark {
+    width: 380px;
+    right: -60px;
+    bottom: -40px;
+  }
+}
+
+/* Contact list (right side of footer top) */
+.footer-contact-list,
+.footer-legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-contact-list li,
+.footer-legal-list li {
+  margin-bottom: 6px;
+}
+.footer-contact-list a {
+  color: rgba(10, 10, 10, 0.92);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(10, 10, 10, 0.3);
+  transition: color 250ms ease, text-decoration-color 0.2s ease;
+}
+.footer-contact-list a:hover { text-decoration-color: rgba(10, 10, 10, 0.9); }
+body.fg-light .footer-contact-list a {
+  color: rgba(242, 237, 220, 0.92);
+  text-decoration-color: rgba(242, 237, 220, 0.3);
+}
+body.fg-light .footer-contact-list a:hover { text-decoration-color: rgba(242, 237, 220, 0.9); }
+
+.footer-legal-list { margin-top: 28px; }
+.footer-legal-list a {
+  color: rgba(10, 10, 10, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(10, 10, 10, 0.3);
+  font-size: 13px;
+  transition: color 250ms ease;
+}
+body.fg-light .footer-legal-list a {
+  color: rgba(242, 237, 220, 0.85);
+  text-decoration-color: rgba(242, 237, 220, 0.3);
 }
 
 .hero > .container {
@@ -544,6 +656,8 @@ body.menu-open { overflow: hidden; }
   padding-bottom: clamp(24px, 3vw, 48px);
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
 /* Desktop-style scattered icons */
@@ -1343,7 +1457,7 @@ body.icons-customized .desktop-icon {
 }
 
 .about-quote-photo {
-  aspect-ratio: 1;
+  aspect-ratio: 4/5;
   background: var(--bg-soft);
   border-radius: 24px;
   overflow: hidden;
@@ -1353,6 +1467,7 @@ body.icons-customized .desktop-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 78% 22%;
   display: block;
 }
 
@@ -1969,12 +2084,15 @@ body.icons-customized .desktop-icon {
    ============================================ */
 
 .site-footer {
-  background: #0a0a0a;
-  color: #ffffff;
+  background: transparent;
+  color: #0a0a0a;
   padding: clamp(80px, 11vw, 144px) 0 0;
   position: relative;
   overflow: hidden;
 }
+
+/* When body theme is dark (footer dominates the viewport), swap to light text */
+body.fg-light .site-footer { color: #F2EDDC; }
 
 .site-footer-inner {
   max-width: var(--max);
@@ -2133,24 +2251,49 @@ body.icons-customized .desktop-icon {
   opacity: 1;
 }
 
+.footer-strip-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-strip-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-strip-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 700px) {
+  .footer-strip-logo { height: 24px; }
+  .footer-strip-right { gap: 6px; }
+}
+
 .site-footer-eyebrow {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(10, 10, 10, 0.7);
   margin-bottom: 32px;
   display: block;
   letter-spacing: -0.012em;
 }
+body.fg-light .site-footer-eyebrow { color: rgba(242, 237, 220, 0.7); }
 
 .site-footer h2 {
   font-size: clamp(44px, 7.5vw, 104px);
   line-height: 1.0;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: #0a0a0a;
   margin-bottom: 56px;
   max-width: 1000px;
   font-weight: 500;
 }
+body.fg-light .site-footer h2 { color: #F2EDDC; }
 
 .site-footer h2 .muted-light {
   color: #eda4b5;
@@ -2163,9 +2306,13 @@ body.icons-customized .desktop-icon {
 }
 
 .btn-light {
+  background: #0a0a0a;
+  color: #ffffff;
+  transition: background 250ms ease, color 250ms ease, opacity var(--transition), transform var(--transition);
+}
+body.fg-light .btn-light {
   background: #ffffff;
   color: #0a0a0a;
-  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1), opacity var(--transition), transform var(--transition);
 }
 
 .btn-light::after {
@@ -3258,6 +3405,14 @@ body.icons-customized .desktop-icon {
   cursor: pointer;
 }
 
+.has-anims .clients-stack li {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-anims .clients-stack li { opacity: 1 !important; }
+}
+
 .clients-stack li:hover {
   color: #eda4b5 !important;
   transform: translateX(12px);
@@ -3302,4 +3457,134 @@ body.icons-customized .desktop-icon {
 .clients-more-link span:last-child {
   transition: transform 0.3s ease;
   display: inline-block;
+}
+
+/* ============================================================
+   Services section dark theme + word reveal
+   ============================================================ */
+
+/* Body bg transition as you scroll into/out of dark sections.
+   Kept short (0.18s) to minimise the window where dark text could sit
+   on a still-dark transitioning bg. */
+html, body {
+  transition: background-color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When body is themed dark (services in view), invert key UI bits */
+body.fg-light { color: #F2EDDC; }
+body.fg-light .scroll-progress-bar { background: #F2EDDC; }
+body.fg-light .nav:not(.scrolled) .nav-links a,
+body.fg-light .nav:not(.scrolled) .nav-brand,
+body.fg-light .nav:not(.scrolled) .nav-right { color: #F2EDDC; }
+body.fg-light .nav:not(.scrolled) .brand-logo { filter: invert(1) brightness(2); }
+
+/* Let the body bg show through services so the transition is visible */
+section#services[data-bg] { background: transparent !important; }
+
+/* Force text inside services to the cream color when bg is dark.
+   Intentionally EXCLUDES .scroll-words / .muted-text — those are driven
+   by the existing scroll-driven color JS, which now animates grey→cream
+   so the headline reveal animation stays visible on the dark bg. */
+body.fg-light section#services,
+body.fg-light section#services h3,
+body.fg-light section#services h4,
+body.fg-light section#services p,
+body.fg-light section#services li,
+body.fg-light section#services td,
+body.fg-light section#services th,
+body.fg-light section#services a,
+body.fg-light section#services strong,
+body.fg-light section#services .section-label,
+body.fg-light section#services .service-row-eyebrow,
+body.fg-light section#services .service-meta-row,
+body.fg-light section#services .service-meta-row > span,
+body.fg-light section#services .service-row-arrow {
+  color: #F2EDDC !important;
+}
+
+/* Only color the FIRST span of the section heading (the non-muted half).
+   The .muted-text sibling keeps its animated color from scroll-words. */
+body.fg-light section#services .section-heading h2 > span:not(.muted-text):not(.scroll-words) {
+  color: #F2EDDC !important;
+}
+
+/* Smooth per-element color change to match the body bg fade */
+body section#services h3,
+body section#services p,
+body section#services .section-label,
+body section#services .service-row-eyebrow,
+body section#services .service-meta-row,
+body section#services strong,
+body section#services .service-row-arrow {
+  transition: color 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+/* Lighten hairlines/borders inside services on dark */
+body.fg-light section#services hr,
+body.fg-light section#services .service-row {
+  border-color: rgba(242, 237, 220, 0.18) !important;
+}
+
+/* Safety net: while the body is themed dark (services/footer in view),
+   guarantee that NO text anywhere on the page can render dark on dark.
+   Overrides only the COLOR (not opacity) so the progressive opacity
+   reveal animation still works — names fade in one by one, but in cream
+   instead of black. */
+body.fg-light section#clients .client-name,
+body.fg-light section#clients .client-role,
+body.fg-light section#work .scroll-words .word,
+body.fg-light section.hero .scroll-words .word,
+body.fg-light section#about .scroll-words .word,
+body.fg-light section.about-section .scroll-words .word {
+  color: rgba(242, 237, 220, 0.85) !important;
+}
+
+/* "My clients" eyebrow + any other static labels in light-by-default
+   sections — make them visible when body is themed dark. */
+body.fg-light section#clients .section-label,
+body.fg-light section#clients .clients-more-link {
+  color: rgba(242, 237, 220, 0.85) !important;
+}
+
+/* ===== Word-by-word slide-up reveal =====
+   JS wraps each word of opted-in headings into:
+   <span class="word"><span class="word-i">Hello</span></span>
+   so we can clip and stagger the inner translateY. */
+.has-anims .word-anim .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.05;
+  padding-bottom: 0.06em; /* room for descenders inside overflow:hidden */
+}
+.has-anims .word-anim .word-i {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  opacity: 0;
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--word-d, 0ms),
+    opacity 0.55s ease var(--word-d, 0ms);
+  will-change: transform, opacity;
+}
+.has-anims .word-anim.in-view .word-i {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+/* Don't double-animate: bypass the parent's element-level fade-up
+   on data-anim containers that we converted to word-anim */
+.has-anims [data-anim].word-anim {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body { transition: none; }
+  .has-anims .word-anim .word-i {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
 }

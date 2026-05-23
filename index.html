@@ -7,9 +7,123 @@
   <title>Eliska Dolezalova, Product designer</title>
   <meta name="description" content="Embedded product designer for product teams without internal design.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=25">
+  <link rel="stylesheet" href="styles.css?v=42">
+  <style>
+    .page-loader{position:fixed;inset:0;z-index:9999;background:#fafafa;overflow:hidden}
+    .page-loader.is-done{animation:loader-out .65s cubic-bezier(.7,0,.3,1) forwards}
+    @keyframes loader-out{to{transform:translateY(-101%)}}
+
+    .page-loader-percent{
+      position:absolute;
+      bottom:40px;
+      left:40px;
+      font:300 clamp(80px,15vw,200px)/0.9 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+      letter-spacing:-0.045em;
+      color:#0a0a0a;
+      font-variant-numeric:tabular-nums;
+      user-select:none;
+    }
+    @media (max-width:520px){.page-loader-percent{bottom:24px;left:24px;font-size:64px}}
+
+    .page-loader-monogram{
+      position:absolute;
+      left:50%;top:50%;
+      transform:translate(-50%,-50%) scale(.92);
+      opacity:0;
+      color:#0a0a0a;
+      z-index:1;
+      animation:monogram-in .6s cubic-bezier(.4,1.4,.5,1) 1.55s forwards;
+    }
+    .page-loader-monogram svg{
+      width:min(38vw,300px);
+      height:auto;
+      display:block;
+    }
+    @keyframes monogram-in{to{transform:translate(-50%,-50%) scale(1);opacity:1}}
+
+    .page-loader-stack{
+      position:absolute;
+      left:50%;top:50%;
+      transform:translate(-50%,-50%);
+      width:min(76vw,480px);
+      aspect-ratio:1.4/1;
+      z-index:2;
+    }
+    .page-loader-card{
+      position:absolute;
+      inset:0;
+      border-radius:4px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 24px 60px rgba(0,0,0,.16),0 4px 12px rgba(0,0,0,.08);
+      transform-origin:50% 70%;
+      will-change:transform,opacity;
+      animation:card-shuffle 1.2s cubic-bezier(.55,.05,.3,1) forwards;
+    }
+    .page-loader-card img{width:100%;height:100%;object-fit:cover;display:block}
+    .page-loader-card[data-i="0"]{z-index:4;--from:-3deg;animation-delay:.15s}
+    .page-loader-card[data-i="1"]{z-index:3;--from:2deg;animation-delay:.4s}
+    .page-loader-card[data-i="2"]{z-index:2;--from:-1deg;animation-delay:.65s}
+    .page-loader-card[data-i="3"]{z-index:1;--from:4deg;animation-delay:.9s}
+    @keyframes card-shuffle{
+      0%   {transform:rotate(var(--from)) translate(0,0);opacity:1}
+      18%  {transform:rotate(calc(var(--from) + 9deg)) translate(20px,-30px) scale(1.03);opacity:1}
+      55%  {transform:rotate(calc(var(--from) - 22deg)) translate(-420px,90px) scale(.95);opacity:0}
+      100% {transform:rotate(calc(var(--from) - 22deg)) translate(-420px,90px) scale(.95);opacity:0}
+    }
+
+    @media (prefers-reduced-motion: reduce){.page-loader{display:none!important}}
+  </style>
 </head>
 <body>
+
+  <!-- Page loader: shows once per session — animated percent counter, shuffle of project covers, centered monogram reveal -->
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="page-loader-monogram" aria-label="Eliska Dolezalova">
+      <svg viewBox="0 0 200 119" aria-hidden="true">
+        <circle cx="142" cy="61" r="53" stroke="currentColor" stroke-width="10" fill="none"/>
+        <path fill="currentColor" d="M58 3C90.0325 3 116 28.9675 116 61C116 93.0325 90.0325 119 58 119C25.9675 119 0 93.0325 0 61C0 28.9675 25.9675 3 58 3ZM75.9863 32.8086C74.3756 32.8086 72.7943 32.9576 71.2432 33.2559C69.6917 33.5542 68.1401 33.8822 66.5889 34.2402C65.0376 34.5386 63.486 34.8374 61.9346 35.1357C60.3835 35.434 58.8021 35.583 57.1914 35.583C55.5209 35.583 53.8802 35.434 52.2695 35.1357C50.6585 34.8374 49.0474 34.5386 47.4365 34.2402C45.8852 33.8822 44.3637 33.5542 42.8721 33.2559C41.3804 32.9575 39.9183 32.8086 38.4863 32.8086C35.2646 32.8087 32.8784 33.5845 31.3271 35.1357C29.776 36.6273 29 38.5063 29 40.7734C29 42.6229 29.4772 44.2936 30.4316 45.7852C31.3862 47.217 32.5799 48.5596 34.0117 49.8125C35.4436 51.0057 36.9653 52.1097 38.5762 53.124C40.2468 54.1383 41.7985 55.1527 43.2305 56.167C44.6621 57.1215 45.855 58.106 46.8096 59.1201C47.7642 60.0748 48.2422 61.1192 48.2422 62.2529C48.2422 63.148 47.7944 63.9239 46.8994 64.5801C46.0642 65.2364 44.9902 65.8927 43.6777 66.5488C42.3652 67.1456 40.933 67.8016 39.3818 68.5176C37.8904 69.1739 36.4883 70.0093 35.1758 71.0234C33.8632 72.0377 32.7592 73.2613 31.8643 74.6934C31.0291 76.0656 30.6114 77.7656 30.6113 79.7939C30.6113 81.4048 30.8498 82.8078 31.3271 84.001C31.8045 85.1346 32.4305 86.0897 33.2061 86.8652C34.0413 87.6408 34.9663 88.2075 35.9805 88.5654C36.9948 88.9832 38.0393 89.1914 39.1133 89.1914C40.7837 89.1914 42.4244 89.0424 44.0352 88.7441C45.7058 88.4459 47.3471 88.1479 48.958 87.8496C50.569 87.4917 52.1802 87.1635 53.791 86.8652C55.4616 86.5668 57.1323 86.417 58.8027 86.417C60.4137 86.417 61.9947 86.5668 63.5459 86.8652C65.0971 87.1635 66.649 87.4917 68.2002 87.8496C69.7514 88.1479 71.3025 88.4459 72.8535 88.7441C74.4047 89.0424 75.9859 89.1914 77.5967 89.1914C78.9095 89.1914 80.1329 88.9227 81.2666 88.3857C82.4 87.9084 83.3845 87.2524 84.2197 86.417C85.1146 85.5818 85.801 84.5976 86.2783 83.4639C86.7555 82.3303 86.9941 81.1065 86.9941 79.7939C86.9941 78.4815 86.7554 77.2584 86.2783 76.125C85.801 74.9913 85.1146 74.0071 84.2197 73.1719C83.3845 72.2768 82.4001 71.5906 81.2666 71.1133C80.1329 70.6359 78.9095 70.3975 77.5967 70.3975C75.9263 70.3975 74.4346 70.785 73.1221 71.5605C71.8692 72.2765 70.5266 73.0818 69.0947 73.9766C67.6628 74.812 66.0223 75.618 64.1729 76.3936C62.3232 77.1095 59.9664 77.4677 57.1025 77.4678H54.9541C54.0592 77.4678 53.1643 77.4073 52.2695 77.2881C51.3745 77.1689 50.5986 76.9604 49.9424 76.6621C49.286 76.3042 48.9581 75.7969 48.958 75.1406C48.958 74.4248 49.4057 73.8582 50.3008 73.4404C51.1957 73.0228 52.2988 72.6342 53.6113 72.2764C54.9238 71.9185 56.3561 71.5007 57.9072 71.0234C59.4584 70.5461 60.8906 69.8899 62.2031 69.0547C63.5157 68.2195 64.6196 67.1155 65.5146 65.7432C66.4095 64.3114 66.8574 62.4917 66.8574 60.2842C66.8574 58.4348 66.3803 56.913 65.4258 55.7197C64.5307 54.4668 63.3968 53.4523 62.0244 52.6768C60.6522 51.8414 59.1304 51.1853 57.46 50.708C55.849 50.2307 54.3575 49.7829 52.9854 49.3652C51.6131 48.9476 50.4497 48.5299 49.4951 48.1123C48.6003 47.635 48.1524 47.0683 48.1523 46.4121C48.1523 45.7559 48.3909 45.308 48.8682 45.0693C49.3454 44.771 49.9424 44.5919 50.6582 44.5322C51.3741 44.4726 52.12 44.4726 52.8955 44.5322H54.8652C57.5498 44.5323 59.8466 44.9207 61.7559 45.6963C63.665 46.4123 65.3658 47.2173 66.8574 48.1123C68.4086 48.9476 69.9003 49.7527 71.332 50.5283C72.764 51.2443 74.3156 51.6025 75.9863 51.6025C77.2988 51.6025 78.5219 51.364 79.6553 50.8867C80.789 50.3498 81.7732 49.6634 82.6084 48.8281C83.5034 47.9929 84.1897 47.0086 84.667 45.875C85.1443 44.7414 85.3828 43.5177 85.3828 42.2051C85.3828 40.8926 85.1443 39.6696 84.667 38.5361C84.1897 37.4025 83.5034 36.4183 82.6084 35.583C81.7732 34.6881 80.789 34.0017 79.6553 33.5244C78.5218 33.0472 77.2988 32.8086 75.9863 32.8086Z"/>
+        <path fill="currentColor" d="M142.909 84H125V37.4545H142.727C147.515 37.4545 151.652 38.3864 155.136 40.25C158.636 42.0985 161.333 44.7651 163.227 48.25C165.136 51.7197 166.091 55.8788 166.091 60.7273C166.091 65.5758 165.144 69.7424 163.25 73.2273C161.356 76.697 158.674 79.3636 155.205 81.2273C151.735 83.0758 147.636 84 142.909 84ZM137.636 73.2727H142.455C144.758 73.2727 146.72 72.9015 148.341 72.1591C149.977 71.4167 151.22 70.1364 152.068 68.3182C152.932 66.5 153.364 63.9697 153.364 60.7273C153.364 57.4848 152.924 54.9545 152.045 53.1364C151.182 51.3182 149.909 50.0379 148.227 49.2955C146.561 48.553 144.515 48.1818 142.091 48.1818H137.636V73.2727Z"/>
+      </svg>
+    </div>
+    <div class="page-loader-stack">
+      <div class="page-loader-card" data-i="0"><img src="images/projects/asset-layout-editor/cover.png" alt=""></div>
+      <div class="page-loader-card" data-i="1"><img src="images/projects/esens/cover.jpg" alt=""></div>
+      <div class="page-loader-card" data-i="2"><img src="images/projects/pandaride/cover.png" alt=""></div>
+      <div class="page-loader-card" data-i="3"><img src="images/projects/rezidence/cover.png" alt=""></div>
+    </div>
+    <div class="page-loader-percent" id="pageLoaderPercent">0%</div>
+  </div>
+  <script>
+    (function(){
+      var loader=document.getElementById('pageLoader');
+      if(!loader)return;
+      try{
+        if(sessionStorage.getItem('loaderSeen')){loader.parentNode.removeChild(loader);return}
+        sessionStorage.setItem('loaderSeen','1');
+      }catch(e){}
+      var html=document.documentElement;
+      html.style.overflow='hidden';
+
+      var percentEl=document.getElementById('pageLoaderPercent');
+      var DURATION=2400;
+      var start=performance.now();
+      function tick(now){
+        var t=Math.min(1,(now-start)/DURATION);
+        // ease-out so counter feels weighted toward the start
+        var eased=1-Math.pow(1-t,1.6);
+        if(percentEl)percentEl.textContent=Math.round(eased*100)+'%';
+        if(t<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      setTimeout(function(){
+        loader.classList.add('is-done');
+        html.style.overflow='';
+        setTimeout(function(){if(loader.parentNode)loader.parentNode.removeChild(loader)},700);
+      },2500);
+    })();
+  </script>
 
   <!-- Scroll progress -->
   <div class="scroll-progress" aria-hidden="true">
@@ -20,10 +134,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">
-        <svg class="brand-star" viewBox="0 0 287 279" aria-hidden="true">
-          <path d="M50.0429 279C44.7286 279 39.5619 277.967 34.5429 275.9C29.5238 274.129 24.9476 271.324 20.8143 267.486C16.9762 263.648 13.8762 258.924 11.5143 253.314C9.15238 247.41 7.97143 240.471 7.97143 232.5C7.97143 222.462 10.0381 214.048 14.1714 207.257C18.6 200.171 24.0619 194.119 30.5571 189.1C37.0524 184.081 43.9905 179.948 51.3714 176.7C59.0476 173.157 66.1333 169.91 72.6286 166.957C79.1238 163.71 84.4381 160.462 88.5714 157.214C93 153.967 95.2143 150.129 95.2143 145.7C95.2143 140.09 92.8524 134.924 88.1286 130.2C83.4048 125.181 77.5 120.31 70.4143 115.586C63.3286 110.567 55.6524 105.548 47.3857 100.529C39.4143 95.5095 31.8857 90.0476 24.8 84.1429C17.7143 77.9429 11.8095 71.3 7.08571 64.2143C2.3619 56.8333 0 48.5667 0 39.4143C0 28.1952 3.83809 18.8952 11.5143 11.5143C19.1905 3.83809 31 0 46.9429 0C54.0286 0 61.2619 0.7381 68.6429 2.21429C76.0238 3.69048 83.5524 5.31428 91.2286 7.0857C99.2 8.56189 107.171 10.0381 115.143 11.5143C123.114 12.9905 131.233 13.7286 139.5 13.7286C147.471 13.7286 155.295 12.9905 162.971 11.5143C170.648 10.0381 178.324 8.56189 186 7.0857C193.676 5.31428 201.352 3.69048 209.029 2.21429C216.705 0.7381 224.529 0 232.5 0C238.995 0 245.048 1.18095 250.657 3.54284C256.267 5.90475 261.138 9.29999 265.271 13.7286C269.7 17.8619 273.095 22.7333 275.457 28.3429C277.819 33.9524 279 40.0047 279 46.5C279 52.9952 277.819 59.0476 275.457 64.6571C273.095 70.2667 269.7 75.1381 265.271 79.2714C261.138 83.4048 256.267 86.8 250.657 89.4571C245.048 91.819 238.995 93 232.5 93C224.233 93 216.557 91.2286 209.471 87.6857C202.386 83.8476 195.005 79.8619 187.329 75.7286C179.948 71.3 171.533 67.3143 162.086 63.7714C152.638 59.9333 141.271 58.0143 127.986 58.0143C125.329 58.0143 122.081 58.0143 118.243 58.0143C114.405 57.719 110.714 57.719 107.171 58.0143C103.629 58.3095 100.676 59.1952 98.3143 60.6714C95.9524 61.8524 94.7714 64.0667 94.7714 67.3143C94.7714 70.5619 96.9857 73.3667 101.414 75.7286C106.138 77.7952 111.895 79.8619 118.686 81.9286C125.476 83.9952 132.857 86.2095 140.829 88.5714C149.095 90.9333 156.624 94.1809 163.414 98.3143C170.205 102.152 175.814 107.171 180.243 113.371C184.967 119.276 187.329 126.805 187.329 135.957C187.329 146.881 185.114 155.886 180.686 162.971C176.257 169.762 170.795 175.224 164.3 179.357C157.805 183.49 150.719 186.738 143.043 189.1C135.367 191.462 128.281 193.529 121.786 195.3C115.29 197.071 109.829 198.99 105.4 201.057C100.971 203.124 98.7571 205.929 98.7571 209.471C98.7571 212.719 100.381 215.229 103.629 217C106.876 218.476 110.714 219.51 115.143 220.1C119.571 220.69 124 220.986 128.429 220.986C132.857 220.986 136.4 220.986 139.057 220.986C153.229 220.986 164.89 219.214 174.043 215.671C183.195 211.833 191.314 207.848 198.4 203.714C205.486 199.286 212.129 195.3 218.329 191.757C224.824 187.919 232.205 186 240.471 186C246.967 186 253.019 187.181 258.629 189.543C264.238 191.905 269.11 195.3 273.243 199.729C277.671 203.862 281.067 208.733 283.429 214.343C285.79 219.952 286.971 226.005 286.971 232.5C286.971 238.995 285.79 245.048 283.429 250.657C281.067 256.267 277.671 261.138 273.243 265.271C269.11 269.405 264.238 272.652 258.629 275.014C253.019 277.671 246.967 279 240.471 279C232.5 279 224.676 278.262 217 276.786C209.324 275.31 201.648 273.833 193.971 272.357C186.295 270.586 178.619 268.962 170.943 267.486C163.267 266.009 155.443 265.271 147.471 265.271C139.205 265.271 130.938 266.009 122.671 267.486C114.7 268.962 106.729 270.586 98.7571 272.357C90.7857 273.833 82.6667 275.31 74.4 276.786C66.4286 278.262 58.3095 279 50.0429 279Z"/>
-        </svg>
-        eliska
+        <img src="images/logo-ed.svg?v=5" alt="Eliška Doležalová" class="brand-logo">
       </a>
       <ul class="nav-links">
         <li><a href="work.html" data-i18n="nav.work">Work</a></li>
@@ -108,6 +219,10 @@
           <line x1="28" y1="54" x2="58" y2="54" stroke="#c0c0c0" stroke-width="2"/>
           <line x1="28" y1="66" x2="72" y2="66" stroke="#c0c0c0" stroke-width="2"/>
         </symbol>
+        <filter id="hero-grain" x="-5%" y="-30%" width="110%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" stitchTiles="stitch" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
+        </filter>
       </defs>
     </svg>
 
@@ -162,22 +277,22 @@
 
       <div class="work-list">
 
-        <a href="import-metadata.html" class="work-tile" data-anim>
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/import-metadata/cover.png" alt="Import metadata to platform" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="work.tile1.meta">Ataccama · Data Catalog · 2026</div>
-          <h3 data-i18n="work.tile1.title">Import metadata to platform</h3>
-        </a>
-
         <a href="asset-layout-editor.html" class="work-tile" data-anim>
           <div class="work-tile-card variant-image">
             <img src="images/projects/asset-layout-editor/cover.png" alt="Asset Layout Editor" loading="lazy">
             <span class="work-tile-arrow">↗</span>
           </div>
-          <div class="work-tile-meta" data-i18n="work.tile2.meta">Ataccama · Metadata Model · 2026</div>
-          <h3 data-i18n="work.tile2.title">Asset Layout Editor</h3>
+          <div class="work-tile-meta" data-i18n="work.tile1.meta">Ataccama · Metadata Model · 2026</div>
+          <h3 data-i18n="work.tile1.title">Asset Layout Editor</h3>
+        </a>
+
+        <a href="project-esens.html" class="work-tile" data-anim>
+          <div class="work-tile-card variant-image">
+            <img src="images/projects/esens/cover.jpg" alt="Esens Letná" loading="lazy">
+            <span class="work-tile-arrow">↗</span>
+          </div>
+          <div class="work-tile-meta" data-i18n="work.tile2.meta">Esens Letná · Web · Typography · 2026</div>
+          <h3 data-i18n="work.tile2.title">Esens Letná</h3>
         </a>
 
       </div>
@@ -185,7 +300,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services">
+  <section id="services" data-bg="#0A0A0A" data-fg="light">
     <div class="container">
 
       <div class="section-grid">
@@ -203,7 +318,7 @@
               <h3 data-i18n="pkg3.title">Embedded Design Partner</h3>
               <div class="service-row-eyebrow">
                 <span class="eyebrow-sparkle" aria-hidden="true">✦</span>
-                <span data-i18n="pkg3.eyebrow">I prefer</span>
+                <span data-i18n="pkg3.eyebrow">Best fit</span>
               </div>
             </div>
             <span class="service-row-arrow">↓</span>
@@ -290,7 +405,7 @@
         </div>
 
         <article class="about-quote-card">
-          <p class="about-quote-body" data-i18n="about.quote.body">"I came into product design through brand and web. Six years of festival visuals, B2B sites, and product UI. Today: embedded with one product team, on Slack, in standups, sprint after sprint."</p>
+          <p class="about-quote-body" data-i18n="about.quote.body">"I came into product design through brand and web. Six years of festival visuals, B2B sites, and product UI — which is why I can own brand, web, and product as one system, not three handoffs. Today: embedded with one product team, sprint after sprint."</p>
           <div class="about-quote-author">
             <strong>Eliška Doležalová</strong>
             <span data-i18n="about.quote.role">UX/Product Designer, Prague</span>
@@ -306,55 +421,36 @@
   </section>
 
   <!-- SITE FOOTER -->
-  <section class="site-footer" id="contact">
-    <div class="site-footer-inner">
+  <section class="site-footer" id="contact" data-bg="#0A0A0A" data-fg="light">
+
+    <!-- Monogram watermark in the background -->
+    <img src="images/monogram.svg" alt="" class="footer-watermark" aria-hidden="true">
+
+    <div class="footer-top">
 
       <div class="site-footer-headline">
-        <span class="site-footer-eyebrow" data-anim data-i18n="footer.eyebrow">Contact</span>
         <h2 data-anim data-anim-delay="1">
           <span data-i18n="footer.headline.main">Let's start</span>
           <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
         </h2>
         <div class="site-footer-cta" data-anim data-anim-delay="2">
           <a href="mailto:hello@eliskadolezalova.com" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
-          <a href="https://linkedin.com/in/eliskadolezalova" class="btn btn-light-ghost" target="_blank" rel="noopener">LinkedIn</a>
         </div>
+      </div>
+
+      <div class="footer-col-right" data-anim data-anim-delay="2">
+        <ul class="footer-contact-list">
+          <li><a href="mailto:hello@eliskadolezalova.com">hello@eliskadolezalova.com</a></li>
+          <li><a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+        <ul class="footer-legal-list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
       </div>
 
     </div>
 
-    <div class="footer-grid">
-        <div class="footer-col" data-anim>
-          <div class="footer-col-label" data-i18n="footer.col.contact">Contact</div>
-          <div class="footer-col-content">
-            <p>hello@eliskadolezalova.com</p>
-            <a href="mailto:hello@eliskadolezalova.com" data-i18n="footer.col.contact.cta">Get in touch ↗</a>
-          </div>
-        </div>
-        <div class="footer-col" data-anim data-anim-delay="1">
-          <div class="footer-col-label" data-i18n="footer.col.connect">Connect</div>
-          <div class="footer-col-content">
-            <a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="mailto:hello@eliskadolezalova.com" data-i18n="footer.col.email">Email ↗</a>
-          </div>
-        </div>
-        <div class="footer-col" data-anim data-anim-delay="2">
-          <div class="footer-col-label" data-i18n="footer.col.navigate">Navigate</div>
-          <div class="footer-col-content">
-            <a href="work.html" data-i18n="nav.work">Work</a>
-            <a href="#services" data-i18n="nav.services">What I do</a>
-            <a href="about.html" data-i18n="nav.about">About me</a>
-          </div>
-        </div>
-    </div>
-
-    <div class="footer-strip">
-      <div class="footer-strip-inner">
-        <span data-i18n="footer.strip.copyright">© 2026 Eliska Dolezalova</span>
-        <span data-i18n="footer.strip.location">Prague, Czech Republic</span>
-        <span data-i18n="footer.strip.status">Available 2026</span>
-      </div>
-    </div>
   </section>
 
   <script>
@@ -380,10 +476,10 @@
           'work.headline.main': "See how I've turned product problems into shipped solutions.",
           'work.headline.muted': 'Dive into the stories of recent case studies.',
           'work.cta': 'All work',
-          'work.tile1.meta': 'Ataccama · Data Catalog · 2026',
-          'work.tile1.title': 'Import metadata to platform',
-          'work.tile2.meta': 'Ataccama · Metadata Model · 2026',
-          'work.tile2.title': 'Asset Layout Editor',
+          'work.tile1.meta': 'Ataccama · Metadata Model · 2026',
+          'work.tile1.title': 'Asset Layout Editor',
+          'work.tile2.meta': 'Esens Letná · Web · Typography · 2026',
+          'work.tile2.title': 'Esens Letná',
           'services.label': 'Services',
           'services.headline.main': 'How can we work together?',
           'services.headline.muted': 'Pick what fits where you are right now.',
@@ -416,7 +512,7 @@
           'pkg2.format.label': 'Format',
           'pkg2.format.val': 'Project · Fixed scope',
           'pkg2.cta': "Let's talk about Digital Experience",
-          'pkg3.eyebrow': 'I prefer',
+          'pkg3.eyebrow': 'Best fit',
           'pkg3.title': 'Embedded Design Partner',
           'pkg3.body': 'The full product design loop, week after week: discovery interviews, competitive analysis, prototypes, usability testing, design system work, engineering handoff. On Slack, in standups, in sprint reviews. Part of the team, not a vendor.',
           'pkg3.for.label': 'For',
@@ -443,7 +539,7 @@
           'about.teaser': "I'm Eliska, a product designer based in Prague. I work embedded with product teams as a fractional design lead, owning brand, web, and product as one coherent system.",
           'about.quote.heading.main': 'A designer who treats your product like her own.',
           'about.quote.heading.muted': 'Embedded with the team, not bolted on.',
-          'about.quote.body': '"I came into product design through brand and web. Six years of festival visuals, B2B sites, and product UI. Today: embedded with one product team, on Slack, in standups, sprint after sprint."',
+          'about.quote.body': '"I came into product design through brand and web. Six years of festival visuals, B2B sites, and product UI — which is why I can own brand, web, and product as one system, not three handoffs. Today: embedded with one product team, sprint after sprint."',
           'about.quote.role': 'UX/Product Designer, Prague',
           'about.p1': "I'm Eliska, a product designer based in Prague. I came into product design through graphic design, web, and brand work, designing for festivals and live audiences before training at Ataccama.",
           'about.p2': 'I work embedded, not project by project. Most engagements look like a fractional design lead, on Slack, in standups, part of the team. AI-augmented prototyping keeps production fast; brand-strategy fluency lets me think beyond the product.',
@@ -500,10 +596,10 @@
           'work.headline.main': 'Jak řeším reálné produktové problémy.',
           'work.headline.muted': 'Pár ukázek toho, na čem jsem pracovala.',
           'work.cta': 'Všechny projekty',
-          'work.tile1.meta': 'Ataccama · Data Catalog · 2026',
-          'work.tile1.title': 'Import metadat do platformy',
-          'work.tile2.meta': 'Ataccama · Metadata Model · 2026',
-          'work.tile2.title': 'Asset Layout Editor',
+          'work.tile1.meta': 'Ataccama · Metadata Model · 2026',
+          'work.tile1.title': 'Asset Layout Editor',
+          'work.tile2.meta': 'Esens Letná · Web · Typografie · 2026',
+          'work.tile2.title': 'Esens Letná',
           'services.label': 'Služby',
           'services.headline.main': 'Jak spolu můžeme pracovat?',
           'services.headline.muted': 'Vyberte si, co odpovídá tomu, kde právě jste.',
@@ -536,7 +632,7 @@
           'pkg2.format.label': 'Formát',
           'pkg2.format.val': 'Projekt · Pevný rozsah',
           'pkg2.cta': 'Pojďme si promluvit o Digital Experience',
-          'pkg3.eyebrow': 'Preferuji',
+          'pkg3.eyebrow': 'Nejlepší fit',
           'pkg3.title': 'Embedded Design Partner',
           'pkg3.body': 'Celý produktový design loop, týden po týdnu: discovery rozhovory, competitive analýza, prototypy, usability testování, práce na design systému, předání vývoji. Na Slacku, na standupech, na sprint reviews. Součást týmu, ne dodavatel.',
           'pkg3.for.label': 'Pro',
@@ -563,7 +659,7 @@
           'about.teaser': 'Jsem Eliška, produktová designerka z Prahy. Pracuji embedded s produktovými týmy jako fractional design lead a vlastním brand, web i produkt jako jeden soudržný systém.',
           'about.quote.heading.main': 'Designerka, která se k vašemu produktu chová jako k vlastnímu.',
           'about.quote.heading.muted': 'Součást týmu, ne externí dodavatel.',
-          'about.quote.body': '"K produktovému designu jsem se dostala přes brand a web. Šest let festivalových vizuálů, B2B webů a produktového UI. Dnes: embedded s jedním produktovým týmem, na Slacku, na standupech, sprint po sprintu."',
+          'about.quote.body': '"K produktovému designu jsem se dostala přes brand a web. Šest let festivalových vizuálů, B2B webů a produktového UI — proto u mě dostanete brand, web i produkt jako jeden systém, ne tři oddělené handoffy. Dnes: embedded s jedním produktovým týmem, sprint po sprintu."',
           'about.quote.role': 'UX/Produktová designerka, Praha',
           'about.p1': 'Jsem Eliška, produktová designerka z Prahy. K produktovému designu jsem se dostala přes grafiku, web a značku, designovala jsem pro festivaly a živé publikum, než jsem se vyškolila v Ataccamě.',
           'about.p2': 'Pracuji embedded, ne od projektu k projektu. Většina spoluprací vypadá jako fractional design lead, na Slacku, na standupech, jako součást týmu. AI mi zrychluje produkci, znalost brand strategy mi pomáhá přemýšlet i nad rámec samotného produktu.',
@@ -668,23 +764,30 @@
           var rect = el.getBoundingClientRect();
           var vh = window.innerHeight;
           var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
-          var inDark = el.closest('.site-footer') !== null;
+          var inFooterDark = el.closest('.site-footer') !== null;
+          var inServicesDark = el.closest('#services') !== null;
+          var inDark = inFooterDark || inServicesDark;
 
           el.classList.add('scroll-driven');
 
-          var fromColor = inDark ? { r: 237, g: 164, b: 181 } : { r: 200, g: 200, b: 200 };
-          var toColor   = inDark ? { r: 255, g: 255, b: 255 } : { r: 10,  g: 10,  b: 10  };
+          // Default colors (used when body bg is white / fg-dark)
+          var fromColor = { r: 200, g: 200, b: 200 };
+          var toColor   = { r: 10,  g: 10,  b: 10  };
 
           wordContainers.push({
             el: el, words: wordEls,
             startRatio: inViewOnLoad ? 0.65 : 1.20,
             endRatio:   inViewOnLoad ? -0.35 : -0.20,
-            fromColor: fromColor, toColor: toColor
+            fromColor: fromColor, toColor: toColor,
+            inFooterDark: inFooterDark,
+            inServicesDark: inServicesDark
           });
         });
       }
 
       rebuildScrollWords();
+      window.__rebuildScrollWords = rebuildScrollWords;
+      window.__updateScrollWords = updateScrollWords;
 
       var ticking = false;
       function updateScrollWords() {
@@ -692,6 +795,7 @@
         ticking = true;
         requestAnimationFrame(function () {
           var vh = window.innerHeight;
+          var bodyIsDark = document.body.classList.contains('fg-light');
           wordContainers.forEach(function (group) {
             var rect = group.el.getBoundingClientRect();
             var elementCenter = rect.top + rect.height / 2;
@@ -700,6 +804,22 @@
             var globalProgress = (startC - elementCenter) / (startC - endC);
             if (globalProgress < 0) globalProgress = 0;
             else if (globalProgress > 1) globalProgress = 1;
+
+            // Pick colors based on current body theme:
+            //   - body dark + in services: dim grey -> warm cream
+            //   - body dark + in footer:   pink -> white
+            //   - body light (default):    grey -> black
+            var fromC, toC;
+            if (bodyIsDark && group.inServicesDark) {
+              fromC = { r: 110, g: 110, b: 110 };
+              toC   = { r: 242, g: 237, b: 220 };
+            } else if (bodyIsDark && group.inFooterDark) {
+              fromC = { r: 237, g: 164, b: 181 };
+              toC   = { r: 255, g: 255, b: 255 };
+            } else {
+              fromC = { r: 200, g: 200, b: 200 };
+              toC   = { r: 10,  g: 10,  b: 10  };
+            }
 
             var n = group.words.length;
             var stretch = 1.6;
@@ -712,9 +832,9 @@
               var wProgress = (globalProgress - wStart) / (wEnd - wStart);
               if (wProgress < 0) wProgress = 0;
               else if (wProgress > 1) wProgress = 1;
-              var r = Math.round(group.fromColor.r + (group.toColor.r - group.fromColor.r) * wProgress);
-              var g = Math.round(group.fromColor.g + (group.toColor.g - group.fromColor.g) * wProgress);
-              var b = Math.round(group.fromColor.b + (group.toColor.b - group.fromColor.b) * wProgress);
+              var r = Math.round(fromC.r + (toC.r - fromC.r) * wProgress);
+              var g = Math.round(fromC.g + (toC.g - fromC.g) * wProgress);
+              var b = Math.round(fromC.b + (toC.b - fromC.b) * wProgress);
               group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
             }
           });
@@ -728,11 +848,9 @@
       // ============ Clients stack — same gray→black interpolation, per-row ============
       var clientsStack = document.querySelector('.clients-stack');
       if (clientsStack) {
+        var clientLis = Array.prototype.slice.call(clientsStack.querySelectorAll('li'));
         // Target client-name spans where present; fall back to li itself (e.g. "and more" row)
-        var clientItems = Array.prototype.map.call(
-          clientsStack.querySelectorAll('li'),
-          function (li) { return li.querySelector('.client-name') || li; }
-        );
+        var clientItems = clientLis.map(function (li) { return li.querySelector('.client-name') || li; });
         var clientsFrom = { r: 200, g: 200, b: 200 };
         var clientsTo   = { r: 10,  g: 10,  b: 10  };
         var clientsTicking = false;
@@ -743,8 +861,8 @@
             var rect = clientsStack.getBoundingClientRect();
             var vh = window.innerHeight;
             var stackCenter = rect.top + rect.height / 2;
-            var startC = vh * 0.65;
-            var endC   = vh * -0.35;
+            var startC = vh * 1.0;
+            var endC   = vh * 0.15;
             var globalProgress = (startC - stackCenter) / (startC - endC);
             if (globalProgress < 0) globalProgress = 0;
             else if (globalProgress > 1) globalProgress = 1;
@@ -762,6 +880,7 @@
               var g = Math.round(clientsFrom.g + (clientsTo.g - clientsFrom.g) * wProgress);
               var b = Math.round(clientsFrom.b + (clientsTo.b - clientsFrom.b) * wProgress);
               clientItems[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
+              clientLis[i].style.opacity = wProgress;
             }
             clientsTicking = false;
           });
@@ -999,11 +1118,178 @@
             });
           }
           apply();
+          // After overwriting [data-i18n] text, the scroll-words .word
+          // wrappers (and their stored references) are gone. Rebuild them.
+          if (typeof window.__rebuildScrollWords === 'function') {
+            window.__rebuildScrollWords();
+            if (typeof window.__updateScrollWords === 'function') window.__updateScrollWords();
+          }
           document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-            btn.addEventListener('click', function () { setTimeout(apply, 0); });
+            btn.addEventListener('click', function () {
+              setTimeout(function () {
+                apply();
+                if (typeof window.__rebuildScrollWords === 'function') {
+                  window.__rebuildScrollWords();
+                  if (typeof window.__updateScrollWords === 'function') window.__updateScrollWords();
+                }
+              }, 0);
+            });
           });
         })
         .catch(function () { /* fail silently — page works with inline defaults */ });
+    })();
+  </script>
+
+  <!-- Scroll-driven section background + word-by-word headline reveal -->
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ===== 1) Scroll-driven body background — any [data-bg] section =====
+      // Currently used by #services and #contact (the footer). Uses a
+      // viewport-overlap check with hysteresis so accordion <details> expand
+      // inside services does not flip the bg back to light.
+      var darkSections = Array.prototype.slice.call(
+        document.querySelectorAll('section[data-bg]')
+      );
+      if (darkSections.length) {
+        var isActive = false;
+
+        function setActive(active, bgColor) {
+          if (active === isActive) return;
+          isActive = active;
+          document.body.style.backgroundColor = active ? bgColor : '';
+          document.body.classList.toggle('fg-light', active);
+          document.body.classList.toggle('fg-dark',  !active);
+          // Nudge other scroll-aware systems (scroll-words colors etc.)
+          // to re-read the new body state on the same frame.
+          window.dispatchEvent(new Event('scroll'));
+        }
+        // Initial paint
+        document.body.classList.add('fg-dark');
+
+        var ticking2 = false;
+        function checkDarkSection() {
+          if (ticking2) return;
+          ticking2 = true;
+          requestAnimationFrame(function () {
+            var vh = window.innerHeight;
+            var bestFraction = 0;
+            var bestSection = null;
+            for (var i = 0; i < darkSections.length; i++) {
+              var rect = darkSections[i].getBoundingClientRect();
+              var visibleTop    = Math.max(rect.top, 0);
+              var visibleBottom = Math.min(rect.bottom, vh);
+              var visible       = Math.max(0, visibleBottom - visibleTop);
+              var fraction      = visible / vh;
+              if (fraction > bestFraction) {
+                bestFraction = fraction;
+                bestSection = darkSections[i];
+              }
+            }
+            // Hysteresis. Activates at 65% fill, deactivates as soon as the
+            // dark section drops to 50% — so the next light section's text
+            // never has to read on a still-dark bg. Dark sections are
+            // ~1.5× viewport tall, so accordion shifts keep fraction near
+            // 1.0 and don't trip the deactivation.
+            var shouldBe = isActive ? (bestFraction > 0.50) : (bestFraction > 0.65);
+            var bg = bestSection ? bestSection.getAttribute('data-bg') : '';
+            setActive(shouldBe, bg);
+            ticking2 = false;
+          });
+        }
+        window.addEventListener('scroll', checkDarkSection, { passive: true });
+        window.addEventListener('resize', checkDarkSection, { passive: true });
+        checkDarkSection();
+      }
+
+      // ===== 2) Word-by-word slide-up for headlines =====
+      // Targets every <h1>/<h2> inside a <section>. Uses a MutationObserver to
+      // re-split when other systems (i18n, CMS fetch) overwrite the text.
+      function splitWords(el) {
+        var nodes = [];
+        (function walk(n) {
+          for (var i = 0; i < n.childNodes.length; i++) {
+            var c = n.childNodes[i];
+            if (c.nodeType === 3 && c.nodeValue && /\S/.test(c.nodeValue)) {
+              nodes.push(c);
+            } else if (c.nodeType === 1 &&
+                       !c.classList.contains('word') &&
+                       !c.classList.contains('word-i') &&
+                       !c.classList.contains('scroll-words') &&
+                       c.tagName !== 'BR') {
+              walk(c);
+            }
+          }
+        })(el);
+
+        if (!nodes.length) return false;
+
+        var wordIdx = 0;
+        nodes.forEach(function (textNode) {
+          var parts = textNode.nodeValue.split(/(\s+)/);
+          var frag = document.createDocumentFragment();
+          parts.forEach(function (p) {
+            if (!p) return;
+            if (/^\s+$/.test(p)) {
+              frag.appendChild(document.createTextNode(p));
+            } else {
+              var outer = document.createElement('span');
+              outer.className = 'word';
+              var inner = document.createElement('span');
+              inner.className = 'word-i';
+              inner.textContent = p;
+              inner.style.setProperty('--word-d', (wordIdx * 70) + 'ms');
+              outer.appendChild(inner);
+              frag.appendChild(outer);
+              wordIdx++;
+            }
+          });
+          textNode.parentNode.replaceChild(frag, textNode);
+        });
+        return true;
+      }
+
+      function markAnimContainer(h) {
+        // The element bearing [data-anim] gets .word-anim so CSS bypasses its
+        // own fade-up and reveals the words instead. h might be the data-anim
+        // element itself, or it might be inside one.
+        var c = h.hasAttribute('data-anim') ? h : h.closest('[data-anim]');
+        if (c) c.classList.add('word-anim');
+      }
+
+      function processHeading(h) {
+        // Skip if already correctly split (still contains .word elements)
+        if (h.querySelector('.word')) return;
+        markAnimContainer(h);
+        splitWords(h);
+      }
+
+      function initWordReveal() {
+        if (reduced) return;
+        var headings = document.querySelectorAll('section h1, section h2');
+        headings.forEach(processHeading);
+
+        // Watch each heading for text changes (CMS fetch / i18n switch wipes
+        // children) and re-split when they get overwritten.
+        if ('MutationObserver' in window) {
+          headings.forEach(function (h) {
+            var mo = new MutationObserver(function (muts) {
+              // If our spans were removed by an outside writer, re-split.
+              if (!h.querySelector('.word')) {
+                processHeading(h);
+              }
+            });
+            mo.observe(h, { childList: true, subtree: true, characterData: true });
+          });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWordReveal);
+      } else {
+        initWordReveal();
+      }
     })();
   </script>
 
