@@ -678,7 +678,9 @@ body.fg-light .footer-legal-list a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  /* Above .container (z:2) so individual icons catch their own clicks.
+     Empty space between icons stays click-through because of pointer-events:none. */
+  z-index: 10;
 }
 
 /* Hero chat bubble with avatar + hover notification — draggable.
