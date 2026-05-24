@@ -588,13 +588,16 @@ body.menu-open { overflow: hidden; }
 /* Watermark wordmark — tiny detail */
 .footer-watermark {
   position: absolute;
-  right: 8%;
-  bottom: 16%;
-  width: clamp(56px, 5vw, 84px);
+  left: 50%;
+  right: auto;
+  bottom: 24px;
+  width: 92vw;
+  max-width: 1700px;
   height: auto;
   opacity: 0.95;
   filter: brightness(0); /* default: solid black on light bg */
   transition: filter 500ms cubic-bezier(0.45, 0, 0.25, 1);
+  transform: translateX(-50%);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -2119,11 +2122,15 @@ body.icons-customized .desktop-icon {
   overflow: hidden;
 }
 
-/* Mobile: reserve room at the bottom for the centered wordmark watermark
-   so the contact list above stays clear of it. Placed AFTER the base
+/* Reserve room at the bottom for the centered wordmark watermark so
+   content above stays clear of it. Mobile: ~220px. Desktop: scales with
+   viewport since the wordmark is 92vw wide. Placed AFTER the base
    shorthand-padding rule so it actually wins the cascade. */
 @media (max-width: 900px) {
   .site-footer { padding-bottom: 220px; }
+}
+@media (min-width: 901px) {
+  .site-footer { padding-bottom: clamp(360px, 46vw, 900px); }
 }
 
 /* When body theme is dark (footer dominates the viewport), swap to light text */
