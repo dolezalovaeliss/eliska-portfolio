@@ -602,6 +602,17 @@ body.menu-open { overflow: hidden; }
   user-select: none;
   z-index: 1;
 }
+
+/* Desktop: full-bleed wordmark that pushes past the footer's bottom edge.
+   .site-footer has overflow:hidden, so the bottom of the wordmark gets
+   visually cropped at the page bottom for a dramatic "cut" effect. */
+@media (min-width: 901px) {
+  .footer-watermark {
+    width: 100vw;
+    max-width: none;
+    bottom: -18vw;
+  }
+}
 /* On dark bg, force the watermark to pure white regardless of its SVG fills */
 body.fg-light .footer-watermark {
   filter: brightness(0) invert(1);
@@ -2130,7 +2141,10 @@ body.icons-customized .desktop-icon {
   .site-footer { padding-bottom: 220px; }
 }
 @media (min-width: 901px) {
-  .site-footer { padding-bottom: clamp(360px, 46vw, 900px); }
+  /* Less padding-bottom than before — the wordmark now bleeds past the
+     footer's bottom edge (bottom: -18vw), so only its upper ~32vw is
+     visible inside the footer. */
+  .site-footer { padding-bottom: clamp(280px, 34vw, 720px); }
 }
 
 /* When body theme is dark (footer dominates the viewport), swap to light text */
