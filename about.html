@@ -7,7 +7,7 @@
   <title>About, Eliska Dolezalova</title>
   <meta name="description" content="Product designer based in Prague, embedded design partner for product teams without internal design. Currently at Ataccama and Shoptet.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=42">
+  <link rel="stylesheet" href="styles.css?v=45">
 </head>
 <body class="about-page">
 
@@ -20,7 +20,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-brand">
-        <img src="images/logo-ed.svg?v=5" alt="Eliška Doležalová" class="brand-logo">
+        <img src="images/logo-ed.svg?v=6" alt="Eliška Doležalová" class="brand-logo">
       </a>
       <ul class="nav-links">
         <li><a href="work.html" data-i18n="nav.work">Work</a></li>
@@ -244,59 +244,36 @@
   </section>
 
   <!-- SITE FOOTER -->
-  <section class="site-footer">
-    <div class="site-footer-inner">
+  <section class="site-footer" id="contact" data-bg="#0A0A0A" data-fg="light">
+
+    <!-- Monogram watermark in the background -->
+    <img src="images/logo-ed.svg?v=6" alt="" class="footer-watermark" aria-hidden="true">
+
+    <div class="footer-top">
 
       <div class="site-footer-headline">
-        <span class="site-footer-eyebrow" data-anim data-i18n="footer.eyebrow">Contact</span>
         <h2 data-anim data-anim-delay="1">
           <span data-i18n="footer.headline.main">Let's start</span>
           <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
         </h2>
         <div class="site-footer-cta" data-anim data-anim-delay="2">
           <a href="mailto:hello@eliskadolezalova.com" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
-          <a href="https://linkedin.com/in/eliskadolezalova" class="btn btn-light-ghost" target="_blank" rel="noopener">LinkedIn</a>
         </div>
+      </div>
+
+      <div class="footer-col-right" data-anim data-anim-delay="2">
+        <ul class="footer-contact-list">
+          <li><a href="mailto:hello@eliskadolezalova.com">hello@eliskadolezalova.com</a></li>
+          <li><a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+        <ul class="footer-legal-list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
       </div>
 
     </div>
 
-    <div class="footer-grid">
-        <div class="footer-col" data-anim>
-          <div class="footer-col-label" data-i18n="footer.col.contact">Contact</div>
-          <div class="footer-col-content">
-            <p>hello@eliskadolezalova.com</p>
-            <a href="mailto:hello@eliskadolezalova.com" data-i18n="footer.col.contact.cta">Get in touch ↗</a>
-          </div>
-        </div>
-        <div class="footer-col" data-anim data-anim-delay="1">
-          <div class="footer-col-label" data-i18n="footer.col.connect">Connect</div>
-          <div class="footer-col-content">
-            <a href="https://linkedin.com/in/eliskadolezalova" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="mailto:hello@eliskadolezalova.com" data-i18n="footer.col.email">Email ↗</a>
-          </div>
-        </div>
-        <div class="footer-col" data-anim data-anim-delay="2">
-          <div class="footer-col-label" data-i18n="footer.col.navigate">Navigate</div>
-          <div class="footer-col-content">
-            <a href="work.html" data-i18n="nav.work">Work</a>
-            <a href="index.html#services" data-i18n="nav.services">What I do</a>
-            <a href="about.html" data-i18n="nav.about">About me</a>
-          </div>
-        </div>
-    </div>
-
-    <div class="footer-strip">
-      <div class="footer-strip-inner">
-        <span data-i18n="footer.strip.copyright">© 2026 Eliska Dolezalova</span>
-        <img src="images/footer-logo.svg?v=2" alt="Embedded fullstack designer" class="footer-strip-logo">
-        <div class="footer-strip-right">
-          <span data-i18n="footer.strip.location">Prague, Czech Republic</span>
-          <span class="footer-strip-sep" aria-hidden="true">·</span>
-          <span data-i18n="footer.strip.status">Available 2026</span>
-        </div>
-      </div>
-    </div>
   </section>
 
   <script>
@@ -511,15 +488,20 @@
           var rect = el.getBoundingClientRect();
           var vh = window.innerHeight;
           var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
-          var inDark = el.closest('.site-footer') !== null;
+          var inFooterDark = el.closest('.site-footer') !== null;
+
+          var inServicesDark = el.closest('#services') !== null;
+
           el.classList.add('scroll-driven');
-          var fromColor = inDark ? { r: 237, g: 164, b: 181 } : { r: 200, g: 200, b: 200 };
-          var toColor   = inDark ? { r: 255, g: 255, b: 255 } : { r: 10,  g: 10,  b: 10  };
+
+          var fromColor = { r: 200, g: 200, b: 200 };
+
+          var toColor   = { r: 10,  g: 10,  b: 10  };
           wordContainers.push({
             el: el, words: wordEls,
             startRatio: inViewOnLoad ? 0.65 : 1.20,
             endRatio:   inViewOnLoad ? -0.35 : -0.20,
-            fromColor: fromColor, toColor: toColor
+            fromColor: fromColor, toColor: toColor, inFooterDark: inFooterDark, inServicesDark: inServicesDark
           });
         });
       }
@@ -532,6 +514,7 @@
         requestAnimationFrame(function () {
           var vh = window.innerHeight;
           wordContainers.forEach(function (group) {
+            var bodyIsDark = document.body.classList.contains('fg-light');
             var rect = group.el.getBoundingClientRect();
             var elementCenter = rect.top + rect.height / 2;
             var startC = vh * group.startRatio;
@@ -539,6 +522,18 @@
             var globalProgress = (startC - elementCenter) / (startC - endC);
             if (globalProgress < 0) globalProgress = 0;
             else if (globalProgress > 1) globalProgress = 1;
+            var fromC, toC;
+            if (bodyIsDark && group.inServicesDark) {
+              fromC = { r: 110, g: 110, b: 110 };
+              toC   = { r: 242, g: 237, b: 220 };
+            } else if (bodyIsDark && group.inFooterDark) {
+              fromC = { r: 237, g: 164, b: 181 };
+              toC   = { r: 255, g: 255, b: 255 };
+            } else {
+              fromC = { r: 200, g: 200, b: 200 };
+              toC   = { r: 10,  g: 10,  b: 10  };
+            }
+
             var n = group.words.length;
             var stretch = 1.6;
             var halfRange = (stretch / n) / 2;
@@ -549,9 +544,9 @@
               var wProgress = (globalProgress - wStart) / (wEnd - wStart);
               if (wProgress < 0) wProgress = 0;
               else if (wProgress > 1) wProgress = 1;
-              var r = Math.round(group.fromColor.r + (group.toColor.r - group.fromColor.r) * wProgress);
-              var g = Math.round(group.fromColor.g + (group.toColor.g - group.fromColor.g) * wProgress);
-              var b = Math.round(group.fromColor.b + (group.toColor.b - group.fromColor.b) * wProgress);
+              var r = Math.round(fromC.r + (toC.r - fromC.r) * wProgress);
+              var g = Math.round(fromC.g + (toC.g - fromC.g) * wProgress);
+              var b = Math.round(fromC.b + (toC.b - fromC.b) * wProgress);
               group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
             }
           });
@@ -644,5 +639,6 @@
     })();
   </script>
 
+  <script src="scroll-effects.js?v=1" defer></script>
 </body>
 </html>

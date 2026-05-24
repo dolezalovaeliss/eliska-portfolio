@@ -273,6 +273,19 @@ section { padding: var(--gap-section) 0; }
   width: auto;
   flex-shrink: 0;
   display: block;
+  transition: filter 0.25s cubic-bezier(0.45, 0, 0.25, 1);
+}
+
+/* Hover — turn brand-logo pink. The filter chain approximates #EDA4B5 from
+   a black source SVG. Works regardless of underlying nav/body theme. */
+.nav-brand:hover .brand-logo {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(580%)
+          hue-rotate(298deg) brightness(96%) contrast(94%);
+}
+body.fg-light .nav:not(.scrolled) .nav-brand:hover .brand-logo,
+.nav.scrolled .nav-brand:hover .brand-logo {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(580%)
+          hue-rotate(298deg) brightness(96%) contrast(94%);
 }
 
 .nav-links {
@@ -572,23 +585,23 @@ body.menu-open { overflow: hidden; }
   line-height: 1.6;
 }
 
-/* Watermark monogram — tiny, low-opacity detail */
+/* Watermark wordmark — tiny detail */
 .footer-watermark {
   position: absolute;
   right: 8%;
   bottom: 16%;
   width: clamp(56px, 5vw, 84px);
   height: auto;
-  opacity: 0.2;
-  filter: none; /* black SVG on white = visible dark mark */
-  transition: filter 250ms ease;
+  opacity: 0.95;
+  filter: brightness(0); /* default: solid black on light bg */
+  transition: filter 500ms cubic-bezier(0.45, 0, 0.25, 1);
   pointer-events: none;
   user-select: none;
   z-index: 1;
 }
-/* On dark bg, invert so it becomes a light mark */
+/* On dark bg, force the watermark to pure white regardless of its SVG fills */
 body.fg-light .footer-watermark {
-  filter: invert(1) brightness(1.8) grayscale(1);
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 900px) {
@@ -625,7 +638,7 @@ body.fg-light .footer-watermark {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   text-decoration-color: rgba(10, 10, 10, 0.3);
-  transition: color 250ms ease, text-decoration-color 0.2s ease;
+  transition: color 500ms cubic-bezier(0.45, 0, 0.25, 1), text-decoration-color 0.2s ease;
 }
 .footer-contact-list a:hover { text-decoration-color: rgba(10, 10, 10, 0.9); }
 body.fg-light .footer-contact-list a {
@@ -642,7 +655,7 @@ body.fg-light .footer-contact-list a:hover { text-decoration-color: rgba(242, 23
   text-decoration-thickness: 1px;
   text-decoration-color: rgba(10, 10, 10, 0.3);
   font-size: 13px;
-  transition: color 250ms ease;
+  transition: color 500ms cubic-bezier(0.45, 0, 0.25, 1);
 }
 body.fg-light .footer-legal-list a {
   color: rgba(242, 237, 220, 0.85);
@@ -2308,7 +2321,7 @@ body.fg-light .site-footer h2 { color: #F2EDDC; }
 .btn-light {
   background: #0a0a0a;
   color: #ffffff;
-  transition: background 250ms ease, color 250ms ease, opacity var(--transition), transform var(--transition);
+  transition: background 500ms cubic-bezier(0.45, 0, 0.25, 1), color 500ms cubic-bezier(0.45, 0, 0.25, 1), opacity var(--transition), transform var(--transition);
 }
 body.fg-light .btn-light {
   background: #ffffff;
@@ -3464,11 +3477,10 @@ body.fg-light .btn-light {
    ============================================================ */
 
 /* Body bg transition as you scroll into/out of dark sections.
-   Kept short (0.18s) to minimise the window where dark text could sit
-   on a still-dark transitioning bg. */
+   Longer + smoother easing (0.55s) so it doesn't feel abrupt on mobile. */
 html, body {
-  transition: background-color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.55s cubic-bezier(0.45, 0, 0.25, 1),
+              color 0.5s cubic-bezier(0.45, 0, 0.25, 1);
 }
 
 /* When body is themed dark (services in view), invert key UI bits */
