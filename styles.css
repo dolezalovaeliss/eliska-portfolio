@@ -605,19 +605,27 @@ body.fg-light .footer-watermark {
 }
 
 @media (max-width: 900px) {
+  .site-footer {
+    /* Reserve room at the bottom for the centered wordmark watermark
+       so it doesn't overlap the contact list above. */
+    padding-bottom: 200px;
+  }
   .footer-top {
     flex-direction: column;
     gap: 48px;
-    padding: 64px 24px;
+    padding: 64px 24px 24px;
   }
   .footer-top .footer-col-right {
     text-align: left;
     padding-top: 0;
   }
   .footer-watermark {
-    width: 380px;
-    right: -60px;
-    bottom: -40px;
+    width: 80vw;
+    max-width: 360px;
+    left: 50%;
+    right: auto;
+    bottom: 24px;
+    transform: translateX(-50%);
   }
 }
 
