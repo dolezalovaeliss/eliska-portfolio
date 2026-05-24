@@ -831,9 +831,15 @@ body.icons-customized .desktop-icon {
   animation: none;
 }
 
-.desktop-icon:hover {
+.desktop-icon:hover,
+.desktop-icon:active,
+.desktop-icon:focus-within {
   z-index: 5;
   opacity: 1;
+  /* Freeze the float when the user is about to interact so the icon stays
+     under the cursor through mousedown→mouseup. Otherwise the click target
+     drifts and the link misses. */
+  animation-play-state: paused;
 }
 
 .desktop-icon.is-dragging {
