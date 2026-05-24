@@ -605,11 +605,8 @@ body.fg-light .footer-watermark {
 }
 
 @media (max-width: 900px) {
-  .site-footer {
-    /* Reserve room at the bottom for the centered wordmark watermark
-       so it doesn't overlap the contact list above. */
-    padding-bottom: 200px;
-  }
+  /* (footer padding-bottom for watermark room is set later, after the
+     base .site-footer rule, to win the cascade.) */
   .footer-top {
     flex-direction: column;
     gap: 48px;
@@ -2120,6 +2117,13 @@ body.icons-customized .desktop-icon {
   padding: clamp(80px, 11vw, 144px) 0 0;
   position: relative;
   overflow: hidden;
+}
+
+/* Mobile: reserve room at the bottom for the centered wordmark watermark
+   so the contact list above stays clear of it. Placed AFTER the base
+   shorthand-padding rule so it actually wins the cascade. */
+@media (max-width: 900px) {
+  .site-footer { padding-bottom: 220px; }
 }
 
 /* When body theme is dark (footer dominates the viewport), swap to light text */
