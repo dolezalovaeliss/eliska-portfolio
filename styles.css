@@ -2141,10 +2141,12 @@ body.icons-customized .desktop-icon {
   .site-footer { padding-bottom: 220px; }
 }
 @media (min-width: 901px) {
-  /* Less padding-bottom than before — the wordmark now bleeds past the
-     footer's bottom edge (bottom: -18vw), so only its upper ~32vw is
-     visible inside the footer. */
-  .site-footer { padding-bottom: clamp(280px, 34vw, 720px); }
+  /* Tight padding-bottom: only enough room above the wordmark crop so
+     content (CTA, contact list) sits just above the wordmark top edge. */
+  .site-footer { padding-bottom: clamp(120px, 18vw, 420px); }
+  /* Trim the footer-top's own bottom padding too — the wordmark provides
+     the visual closure now, so we don't need extra breathing room. */
+  .footer-top { padding-bottom: 32px; }
 }
 
 /* When body theme is dark (footer dominates the viewport), swap to light text */
