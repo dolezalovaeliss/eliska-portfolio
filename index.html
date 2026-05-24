@@ -1028,6 +1028,10 @@
           if (!didDrag && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
             didDrag = true;
           }
+          // Only preventDefault + reposition once we're actually dragging.
+          // Otherwise tiny finger jitter on a tap would suppress the synthetic
+          // click event on iOS Safari and the link wouldn't navigate.
+          if (!didDrag) return;
           if (e.cancelable) e.preventDefault();
           icon.style.left = (startLeft + dx) + 'px';
           icon.style.top = (startTop + dy) + 'px';
