@@ -1007,13 +1007,10 @@
 
           didDrag = false;
 
-          // Stop float animation everywhere and pin icon to its current visual spot
-          document.body.classList.add('icons-customized');
-          icon.classList.add('is-dragging');
-          icon.style.left = startLeft + 'px';
-          icon.style.top = startTop + 'px';
-          icon.style.right = 'auto';
-          icon.style.bottom = 'auto';
+          // DON'T pin position or stop animation yet — wait until drag is
+          // confirmed (>4px movement). Otherwise a plain click would stop
+          // the animation, causing the icon to jump out from under the
+          // cursor before mouseup, so the click would miss the link.
 
           document.addEventListener('mousemove', move);
           document.addEventListener('mouseup', up);
@@ -1027,10 +1024,15 @@
           var dy = point.clientY - startY;
           if (!didDrag && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
             didDrag = true;
+            // First confirmed drag: NOW stop the animation and pin the icon
+            // to its visual spot at mousedown time.
+            document.body.classList.add('icons-customized');
+            icon.classList.add('is-dragging');
+            icon.style.left = startLeft + 'px';
+            icon.style.top = startTop + 'px';
+            icon.style.right = 'auto';
+            icon.style.bottom = 'auto';
           }
-          // Only preventDefault + reposition once we're actually dragging.
-          // Otherwise tiny finger jitter on a tap would suppress the synthetic
-          // click event on iOS Safari and the link wouldn't navigate.
           if (!didDrag) return;
           if (e.cancelable) e.preventDefault();
           icon.style.left = (startLeft + dx) + 'px';
