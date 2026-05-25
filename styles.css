@@ -653,6 +653,12 @@ body.fg-light .footer-watermark {
   padding: 0;
   margin: 0;
 }
+/* The Contact link now points at #contact on this list (instead of the
+   whole footer), so the browser scrolls straight to the email + LinkedIn.
+   scroll-margin-top keeps the list below the sticky nav. */
+.footer-contact-list {
+  scroll-margin-top: 100px;
+}
 .footer-contact-list li,
 .footer-legal-list li {
   margin-bottom: 6px;
