@@ -2144,7 +2144,10 @@ body.icons-customized .desktop-icon {
    viewport since the wordmark is 92vw wide. Placed AFTER the base
    shorthand-padding rule so it actually wins the cascade. */
 @media (max-width: 900px) {
-  .site-footer { padding-bottom: 220px; }
+  .site-footer { padding-top: 32px; padding-bottom: 220px; }
+  /* Trim h2 margin-bottom so the contact list lands above the fold when
+     the user jumps to #contact on a short mobile viewport. */
+  .site-footer h2 { margin-bottom: 24px; }
 }
 @media (min-width: 901px) {
   /* Tight padding-bottom: only enough room above the wordmark crop so
