@@ -144,4 +144,30 @@
   } else {
     initWordReveal();
   }
+
+  // ===== Contact link: explicit instant scroll =====
+  // scroll-behavior: smooth can be interrupted in in-app browsers
+  // (Instagram, Facebook WebView) and on iOS Safari when the toolbar
+  // shows/hides mid-scroll, leaving the user stranded mid-page. Force
+  // an instant jump straight to #contact (now on the contact <ul>).
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href="#contact"]');
+    if (!link) return;
+    var target = document.getElementById('contact');
+    if (!target) return;
+    e.preventDefault();
+    // Close mobile drawer if open so body scroll lock is released first
+    var ham = document.querySelector('.nav-hamburger');
+    if (ham && ham.getAttribute('aria-expanded') === 'true') ham.click();
+    requestAnimationFrame(function () {
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      // Some in-app browsers ignore scrollIntoView; double-tap with scrollTo
+      var rect = target.getBoundingClientRect();
+      var marginTop = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+      window.scrollTo({
+        top: window.scrollY + rect.top - marginTop,
+        behavior: 'auto',
+      });
+    });
+  });
 })();
