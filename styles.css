@@ -623,8 +623,14 @@ body.fg-light .footer-watermark {
      base .site-footer rule, to win the cascade.) */
   .footer-top {
     flex-direction: column;
-    gap: 48px;
-    padding: 64px 24px 24px;
+    gap: 20px;
+    padding: 48px 24px 16px;
+  }
+  /* Collapse the big margin between headline and contact column so that
+     when you jump to #contact on a short mobile viewport, hello@ and
+     LinkedIn are visible above the fold along with the CTA. */
+  .footer-top .site-footer-headline {
+    margin-bottom: 0;
   }
   .footer-top .footer-col-right {
     text-align: left;
