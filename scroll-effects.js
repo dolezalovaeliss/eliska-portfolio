@@ -146,28 +146,32 @@
   }
 
   // ===== Contact link: explicit instant scroll =====
-  // scroll-behavior: smooth can be interrupted in in-app browsers
-  // (Instagram, Facebook WebView) and on iOS Safari when the toolbar
-  // shows/hides mid-scroll, leaving the user stranded mid-page. Force
-  // an instant jump straight to #contact (now on the contact <ul>).
+  // Smooth scroll gets interrupted in in-app browsers (Instagram, FB
+  // WebView) and on iOS Safari when the toolbar shows/hides. Force an
+  // instant jump straight to #contact (now on the contact <ul>) and
+  // retry a couple of times to defeat any browser/timing quirks.
+  function scrollToContact() {
+    var target = document.getElementById('contact');
+    if (!target) return;
+    var rect = target.getBoundingClientRect();
+    var marginTop = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    var y = window.scrollY + rect.top - marginTop;
+    if (window.scrollTo) window.scrollTo(0, y);
+    else document.documentElement.scrollTop = y;
+  }
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('a[href="#contact"]');
     if (!link) return;
-    var target = document.getElementById('contact');
-    if (!target) return;
+    if (!document.getElementById('contact')) return;
     e.preventDefault();
-    // Close mobile drawer if open so body scroll lock is released first
+    // Close mobile drawer first — its body.menu-open class has
+    // overflow:hidden and blocks scroll until the class is removed.
     var ham = document.querySelector('.nav-hamburger');
     if (ham && ham.getAttribute('aria-expanded') === 'true') ham.click();
-    requestAnimationFrame(function () {
-      target.scrollIntoView({ behavior: 'auto', block: 'start' });
-      // Some in-app browsers ignore scrollIntoView; double-tap with scrollTo
-      var rect = target.getBoundingClientRect();
-      var marginTop = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-      window.scrollTo({
-        top: window.scrollY + rect.top - marginTop,
-        behavior: 'auto',
-      });
-    });
+    // Try immediately, then again after layout settles, then again
+    // a bit later in case a parallax handler or anything else moved us.
+    scrollToContact();
+    setTimeout(scrollToContact, 50);
+    setTimeout(scrollToContact, 250);
   });
 })();

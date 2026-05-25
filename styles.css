@@ -38,7 +38,9 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+/* Instant anchor jumps — smooth scrolling gets interrupted in in-app
+   browsers (Instagram WebView, FB) and on iOS when the toolbar shows. */
+html { scroll-behavior: auto; }
 
 body {
   font-family: var(--font);
