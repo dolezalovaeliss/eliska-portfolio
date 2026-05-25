@@ -1089,6 +1089,13 @@ body.icons-customized .desktop-icon {
   .work-list { grid-template-columns: 1fr; }
 }
 
+/* "All work" CTA below the tiles, left-aligned. */
+.work-list-action {
+  margin-top: clamp(40px, 5vw, 72px);
+  display: flex;
+  justify-content: flex-start;
+}
+
 .work-tile {
   display: block;
   text-decoration: none;
