@@ -2145,9 +2145,6 @@ body.icons-customized .desktop-icon {
    shorthand-padding rule so it actually wins the cascade. */
 @media (max-width: 900px) {
   .site-footer { padding-top: 32px; padding-bottom: 220px; }
-  /* Trim h2 margin-bottom so the contact list lands above the fold when
-     the user jumps to #contact on a short mobile viewport. */
-  .site-footer h2 { margin-bottom: 24px; }
 }
 @media (min-width: 901px) {
   /* Tight padding-bottom: only enough room above the wordmark crop so
@@ -2359,6 +2356,11 @@ body.fg-light .site-footer-eyebrow { color: rgba(242, 237, 220, 0.7); }
   margin-bottom: 56px;
   max-width: 1000px;
   font-weight: 500;
+}
+/* Mobile: tighter gap between headline and CTA so the contact list
+   below is reachable above the fold on short viewports. */
+@media (max-width: 900px) {
+  .site-footer h2 { margin-bottom: 24px; }
 }
 body.fg-light .site-footer h2 { color: #F2EDDC; }
 
