@@ -1896,6 +1896,18 @@ body.icons-customized .desktop-icon {
   align-self: end;
 }
 
+@media (max-width: 700px) {
+  .cv-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .cv-item-date {
+    order: -1;
+    align-self: start;
+    white-space: normal;
+  }
+}
+
 /* Staggered line-reveal animation when the cv-block scrolls into view */
 .has-anims .cv-block .cv-item {
   opacity: 0;
