@@ -52,7 +52,7 @@
           <div class="links">
             <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
-            <a href="#">CV ↗</a>
+            <a href="#" class="cv-trigger" id="cv-link">CV ↗</a>
           </div>
         </div>
 
@@ -73,6 +73,12 @@
         <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
+  </div>
+
+  <!-- CV fullscreen lightbox -->
+  <div class="cv-overlay" id="cv-overlay" role="dialog" aria-modal="true" aria-label="Curriculum Vitae">
+    <button class="cv-close" id="cv-close" aria-label="Zavřít">✕</button>
+    <img src="images/cv.png" alt="Eliška Doležalová — CV" />
   </div>
 
   <script src="reveal.js"></script>

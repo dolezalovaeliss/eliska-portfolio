@@ -101,4 +101,28 @@
       a.addEventListener('click', function () { setOpen(false); });
     });
   }
+
+  // ---- CV fullscreen lightbox ----
+  var cvOverlay = document.getElementById('cv-overlay');
+  if (cvOverlay) {
+    var cvLink = document.getElementById('cv-link');
+    var cvClose = document.getElementById('cv-close');
+    var openCV = function (e) {
+      if (e) e.preventDefault();
+      cvOverlay.classList.add('open');
+      document.body.classList.add('cv-open');
+    };
+    var closeCV = function () {
+      cvOverlay.classList.remove('open');
+      document.body.classList.remove('cv-open');
+    };
+    if (cvLink) cvLink.addEventListener('click', openCV);
+    if (cvClose) cvClose.addEventListener('click', closeCV);
+    cvOverlay.addEventListener('click', function (e) {
+      if (e.target === cvOverlay) closeCV();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && cvOverlay.classList.contains('open')) closeCV();
+    });
+  }
 })();
