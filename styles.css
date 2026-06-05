@@ -64,7 +64,7 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   transition: opacity 0.2s ease, color 0.2s ease;
 }
-.nav a:hover { opacity: 0.55; }
+.nav a:hover { color: var(--pink); }
 .nav a.right { text-align: right; }
 .nav a.active {
   color: var(--ink);
@@ -371,7 +371,7 @@ main.body {
   color: var(--ink);
   transition: opacity 0.2s ease;
 }
-.contact-col .links a:hover { opacity: 0.6; }
+.contact-col .links a:hover { color: var(--pink); }
 .contact-yellow-divider { height: 1px; background: rgba(29, 29, 29, 0.18); margin-bottom: 22px; }
 
 /* ---------- CV FULLSCREEN LIGHTBOX ---------- */
@@ -447,7 +447,7 @@ body.cv-open { overflow: hidden; }
   margin-bottom: 40px;
   transition: opacity 0.2s ease;
 }
-.case-back:hover { opacity: 0.55; }
+.case-back:hover { color: var(--pink); }
 .case-title {
   font-size: clamp(40px, 6vw, 72px);
   font-weight: 400;
@@ -499,6 +499,7 @@ body.cv-open { overflow: hidden; }
   transition: color 0.25s ease;
 }
 .case-index a.active { color: var(--ink); }
+.case-index a:hover { color: var(--pink); }
 
 .case-main { display: flex; flex-direction: column; gap: 0; min-width: 0; }
 .case-section {
@@ -629,7 +630,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   color: #787878;
   transition: color 0.2s ease;
 }
-.fcol .links a:hover { color: var(--ink); }
+.fcol .links a:hover { color: var(--pink); }
 
 .footer-divider { height: 1px; background: rgba(52, 52, 52, 0.16); margin-top: 146px; }
 .bottom-bar {
@@ -641,7 +642,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   color: rgba(39, 39, 39, 0.7);
 }
 .bottom-bar.on-yellow { color: rgba(29, 29, 29, 0.7); margin-top: 0; }
-.bottom-bar a:hover { color: var(--ink); }
+.bottom-bar a:hover { color: var(--pink); }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1100px) {
