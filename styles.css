@@ -417,6 +417,24 @@ main.body {
   transition: background 0.2s ease;
 }
 .cv-close:hover { background: rgba(255, 255, 255, 0.26); }
+.cv-download {
+  position: fixed;
+  top: 18px;
+  left: 22px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: -0.1px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.cv-download:hover { background: rgba(255, 255, 255, 0.26); }
 body.cv-open { overflow: hidden; }
 
 /* ---------- CASE STUDY ---------- */
