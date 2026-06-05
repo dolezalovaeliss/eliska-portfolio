@@ -1,549 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('has-anims');</script>
-  <title>Work, Eliska Dolezalova</title>
-  <meta name="description" content="Selected case studies and recent projects by Eliska Dolezalova, embedded product designer based in Prague.">
-  <link rel="canonical" href="https://elisdolezalova.cz/work.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elisdolezalova.cz/work.html">
-  <meta property="og:title" content="Work, Eliska Dolezalova">
-  <meta property="og:description" content="Selected case studies and recent projects by Eliska Dolezalova, embedded product designer based in Prague.">
-  <meta property="og:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta property="og:image:width" content="960">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="cs_CZ">
-  <meta property="og:site_name" content="Eliska Dolezalova">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Work, Eliska Dolezalova">
-  <meta name="twitter:description" content="Selected case studies and recent projects by Eliska Dolezalova, embedded product designer based in Prague.">
-  <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta name="twitter:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=61">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work — Eliška Doležalová</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress-bar"></div>
-  </div>
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="bar">
+      <nav class="nav">
+        <a href="index.html" class="wordmark">Eliška<br />Doležalová</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">ABOUT ME</a>
+          <a href="work.html" class="active">WORK</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <img src="images/logo-ed.svg?v=6" alt="Eliška Doležalová" class="brand-logo">
+  <!-- HERO -->
+  <header class="hero hero--work">
+    <div class="wrap">
+      <h1 class="work-title reveal" data-reveal-now>Selected work — product,<br />brand &amp; web.</h1>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <main class="work-body wrap">
+    <div class="work-grid">
+      <a class="work-tile reveal" href="asset-layout-editor.html">
+        <div class="work-tile-card"><img src="images/projects/asset-layout-editor/cover.png" alt="Asset Layout Editor" loading="lazy" /></div>
+        <h3>Asset Layout Editor</h3>
+        <div class="work-tile-meta">Ataccama · Metadata Model · 2026</div>
       </a>
-      <ul class="nav-links">
-        <li><a href="work.html" aria-current="page" data-i18n="nav.work">Work</a></li>
-        <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      </ul>
-      <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="active">EN</button>
-          <span class="lang-toggle-sep">·</span>
-          <button type="button" data-lang="cs">CS</button>
+      <a class="work-tile reveal" href="project-esens.html">
+        <div class="work-tile-card"><img src="images/projects/esens/cover.jpg" alt="Esens Letná" loading="lazy" /></div>
+        <h3>Esens Letná</h3>
+        <div class="work-tile-meta">Esens Letná · Web · Typography · 2026</div>
+      </a>
+      <a class="work-tile reveal" href="project-dluhopisomat.html">
+        <div class="work-tile-card"><img src="images/projects/dluhopisomat/cover.jpg" alt="Dluhopisomat" loading="lazy" /></div>
+        <h3>Dluhopisomat</h3>
+        <div class="work-tile-meta">Dluhopisomat · Brand · Web · 2026</div>
+      </a>
+      <a class="work-tile reveal" href="import-metadata.html">
+        <div class="work-tile-card"><img src="images/projects/import-metadata/cover.png" alt="Import metadata to platform" loading="lazy" /></div>
+        <h3>Import metadata to platform</h3>
+        <div class="work-tile-meta">Ataccama · Data Catalog · 2026</div>
+      </a>
+      <a class="work-tile reveal" href="project-prague-pride.html">
+        <div class="work-tile-card"><img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" loading="lazy" /></div>
+        <h3>Prague Pride Festival</h3>
+        <div class="work-tile-meta">Prague Pride · Art Direction · 2021–2025</div>
+      </a>
+      <a class="work-tile reveal" href="project-rezidence.html">
+        <div class="work-tile-card"><img src="images/projects/rezidence/cover.png" alt="Rezidence" loading="lazy" /></div>
+        <h3>Rezidence</h3>
+        <div class="work-tile-meta">Residential · Web · UX/UI · 2024</div>
+      </a>
+      <a class="work-tile reveal" href="project-geomap.html">
+        <div class="work-tile-card"><img src="images/projects/geomap/cover.png" alt="Geomap" loading="lazy" /></div>
+        <h3>Geomap</h3>
+        <div class="work-tile-meta">Apadore Studio · Web · UX/UI · 2025</div>
+      </a>
+      <a class="work-tile reveal" href="project-elspace.html">
+        <div class="work-tile-card"><img src="images/projects/elspace/cover.png" alt="Elspace" loading="lazy" /></div>
+        <h3>Elspace</h3>
+        <div class="work-tile-meta">Elspace · Web · UX/UI · 2023</div>
+      </a>
+      <a class="work-tile reveal" href="project-1webit.html">
+        <div class="work-tile-card"><img src="images/projects/1webit/cover.png" alt="1. Web IT" loading="lazy" /></div>
+        <h3>1. Web IT</h3>
+        <div class="work-tile-meta">1. Web IT · Brand · Web · 2025</div>
+      </a>
+      <!-- Hidden: Pandaride
+      <a class="work-tile reveal" href="project-pandaride.html">
+        <div class="work-tile-card"><img src="images/projects/pandaride/cover.png" alt="Pandaride" loading="lazy" /></div>
+        <h3>Pandaride</h3>
+        <div class="work-tile-meta">Panda Ride · App · UX/UI · 2024</div>
+      </a>
+      -->
+      <a class="work-tile reveal" href="project-odstrcil.html">
+        <div class="work-tile-card"><img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
+        <h3>Odstrčil, Craft Jewellery</h3>
+        <div class="work-tile-meta">Odstrčil · Web · UX/UI · 2025</div>
+      </a>
+      <a class="work-tile reveal" href="project-duhova-stuzka.html">
+        <div class="work-tile-card"><img src="images/projects/duhova-stuzka/cover.png" alt="Duhová stužka" loading="lazy" /></div>
+        <h3>Duhová stužka</h3>
+        <div class="work-tile-meta">Prague Pride · Brand · 2024</div>
+      </a>
+      <a class="work-tile reveal" href="project-prague-pride-merch.html">
+        <div class="work-tile-card"><img src="images/projects/prague-pride-merch/cover.png" alt="Prague Pride Merch" loading="lazy" /></div>
+        <h3>Prague Pride Merch</h3>
+        <div class="work-tile-meta">Prague Pride · Merch · 2025</div>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div class="footer-name">Eliška<br />Doležalová</div>
+        <img class="sun" src="sun.svg" alt="" aria-hidden="true" />
+      </div>
+
+      <div class="footer-cols reveal">
+        <div class="fcol">
+          <h4>Navigation</h4>
+          <div class="links">
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="index.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
         </div>
-        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
-        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile nav drawer -->
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <ul class="mobile-nav-links">
-      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
-      <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-      <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <h1 data-anim><span data-i18n="work.page.headline.main">Selected case studies</span> <span class="muted-text scroll-words" data-i18n="work.page.headline.muted">and recent projects.</span></h1>
-      <p class="lead" data-anim data-anim-delay="1" data-i18n="work.page.intro">A mix of product UX deep-dives from my Ataccama work, plus brand and web projects from freelance engagements. More case studies will land as projects wrap.</p>
-    </div>
-  </section>
-
-  <!-- WORK LIST -->
-  <section class="work-page-list">
-    <div class="container">
-
-      <div class="work-filter" data-anim role="group" aria-label="Filter by category">
-        <button type="button" data-filter="all" class="active" data-i18n="filter.all">All</button>
-        <button type="button" data-filter="product" data-i18n="filter.product">Product Design</button>
-        <button type="button" data-filter="brand" data-i18n="filter.brand">Brand Design</button>
-        <button type="button" data-filter="art" data-i18n="filter.art">Art Direction</button>
-        <button type="button" data-filter="web" data-i18n="filter.web">Web Design</button>
-      </div>
-
-      <div class="work-list">
-
-        <a href="asset-layout-editor.html" class="work-tile" data-category="product" data-anim>
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/asset-layout-editor/cover.png" alt="Asset Layout Editor" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
+        <div class="fcol" aria-hidden="true"></div>
+        <div class="fcol">
+          <h4>Contact</h4>
+          <div class="links">
+            <a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a>
+            <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
-          <div class="work-tile-meta" data-i18n="work.tile2.meta">Ataccama · Metadata Model · 2026</div>
-          <h3 data-i18n="work.tile2.title">Asset Layout Editor</h3>
-        </a>
-
-        <a href="project-esens.html" class="work-tile" data-category="web" data-anim data-anim-delay="1">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/esens/cover.jpg" alt="Esens Letná" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
+        </div>
+        <div class="fcol">
+          <h4>Based in</h4>
+          <div class="links">
+            <span>Prague,</span>
+            <span>Czech Republic</span>
           </div>
-          <div class="work-tile-meta" data-i18n="tile.esens.meta">Esens Letná · Web · Typography · 2026</div>
-          <h3>Esens Letná</h3>
-        </a>
-
-        <a href="project-dluhopisomat.html" class="work-tile" data-category="brand" data-anim data-anim-delay="2">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/dluhopisomat/cover.jpg" alt="Dluhopisomat" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.dluho.meta">Dluhopisomat · Brand · Web · 2026</div>
-          <h3>Dluhopisomat</h3>
-        </a>
-
-        <a href="import-metadata.html" class="work-tile" data-category="product" data-anim>
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/import-metadata/cover.png" alt="Import metadata to platform" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="work.tile1.meta">Ataccama · Data Catalog · 2026</div>
-          <h3 data-i18n="work.tile1.title">Import metadata to platform</h3>
-        </a>
-
-        <a href="project-prague-pride.html" class="work-tile" data-category="art" data-anim data-anim-delay="1">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.pride.meta">Prague Pride · Art Direction · 2021–2025</div>
-          <h3 data-i18n="tile.pride.title">Prague Pride Festival</h3>
-        </a>
-
-        <a href="project-rezidence.html" class="work-tile" data-category="web" data-anim data-anim-delay="2">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/rezidence/cover.png" alt="Rezidence" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.rez.meta">Residential · Web · UX/UI · 2024</div>
-          <h3>Rezidence</h3>
-        </a>
-
-        <a href="project-geomap.html" class="work-tile" data-category="web" data-anim>
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/geomap/cover.png" alt="Geomap" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.geomap.meta">Apadore Studio · Web · UX/UI · 2025</div>
-          <h3>Geomap</h3>
-        </a>
-
-        <a href="project-elspace.html" class="work-tile" data-category="web" data-anim data-anim-delay="1">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/elspace/cover.png" alt="Elspace" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.elspace.meta">Elspace · Web · UX/UI · 2023</div>
-          <h3>Elspace</h3>
-        </a>
-
-        <a href="project-1webit.html" class="work-tile" data-category="brand" data-anim data-anim-delay="2">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/1webit/cover.png" alt="1. Web IT" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.webit.meta">1. Web IT · Brand · Web · 2025</div>
-          <h3>1. Web IT</h3>
-        </a>
-
-        <a href="project-pandaride.html" class="work-tile" data-category="product" data-anim>
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/pandaride/cover.png" alt="Pandaride app" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.panda.meta">Panda Ride · App · UX/UI · 2024</div>
-          <h3>Pandaride</h3>
-        </a>
-
-        <a href="project-odstrcil.html" class="work-tile" data-category="web" data-anim data-anim-delay="1">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/odstrcil/cover.png" alt="Odstrčil Craft Jewellery" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.odstrcil.meta">Odstrčil · Web · UX/UI · 2025</div>
-          <h3 data-i18n="tile.odstrcil.title">Odstrčil, Craft Jewellery</h3>
-        </a>
-
-        <a href="project-duhova-stuzka.html" class="work-tile" data-category="brand" data-anim data-anim-delay="2">
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/duhova-stuzka/cover.png" alt="Duhová stužka" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.duhova.meta">Prague Pride · Brand · 2024</div>
-          <h3>Duhová stužka</h3>
-        </a>
-
-        <a href="project-prague-pride-merch.html" class="work-tile" data-category="brand" data-anim>
-          <div class="work-tile-card variant-image">
-            <img src="images/projects/prague-pride-merch/cover.png" alt="Prague Pride Merch" loading="lazy">
-            <span class="work-tile-arrow">↗</span>
-          </div>
-          <div class="work-tile-meta" data-i18n="tile.merch.meta">Prague Pride · Merch · 2025</div>
-          <h3 data-i18n="tile.merch.title">Prague Pride Merch</h3>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SITE FOOTER -->
-  <section class="site-footer" data-bg="#0A0A0A" data-fg="light">
-
-    <!-- Monogram watermark in the background -->
-    <img src="images/logo-ed.svg?v=6" alt="" class="footer-watermark" aria-hidden="true">
-
-    <div class="footer-top">
-
-      <div class="site-footer-headline">
-        <h2 data-anim data-anim-delay="1">
-          <span data-i18n="footer.headline.main">Let's start</span>
-          <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
-        </h2>
-        <div class="site-footer-cta" data-anim data-anim-delay="2">
-          <a href="mailto:hello@eliskadolezalova.cz" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
         </div>
       </div>
 
-      <div class="footer-col-right" data-anim data-anim-delay="2">
-        <ul class="footer-contact-list" id="contact">
-          <li><a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a></li>
-          <li><a href="https://www.linkedin.com/in/eli%C5%A1ka-dole%C5%BEalov%C3%A1-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        </ul>
+      <div class="footer-divider"></div>
+      <div class="bottom-bar">
+        <span>2026 Ing. Eliška Doležalová</span>
+        <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-
     </div>
+  </footer>
 
-  </section>
-
-  <script>
-    (function () {
-      // ============ Translations (subset for work page) ============
-      var translations = {
-        en: {
-          'nav.work': 'Work',
-          'nav.services': 'What I do',
-          'nav.about': 'About me',
-          'nav.contact': 'Contact',
-          'work.page.eyebrow': 'All work',
-          'work.page.headline.main': 'Selected case studies',
-          'work.page.headline.muted': 'and recent projects.',
-          'work.page.intro': 'A mix of product UX deep-dives from my Ataccama work, plus brand and web projects from freelance engagements. More case studies will land as projects wrap.',
-          'work.tile1.meta': 'Ataccama · Data Catalog · 2026',
-          'work.tile1.title': 'Import metadata to platform',
-          'work.tile2.meta': 'Ataccama · Metadata Model · 2026',
-          'work.tile2.title': 'Asset Layout Editor',
-          'tile.esens.meta': 'Esens Letná · Web · Typography · 2026',
-          'tile.dluho.meta': 'Dluhopisomat · Brand · Web · 2026',
-          'tile.pride.meta': 'Prague Pride · Art Direction · 2021–2025',
-          'tile.pride.title': 'Prague Pride Festival',
-          'tile.rez.meta': 'Residential · Web · UX/UI · 2024',
-          'tile.geomap.meta': 'Apadore Studio · Web · UX/UI · 2025',
-          'tile.elspace.meta': 'Elspace · Web · UX/UI · 2023',
-          'tile.webit.meta': '1. Web IT · Brand · Web · 2025',
-          'tile.panda.meta': 'Panda Ride · App · UX/UI · 2024',
-          'tile.odstrcil.meta': 'Odstrčil · Web · UX/UI · 2025',
-          'tile.odstrcil.title': 'Odstrčil, Craft Jewellery',
-          'tile.duhova.meta': 'Prague Pride · Brand · 2024',
-          'tile.merch.meta': 'Prague Pride · Merch · 2025',
-          'tile.merch.title': 'Prague Pride Merch',
-          'filter.all': 'All',
-          'filter.product': 'Product Design',
-          'filter.brand': 'Brand Design',
-          'filter.art': 'Art Direction',
-          'filter.web': 'Web Design',
-          'footer.eyebrow': 'Contact',
-          'footer.headline.main': "Let's start",
-          'footer.headline.muted': 'creating something good together.',
-          'footer.cta.email': "Let's talk",
-          'footer.col.contact': 'Contact',
-          'footer.col.contact.cta': 'Get in touch ↗',
-          'footer.col.connect': 'Connect',
-          'footer.col.email': 'Email ↗',
-          'footer.col.navigate': 'Navigate',
-          'footer.strip.copyright': '© 2026 Eliska Dolezalova',
-          'footer.strip.location': 'Prague, Czech Republic',
-          'footer.strip.status': 'Available 2026'
-        },
-        cs: {
-          'nav.work': 'Práce',
-          'nav.services': 'Moje služby',
-          'nav.about': 'O mně',
-          'nav.contact': 'Kontakt',
-          'work.page.eyebrow': 'Všechny projekty',
-          'work.page.headline.main': 'Vybrané případové studie',
-          'work.page.headline.muted': 'a aktuální projekty.',
-          'work.page.intro': 'Mix produktových UX projektů z Ataccamy plus brand a web projekty z freelance spoluprací. Další případové studie přibudou, jakmile se projekty uzavřou.',
-          'work.tile1.meta': 'Ataccama · Data Catalog · 2026',
-          'work.tile1.title': 'Import metadat do platformy',
-          'work.tile2.meta': 'Ataccama · Metadata Model · 2026',
-          'work.tile2.title': 'Asset Layout Editor',
-          'tile.esens.meta': 'Esens Letná · Web · Typografie · 2026',
-          'tile.dluho.meta': 'Dluhopisomat · Brand · Web · 2026',
-          'tile.pride.meta': 'Prague Pride · Art direction · 2021–2025',
-          'tile.pride.title': 'Festival Prague Pride',
-          'tile.rez.meta': 'Rezidenční · Web · UX/UI · 2024',
-          'tile.geomap.meta': 'Apadore Studio · Web · UX/UI · 2025',
-          'tile.elspace.meta': 'Elspace · Web · UX/UI · 2023',
-          'tile.webit.meta': '1. Web IT · Brand · Web · 2025',
-          'tile.panda.meta': 'Panda Ride · App · UX/UI · 2024',
-          'tile.odstrcil.meta': 'Odstrčil · Web · UX/UI · 2025',
-          'tile.odstrcil.title': 'Odstrčil, Craft Jewellery',
-          'tile.duhova.meta': 'Prague Pride · Brand · 2024',
-          'tile.merch.meta': 'Prague Pride · Merch · 2025',
-          'tile.merch.title': 'Prague Pride Merch',
-          'filter.all': 'Vše',
-          'filter.product': 'Produktový design',
-          'filter.brand': 'Brand design',
-          'filter.art': 'Art direction',
-          'filter.web': 'Webdesign',
-          'footer.eyebrow': 'Kontakt',
-          'footer.headline.main': 'Pojďme společně',
-          'footer.headline.muted': 'rozhýbat váš produkt.',
-          'footer.cta.email': 'Napište mi',
-          'footer.col.contact': 'Kontakt',
-          'footer.col.contact.cta': 'Napsat e-mail ↗',
-          'footer.col.connect': 'Najdete mě',
-          'footer.col.email': 'E-mail ↗',
-          'footer.col.navigate': 'Stránky',
-          'footer.strip.copyright': '© 2026 Eliška Doležalová',
-          'footer.strip.location': 'Praha, Česká republika',
-          'footer.strip.status': 'Beru zakázky pro 2026'
-        }
-      };
-
-      var currentLang = localStorage.getItem('lang') || 'en';
-
-      function applyLanguage(lang) {
-        currentLang = lang;
-        var dict = translations[lang] || translations.en;
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n');
-          if (dict[key] !== undefined) el.textContent = dict[key];
-        });
-        document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
-        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-        if (typeof rebuildScrollWords === 'function') rebuildScrollWords();
-      }
-
-      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          applyLanguage(btn.getAttribute('data-lang'));
-        });
-      });
-      applyLanguage(currentLang);
-
-      // ============ Fade-up reveal on scroll ============
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('[data-anim]').forEach(function (el) {
-          observer.observe(el);
-        });
-      } else {
-        document.querySelectorAll('[data-anim]').forEach(function (el) {
-          el.classList.add('in-view');
-        });
-      }
-
-      // ============ Scroll-tied word color ============
-      var wordContainers = [];
-      function rebuildScrollWords() {
-        wordContainers = [];
-        document.querySelectorAll('.scroll-words').forEach(function (el) {
-          var text = el.textContent.trim();
-          var words = text.split(/\s+/);
-          el.innerHTML = words.map(function (w) {
-            return '<span class="word">' + w + '</span>';
-          }).join(' ');
-          var wordEls = el.querySelectorAll('.word');
-          var rect = el.getBoundingClientRect();
-          var vh = window.innerHeight;
-          var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
-          var inFooterDark = el.closest('.site-footer') !== null;
-
-          var inServicesDark = el.closest('#services') !== null;
-
-          el.classList.add('scroll-driven');
-
-          var fromColor = { r: 200, g: 200, b: 200 };
-
-          var toColor   = { r: 10,  g: 10,  b: 10  };
-          wordContainers.push({
-            el: el, words: wordEls,
-            startRatio: inViewOnLoad ? 0.65 : 1.20,
-            endRatio:   inViewOnLoad ? -0.35 : -0.20,
-            fromColor: fromColor, toColor: toColor, inFooterDark: inFooterDark, inServicesDark: inServicesDark
-          });
-        });
-      }
-      rebuildScrollWords();
-
-      var wordTicking = false;
-      function updateScrollWords() {
-        if (wordTicking) return;
-        wordTicking = true;
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          wordContainers.forEach(function (group) {
-            var bodyIsDark = document.body.classList.contains('fg-light');
-            var rect = group.el.getBoundingClientRect();
-            var elementCenter = rect.top + rect.height / 2;
-            var startC = vh * group.startRatio;
-            var endC = vh * group.endRatio;
-            var globalProgress = (startC - elementCenter) / (startC - endC);
-            if (globalProgress < 0) globalProgress = 0;
-            else if (globalProgress > 1) globalProgress = 1;
-            var fromC, toC;
-            if (bodyIsDark && group.inServicesDark) {
-              fromC = { r: 110, g: 110, b: 110 };
-              toC   = { r: 242, g: 237, b: 220 };
-            } else if (bodyIsDark && group.inFooterDark) {
-              fromC = { r: 237, g: 164, b: 181 };
-              toC   = { r: 255, g: 255, b: 255 };
-            } else {
-              fromC = { r: 200, g: 200, b: 200 };
-              toC   = { r: 10,  g: 10,  b: 10  };
-            }
-
-            var n = group.words.length;
-            var stretch = 1.6;
-            var halfRange = (stretch / n) / 2;
-            for (var i = 0; i < n; i++) {
-              var center = (i + 0.5) / n;
-              var wStart = center - halfRange;
-              var wEnd = center + halfRange;
-              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
-              if (wProgress < 0) wProgress = 0;
-              else if (wProgress > 1) wProgress = 1;
-              var r = Math.round(fromC.r + (toC.r - fromC.r) * wProgress);
-              var g = Math.round(fromC.g + (toC.g - fromC.g) * wProgress);
-              var b = Math.round(fromC.b + (toC.b - fromC.b) * wProgress);
-              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
-            }
-          });
-          wordTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateScrollWords, { passive: true });
-      window.addEventListener('resize', updateScrollWords, { passive: true });
-      updateScrollWords();
-
-      // ============ Scroll progress bar ============
-      var progressBar = document.querySelector('.scroll-progress-bar');
-      var progressTicking = false;
-      function updateProgress() {
-        if (progressTicking) return;
-        progressTicking = true;
-        requestAnimationFrame(function () {
-          if (progressBar) {
-            var max = document.documentElement.scrollHeight - window.innerHeight;
-            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
-            progressBar.style.width = p + '%';
-          }
-          progressTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      window.addEventListener('resize', updateProgress, { passive: true });
-      updateProgress();
-
-      // ============ Work category filter ============
-      var filterButtons = document.querySelectorAll('.work-filter button');
-      var workTiles = document.querySelectorAll('.work-tile');
-
-      filterButtons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var filter = btn.getAttribute('data-filter');
-          filterButtons.forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          workTiles.forEach(function (tile) {
-            var cats = (tile.getAttribute('data-category') || '').split(/\s+/);
-            var match = filter === 'all' || cats.indexOf(filter) !== -1;
-            tile.classList.toggle('is-hidden', !match);
-          });
-        });
-      });
-
-      // ============ Nav pill on scroll ============
-      var nav = document.querySelector('.nav');
-      if (nav) {
-        var navTicking = false;
-        function checkNavScroll() {
-          if (navTicking) return;
-          navTicking = true;
-          requestAnimationFrame(function () {
-            if (window.scrollY > 30) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-            navTicking = false;
-          });
-        }
-        window.addEventListener('scroll', checkNavScroll, { passive: true });
-        checkNavScroll();
-      }
-
-      // Mobile nav drawer toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var mobileNav = document.querySelector('.mobile-nav');
-      if (hamburger && mobileNav) {
-        function toggleMenu(open) {
-          hamburger.setAttribute('aria-expanded', String(open));
-          mobileNav.classList.toggle('open', open);
-          mobileNav.setAttribute('aria-hidden', String(!open));
-          document.body.classList.toggle('menu-open', open);
-        }
-        hamburger.addEventListener('click', function () {
-          toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
-        });
-        mobileNav.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () { toggleMenu(false); });
-        });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
-        });
-      }
-    })();
-  </script>
-
-  <script src="scroll-effects.js?v=3" defer></script>
+  <script src="reveal.js"></script>
 </body>
 </html>

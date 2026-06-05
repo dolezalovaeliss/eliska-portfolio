@@ -1,685 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('has-anims');</script>
-  <title>Import Metadata to Platform, Eliska Dolezalova</title>
-  <meta name="description" content="Case study: redesigning the metadata import flow at Ataccama.">
-  <link rel="canonical" href="https://elisdolezalova.cz/import-metadata.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elisdolezalova.cz/import-metadata.html">
-  <meta property="og:title" content="Import Metadata to Platform, Eliska Dolezalova">
-  <meta property="og:description" content="Case study: redesigning the metadata import flow at Ataccama.">
-  <meta property="og:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta property="og:image:width" content="960">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="cs_CZ">
-  <meta property="og:site_name" content="Eliska Dolezalova">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Import Metadata to Platform, Eliska Dolezalova">
-  <meta name="twitter:description" content="Case study: redesigning the metadata import flow at Ataccama.">
-  <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta name="twitter:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=61">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Import metadata to platform — Eliška Doležalová</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <img src="images/logo-ed.svg?v=6" alt="Eliška Doležalová" class="brand-logo">
-      </a>
-      <ul class="nav-links">
-        <li><a href="work.html" data-i18n="nav.work">Work</a></li>
-        <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      </ul>
-      <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="active">EN</button>
-          <span class="lang-toggle-sep">·</span>
-          <button type="button" data-lang="cs">CS</button>
+  <header class="site-header" id="site-header">
+    <div class="bar">
+      <nav class="nav">
+        <a href="index.html" class="wordmark">Eliška<br />Doležalová</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">ABOUT ME</a>
+          <a href="work.html" class="active">WORK</a>
+          <a href="contact.html">CONTACT</a>
         </div>
-        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
-        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      </nav>
     </div>
-  </nav>
-
-  <!-- Mobile nav drawer -->
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <ul class="mobile-nav-links">
-      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
-      <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-      <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-  </div>
+  </header>
 
   <!-- HERO -->
-  <section class="case-hero">
-    <div class="container">
-      <div class="case-hero-tags" data-anim>
-        <span data-i18n="proj.tag.casestudy">Case study</span>
-        <span data-i18n="proj.tag.catalog">Data Catalog</span>
-        <span data-i18n="proj.tag.atacc">Ataccama</span>
+  <header class="case-hero">
+    <div class="wrap">
+      <a href="work.html" class="case-back">← Back to work</a>
+      <h1 class="case-title">Import metadata to platform</h1>
+      <p class="case-subtitle">From a six-click, source-by-source journey to one shared surface.</p>
+      <div class="case-meta">
+        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer (intern) at Ataccama</div></div>
+        <div class="case-meta-item"><div class="k">Timeline</div><div class="v">~3 weeks</div></div>
+        <div class="case-meta-item"><div class="k">Surface</div><div class="v">Ataccama ONE · Data Catalog</div></div>
+        <div class="case-meta-item"><div class="k">Output</div><div class="v">Figma · Engineering handoff</div></div>
       </div>
-      <h1 data-anim data-anim-delay="1">
-        <span data-i18n="proj.title">Import metadata to platform.</span>
-        <span class="muted-text scroll-words" data-i18n="proj.tagline">From a six-click, source-by-source journey to one shared surface.</span>
-      </h1>
     </div>
-  </section>
-
-  <!-- META -->
-  <section class="case-meta">
-    <dl class="case-meta-grid">
-      <div class="case-meta-item" data-anim>
-        <dt data-i18n="meta.role">Role</dt>
-        <dd data-i18n="meta.role.val">Product designer (intern) at Ataccama</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="1">
-        <dt data-i18n="meta.timeline">Timeline</dt>
-        <dd data-i18n="meta.timeline.val">~3 weeks</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="2">
-        <dt data-i18n="meta.surface">Surface</dt>
-        <dd data-i18n="meta.surface.val">Ataccama ONE · Data Catalog</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="3">
-        <dt data-i18n="meta.output">Output</dt>
-        <dd data-i18n="meta.output.val">Figma · Engineering handoff</dd>
-      </div>
-    </dl>
-  </section>
+  </header>
 
   <!-- BODY -->
-  <aside class="case-toc" aria-label="Case study sections">
-    <div class="case-toc-label" data-i18n="toc.label">On this page</div>
-    <ul>
-      <li><a href="#context" data-i18n="toc.context">Context</a></li>
-      <li><a href="#problem" data-i18n="toc.problem">The problem</a></li>
-      <li><a href="#before-after" data-i18n="toc.beforeafter">Before / after</a></li>
-      <li><a href="#what-i-designed" data-i18n="toc.designed">What I designed</a></li>
-      <li><a href="#the-four-moves" data-i18n="toc.moves">The four moves</a></li>
-      <li><a href="#process" data-i18n="toc.process">Process</a></li>
-      <li><a href="#what-i-learned" data-i18n="toc.learned">What I learned</a></li>
-    </ul>
-  </aside>
+  <main class="case-body wrap">
+    <div class="case-cover reveal"><img src="images/projects/import-metadata/cover.png" alt="Import metadata to platform" /></div>
 
-  <section class="case-body">
-    <div class="container">
+    <div class="case-layout">
+      <aside class="case-index">
+        <a href="#context" class="active">Context</a>
+        <a href="#problem">The problem</a>
+        <a href="#before-after">Before / after</a>
+        <a href="#designed">What I designed</a>
+        <a href="#moves">The four moves</a>
+        <a href="#process">Process</a>
+        <a href="#learned">What I learned</a>
+      </aside>
 
-      <div class="case-section" data-anim id="context">
-        <div class="section-label" data-i18n="lbl.context">Context</div>
-        <h2 data-i18n="ctx.h2">The Data Catalog is where it all begins.</h2>
-        <p data-i18n-html="ctx.p1">Ataccama ONE is an enterprise data governance platform. The <strong>Data Catalog</strong> is where data stewards, analysts, and consultants discover what data the organization owns. Before they can govern data, they need to import its metadata, schema, types, structure, from a connected database.</p>
-        <p data-i18n="ctx.p2">It's a high-frequency action performed by the same handful of people, over and over. It was also one of the most fragmented flows in the product.</p>
-      </div>
+      <div class="case-main">
+        <section id="context" class="case-section reveal">
+          <div class="section-label">CONTEXT</div>
+          <h3 class="case-headline">The Data Catalog is where it all begins.</h3>
+          <p>Ataccama ONE is an enterprise data governance platform. The Data Catalog is where data stewards, analysts, and consultants discover what data the organization owns. Before they can govern data, they need to import its metadata, schema, types, structure, from a connected database.</p>
+          <p>It&rsquo;s a high-frequency action performed by the same handful of people, over and over. It was also one of the most fragmented flows in the product.</p>
+        </section>
 
-      <div class="case-section" data-anim id="problem">
-        <div class="section-label" data-i18n="lbl.problem">The problem</div>
-        <h2 data-i18n="problem.h2">Six clicks. One source at a time. Zero visibility.</h2>
-        <p data-i18n="problem.p1">To import metadata, a user had to leave the catalog, navigate to a source, open its Connections tab, expand a tree, select tables, and click Import. The flow was technically possible, but forced users into mental bookkeeping the product should have done for them.</p>
-      </div>
+        <section id="problem" class="case-section reveal">
+          <div class="section-label">THE PROBLEM</div>
+          <h3 class="case-headline">Six clicks. One source at a time. Zero visibility.</h3>
+          <p>To import metadata, a user had to leave the catalog, navigate to a source, open its Connections tab, expand a tree, select tables, and click Import. The flow was technically possible, but forced users into mental bookkeeping the product should have done for them.</p>
+        </section>
 
-      <div class="case-section" data-anim id="before-after">
-        <div class="section-label" data-i18n="lbl.beforeafter">Before / after</div>
-        <h2 data-i18n="ba.h2">From source-by-source to one canonical entry point.</h2>
-        <div class="before-after">
-          <div class="ba-block">
-            <div class="ba-label" data-i18n="ba.before">Before</div>
-            <h4 data-i18n="ba.before.title">Six steps to a single import</h4>
-            <ol>
-              <li data-i18n="ba.step1">Leave the Data Catalog</li>
-              <li data-i18n="ba.step2">Navigate to Sources</li>
-              <li data-i18n="ba.step3">Open a specific source</li>
-              <li data-i18n="ba.step4">Open Connections tab</li>
-              <li data-i18n="ba.step5">Expand a connection</li>
-              <li data-i18n="ba.step6">Select tables, click Import</li>
-            </ol>
+        <section id="before-after" class="case-section reveal">
+          <div class="section-label">BEFORE / AFTER</div>
+          <h3 class="case-headline">From source-by-source to one canonical entry point.</h3>
+          <div class="feature-list">
+            <div class="feature"><h4>Before — six steps to a single import</h4><p>Leave the Data Catalog → Navigate to Sources → Open a specific source → Open Connections tab → Expand a connection → Select tables, click Import.</p></div>
+            <div class="feature-divider"></div>
+            <div class="feature"><h4>After — one modal, every source</h4><p>An &quot;Import asset&quot; button opens a modal rooted at Source level. One session can span the entire catalog.</p></div>
           </div>
-          <div class="ba-block">
-            <div class="ba-label" data-i18n="ba.after">After</div>
-            <h4 data-i18n="ba.after.title">One modal, every source</h4>
-            <p data-i18n="ba.after.p">"Import asset" button opens a modal rooted at Source level. One session can span the entire catalog.</p>
+          <div class="case-figure"><img src="images/projects/import-metadata/catalog-with-modal.png" alt="Import metadata to platform" loading="lazy" /></div>
+        </section>
+
+        <section id="designed" class="case-section reveal">
+          <div class="section-label">WHAT I DESIGNED</div>
+          <h3 class="case-headline">A single modal triggered from the catalog listing.</h3>
+          <p>Rooted at Source level so one session can span multiple sources. Lazy-loaded children with indeterminate-state checkboxes for partial selection. A real-language selection summary that counts only the leaves that actually import.</p>
+          <div class="case-figure"><img src="images/projects/import-metadata/modal-workflow.gif" alt="Import metadata to platform" loading="lazy" /></div>
+        </section>
+
+        <section id="moves" class="case-section reveal">
+          <div class="section-label">THE FOUR MOVES</div>
+          <h3 class="case-headline">Each decision rebuilt an assumption the old flow was making.</h3>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">Tree starts at Source, not Connection</div><div class="step-d">Rooting the tree at the system level meant a single import session could span the entire catalog.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">Lazy-loaded children with indeterminate checkboxes</div><div class="step-d">Enterprise tenants have thousands of tables. The tree fetches children only on expand, with a spinner-in-chevron loading state.</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">Selection summary in real language</div><div class="step-d">&quot;X tables from Y connections from Z sources&quot;, counts only the leaves that actually import, qualified by their parents.</div></div></div>
+            <div class="step"><div class="step-n">04</div><div><div class="step-t">Always-visible primary action</div><div class="step-d">SplitButton + Cancel always visible. The modal exists for importing, the primary action shouldn&rsquo;t hide.</div></div></div>
           </div>
+          <p class="case-aside">Every &quot;small&quot; UI decision was implicitly making a load-bearing assumption about how customers use the product.</p>
+        </section>
+
+        <section id="process" class="case-section reveal">
+          <div class="section-label">PROCESS</div>
+          <h3 class="case-headline">Four passes, and a crit session that reshaped half the design.</h3>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">Current-state mapping</div><div class="step-d">Walked through the existing flow as a user. Documented the six-click sequence. Identified that the existing ConnectionBrowseTree could be the foundation, but its root level was wrong for the new flow.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">First draft modal</div><div class="step-d">Designed in Figma with Flamingo primitives. Built five states: Initial, Browsing, Selected, Show Selected Only, Loading.</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">Cross-functional design crit</div><div class="step-d">Five reviewers across design and frontend. Ten pieces of feedback. Selection-counter language, toolbar placement, modal density, and pagination model all changed.</div></div></div>
+            <div class="step"><div class="step-n">04</div><div><div class="step-t">Final design and handoff</div><div class="step-d">Refined typography, density, paginator scope. Wrote a full handoff doc enumerating every element, state, interaction, components used, and open engineering questions.</div></div></div>
+          </div>
+        </section>
+
+        <section id="learned" class="case-section reveal">
+          <div class="section-label">WHAT I LEARNED</div>
+          <h3 class="case-headline">Three principles I took into the next project.</h3>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">Clarify the unit of measurement</div><div class="step-d">&quot;Items&quot; is ambiguous when one item could be one connection or one table, and they don&rsquo;t equal each other.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">Progressive disclosure + pagination = complexity explosion</div><div class="step-d">Pick one. Combining them creates an interaction model engineers can&rsquo;t ship and users can&rsquo;t predict.</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">For bulk actions, ask: what&rsquo;s the worst case?</div><div class="step-d">This modal can spawn thousands of background jobs. Safeguards belong in the UI, not bolted on after.</div></div></div>
+          </div>
+        </section>
+
+        <div class="case-next reveal">
+          <div class="rule"></div>
+          <a href="project-prague-pride.html">
+            <div>
+              <div class="np-label">NEXT PROJECT</div>
+              <div class="np-name">Prague Pride Festival</div>
+            </div>
+            <div class="np-arrow">↗</div>
+          </a>
         </div>
       </div>
-
-      <div class="case-section" data-anim id="what-i-designed">
-        <div class="section-label" data-i18n="lbl.designed">What I designed</div>
-        <h2 data-i18n="des.h2">A single modal triggered from the catalog listing.</h2>
-        <p data-i18n="des.p1">Rooted at Source level so one session can span multiple sources. Lazy-loaded children with indeterminate-state checkboxes for partial selection. A real-language selection summary that counts only the leaves that actually import.</p>
-        <div class="gallery-pair" data-anim>
-          <figure class="gallery-figure">
-            <img src="images/projects/import-metadata/catalog-with-modal.png" alt="The Data Catalog with the new Import asset modal open over the listing" loading="lazy">
-          </figure>
-          <figure class="gallery-figure">
-            <img src="images/projects/import-metadata/modal-workflow.gif" alt="Import asset modal workflow: cursor selects checkboxes through initial, browsing, and selected states" loading="lazy">
-          </figure>
-        </div>
-      </div>
-
-      <div class="case-section" data-anim id="the-four-moves">
-        <div class="section-label" data-i18n="lbl.moves">The four moves</div>
-        <h2 data-i18n="moves.h2">Each decision rebuilt an assumption the old flow was making.</h2>
-        <div class="numbered-list">
-          <div class="numbered-item">
-            <div class="numbered-item-num">01</div>
-            <div>
-              <h4 data-i18n="moves.1.h">Tree starts at Source, not Connection</h4>
-              <p data-i18n="moves.1.p">Rooting the tree at the system level meant a single import session could span the entire catalog.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">02</div>
-            <div>
-              <h4 data-i18n="moves.2.h">Lazy-loaded children with indeterminate checkboxes</h4>
-              <p data-i18n="moves.2.p">Enterprise tenants have thousands of tables. The tree fetches children only on expand, with a spinner-in-chevron loading state.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">03</div>
-            <div>
-              <h4 data-i18n="moves.3.h">Selection summary in real language</h4>
-              <p data-i18n="moves.3.p">"X tables from Y connections from Z sources", counts only the leaves that actually import, qualified by their parents.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">04</div>
-            <div>
-              <h4 data-i18n="moves.4.h">Always-visible primary action</h4>
-              <p data-i18n="moves.4.p">SplitButton + Cancel always visible. The modal exists for importing, the primary action shouldn't hide.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pullquote" data-anim>
-        <p class="pullquote-text"><span data-i18n="pull.text1">Every "small" UI decision was implicitly making</span> <span class="muted-text scroll-words" data-i18n="pull.text2">a load-bearing assumption about how customers use the product.</span></p>
-        <p class="pullquote-attr" data-i18n="pull.attr">From the design crit retrospective</p>
-      </div>
-
-      <div class="case-section" data-anim id="process">
-        <div class="section-label" data-i18n="lbl.process">Process</div>
-        <h2 data-i18n="proc.h2">Four passes, and a crit session that reshaped half the design.</h2>
-        <div class="numbered-list">
-          <div class="numbered-item">
-            <div class="numbered-item-num">01</div>
-            <div>
-              <h4 data-i18n="proc.1.h">Current-state mapping</h4>
-              <p data-i18n="proc.1.p">Walked through the existing flow as a user. Documented the six-click sequence. Identified that the existing ConnectionBrowseTree could be the foundation, but its root level was wrong for the new flow.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">02</div>
-            <div>
-              <h4 data-i18n="proc.2.h">First draft modal</h4>
-              <p data-i18n="proc.2.p">Designed in Figma with Flamingo primitives. Built five states: Initial, Browsing, Selected, Show Selected Only, Loading.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">03</div>
-            <div>
-              <h4 data-i18n="proc.3.h">Cross-functional design crit</h4>
-              <p data-i18n="proc.3.p">Five reviewers across design and frontend. Ten pieces of feedback. Selection-counter language, toolbar placement, modal density, and pagination model all changed.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">04</div>
-            <div>
-              <h4 data-i18n="proc.4.h">Final design and handoff</h4>
-              <p data-i18n="proc.4.p">Refined typography, density, paginator scope. Wrote a full handoff doc enumerating every element, state, interaction, components used, and open engineering questions.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-section" data-anim id="what-i-learned">
-        <div class="section-label" data-i18n="lbl.learned">What I learned</div>
-        <h2 data-i18n="learned.h2">Three principles I took into the next project.</h2>
-        <div class="numbered-list">
-          <div class="numbered-item">
-            <div class="numbered-item-num">01</div>
-            <div>
-              <h4 data-i18n="learned.1.h">Clarify the unit of measurement</h4>
-              <p data-i18n="learned.1.p">"Items" is ambiguous when one item could be one connection or one table, and they don't equal each other.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">02</div>
-            <div>
-              <h4 data-i18n="learned.2.h">Progressive disclosure + pagination = complexity explosion</h4>
-              <p data-i18n="learned.2.p">Pick one. Combining them creates an interaction model engineers can't ship and users can't predict.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">03</div>
-            <div>
-              <h4 data-i18n="learned.3.h">For bulk actions, ask: what's the worst case?</h4>
-              <p data-i18n="learned.3.p">This modal can spawn thousands of background jobs. Safeguards belong in the UI, not bolted on after.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </main>
 
-  <!-- CASE NAV -->
-  <div class="case-nav">
-    <a href="index.html" data-i18n="case.back">← Back to work</a>
-    <a href="asset-layout-editor.html" data-i18n="case.next">Next: Asset Layout Editor →</a>
-  </div>
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div class="footer-name">Eliška<br />Doležalová</div>
+        <img class="sun" src="sun.svg" alt="" aria-hidden="true" />
+      </div>
 
-  <!-- SITE FOOTER -->
-  <section class="site-footer" data-bg="#0A0A0A" data-fg="light">
-
-    <!-- Monogram watermark in the background -->
-    <img src="images/logo-ed.svg?v=6" alt="" class="footer-watermark" aria-hidden="true">
-
-    <div class="footer-top">
-
-      <div class="site-footer-headline">
-        <h2 data-anim data-anim-delay="1">
-          <span data-i18n="footer.headline.main">Let's start</span>
-          <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
-        </h2>
-        <div class="site-footer-cta" data-anim data-anim-delay="2">
-          <a href="mailto:hello@eliskadolezalova.cz" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
+      <div class="footer-cols reveal">
+        <div class="fcol">
+          <h4>Navigation</h4>
+          <div class="links">
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="index.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="fcol" aria-hidden="true"></div>
+        <div class="fcol">
+          <h4>Contact</h4>
+          <div class="links">
+            <a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a>
+            <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="fcol">
+          <h4>Based in</h4>
+          <div class="links">
+            <span>Prague,</span>
+            <span>Czech Republic</span>
+          </div>
         </div>
       </div>
 
-      <div class="footer-col-right" data-anim data-anim-delay="2">
-        <ul class="footer-contact-list" id="contact">
-          <li><a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a></li>
-          <li><a href="https://www.linkedin.com/in/eli%C5%A1ka-dole%C5%BEalov%C3%A1-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        </ul>
+      <div class="footer-divider"></div>
+      <div class="bottom-bar">
+        <span>2026 Ing. Eliška Doležalová</span>
+        <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-
     </div>
+  </footer>
 
-  </section>
-
-  <script>
-    (function () {
-      // Case study TOC — active section scrollspy + hide on footer
-      var caseToc = document.querySelector('.case-toc');
-      var tocLinks = document.querySelectorAll('.case-toc a');
-      if (caseToc && tocLinks.length) {
-        var sectionMap = [];
-        tocLinks.forEach(function (link) {
-          var id = link.getAttribute('href').slice(1);
-          var section = document.getElementById(id);
-          if (section) sectionMap.push({ link: link, section: section });
-        });
-        if (sectionMap.length) {
-          var tocObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              var match = sectionMap.find(function (s) { return s.section === entry.target; });
-              if (match && entry.isIntersecting) {
-                tocLinks.forEach(function (l) { l.classList.remove('active'); });
-                match.link.classList.add('active');
-              }
-            });
-          }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
-          sectionMap.forEach(function (s) { tocObserver.observe(s.section); });
-        }
-        var siteFooterEl = document.querySelector('.site-footer');
-        if (siteFooterEl) {
-          var footerObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              caseToc.classList.toggle('case-toc--hidden', entry.isIntersecting);
-            });
-          }, { threshold: 0 });
-          footerObserver.observe(siteFooterEl);
-        }
-      }
-
-      var translations = {
-        en: {
-          'nav.work': 'Work', 'nav.services': 'What I do', 'nav.about': 'About me', 'nav.contact': 'Contact',
-          'proj.tag.casestudy': 'Case study', 'proj.tag.catalog': 'Data Catalog', 'proj.tag.atacc': 'Ataccama',
-          'proj.title': 'Import metadata to platform.',
-          'proj.tagline': 'From a six-click, source-by-source journey to one shared surface.',
-          'meta.role': 'Role', 'meta.role.val': 'Product designer (intern) at Ataccama',
-          'meta.timeline': 'Timeline', 'meta.timeline.val': '~3 weeks',
-          'meta.surface': 'Surface', 'meta.surface.val': 'Ataccama ONE · Data Catalog',
-          'meta.output': 'Output', 'meta.output.val': 'Figma · Engineering handoff',
-          'toc.label': 'On this page',
-          'toc.context': 'Context', 'toc.problem': 'The problem', 'toc.beforeafter': 'Before / after',
-          'toc.designed': 'What I designed', 'toc.moves': 'The four moves', 'toc.process': 'Process', 'toc.learned': 'What I learned',
-          'lbl.context': 'Context', 'ctx.h2': 'The Data Catalog is where it all begins.',
-          'ctx.p1': 'Ataccama ONE is an enterprise data governance platform. The <strong>Data Catalog</strong> is where data stewards, analysts, and consultants discover what data the organization owns. Before they can govern data, they need to import its metadata, schema, types, structure, from a connected database.',
-          'ctx.p2': "It's a high-frequency action performed by the same handful of people, over and over. It was also one of the most fragmented flows in the product.",
-          'lbl.problem': 'The problem', 'problem.h2': 'Six clicks. One source at a time. Zero visibility.',
-          'problem.p1': 'To import metadata, a user had to leave the catalog, navigate to a source, open its Connections tab, expand a tree, select tables, and click Import. The flow was technically possible, but forced users into mental bookkeeping the product should have done for them.',
-          'lbl.beforeafter': 'Before / after', 'ba.h2': 'From source-by-source to one canonical entry point.',
-          'ba.before': 'Before', 'ba.before.title': 'Six steps to a single import',
-          'ba.step1': 'Leave the Data Catalog', 'ba.step2': 'Navigate to Sources', 'ba.step3': 'Open a specific source',
-          'ba.step4': 'Open Connections tab', 'ba.step5': 'Expand a connection', 'ba.step6': 'Select tables, click Import',
-          'ba.after': 'After', 'ba.after.title': 'One modal, every source',
-          'ba.after.p': '"Import asset" button opens a modal rooted at Source level. One session can span the entire catalog.',
-          'lbl.designed': 'What I designed', 'des.h2': 'A single modal triggered from the catalog listing.',
-          'des.p1': 'Rooted at Source level so one session can span multiple sources. Lazy-loaded children with indeterminate-state checkboxes for partial selection. A real-language selection summary that counts only the leaves that actually import.',
-          'lbl.moves': 'The four moves', 'moves.h2': 'Each decision rebuilt an assumption the old flow was making.',
-          'moves.1.h': 'Tree starts at Source, not Connection',
-          'moves.1.p': 'Rooting the tree at the system level meant a single import session could span the entire catalog.',
-          'moves.2.h': 'Lazy-loaded children with indeterminate checkboxes',
-          'moves.2.p': 'Enterprise tenants have thousands of tables. The tree fetches children only on expand, with a spinner-in-chevron loading state.',
-          'moves.3.h': 'Selection summary in real language',
-          'moves.3.p': '"X tables from Y connections from Z sources", counts only the leaves that actually import, qualified by their parents.',
-          'moves.4.h': 'Always-visible primary action',
-          'moves.4.p': "SplitButton + Cancel always visible. The modal exists for importing, the primary action shouldn't hide.",
-          'pull.text1': 'Every "small" UI decision was implicitly making',
-          'pull.text2': 'a load-bearing assumption about how customers use the product.',
-          'pull.attr': 'From the design crit retrospective',
-          'lbl.process': 'Process', 'proc.h2': 'Four passes, and a crit session that reshaped half the design.',
-          'proc.1.h': 'Current-state mapping',
-          'proc.1.p': 'Walked through the existing flow as a user. Documented the six-click sequence. Identified that the existing ConnectionBrowseTree could be the foundation, but its root level was wrong for the new flow.',
-          'proc.2.h': 'First draft modal',
-          'proc.2.p': 'Designed in Figma with Flamingo primitives. Built five states: Initial, Browsing, Selected, Show Selected Only, Loading.',
-          'proc.3.h': 'Cross-functional design crit',
-          'proc.3.p': 'Five reviewers across design and frontend. Ten pieces of feedback. Selection-counter language, toolbar placement, modal density, and pagination model all changed.',
-          'proc.4.h': 'Final design and handoff',
-          'proc.4.p': 'Refined typography, density, paginator scope. Wrote a full handoff doc enumerating every element, state, interaction, components used, and open engineering questions.',
-          'lbl.learned': 'What I learned', 'learned.h2': 'Three principles I took into the next project.',
-          'learned.1.h': 'Clarify the unit of measurement',
-          'learned.1.p': '"Items" is ambiguous when one item could be one connection or one table, and they don\'t equal each other.',
-          'learned.2.h': 'Progressive disclosure + pagination = complexity explosion',
-          'learned.2.p': "Pick one. Combining them creates an interaction model engineers can't ship and users can't predict.",
-          'learned.3.h': "For bulk actions, ask: what's the worst case?",
-          'learned.3.p': 'This modal can spawn thousands of background jobs. Safeguards belong in the UI, not bolted on after.',
-          'case.back': '← Back to work', 'case.next': 'Next: Asset Layout Editor →',
-          'footer.headline.main': "Let's start", 'footer.headline.muted': 'creating something good together.',
-          'footer.cta.email': "Let's talk"
-        },
-        cs: {
-          'nav.work': 'Práce', 'nav.services': 'Moje služby', 'nav.about': 'O mně', 'nav.contact': 'Kontakt',
-          'proj.tag.casestudy': 'Případová studie', 'proj.tag.catalog': 'Data Catalog', 'proj.tag.atacc': 'Ataccama',
-          'proj.title': 'Import metadat do platformy.',
-          'proj.tagline': 'Ze šestiklikové cesty po jednotlivých zdrojích k jedné společné ploše.',
-          'meta.role': 'Role', 'meta.role.val': 'Produktová designerka (stáž) v Ataccamě',
-          'meta.timeline': 'Časový rámec', 'meta.timeline.val': '~3 týdny',
-          'meta.surface': 'Plocha', 'meta.surface.val': 'Ataccama ONE · Data Catalog',
-          'meta.output': 'Výstup', 'meta.output.val': 'Figma · Předání vývoji',
-          'toc.label': 'Na této stránce',
-          'toc.context': 'Kontext', 'toc.problem': 'Problém', 'toc.beforeafter': 'Před / po',
-          'toc.designed': 'Co jsem navrhla', 'toc.moves': 'Čtyři kroky', 'toc.process': 'Proces', 'toc.learned': 'Co jsem se naučila',
-          'lbl.context': 'Kontext', 'ctx.h2': 'Data Catalog je místo, kde to všechno začíná.',
-          'ctx.p1': 'Ataccama ONE je enterprise platforma pro data governance. <strong>Data Catalog</strong> je místo, kde data stewardi, analytici a konzultanti zjišťují, jaká data organizace vlastní. Než mohou data spravovat, musí naimportovat jejich metadata, schéma, typy, strukturu z připojené databáze.',
-          'ctx.p2': 'Je to vysokofrekvenční akce, kterou dokola provádí stále stejná hrstka lidí. Zároveň to byl jeden z nejvíce roztříštěných flow v celém produktu.',
-          'lbl.problem': 'Problém', 'problem.h2': 'Šest kliků. Jeden zdroj po druhém. Nulová přehlednost.',
-          'problem.p1': 'Pro import metadat musel uživatel opustit katalog, přejít na zdroj, otevřít tab Connections, rozbalit strom, vybrat tabulky a kliknout na Import. Flow bylo technicky možné, ale nutilo uživatele dělat si mentální poznámky, které měl dělat produkt sám.',
-          'lbl.beforeafter': 'Před / po', 'ba.h2': 'Od zdroje po zdroji k jednomu hlavnímu vstupnímu bodu.',
-          'ba.before': 'Před', 'ba.before.title': 'Šest kroků k jednomu importu',
-          'ba.step1': 'Opustit Data Catalog', 'ba.step2': 'Přejít do Sources', 'ba.step3': 'Otevřít konkrétní zdroj',
-          'ba.step4': 'Otevřít tab Connections', 'ba.step5': 'Rozbalit připojení', 'ba.step6': 'Vybrat tabulky, kliknout Import',
-          'ba.after': 'Po', 'ba.after.title': 'Jeden modal, všechny zdroje',
-          'ba.after.p': 'Tlačítko "Import asset" otevře modal s rootem na úrovni zdroje. Jedna session pokryje celý katalog.',
-          'lbl.designed': 'Co jsem navrhla', 'des.h2': 'Jeden modal spouštěný přímo z výpisu katalogu.',
-          'des.p1': 'Root je na úrovni zdroje, takže jedna session pokryje více zdrojů. Líně načítané děti s indeterminate-state checkboxy pro částečný výběr. Souhrn výběru v lidské řeči, který počítá jen listy, které se skutečně naimportují.',
-          'lbl.moves': 'Čtyři kroky', 'moves.h2': 'Každé rozhodnutí přestavělo jeden předpoklad, na kterém staré flow stálo.',
-          'moves.1.h': 'Strom začíná u zdroje, ne u připojení',
-          'moves.1.p': 'Root na úrovni systému znamená, že jedna importní session může pokrýt celý katalog.',
-          'moves.2.h': 'Líně načítané děti s indeterminate checkboxy',
-          'moves.2.p': 'Enterprise tenanty mají tisíce tabulek. Strom načítá děti až při rozbalení, s loading stavem (spinner v chevronu).',
-          'moves.3.h': 'Souhrn výběru v lidské řeči',
-          'moves.3.p': '"X tabulek z Y připojení z Z zdrojů" — počítá jen listy, které se skutečně naimportují, kvalifikované rodiči.',
-          'moves.4.h': 'Vždy viditelná primární akce',
-          'moves.4.p': 'SplitButton + Cancel jsou vždy vidět. Modal existuje kvůli importu — primární akce se nemá schovávat.',
-          'pull.text1': 'Každé "drobné" UI rozhodnutí v sobě skrývalo',
-          'pull.text2': 'nosný předpoklad o tom, jak zákazníci produkt používají.',
-          'pull.attr': 'Z retrospektivy design critu',
-          'lbl.process': 'Proces', 'proc.h2': 'Čtyři iterace a design crit, který přestavěl polovinu návrhu.',
-          'proc.1.h': 'Zmapování aktuálního stavu',
-          'proc.1.p': 'Prošla jsem stávající flow jako uživatel. Zdokumentovala šestiklikovou sekvenci. Zjistila, že stávající ConnectionBrowseTree může být základem, ale root level je pro nové flow špatný.',
-          'proc.2.h': 'První draft modalu',
-          'proc.2.p': 'Návrh ve Figmě s primitivy z Flamingo. Pět stavů: Initial, Browsing, Selected, Show Selected Only, Loading.',
-          'proc.3.h': 'Cross-functional design crit',
-          'proc.3.p': 'Pět recenzentů z designu a frontendu. Deset bodů zpětné vazby. Měnil se text počítadla výběru, umístění toolbaru, hustota modalu i model paginace.',
-          'proc.4.h': 'Finální návrh a handoff',
-          'proc.4.p': 'Doladěná typografie, hustota a rozsah paginátoru. Sepsala jsem kompletní handoff dokument se všemi prvky, stavy, interakcemi, použitými komponentami a otevřenými otázkami pro vývoj.',
-          'lbl.learned': 'Co jsem se naučila', 'learned.h2': 'Tři principy, které jsem si odnesla do dalšího projektu.',
-          'learned.1.h': 'Vyjasnit si jednotku měření',
-          'learned.1.p': '"Items" je nejednoznačné, když jedna položka může být buď připojení, nebo tabulka — a ty si nejsou rovny.',
-          'learned.2.h': 'Progressive disclosure + paginace = exploze složitosti',
-          'learned.2.p': 'Vyber si jedno. Když je zkombinuješ, vznikne interakční model, který vývoj nedokáže dodat a uživatelé předvídat.',
-          'learned.3.h': 'U hromadných akcí se ptej: jaký je nejhorší případ?',
-          'learned.3.p': 'Tenhle modal může spustit tisíce background jobů. Pojistky patří do UI, ne až nahoře jako záplata.',
-          'case.back': '← Zpět na práci', 'case.next': 'Další: Asset Layout Editor →',
-          'footer.headline.main': 'Pojďme společně', 'footer.headline.muted': 'rozhýbat váš produkt.',
-          'footer.cta.email': 'Napište mi'
-        }
-      };
-
-      var currentLang = localStorage.getItem('lang') || 'en';
-      function applyLanguage(lang) {
-        currentLang = lang;
-        var dict = translations[lang] || translations.en;
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n');
-          if (dict[key] !== undefined) el.textContent = dict[key];
-        });
-        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n-html');
-          if (dict[key] !== undefined) el.innerHTML = dict[key];
-        });
-        document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
-        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-      }
-      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-        btn.addEventListener('click', function () { applyLanguage(btn.getAttribute('data-lang')); });
-      });
-      applyLanguage(currentLang);
-
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('[data-anim]').forEach(function (el) {
-          observer.observe(el);
-        });
-      } else {
-        document.querySelectorAll('[data-anim]').forEach(function (el) {
-          el.classList.add('in-view');
-        });
-      }
-
-      var wordContainers = [];
-
-      document.querySelectorAll('.scroll-words').forEach(function (el) {
-        var text = el.textContent.trim();
-        var words = text.split(/\s+/);
-        el.innerHTML = words.map(function (w) {
-          return '<span class="word">' + w + '</span>';
-        }).join(' ');
-        var wordEls = el.querySelectorAll('.word');
-        var rect = el.getBoundingClientRect();
-        var vh = window.innerHeight;
-        var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
-        var inFooterDark = el.closest('.site-footer') !== null;
-
-        var inServicesDark = el.closest('#services') !== null;
-
-        el.classList.add('scroll-driven');
-
-        var fromColor = { r: 200, g: 200, b: 200 };
-
-        var toColor   = { r: 10,  g: 10,  b: 10  };
-        if (inViewOnLoad) {
-          wordContainers.push({
-            el: el, words: wordEls,
-            startRatio: 0.65, endRatio: -0.35,
-            fromColor: fromColor, toColor: toColor, inFooterDark: inFooterDark, inServicesDark: inServicesDark
-          });
-        } else {
-          wordContainers.push({
-            el: el, words: wordEls,
-            startRatio: 1.20, endRatio: -0.20,
-            fromColor: fromColor, toColor: toColor
-          });
-        }
-      });
-
-      var ticking = false;
-      function updateScrollWords() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          wordContainers.forEach(function (group) {
-            var bodyIsDark = document.body.classList.contains('fg-light');
-            var rect = group.el.getBoundingClientRect();
-            var elementCenter = rect.top + rect.height / 2;
-            var startC = vh * group.startRatio;
-            var endC = vh * group.endRatio;
-            var globalProgress = (startC - elementCenter) / (startC - endC);
-            if (globalProgress < 0) globalProgress = 0;
-            else if (globalProgress > 1) globalProgress = 1;
-            var fromC, toC;
-            if (bodyIsDark && group.inServicesDark) {
-              fromC = { r: 110, g: 110, b: 110 };
-              toC   = { r: 242, g: 237, b: 220 };
-            } else if (bodyIsDark && group.inFooterDark) {
-              fromC = { r: 237, g: 164, b: 181 };
-              toC   = { r: 255, g: 255, b: 255 };
-            } else {
-              fromC = { r: 200, g: 200, b: 200 };
-              toC   = { r: 10,  g: 10,  b: 10  };
-            }
-
-            var n = group.words.length;
-            var stretch = 1.6;
-            var halfRange = (stretch / n) / 2;
-            for (var i = 0; i < n; i++) {
-              var center = (i + 0.5) / n;
-              var wStart = center - halfRange;
-              var wEnd = center + halfRange;
-              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
-              if (wProgress < 0) wProgress = 0;
-              else if (wProgress > 1) wProgress = 1;
-              var r = Math.round(fromC.r + (toC.r - fromC.r) * wProgress);
-              var g = Math.round(fromC.g + (toC.g - fromC.g) * wProgress);
-              var b = Math.round(fromC.b + (toC.b - fromC.b) * wProgress);
-              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
-            }
-          });
-          ticking = false;
-        });
-      }
-      window.addEventListener('scroll', updateScrollWords, { passive: true });
-      window.addEventListener('resize', updateScrollWords, { passive: true });
-      updateScrollWords();
-
-      // Scroll progress bar
-      var progressBar = document.querySelector('.scroll-progress-bar');
-      var progressTicking = false;
-      function updateProgress() {
-        if (progressTicking) return;
-        progressTicking = true;
-        requestAnimationFrame(function () {
-          if (progressBar) {
-            var max = document.documentElement.scrollHeight - window.innerHeight;
-            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
-            progressBar.style.width = p + '%';
-          }
-          progressTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      window.addEventListener('resize', updateProgress, { passive: true });
-      updateProgress();
-
-      // Parallax on scroll
-      var parallaxEls = document.querySelectorAll('[data-parallax]');
-      var parallaxTicking = false;
-      function updateParallax() {
-        if (parallaxTicking) return;
-        parallaxTicking = true;
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          parallaxEls.forEach(function (el) {
-            var rect = el.getBoundingClientRect();
-            if (rect.bottom < -200 || rect.top > vh + 200) return;
-            var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
-            var centerOffset = (rect.top + rect.height / 2) - vh / 2;
-            var translateY = -centerOffset * speed;
-            el.style.transform = 'translateY(' + translateY.toFixed(2) + 'px)';
-          });
-          parallaxTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateParallax, { passive: true });
-      window.addEventListener('resize', updateParallax, { passive: true });
-      updateParallax();
-
-      // Nav pill on scroll
-      var nav = document.querySelector('.nav');
-      if (nav) {
-        var navTicking = false;
-        function checkNavScroll() {
-          if (navTicking) return;
-          navTicking = true;
-          requestAnimationFrame(function () {
-            if (window.scrollY > 30) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-            navTicking = false;
-          });
-        }
-        window.addEventListener('scroll', checkNavScroll, { passive: true });
-        checkNavScroll();
-      }
-
-      // Mobile nav drawer toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var mobileNav = document.querySelector('.mobile-nav');
-      if (hamburger && mobileNav) {
-        function toggleMenu(open) {
-          hamburger.setAttribute('aria-expanded', String(open));
-          mobileNav.classList.toggle('open', open);
-          mobileNav.setAttribute('aria-hidden', String(!open));
-          document.body.classList.toggle('menu-open', open);
-        }
-        hamburger.addEventListener('click', function () {
-          toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
-        });
-        mobileNav.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () { toggleMenu(false); });
-        });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
-        });
-      }
-    })();
-  </script>
-
-  <script src="scroll-effects.js?v=3" defer></script>
+  <script src="reveal.js"></script>
 </body>
 </html>

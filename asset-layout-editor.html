@@ -1,643 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('has-anims');</script>
-  <title>Asset Layout Editor, Eliska Dolezalova</title>
-  <meta name="description" content="Case study: replacing a hidden JSON-based layout editor at Ataccama with a research-grounded pin model.">
-  <link rel="canonical" href="https://elisdolezalova.cz/asset-layout-editor.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elisdolezalova.cz/asset-layout-editor.html">
-  <meta property="og:title" content="Asset Layout Editor, Eliska Dolezalova">
-  <meta property="og:description" content="Case study: replacing a hidden JSON-based layout editor at Ataccama with a research-grounded pin model.">
-  <meta property="og:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta property="og:image:width" content="960">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="cs_CZ">
-  <meta property="og:site_name" content="Eliska Dolezalova">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Asset Layout Editor, Eliska Dolezalova">
-  <meta name="twitter:description" content="Case study: replacing a hidden JSON-based layout editor at Ataccama with a research-grounded pin model.">
-  <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta name="twitter:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=61">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Asset Layout Editor — Eliška Doležalová</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <img src="images/logo-ed.svg?v=6" alt="Eliška Doležalová" class="brand-logo">
-      </a>
-      <ul class="nav-links">
-        <li><a href="work.html" data-i18n="nav.work">Work</a></li>
-        <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      </ul>
-      <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="active">EN</button>
-          <span class="lang-toggle-sep">·</span>
-          <button type="button" data-lang="cs">CS</button>
+  <header class="site-header" id="site-header">
+    <div class="bar">
+      <nav class="nav">
+        <a href="index.html" class="wordmark">Eliška<br />Doležalová</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">ABOUT ME</a>
+          <a href="work.html" class="active">WORK</a>
+          <a href="contact.html">CONTACT</a>
         </div>
-        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
-        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      </nav>
     </div>
-  </nav>
-
-  <!-- Mobile nav drawer -->
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <ul class="mobile-nav-links">
-      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
-      <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-      <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-  </div>
+  </header>
 
   <!-- HERO -->
-  <section class="case-hero">
-    <div class="container">
-      <div class="case-hero-tags" data-anim>
-        <span data-i18n="proj.tag.casestudy">Case study</span>
-        <span data-i18n="proj.tag.mm">Metadata Model</span>
-        <span data-i18n="proj.tag.atacc">Ataccama</span>
+  <header class="case-hero">
+    <div class="wrap">
+      <a href="work.html" class="case-back">← Back to work</a>
+      <h1 class="case-title">Asset Layout Editor</h1>
+      <p class="case-subtitle">Replacing a hidden JSON editor with a research-grounded pin model.</p>
+      <div class="case-meta">
+        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer (intern) at Ataccama</div></div>
+        <div class="case-meta-item"><div class="k">Timeline</div><div class="v">6 weeks</div></div>
+        <div class="case-meta-item"><div class="k">Surface</div><div class="v">Metadata Model · Page layout</div></div>
+        <div class="case-meta-item"><div class="k">Output</div><div class="v">V5 prototype · Three-audience handoff</div></div>
       </div>
-      <h1 data-anim data-anim-delay="1">
-        <span data-i18n="proj.title">Asset Layout Editor.</span>
-        <span class="muted-text scroll-words" data-i18n="proj.tagline">Replacing a hidden JSON editor with a research-grounded pin model.</span>
-      </h1>
     </div>
-  </section>
-
-  <!-- META -->
-  <section class="case-meta">
-    <dl class="case-meta-grid">
-      <div class="case-meta-item" data-anim>
-        <dt data-i18n="meta.role">Role</dt>
-        <dd data-i18n="meta.role.val">Product designer (intern) at Ataccama</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="1">
-        <dt data-i18n="meta.timeline">Timeline</dt>
-        <dd data-i18n="meta.timeline.val">6 weeks</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="2">
-        <dt data-i18n="meta.surface">Surface</dt>
-        <dd data-i18n="meta.surface.val">Metadata Model · Page layout</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="3">
-        <dt data-i18n="meta.output">Output</dt>
-        <dd data-i18n="meta.output.val">V5 prototype · Three-audience handoff</dd>
-      </div>
-    </dl>
-  </section>
+  </header>
 
   <!-- BODY -->
-  <section class="case-body">
-    <div class="container">
+  <main class="case-body wrap">
+    <div class="case-cover reveal"><img src="images/projects/asset-layout-editor/cover.png" alt="Asset Layout Editor" /></div>
 
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="lbl.context">Context</div>
-        <h2 data-i18n="ctx.h2">The JSON editor was technically usable. Nobody could actually use it.</h2>
-        <p data-i18n-html="ctx.p1">Customers routinely extend Ataccama ONE's metadata model with custom properties, <em>Region</em>, <em>Data Owner</em>, <em>Classification</em>. The historical way to surface them on entity detail pages was a Monaco-based JSON editor hidden behind a feature flag, unusable by anyone who didn't write code.</p>
-        <p data-i18n-html="ctx.p2">Customer-facing teams complained when the flag came off. The brief: <strong>remove the JSON editor entirely and replace it with something an admin or a consultant could actually use.</strong></p>
-      </div>
+    <div class="case-layout">
+      <aside class="case-index">
+        <a href="#context" class="active">Context</a>
+        <a href="#problem">The problem</a>
+        <a href="#designed">What I designed</a>
+        <a href="#principles">Principles</a>
+        <a href="#process">Process</a>
+        <a href="#learned">What I learned</a>
+      </aside>
 
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="lbl.problem">The problem</div>
-        <h2 data-i18n="problem.h2">Real demand, no real solution.</h2>
-        <p data-i18n="problem.p1">The product inbox held the evidence, concentrated demand across DG, DQ, ONE Platform, and Agentic, going unaddressed because the existing solution was developer-only.</p>
-        <p data-i18n-html="problem.p2">The audience was specific: <strong>tenant admins and consultants</strong>, people who understand the metadata model conceptually but don't write code. Explicitly not for end users or developers.</p>
-        <div class="mockup">
-          <div class="mockup-header">
-            <span class="mockup-title" data-i18n="mockup.title">Product Inbox · Active demand</span>
-            <span class="mockup-close"></span>
+      <div class="case-main">
+        <section id="context" class="case-section reveal">
+          <div class="section-label">CONTEXT</div>
+          <h3 class="case-headline">The JSON editor was technically usable. Nobody could actually use it.</h3>
+          <p>Customers routinely extend Ataccama ONE&rsquo;s metadata model with custom properties, Region, Data Owner, Classification. The historical way to surface them on entity detail pages was a Monaco-based JSON editor hidden behind a feature flag, unusable by anyone who didn&rsquo;t write code.</p>
+          <p>Customer-facing teams complained when the flag came off. The brief: remove the JSON editor entirely and replace it with something an admin or a consultant could actually use.</p>
+          <div class="case-figure"><img src="images/projects/asset-layout-editor/page-layout-empty.png" alt="Asset Layout Editor" loading="lazy" /></div>
+        </section>
+
+        <section id="problem" class="case-section reveal">
+          <div class="section-label">THE PROBLEM</div>
+          <h3 class="case-headline">Real demand, no real solution.</h3>
+          <p>The product inbox held the evidence, concentrated demand across DG, DQ, ONE Platform, and Agentic, going unaddressed because the existing solution was developer-only.</p>
+          <p>The audience was specific: tenant admins and consultants, people who understand the metadata model conceptually but don&rsquo;t write code. Explicitly not for end users or developers.</p>
+        </section>
+
+        <section id="designed" class="case-section reveal">
+          <div class="section-label">WHAT I DESIGNED</div>
+          <h3 class="case-headline">One escape hatch. Everything else locked.</h3>
+          <p>A two-zone model: a full-width pinned-properties band where admins curate which fields appear at the top, sitting above a locked default layout that Ataccama owns.</p>
+          <p>The pattern is &quot;shell-plus-accent&quot;, universal across every competitor I studied (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
+          <div class="case-figure"><img src="images/projects/asset-layout-editor/page-layout-pinned.png" alt="Asset Layout Editor" loading="lazy" /></div>
+        </section>
+
+        <section id="principles" class="case-section reveal">
+          <div class="section-label">THE FOUR DESIGN PRINCIPLES</div>
+          <h3 class="case-headline">Each one came from a finding in the research.</h3>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">Lock the structural scaffolding</div><div class="step-d">Header, widgets, column structure, all curated by Ataccama. Matches Collibra&rsquo;s &quot;system content controlled by Collibra.&quot;</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">One escape hatch, not a full editor</div><div class="step-d">A single pinned-properties band. Admin curates which fields appear there. Everything else stays where Ataccama designed it.</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">Tenant-scoped, not per-user</div><div class="step-d">Every data-catalog peer is tenant-scoped. Per-user pins would have broken consultant-shares-screens consistency.</div></div></div>
+            <div class="step"><div class="step-n">04</div><div><div class="step-t">Pin individual properties</div><div class="step-d">The real customer use case is field-level. Section-level customization was over-coarse for the actual need.</div></div></div>
           </div>
-          <div class="mockup-row selected" data-i18n-html="mockup.r1">★ PI966 · UI for editing page layout · <strong style="color: var(--text);">6 upvotes</strong></div>
-          <div class="mockup-row" data-i18n="mockup.r2">PI411 · Editing layout of side pane</div>
-          <div class="mockup-row" data-i18n="mockup.r3">PI444 · Custom property selection · 4 upvotes</div>
-          <div class="mockup-row" data-i18n="mockup.r4">PI856 · Custom attribute visibility</div>
-          <div class="mockup-row" data-i18n="mockup.r5">PI986 · Custom CI attributes in search</div>
-          <div class="mockup-row" data-i18n="mockup.r6">PI765 · Hide/remove sections</div>
-          <div class="mockup-row" data-i18n="mockup.r7">PI972 · Configure Attributes expander</div>
+          <p class="case-aside">V5 wasn&rsquo;t my first idea, it was synthesis. Without V1–V4 showing what didn&rsquo;t work, V5 would have looked like V1.</p>
+        </section>
+
+        <section id="process" class="case-section reveal">
+          <div class="section-label">PROCESS</div>
+          <h3 class="case-headline">Three inflection points across six weeks.</h3>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">The PM pivot, April 15</div><div class="step-d">I brought a full layout-editor prototype to my first PM meeting, expecting feedback on interactions. Matej proposed the pin concept in five minutes. Customization has a cost, product identity, test stability, upgrade path.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">The 22-source research</div><div class="step-d">Going deep on six competitors surfaced one universal pattern: shell-plus-accent. A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">The buddy meeting</div><div class="step-d">I brought a lean recommendation on each of six open decisions, not open exploration, &quot;take this position and tell me why I&rsquo;m wrong.&quot; We closed all six in 30 minutes.</div></div></div>
+          </div>
+        </section>
+
+        <section id="learned" class="case-section reveal">
+          <div class="section-label">WHAT I LEARNED</div>
+          <h3 class="case-headline">Five principles that travel beyond this project.</h3>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">Bring problem + evidence early</div><div class="step-d">Let PM bring constraints. Don&rsquo;t fall in love with your prototype.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">Research turns proposals into arguments</div><div class="step-d">&quot;12+ upvotes, Collibra 46% → 74%&quot; is a different conversation than &quot;I think we need this.&quot;</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">Sketch before prototyping in code</div><div class="step-d">Code iteration is fast but expensive when the direction isn&rsquo;t validated.</div></div></div>
+            <div class="step"><div class="step-n">04</div><div><div class="step-t">Five variants were not waste</div><div class="step-d">V5 was synthesis. Without exploration, &quot;first idea&quot; is rarely the answer.</div></div></div>
+            <div class="step"><div class="step-n">05</div><div><div class="step-t">Fast convergence needs lean recommendations</div><div class="step-d">Strong defaults invite quick critique. Open questions invite long meetings.</div></div></div>
+          </div>
+        </section>
+
+        <div class="case-next reveal">
+          <div class="rule"></div>
+          <a href="project-esens.html">
+            <div>
+              <div class="np-label">NEXT PROJECT</div>
+              <div class="np-name">Esens Letná</div>
+            </div>
+            <div class="np-arrow">↗</div>
+          </a>
         </div>
       </div>
-
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="lbl.designed">What I designed</div>
-        <h2 data-i18n="des.h2">One escape hatch. Everything else locked.</h2>
-        <p data-i18n="des.p1">A two-zone model: a full-width pinned-properties band where admins curate which fields appear at the top, sitting above a locked default layout that Ataccama owns.</p>
-        <p data-i18n-html="des.p2">The pattern is <strong>"shell-plus-accent"</strong>, universal across every competitor I studied (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
-        <div class="gallery-twin" data-anim>
-          <figure class="gallery-figure">
-            <img src="images/projects/asset-layout-editor/page-layout-empty.png" alt="Empty state: dashed-border Pinned properties drop zone above the locked default layout grid" loading="lazy">
-          </figure>
-          <figure class="gallery-figure">
-            <img src="images/projects/asset-layout-editor/page-layout-pinned.png" alt="Pinned state: DQ score and connection pinned above the layout, with pin indicators on the source rows" loading="lazy">
-          </figure>
-        </div>
-      </div>
-
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="lbl.principles">The four design principles</div>
-        <h2 data-i18n="princ.h2">Each one came from a finding in the research.</h2>
-        <div class="numbered-list">
-          <div class="numbered-item">
-            <div class="numbered-item-num">01</div>
-            <div>
-              <h4 data-i18n="princ.1.h">Lock the structural scaffolding</h4>
-              <p data-i18n="princ.1.p">Header, widgets, column structure, all curated by Ataccama. Matches Collibra's "system content controlled by Collibra."</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">02</div>
-            <div>
-              <h4 data-i18n="princ.2.h">One escape hatch, not a full editor</h4>
-              <p data-i18n="princ.2.p">A single pinned-properties band. Admin curates which fields appear there. Everything else stays where Ataccama designed it.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">03</div>
-            <div>
-              <h4 data-i18n="princ.3.h">Tenant-scoped, not per-user</h4>
-              <p data-i18n="princ.3.p">Every data-catalog peer is tenant-scoped. Per-user pins would have broken consultant-shares-screens consistency.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">04</div>
-            <div>
-              <h4 data-i18n="princ.4.h">Pin individual properties</h4>
-              <p data-i18n="princ.4.p">The real customer use case is field-level. Section-level customization was over-coarse for the actual need.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pullquote" data-anim>
-        <p class="pullquote-text"><span data-i18n="pull.text1">V5 wasn't my first idea,</span> <span class="muted-text scroll-words" data-i18n="pull.text2">it was synthesis. Without V1–V4 showing what didn't work, V5 would have looked like V1.</span></p>
-        <p class="pullquote-attr" data-i18n="pull.attr">On building five prototype variants</p>
-      </div>
-
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="lbl.process">Process</div>
-        <h2 data-i18n="proc.h2">Three inflection points across six weeks.</h2>
-        <div class="numbered-list">
-          <div class="numbered-item">
-            <div class="numbered-item-num">01</div>
-            <div>
-              <h4 data-i18n="proc.1.h">The PM pivot, April 15</h4>
-              <p data-i18n-html="proc.1.p">I brought a full layout-editor prototype to my first PM meeting, expecting feedback on interactions. Matej proposed the pin concept in five minutes. <strong>Customization has a cost</strong>, product identity, test stability, upgrade path.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">02</div>
-            <div>
-              <h4 data-i18n="proc.2.h">The 22-source research</h4>
-              <p data-i18n-html="proc.2.p">Going deep on six competitors surfaced one universal pattern: <strong>shell-plus-accent</strong>. A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">03</div>
-            <div>
-              <h4 data-i18n="proc.3.h">The buddy meeting</h4>
-              <p data-i18n="proc.3.p">I brought a lean recommendation on each of six open decisions, not open exploration, "take this position and tell me why I'm wrong." We closed all six in 30 minutes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="lbl.learned">What I learned</div>
-        <h2 data-i18n="learned.h2">Five principles that travel beyond this project.</h2>
-        <div class="numbered-list">
-          <div class="numbered-item">
-            <div class="numbered-item-num">01</div>
-            <div>
-              <h4 data-i18n="learned.1.h">Bring problem + evidence early</h4>
-              <p data-i18n="learned.1.p">Let PM bring constraints. Don't fall in love with your prototype.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">02</div>
-            <div>
-              <h4 data-i18n="learned.2.h">Research turns proposals into arguments</h4>
-              <p data-i18n="learned.2.p">"12+ upvotes, Collibra 46% → 74%" is a different conversation than "I think we need this."</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">03</div>
-            <div>
-              <h4 data-i18n="learned.3.h">Sketch before prototyping in code</h4>
-              <p data-i18n="learned.3.p">Code iteration is fast but expensive when the direction isn't validated.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">04</div>
-            <div>
-              <h4 data-i18n="learned.4.h">Five variants were not waste</h4>
-              <p data-i18n="learned.4.p">V5 was synthesis. Without exploration, "first idea" is rarely the answer.</p>
-            </div>
-          </div>
-          <div class="numbered-item">
-            <div class="numbered-item-num">05</div>
-            <div>
-              <h4 data-i18n="learned.5.h">Fast convergence needs lean recommendations</h4>
-              <p data-i18n="learned.5.p">Strong defaults invite quick critique. Open questions invite long meetings.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </main>
 
-  <!-- CASE NAV -->
-  <div class="case-nav">
-    <a href="import-metadata.html" data-i18n="case.prev">← Previous: Import metadata</a>
-    <a href="index.html" data-i18n="case.backwork">Back to work</a>
-  </div>
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div class="footer-name">Eliška<br />Doležalová</div>
+        <img class="sun" src="sun.svg" alt="" aria-hidden="true" />
+      </div>
 
-  <!-- SITE FOOTER -->
-  <section class="site-footer" data-bg="#0A0A0A" data-fg="light">
-
-    <!-- Monogram watermark in the background -->
-    <img src="images/logo-ed.svg?v=6" alt="" class="footer-watermark" aria-hidden="true">
-
-    <div class="footer-top">
-
-      <div class="site-footer-headline">
-        <h2 data-anim data-anim-delay="1">
-          <span data-i18n="footer.headline.main">Let's start</span>
-          <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
-        </h2>
-        <div class="site-footer-cta" data-anim data-anim-delay="2">
-          <a href="mailto:hello@eliskadolezalova.cz" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
+      <div class="footer-cols reveal">
+        <div class="fcol">
+          <h4>Navigation</h4>
+          <div class="links">
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="index.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="fcol" aria-hidden="true"></div>
+        <div class="fcol">
+          <h4>Contact</h4>
+          <div class="links">
+            <a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a>
+            <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="fcol">
+          <h4>Based in</h4>
+          <div class="links">
+            <span>Prague,</span>
+            <span>Czech Republic</span>
+          </div>
         </div>
       </div>
 
-      <div class="footer-col-right" data-anim data-anim-delay="2">
-        <ul class="footer-contact-list" id="contact">
-          <li><a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a></li>
-          <li><a href="https://www.linkedin.com/in/eli%C5%A1ka-dole%C5%BEalov%C3%A1-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        </ul>
+      <div class="footer-divider"></div>
+      <div class="bottom-bar">
+        <span>2026 Ing. Eliška Doležalová</span>
+        <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-
     </div>
+  </footer>
 
-  </section>
-
-  <script>
-    (function () {
-      var translations = {
-        en: {
-          'nav.work': 'Work', 'nav.services': 'What I do', 'nav.about': 'About me', 'nav.contact': 'Contact',
-          'proj.tag.casestudy': 'Case study', 'proj.tag.mm': 'Metadata Model', 'proj.tag.atacc': 'Ataccama',
-          'proj.title': 'Asset Layout Editor.',
-          'proj.tagline': 'Replacing a hidden JSON editor with a research-grounded pin model.',
-          'meta.role': 'Role', 'meta.role.val': 'Product designer (intern) at Ataccama',
-          'meta.timeline': 'Timeline', 'meta.timeline.val': '6 weeks',
-          'meta.surface': 'Surface', 'meta.surface.val': 'Metadata Model · Page layout',
-          'meta.output': 'Output', 'meta.output.val': 'V5 prototype · Three-audience handoff',
-          'lbl.context': 'Context', 'ctx.h2': 'The JSON editor was technically usable. Nobody could actually use it.',
-          'ctx.p1': 'Customers routinely extend Ataccama ONE\'s metadata model with custom properties, <em>Region</em>, <em>Data Owner</em>, <em>Classification</em>. The historical way to surface them on entity detail pages was a Monaco-based JSON editor hidden behind a feature flag, unusable by anyone who didn\'t write code.',
-          'ctx.p2': 'Customer-facing teams complained when the flag came off. The brief: <strong>remove the JSON editor entirely and replace it with something an admin or a consultant could actually use.</strong>',
-          'lbl.problem': 'The problem', 'problem.h2': 'Real demand, no real solution.',
-          'problem.p1': 'The product inbox held the evidence, concentrated demand across DG, DQ, ONE Platform, and Agentic, going unaddressed because the existing solution was developer-only.',
-          'problem.p2': 'The audience was specific: <strong>tenant admins and consultants</strong>, people who understand the metadata model conceptually but don\'t write code. Explicitly not for end users or developers.',
-          'mockup.title': 'Product Inbox · Active demand',
-          'mockup.r1': '★ PI966 · UI for editing page layout · <strong style="color: var(--text);">6 upvotes</strong>',
-          'mockup.r2': 'PI411 · Editing layout of side pane',
-          'mockup.r3': 'PI444 · Custom property selection · 4 upvotes',
-          'mockup.r4': 'PI856 · Custom attribute visibility',
-          'mockup.r5': 'PI986 · Custom CI attributes in search',
-          'mockup.r6': 'PI765 · Hide/remove sections',
-          'mockup.r7': 'PI972 · Configure Attributes expander',
-          'lbl.designed': 'What I designed', 'des.h2': 'One escape hatch. Everything else locked.',
-          'des.p1': 'A two-zone model: a full-width pinned-properties band where admins curate which fields appear at the top, sitting above a locked default layout that Ataccama owns.',
-          'des.p2': 'The pattern is <strong>"shell-plus-accent"</strong>, universal across every competitor I studied (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). A dominant, system-controlled layout with one explicit surface for promoting individually-important content.',
-          'lbl.principles': 'The four design principles', 'princ.h2': 'Each one came from a finding in the research.',
-          'princ.1.h': 'Lock the structural scaffolding',
-          'princ.1.p': 'Header, widgets, column structure, all curated by Ataccama. Matches Collibra\'s "system content controlled by Collibra."',
-          'princ.2.h': 'One escape hatch, not a full editor',
-          'princ.2.p': 'A single pinned-properties band. Admin curates which fields appear there. Everything else stays where Ataccama designed it.',
-          'princ.3.h': 'Tenant-scoped, not per-user',
-          'princ.3.p': 'Every data-catalog peer is tenant-scoped. Per-user pins would have broken consultant-shares-screens consistency.',
-          'princ.4.h': 'Pin individual properties',
-          'princ.4.p': 'The real customer use case is field-level. Section-level customization was over-coarse for the actual need.',
-          'pull.text1': 'V5 wasn\'t my first idea,',
-          'pull.text2': 'it was synthesis. Without V1–V4 showing what didn\'t work, V5 would have looked like V1.',
-          'pull.attr': 'On building five prototype variants',
-          'lbl.process': 'Process', 'proc.h2': 'Three inflection points across six weeks.',
-          'proc.1.h': 'The PM pivot, April 15',
-          'proc.1.p': 'I brought a full layout-editor prototype to my first PM meeting, expecting feedback on interactions. Matej proposed the pin concept in five minutes. <strong>Customization has a cost</strong>, product identity, test stability, upgrade path.',
-          'proc.2.h': 'The 22-source research',
-          'proc.2.p': 'Going deep on six competitors surfaced one universal pattern: <strong>shell-plus-accent</strong>. A dominant, system-controlled layout with one explicit surface for promoting individually-important content.',
-          'proc.3.h': 'The buddy meeting',
-          'proc.3.p': 'I brought a lean recommendation on each of six open decisions, not open exploration, "take this position and tell me why I\'m wrong." We closed all six in 30 minutes.',
-          'lbl.learned': 'What I learned', 'learned.h2': 'Five principles that travel beyond this project.',
-          'learned.1.h': 'Bring problem + evidence early',
-          'learned.1.p': 'Let PM bring constraints. Don\'t fall in love with your prototype.',
-          'learned.2.h': 'Research turns proposals into arguments',
-          'learned.2.p': '"12+ upvotes, Collibra 46% → 74%" is a different conversation than "I think we need this."',
-          'learned.3.h': 'Sketch before prototyping in code',
-          'learned.3.p': 'Code iteration is fast but expensive when the direction isn\'t validated.',
-          'learned.4.h': 'Five variants were not waste',
-          'learned.4.p': 'V5 was synthesis. Without exploration, "first idea" is rarely the answer.',
-          'learned.5.h': 'Fast convergence needs lean recommendations',
-          'learned.5.p': 'Strong defaults invite quick critique. Open questions invite long meetings.',
-          'case.prev': '← Previous: Import metadata', 'case.backwork': 'Back to work',
-          'footer.headline.main': "Let's start", 'footer.headline.muted': 'creating something good together.',
-          'footer.cta.email': "Let's talk"
-        },
-        cs: {
-          'nav.work': 'Práce', 'nav.services': 'Moje služby', 'nav.about': 'O mně', 'nav.contact': 'Kontakt',
-          'proj.tag.casestudy': 'Případová studie', 'proj.tag.mm': 'Metadata Model', 'proj.tag.atacc': 'Ataccama',
-          'proj.title': 'Asset Layout Editor.',
-          'proj.tagline': 'Nahrazení skrytého JSON editoru pin modelem podloženým výzkumem.',
-          'meta.role': 'Role', 'meta.role.val': 'Produktová designerka (stáž) v Ataccamě',
-          'meta.timeline': 'Časový rámec', 'meta.timeline.val': '6 týdnů',
-          'meta.surface': 'Plocha', 'meta.surface.val': 'Metadata Model · Page layout',
-          'meta.output': 'Výstup', 'meta.output.val': 'V5 prototyp · Předání pro tři publika',
-          'lbl.context': 'Kontext', 'ctx.h2': 'JSON editor byl technicky použitelný. Reálně ho ale použít nikdo nedokázal.',
-          'ctx.p1': 'Zákazníci běžně rozšiřují metadata model Ataccamy ONE o vlastní vlastnosti, <em>Region</em>, <em>Data Owner</em>, <em>Klasifikace</em>. Historicky se na entity detail stránkách zobrazovaly přes Monaco-based JSON editor schovaný za feature flagem, nepoužitelný pro kohokoli, kdo nepíše kód.',
-          'ctx.p2': 'Týmy v kontaktu se zákazníky si stěžovaly, jakmile flag vypadl. Zadání: <strong>kompletně odstranit JSON editor a nahradit ho něčím, co admin nebo konzultant skutečně použije.</strong>',
-          'lbl.problem': 'Problém', 'problem.h2': 'Reálná poptávka, žádné reálné řešení.',
-          'problem.p1': 'Důkaz držel product inbox — koncentrovaná poptávka napříč DG, DQ, ONE Platform a Agentic, kterou nikdo neřešil, protože stávající řešení bylo jen pro vývojáře.',
-          'problem.p2': 'Publikum bylo konkrétní: <strong>tenant admini a konzultanti</strong>, lidé, kteří metadata modelu rozumí koncepčně, ale nepíší kód. Výslovně ne pro koncové uživatele ani vývojáře.',
-          'mockup.title': 'Product Inbox · Aktivní poptávka',
-          'mockup.r1': '★ PI966 · UI pro editaci page layoutu · <strong style="color: var(--text);">6 hlasů</strong>',
-          'mockup.r2': 'PI411 · Editace layoutu side pane',
-          'mockup.r3': 'PI444 · Výběr custom property · 4 hlasy',
-          'mockup.r4': 'PI856 · Viditelnost custom atributů',
-          'mockup.r5': 'PI986 · Custom CI atributy ve vyhledávání',
-          'mockup.r6': 'PI765 · Skrýt/odstranit sekce',
-          'mockup.r7': 'PI972 · Konfigurace expanderu Attributes',
-          'lbl.designed': 'Co jsem navrhla', 'des.h2': 'Jeden únikový poklop. Všechno ostatní uzamčené.',
-          'des.p1': 'Dvouzónový model: pás přes celou šířku se zapíchnutými vlastnostmi, kde admini kurátorují, která pole se zobrazí nahoře, nad uzamčeným výchozím layoutem, který vlastní Ataccama.',
-          'des.p2': 'Vzor se jmenuje <strong>"shell-plus-accent"</strong> a opakuje se u každého konkurenta, kterého jsem zkoumala (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). Dominantní layout řízený systémem s jednou explicitní plochou pro zvýraznění individuálně důležitého obsahu.',
-          'lbl.principles': 'Čtyři principy návrhu', 'princ.h2': 'Každý vychází z konkrétního zjištění z výzkumu.',
-          'princ.1.h': 'Uzamknout strukturální kostru',
-          'princ.1.p': 'Hlavička, widgety, sloupcová struktura — všechno kurátoruje Ataccama. Odpovídá Collibře a jejímu "system content controlled by Collibra."',
-          'princ.2.h': 'Jeden únikový poklop, ne celý editor',
-          'princ.2.p': 'Jediný pás se zapíchnutými vlastnostmi. Admin si kurátoruje, která pole se v něm objeví. Všechno ostatní zůstává tam, kam to Ataccama navrhla.',
-          'princ.3.h': 'Tenant-scoped, ne per-user',
-          'princ.3.p': 'Všichni partneři v data catalogu fungují na úrovni tenanta. Per-user piny by zničily konzistenci ve chvíli, kdy konzultant sdílí obrazovku.',
-          'princ.4.h': 'Zapíchnout jednotlivé vlastnosti',
-          'princ.4.p': 'Reálný use case zákazníka je na úrovni pole. Customizace na úrovni sekce byla na reálnou potřebu příliš hrubá.',
-          'pull.text1': 'V5 nebyl můj první nápad,',
-          'pull.text2': 'byla to syntéza. Bez V1–V4, které ukázaly, co nefunguje, by V5 vypadala jako V1.',
-          'pull.attr': 'O stavbě pěti variant prototypu',
-          'lbl.process': 'Proces', 'proc.h2': 'Tři zlomové body za šest týdnů.',
-          'proc.1.h': 'PM pivot, 15. dubna',
-          'proc.1.p': 'Na první PM meeting jsem přinesla kompletní prototyp layout editoru a čekala feedback k interakcím. Matěj během pěti minut navrhl koncept pinů. <strong>Customizace má svou cenu</strong> — identitu produktu, stabilitu testů, upgrade path.',
-          'proc.2.h': 'Výzkum 22 zdrojů',
-          'proc.2.p': 'Hluboké studium šesti konkurentů vyneslo na povrch jeden univerzální vzor: <strong>shell-plus-accent</strong>. Dominantní layout řízený systémem s jednou explicitní plochou pro zvýraznění individuálně důležitého obsahu.',
-          'proc.3.h': 'Buddy meeting',
-          'proc.3.p': 'Ke každému ze šesti otevřených rozhodnutí jsem přinesla jasné doporučení, ne otevřené prozkoumávání — "zaujmi pozici a řekni mi, kde se mýlím." Všech šest jsme uzavřeli za 30 minut.',
-          'lbl.learned': 'Co jsem se naučila', 'learned.h2': 'Pět principů, které berou i mimo tenhle projekt.',
-          'learned.1.h': 'Přines problém + důkazy včas',
-          'learned.1.p': 'Nech PM přinést omezení. Nezamiluj se do svého prototypu.',
-          'learned.2.h': 'Výzkum mění návrhy v argumenty',
-          'learned.2.p': '"12+ hlasů, Collibra 46 % → 74 %" je úplně jiná konverzace než "myslím, že tohle potřebujeme."',
-          'learned.3.h': 'Skicuj, než prototypuješ v kódu',
-          'learned.3.p': 'Iterace v kódu je rychlá, ale drahá, dokud směr není ověřený.',
-          'learned.4.h': 'Pět variant nebyl odpad',
-          'learned.4.p': 'V5 byla syntéza. Bez explorace je "první nápad" málokdy odpovědí.',
-          'learned.5.h': 'Rychlá konvergence potřebuje jasná doporučení',
-          'learned.5.p': 'Silné defaulty vyzývají k rychlé kritice. Otevřené otázky vyzývají k dlouhým meetingům.',
-          'case.prev': '← Předchozí: Import metadat', 'case.backwork': 'Zpět na práci',
-          'footer.headline.main': 'Pojďme společně', 'footer.headline.muted': 'rozhýbat váš produkt.',
-          'footer.cta.email': 'Napište mi'
-        }
-      };
-
-      var currentLang = localStorage.getItem('lang') || 'en';
-      function applyLanguage(lang) {
-        currentLang = lang;
-        var dict = translations[lang] || translations.en;
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n');
-          if (dict[key] !== undefined) el.textContent = dict[key];
-        });
-        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n-html');
-          if (dict[key] !== undefined) el.innerHTML = dict[key];
-        });
-        document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
-        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-      }
-      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-        btn.addEventListener('click', function () { applyLanguage(btn.getAttribute('data-lang')); });
-      });
-      applyLanguage(currentLang);
-
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('[data-anim]').forEach(function (el) {
-          observer.observe(el);
-        });
-      } else {
-        document.querySelectorAll('[data-anim]').forEach(function (el) {
-          el.classList.add('in-view');
-        });
-      }
-
-      var wordContainers = [];
-
-      document.querySelectorAll('.scroll-words').forEach(function (el) {
-        var text = el.textContent.trim();
-        var words = text.split(/\s+/);
-        el.innerHTML = words.map(function (w) {
-          return '<span class="word">' + w + '</span>';
-        }).join(' ');
-        var wordEls = el.querySelectorAll('.word');
-        var rect = el.getBoundingClientRect();
-        var vh = window.innerHeight;
-        var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
-        var inFooterDark = el.closest('.site-footer') !== null;
-
-        var inServicesDark = el.closest('#services') !== null;
-
-        el.classList.add('scroll-driven');
-
-        var fromColor = { r: 200, g: 200, b: 200 };
-
-        var toColor   = { r: 10,  g: 10,  b: 10  };
-        if (inViewOnLoad) {
-          wordContainers.push({
-            el: el, words: wordEls,
-            startRatio: 0.65, endRatio: -0.35,
-            fromColor: fromColor, toColor: toColor, inFooterDark: inFooterDark, inServicesDark: inServicesDark
-          });
-        } else {
-          wordContainers.push({
-            el: el, words: wordEls,
-            startRatio: 1.20, endRatio: -0.20,
-            fromColor: fromColor, toColor: toColor
-          });
-        }
-      });
-
-      var ticking = false;
-      function updateScrollWords() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          wordContainers.forEach(function (group) {
-            var bodyIsDark = document.body.classList.contains('fg-light');
-            var rect = group.el.getBoundingClientRect();
-            var elementCenter = rect.top + rect.height / 2;
-            var startC = vh * group.startRatio;
-            var endC = vh * group.endRatio;
-            var globalProgress = (startC - elementCenter) / (startC - endC);
-            if (globalProgress < 0) globalProgress = 0;
-            else if (globalProgress > 1) globalProgress = 1;
-            var fromC, toC;
-            if (bodyIsDark && group.inServicesDark) {
-              fromC = { r: 110, g: 110, b: 110 };
-              toC   = { r: 242, g: 237, b: 220 };
-            } else if (bodyIsDark && group.inFooterDark) {
-              fromC = { r: 237, g: 164, b: 181 };
-              toC   = { r: 255, g: 255, b: 255 };
-            } else {
-              fromC = { r: 200, g: 200, b: 200 };
-              toC   = { r: 10,  g: 10,  b: 10  };
-            }
-
-            var n = group.words.length;
-            var stretch = 1.6;
-            var halfRange = (stretch / n) / 2;
-            for (var i = 0; i < n; i++) {
-              var center = (i + 0.5) / n;
-              var wStart = center - halfRange;
-              var wEnd = center + halfRange;
-              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
-              if (wProgress < 0) wProgress = 0;
-              else if (wProgress > 1) wProgress = 1;
-              var r = Math.round(fromC.r + (toC.r - fromC.r) * wProgress);
-              var g = Math.round(fromC.g + (toC.g - fromC.g) * wProgress);
-              var b = Math.round(fromC.b + (toC.b - fromC.b) * wProgress);
-              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
-            }
-          });
-          ticking = false;
-        });
-      }
-      window.addEventListener('scroll', updateScrollWords, { passive: true });
-      window.addEventListener('resize', updateScrollWords, { passive: true });
-      updateScrollWords();
-
-      // Scroll progress bar
-      var progressBar = document.querySelector('.scroll-progress-bar');
-      var progressTicking = false;
-      function updateProgress() {
-        if (progressTicking) return;
-        progressTicking = true;
-        requestAnimationFrame(function () {
-          if (progressBar) {
-            var max = document.documentElement.scrollHeight - window.innerHeight;
-            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
-            progressBar.style.width = p + '%';
-          }
-          progressTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      window.addEventListener('resize', updateProgress, { passive: true });
-      updateProgress();
-
-      // Parallax on scroll
-      var parallaxEls = document.querySelectorAll('[data-parallax]');
-      var parallaxTicking = false;
-      function updateParallax() {
-        if (parallaxTicking) return;
-        parallaxTicking = true;
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          parallaxEls.forEach(function (el) {
-            var rect = el.getBoundingClientRect();
-            if (rect.bottom < -200 || rect.top > vh + 200) return;
-            var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
-            var centerOffset = (rect.top + rect.height / 2) - vh / 2;
-            var translateY = -centerOffset * speed;
-            el.style.transform = 'translateY(' + translateY.toFixed(2) + 'px)';
-          });
-          parallaxTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateParallax, { passive: true });
-      window.addEventListener('resize', updateParallax, { passive: true });
-      updateParallax();
-
-      // Nav pill on scroll
-      var nav = document.querySelector('.nav');
-      if (nav) {
-        var navTicking = false;
-        function checkNavScroll() {
-          if (navTicking) return;
-          navTicking = true;
-          requestAnimationFrame(function () {
-            if (window.scrollY > 30) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-            navTicking = false;
-          });
-        }
-        window.addEventListener('scroll', checkNavScroll, { passive: true });
-        checkNavScroll();
-      }
-
-      // Mobile nav drawer toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var mobileNav = document.querySelector('.mobile-nav');
-      if (hamburger && mobileNav) {
-        function toggleMenu(open) {
-          hamburger.setAttribute('aria-expanded', String(open));
-          mobileNav.classList.toggle('open', open);
-          mobileNav.setAttribute('aria-hidden', String(!open));
-          document.body.classList.toggle('menu-open', open);
-        }
-        hamburger.addEventListener('click', function () {
-          toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
-        });
-        mobileNav.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () { toggleMenu(false); });
-        });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
-        });
-      }
-    })();
-  </script>
-
-  <script src="scroll-effects.js?v=3" defer></script>
+  <script src="reveal.js"></script>
 </body>
 </html>

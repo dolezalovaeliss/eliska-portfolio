@@ -1,398 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('has-anims');</script>
-  <title>Odstrčil, Craft Jewellery, Eliska Dolezalova</title>
-  <meta name="description" content="A craft jeweller's site that reads more like a gallery than an e-shop.">
-  <link rel="canonical" href="https://elisdolezalova.cz/project-odstrcil.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elisdolezalova.cz/project-odstrcil.html">
-  <meta property="og:title" content="Odstrčil, Craft Jewellery, Eliska Dolezalova">
-  <meta property="og:description" content="A craft jeweller's site that reads more like a gallery than an e-shop.">
-  <meta property="og:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta property="og:image:width" content="960">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="cs_CZ">
-  <meta property="og:site_name" content="Eliska Dolezalova">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Odstrčil, Craft Jewellery, Eliska Dolezalova">
-  <meta name="twitter:description" content="A craft jeweller's site that reads more like a gallery than an e-shop.">
-  <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png?v=2">
-  <meta name="twitter:image:alt" content="eliska — brand to product. Designed by Eliška Doležalová.">
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=61">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Odstrčil, Craft Jewellery — Eliška Doležalová</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <img src="images/logo-ed.svg?v=6" alt="Eliška Doležalová" class="brand-logo">
-      </a>
-      <ul class="nav-links">
-        <li><a href="work.html" aria-current="page" data-i18n="nav.work">Work</a></li>
-        <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      </ul>
-      <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="active">EN</button>
-          <span class="lang-toggle-sep">·</span>
-          <button type="button" data-lang="cs">CS</button>
+  <header class="site-header" id="site-header">
+    <div class="bar">
+      <nav class="nav">
+        <a href="index.html" class="wordmark">Eliška<br />Doležalová</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">ABOUT ME</a>
+          <a href="work.html" class="active">WORK</a>
+          <a href="contact.html">CONTACT</a>
         </div>
-        <a href="index.html#contact" class="btn btn-primary" data-i18n="nav.contact">Contact</a>
-        <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      </nav>
     </div>
-  </nav>
-
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <ul class="mobile-nav-links">
-      <li><a href="work.html" data-i18n="nav.work">Work</a></li>
-      <li><a href="index.html#services" data-i18n="nav.services">What I do</a></li>
-      <li><a href="about.html" data-i18n="nav.about">About me</a></li>
-      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-  </div>
+  </header>
 
   <!-- HERO -->
-  <section class="case-hero">
-    <div class="container">
-      <div class="case-hero-tags" data-anim>
-        <span data-i18n="proj.tag1">Web Design</span>
-        <span data-i18n="proj.tag2">UX/UI</span>
-        <span data-i18n="proj.tag3">Branding</span>
-      </div>
-      <h1 data-anim data-anim-delay="1">
-        <span data-i18n="proj.title">Odstrčil, Craft Jewellery</span>
-        <span class="muted-text scroll-words" data-i18n="proj.tagline">A craft jeweller's site that reads more like a gallery than an e-shop.</span>
-      </h1>
-    </div>
-  </section>
-
-  <!-- META -->
-  <section class="case-meta">
-    <dl class="case-meta-grid">
-      <div class="case-meta-item" data-anim>
-        <dt data-i18n="proj.meta.role">Role</dt>
-        <dd data-i18n="proj.role">UX/UI designer</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="1">
-        <dt data-i18n="proj.meta.year">Year</dt>
-        <dd>2025</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="2">
-        <dt data-i18n="proj.meta.client">Client</dt>
-        <dd>Odstrčil</dd>
-      </div>
-      <div class="case-meta-item" data-anim data-anim-delay="3">
-        <dt data-i18n="proj.meta.output">Outputs</dt>
-        <dd data-i18n="proj.outputs">Web Design · UX/UI · Branding</dd>
-      </div>
-    </dl>
-  </section>
-
-  <!-- COVER -->
-  <section class="project-cover">
-    <div class="container">
-      <div class="project-cover-img" data-anim>
-        <img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery, cover" loading="eager">
+  <header class="case-hero">
+    <div class="wrap">
+      <a href="work.html" class="case-back">← Back to work</a>
+      <h1 class="case-title">Odstrčil, Craft Jewellery</h1>
+      <p class="case-subtitle">A craft jeweller&rsquo;s site that reads more like a gallery than an e-shop.</p>
+      <div class="case-meta">
+        <div class="case-meta-item"><div class="k">Role</div><div class="v">UX/UI designer</div></div>
+        <div class="case-meta-item"><div class="k">Year</div><div class="v">2025</div></div>
+        <div class="case-meta-item"><div class="k">Client</div><div class="v">Odstrčil</div></div>
+        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Web Design · UX/UI · Branding</div></div>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- BODY -->
-  <section class="case-body project-body">
-    <div class="container">
+  <main class="case-body wrap">
+    <div class="case-cover reveal"><img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery" /></div>
 
-      <div class="case-section" data-anim>
-        <div class="section-label" data-i18n="proj.about.label">About</div>
-        <p data-i18n="proj.p1">Complete UX/UI design for a craft jewellery maker's website. The design emphasises visual cleanliness and elegance, a reflection of the precision and uniqueness of the work itself. Minimalism and air around each piece let the jewellery photography do the talking.</p>
-        <p data-i18n="proj.p2">I conceived it primarily as a gallery experience rather than a traditional e-shop. The purchasing workflow stays intuitive without compromising the brand's exclusivity or aesthetic.</p>
+    <div class="case-layout">
+      <aside class="case-index">
+        <a href="#about" class="active">About</a>
+        <a href="#gallery">Gallery</a>
+      </aside>
+
+      <div class="case-main">
+        <section id="about" class="case-section reveal">
+          <div class="section-label">ABOUT</div>
+          <p>Complete UX/UI design for a craft jewellery maker&rsquo;s website. The design emphasises visual cleanliness and elegance, a reflection of the precision and uniqueness of the work itself. Minimalism and air around each piece let the jewellery photography do the talking.</p>
+          <p>I conceived it primarily as a gallery experience rather than a traditional e-shop. The purchasing workflow stays intuitive without compromising the brand&rsquo;s exclusivity or aesthetic.</p>
+        </section>
+
+        <section id="gallery" class="case-section reveal">
+          <div class="section-label">GALLERY</div>
+          <div class="case-gallery">
+            <div class="case-figure"><img src="images/projects/odstrcil/01.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
+            <div class="case-figure"><img src="images/projects/odstrcil/02.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
+            <div class="case-figure"><img src="images/projects/odstrcil/03.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
+          </div>
+        </section>
+
+        <div class="case-next reveal">
+          <div class="rule"></div>
+          <a href="project-duhova-stuzka.html">
+            <div>
+              <div class="np-label">NEXT PROJECT</div>
+              <div class="np-name">Duhová stužka</div>
+            </div>
+            <div class="np-arrow">↗</div>
+          </a>
+        </div>
       </div>
-
-      <div class="project-gallery" data-anim>
-        <figure class="gallery-figure" data-anim data-anim-delay="0"><img src="images/projects/odstrcil/01.png" alt="Odstrčil, Craft Jewellery, 1" loading="lazy"></figure>
-        <figure class="gallery-figure" data-anim data-anim-delay="1"><img src="images/projects/odstrcil/02.png" alt="Odstrčil, Craft Jewellery, 2" loading="lazy"></figure>
-        <figure class="gallery-figure" data-anim data-anim-delay="2"><img src="images/projects/odstrcil/03.png" alt="Odstrčil, Craft Jewellery, 3" loading="lazy"></figure>
-      </div>
-
     </div>
-  </section>
+  </main>
 
-  <!-- SITE FOOTER -->
-  <section class="site-footer" data-bg="#0A0A0A" data-fg="light">
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div class="footer-name">Eliška<br />Doležalová</div>
+        <img class="sun" src="sun.svg" alt="" aria-hidden="true" />
+      </div>
 
-    <!-- Monogram watermark in the background -->
-    <img src="images/logo-ed.svg?v=6" alt="" class="footer-watermark" aria-hidden="true">
-
-    <div class="footer-top">
-
-      <div class="site-footer-headline">
-        <h2 data-anim data-anim-delay="1">
-          <span data-i18n="footer.headline.main">Let's start</span>
-          <span class="muted-light scroll-words" data-i18n="footer.headline.muted">creating something good together.</span>
-        </h2>
-        <div class="site-footer-cta" data-anim data-anim-delay="2">
-          <a href="mailto:hello@eliskadolezalova.cz" class="btn btn-light" data-i18n="footer.cta.email">Let's talk</a>
+      <div class="footer-cols reveal">
+        <div class="fcol">
+          <h4>Navigation</h4>
+          <div class="links">
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="index.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="fcol" aria-hidden="true"></div>
+        <div class="fcol">
+          <h4>Contact</h4>
+          <div class="links">
+            <a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a>
+            <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="fcol">
+          <h4>Based in</h4>
+          <div class="links">
+            <span>Prague,</span>
+            <span>Czech Republic</span>
+          </div>
         </div>
       </div>
 
-      <div class="footer-col-right" data-anim data-anim-delay="2">
-        <ul class="footer-contact-list" id="contact">
-          <li><a href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a></li>
-          <li><a href="https://www.linkedin.com/in/eli%C5%A1ka-dole%C5%BEalov%C3%A1-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        </ul>
+      <div class="footer-divider"></div>
+      <div class="bottom-bar">
+        <span>2026 Ing. Eliška Doležalová</span>
+        <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-
     </div>
+  </footer>
 
-  </section>
-
-  <script>
-    (function () {
-      var translations = {
-        "en": {
-                "nav.work": "Work",
-                "nav.services": "What I do",
-                "nav.about": "About me",
-                "nav.contact": "Contact",
-                "proj.title": "Odstrčil, Craft Jewellery",
-                "proj.tagline": "A craft jeweller's site that reads more like a gallery than an e-shop.",
-                "proj.role": "UX/UI designer",
-                "proj.about.label": "About",
-                "proj.meta.role": "Role",
-                "proj.meta.year": "Year",
-                "proj.meta.client": "Client",
-                "proj.meta.output": "Outputs",
-                "footer.eyebrow": "Contact",
-                "footer.headline.main": "Let's start",
-                "footer.headline.muted": "creating something good together.",
-                "footer.cta.email": "Let's talk",
-                "footer.col.contact": "Contact",
-                "footer.col.contact.cta": "Get in touch ↗",
-                "footer.col.connect": "Connect",
-                "footer.col.email": "Email ↗",
-                "footer.col.navigate": "Navigate",
-                "footer.strip.copyright": "© 2026 Eliska Dolezalova",
-                "footer.strip.location": "Prague, Czech Republic",
-                "footer.strip.status": "Available 2026",
-                "proj.p1": "Complete UX/UI design for a craft jewellery maker's website. The design emphasises visual cleanliness and elegance, a reflection of the precision and uniqueness of the work itself. Minimalism and air around each piece let the jewellery photography do the talking.",
-                "proj.p2": "I conceived it primarily as a gallery experience rather than a traditional e-shop. The purchasing workflow stays intuitive without compromising the brand's exclusivity or aesthetic.",
-                "proj.tag1": "Web Design",
-                "proj.tag2": "UX/UI",
-                "proj.tag3": "Branding",
-                "proj.outputs": "Web Design · UX/UI · Branding"
-        },
-        "cs": {
-                "nav.work": "Práce",
-                "nav.services": "Moje služby",
-                "nav.about": "O mně",
-                "nav.contact": "Kontakt",
-                "proj.title": "Odstrčil, Šperky ručně",
-                "proj.tagline": "Web ručního šperkaře, spíš galerie než e-shop.",
-                "proj.role": "UX/UI designerka",
-                "proj.about.label": "O projektu",
-                "proj.meta.role": "Role",
-                "proj.meta.year": "Rok",
-                "proj.meta.client": "Klient",
-                "proj.meta.output": "Výstupy",
-                "footer.eyebrow": "Kontakt",
-                "footer.headline.main": "Pojd’me společně",
-                "footer.headline.muted": "rozhýbat váš produkt.",
-                "footer.cta.email": "Napište mi",
-                "footer.col.contact": "Kontakt",
-                "footer.col.contact.cta": "Napsat e-mail ↗",
-                "footer.col.connect": "Najdete mě",
-                "footer.col.email": "E-mail ↗",
-                "footer.col.navigate": "Stránky",
-                "footer.strip.copyright": "© 2026 Eliška Doležalová",
-                "footer.strip.location": "Praha, Česká republika",
-                "footer.strip.status": "Beru zakázky pro 2026",
-                "proj.p1": "Kompletní UX/UI návrh webu pro výrobce ručně dělaných šperků. Design zdůrazňuje vizuální čistotu a eleganci, odraz preciznosti a jedinečnosti samotných šperků. Minimalismus a vzdušnost nechávají vyniknout produktovou fotografii.",
-                "proj.p2": "Web jsem pojala primárně jako galerii, ne jako klasický e-shop. Nákupní proces zůstává intuitivní, aniž by ohrozil exkluzivitu nebo estetiku značky.",
-                "proj.tag1": "Web design",
-                "proj.tag2": "UX/UI",
-                "proj.tag3": "Branding",
-                "proj.outputs": "Web design · UX/UI · Branding"
-        }
-};
-
-      var currentLang = localStorage.getItem('lang') || 'en';
-
-      function applyLanguage(lang) {
-        currentLang = lang;
-        var dict = translations[lang] || translations.en;
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-          var key = el.getAttribute('data-i18n');
-          if (dict[key] !== undefined) el.textContent = dict[key];
-        });
-        document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
-        document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-        if (typeof rebuildScrollWords === 'function') rebuildScrollWords();
-      }
-
-      document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-        btn.addEventListener('click', function () { applyLanguage(btn.getAttribute('data-lang')); });
-      });
-      applyLanguage(currentLang);
-
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('[data-anim]').forEach(function (el) { observer.observe(el); });
-      } else {
-        document.querySelectorAll('[data-anim]').forEach(function (el) { el.classList.add('in-view'); });
-      }
-
-      var wordContainers = [];
-      function rebuildScrollWords() {
-        wordContainers = [];
-        document.querySelectorAll('.scroll-words').forEach(function (el) {
-          var text = el.textContent.trim();
-          var words = text.split(/\s+/);
-          el.innerHTML = words.map(function (w) { return '<span class="word">' + w + '</span>'; }).join(' ');
-          var wordEls = el.querySelectorAll('.word');
-          var rect = el.getBoundingClientRect();
-          var vh = window.innerHeight;
-          var inViewOnLoad = rect.top < vh * 0.85 && rect.bottom > 0;
-          var inDark = el.closest('.site-footer') !== null;
-          el.classList.add('scroll-driven');
-          var inFooterDark = el.closest('.site-footer') !== null;
-          var inServicesDark = el.closest('#services') !== null;
-          var fromColor = { r: 200, g: 200, b: 200 };
-          var toColor   = { r: 10,  g: 10,  b: 10  };
-          wordContainers.push({ el: el, words: wordEls, startRatio: inViewOnLoad ? 0.65 : 1.20, endRatio: inViewOnLoad ? -0.35 : -0.20, fromColor: fromColor, toColor: toColor, inFooterDark: inFooterDark, inServicesDark: inServicesDark });
-        });
-      }
-      rebuildScrollWords();
-
-      var wordTicking = false;
-      function updateScrollWords() {
-        if (wordTicking) return;
-        wordTicking = true;
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          wordContainers.forEach(function (group) {
-            var bodyIsDark = document.body.classList.contains('fg-light');
-            var rect = group.el.getBoundingClientRect();
-            var elementCenter = rect.top + rect.height / 2;
-            var startC = vh * group.startRatio;
-            var endC = vh * group.endRatio;
-            var globalProgress = (startC - elementCenter) / (startC - endC);
-            if (globalProgress < 0) globalProgress = 0;
-            else if (globalProgress > 1) globalProgress = 1;
-            var fromC, toC;
-            if (bodyIsDark && group.inServicesDark) {
-              fromC = { r: 110, g: 110, b: 110 };
-              toC   = { r: 242, g: 237, b: 220 };
-            } else if (bodyIsDark && group.inFooterDark) {
-              fromC = { r: 237, g: 164, b: 181 };
-              toC   = { r: 255, g: 255, b: 255 };
-            } else {
-              fromC = { r: 200, g: 200, b: 200 };
-              toC   = { r: 10,  g: 10,  b: 10  };
-            }
-
-            var n = group.words.length;
-            var stretch = 1.6;
-            var halfRange = (stretch / n) / 2;
-            for (var i = 0; i < n; i++) {
-              var center = (i + 0.5) / n;
-              var wStart = center - halfRange;
-              var wEnd = center + halfRange;
-              var wProgress = (globalProgress - wStart) / (wEnd - wStart);
-              if (wProgress < 0) wProgress = 0;
-              else if (wProgress > 1) wProgress = 1;
-              var r = Math.round(fromC.r + (toC.r - fromC.r) * wProgress);
-              var g = Math.round(fromC.g + (toC.g - fromC.g) * wProgress);
-              var b = Math.round(fromC.b + (toC.b - fromC.b) * wProgress);
-              group.words[i].style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
-            }
-          });
-          wordTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateScrollWords, { passive: true });
-      window.addEventListener('resize', updateScrollWords, { passive: true });
-      updateScrollWords();
-
-      var progressBar = document.querySelector('.scroll-progress-bar');
-      var progressTicking = false;
-      function updateProgress() {
-        if (progressTicking) return;
-        progressTicking = true;
-        requestAnimationFrame(function () {
-          if (progressBar) {
-            var max = document.documentElement.scrollHeight - window.innerHeight;
-            var p = max > 0 ? (window.scrollY / max) * 100 : 0;
-            progressBar.style.width = p + '%';
-          }
-          progressTicking = false;
-        });
-      }
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      window.addEventListener('resize', updateProgress, { passive: true });
-      updateProgress();
-
-      var nav = document.querySelector('.nav');
-      if (nav) {
-        var navTicking = false;
-        function checkNavScroll() {
-          if (navTicking) return;
-          navTicking = true;
-          requestAnimationFrame(function () {
-            if (window.scrollY > 30) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-            navTicking = false;
-          });
-        }
-        window.addEventListener('scroll', checkNavScroll, { passive: true });
-        checkNavScroll();
-      }
-
-      var hamburger = document.querySelector('.nav-hamburger');
-      var mobileNav = document.querySelector('.mobile-nav');
-      if (hamburger && mobileNav) {
-        function toggleMenu(open) {
-          hamburger.setAttribute('aria-expanded', String(open));
-          mobileNav.classList.toggle('open', open);
-          mobileNav.setAttribute('aria-hidden', String(!open));
-          document.body.classList.toggle('menu-open', open);
-        }
-        hamburger.addEventListener('click', function () { toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true'); });
-        mobileNav.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () { toggleMenu(false); });
-        });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') toggleMenu(false);
-        });
-      }
-    })();
-  </script>
-
-  <script src="scroll-effects.js?v=3" defer></script>
+  <script src="reveal.js"></script>
 </body>
 </html>
