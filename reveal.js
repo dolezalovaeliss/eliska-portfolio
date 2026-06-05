@@ -102,6 +102,62 @@
     });
   }
 
+  // ---- Hero entrance animation (home) ----
+  var heroContent = document.getElementById('hero-content');
+  if (heroContent) {
+    var heroPhoto = heroContent.querySelector('.hero-photo-anim');
+    var heroTitle = heroContent.querySelector('.hero-title');
+    var reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Split the title into per-word spans (keeping the pink .name element intact)
+    if (heroTitle && !reduceMo) {
+      var kids = Array.prototype.slice.call(heroTitle.childNodes);
+      heroTitle.textContent = '';
+      kids.forEach(function (node) {
+        if (node.nodeType === 3) {
+          node.textContent.split(/(\s+)/).forEach(function (p) {
+            if (p === '') return;
+            if (/^\s+$/.test(p)) {
+              heroTitle.appendChild(document.createTextNode(p));
+            } else {
+              var s = document.createElement('span');
+              s.className = 'word';
+              s.textContent = p;
+              heroTitle.appendChild(s);
+            }
+          });
+        } else if (node.nodeType === 1) {
+          node.classList.add('word');
+          heroTitle.appendChild(node);
+        }
+      });
+    }
+
+    var runHero = function () {
+      if (heroPhoto) heroPhoto.classList.add('is-in');
+      if (heroTitle) {
+        var words = heroTitle.querySelectorAll('.word');
+        Array.prototype.forEach.call(words, function (w, i) {
+          w.style.transitionDelay = (260 + i * 55) + 'ms';
+        });
+        heroTitle.classList.add('is-in');
+      }
+      // Gentle float once the photo has finished arriving
+      if (heroPhoto && !reduceMo) {
+        var onEnd = function (e) {
+          if (e.propertyName === 'transform' || e.propertyName === 'clip-path') {
+            heroPhoto.removeEventListener('transitionend', onEnd);
+            heroPhoto.style.transition = 'none';
+            heroPhoto.classList.add('is-floating');
+          }
+        };
+        heroPhoto.addEventListener('transitionend', onEnd);
+      }
+    };
+    // Let the hidden initial state paint first, then animate in
+    requestAnimationFrame(function () { requestAnimationFrame(runHero); });
+  }
+
   // ---- CV fullscreen lightbox ----
   var cvOverlay = document.getElementById('cv-overlay');
   if (cvOverlay) {
