@@ -787,7 +787,19 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .bar { position: relative; }
   .nav { gap: 16px; align-items: center; }
   .nav .wordmark { margin-right: auto; font-size: 14px; position: relative; z-index: 110; }
-  .nav-toggle { display: block; z-index: 110; }
+  .nav-toggle { display: block; z-index: 110; transition: background 0.25s ease, box-shadow 0.25s ease; }
+
+  /* On scroll: hide the name, put the hamburger in an opaque yellow circle so it stays visible */
+  .site-header .wordmark { transition: opacity 0.3s ease; }
+  .site-header.scrolled .wordmark { opacity: 0; pointer-events: none; }
+  .site-header.scrolled .nav-toggle {
+    background: var(--yellow);
+    border-radius: 999px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+  }
+  /* keep the menu button clean and the name visible while the overlay is open */
+  .nav.open .wordmark { opacity: 1; }
+  .nav.open .nav-toggle { background: none; box-shadow: none; }
 
   /* Full-screen overlay menu */
   .nav-links {
