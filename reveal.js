@@ -69,6 +69,7 @@
     var ticking = false;
     var update = function () {
       var y = window.scrollY;
+      header.classList.toggle('scrolled', y > 40); // mobile: drives the floating hamburger chip
       if (y < 80) {
         header.classList.remove('is-hidden');      // always visible near the top
       } else if (y > lastY + 4) {
