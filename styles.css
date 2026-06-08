@@ -222,6 +222,64 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
+/* ---------- HERO AMBIENT (Apple Music–style flowing background) ----------
+   Two heavily-blurred, slowly drifting copies of the hero photo create a
+   living wash of colour behind the content. A light scrim keeps the dark
+   text legible; the yellow base shows through at the soft edges. */
+.hero--full { position: relative; overflow: hidden; isolation: isolate; }
+.hero--full > .wrap { position: relative; z-index: 1; }
+
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-ambient__layer {
+  position: absolute;
+  inset: -35%;
+  background-image: url("profile.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(72px) saturate(1.55);
+  transform-origin: center;
+  will-change: transform;
+}
+.hero-ambient__layer--a {
+  animation: amb-a 28s ease-in-out infinite alternate;
+}
+.hero-ambient__layer--b {
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  animation: amb-b 36s ease-in-out infinite alternate;
+}
+.hero-ambient__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(247,247,247,0.30) 0%, rgba(247,247,247,0.42) 60%, rgba(255,229,133,0.30) 100%),
+    radial-gradient(130% 95% at 50% 32%, rgba(255,255,255,0) 38%, rgba(255,229,133,0.45) 100%);
+}
+
+@keyframes amb-a {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.18) rotate(0deg); }
+  100% { transform: translate3d(3%, 3%, 0)  scale(1.32) rotate(7deg); }
+}
+@keyframes amb-b {
+  0%   { transform: translate3d(3%, 2%, 0)   scale(1.28) rotate(0deg); }
+  100% { transform: translate3d(-3%, -3%, 0) scale(1.14) rotate(-9deg); }
+}
+
+/* The crisp photo reads as the floating "album art" card on top */
+.hero-content .photo {
+  box-shadow: 0 18px 50px -18px rgba(29, 29, 29, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient__layer { animation: none; }
+}
+
 /* ---------- HERO (Work) ---------- */
 .hero--work { padding-top: 190px; padding-bottom: 30px; background: var(--body-bg); }
 .hero--work .nav { margin-bottom: 80px; }
