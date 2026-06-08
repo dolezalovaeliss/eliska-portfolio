@@ -222,10 +222,10 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* ---------- HERO AMBIENT (Apple Music–style flowing background) ----------
-   Two heavily-blurred, slowly drifting copies of the hero photo create a
-   living wash of colour behind the content. A light scrim keeps the dark
-   text legible; the yellow base shows through at the soft edges. */
+/* ---------- HERO AMBIENT (flowing brand-colour gradient) ----------
+   Big, blurred blobs of the brand yellow + pink drift around behind the
+   content, overlapping into a living mesh of colour. A light scrim keeps
+   the dark title legible. */
 .hero--full { position: relative; overflow: hidden; isolation: isolate; }
 .hero--full > .wrap { position: relative; z-index: 1; }
 
@@ -235,49 +235,69 @@ a { color: inherit; text-decoration: none; }
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  background: var(--yellow);
 }
-.hero-ambient__layer {
+.blob {
   position: absolute;
-  inset: -35%;
-  background-image: url("profile.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(72px) saturate(1.55);
-  transform-origin: center;
+  width: 65vw;
+  height: 65vw;
+  border-radius: 50%;
+  filter: blur(70px);
   will-change: transform;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
 }
-.hero-ambient__layer--a {
-  animation: amb-a 28s ease-in-out infinite alternate;
+.blob--1 {
+  top: -15%; left: -10%;
+  background: radial-gradient(circle at center, var(--pink) 0%, rgba(255,0,200,0) 65%);
+  animation: blob1 18s ease-in-out infinite alternate;
 }
-.hero-ambient__layer--b {
-  opacity: 0.55;
-  mix-blend-mode: screen;
-  animation: amb-b 36s ease-in-out infinite alternate;
+.blob--2 {
+  top: -5%; right: -15%;
+  background: radial-gradient(circle at center, #ffd23b 0%, rgba(255,210,59,0) 65%);
+  animation: blob2 22s ease-in-out infinite alternate;
+}
+.blob--3 {
+  bottom: -25%; left: 15%;
+  background: radial-gradient(circle at center, var(--pink) 0%, rgba(255,0,200,0) 62%);
+  animation: blob3 26s ease-in-out infinite alternate;
+}
+.blob--4 {
+  bottom: -20%; right: 5%;
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle at center, var(--underline) 0%, rgba(236,238,0,0) 60%);
+  animation: blob4 20s ease-in-out infinite alternate;
 }
 .hero-ambient__scrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(247,247,247,0.30) 0%, rgba(247,247,247,0.42) 60%, rgba(255,229,133,0.30) 100%),
-    radial-gradient(130% 95% at 50% 32%, rgba(255,255,255,0) 38%, rgba(255,229,133,0.45) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.30) 100%);
 }
 
-@keyframes amb-a {
-  0%   { transform: translate3d(-3%, -2%, 0) scale(1.18) rotate(0deg); }
-  100% { transform: translate3d(3%, 3%, 0)  scale(1.32) rotate(7deg); }
+@keyframes blob1 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(35vw, 25vh, 0) scale(1.25); }
 }
-@keyframes amb-b {
-  0%   { transform: translate3d(3%, 2%, 0)   scale(1.28) rotate(0deg); }
-  100% { transform: translate3d(-3%, -3%, 0) scale(1.14) rotate(-9deg); }
+@keyframes blob2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1.1); }
+  100% { transform: translate3d(-28vw, 30vh, 0) scale(0.85); }
+}
+@keyframes blob3 {
+  0%   { transform: translate3d(0, 0, 0) scale(0.9); }
+  100% { transform: translate3d(25vw, -28vh, 0) scale(1.2); }
+}
+@keyframes blob4 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-30vw, -22vh, 0) scale(1.15); }
 }
 
-/* The crisp photo reads as the floating "album art" card on top */
+/* The crisp photo reads as a floating card on top */
 .hero-content .photo {
   box-shadow: 0 18px 50px -18px rgba(29, 29, 29, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ambient__layer { animation: none; }
+  .blob { animation: none; }
 }
 
 /* ---------- HERO (Work) ---------- */
