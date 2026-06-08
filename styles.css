@@ -222,10 +222,11 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* ---------- HERO AMBIENT (flowing brand-colour gradient) ----------
-   Big, blurred blobs of the brand yellow + pink drift around behind the
-   content, overlapping into a living mesh of colour. A light scrim keeps
-   the dark title legible. */
+/* ---------- HERO AMBIENT (soft pink clouds on a yellow base) ----------
+   The brand yellow stays dominant. Soft, heavily-blurred pink clouds drift
+   slowly in from the corners/edges only. A strong yellow radial "shield"
+   keeps the centre solidly yellow — so the pink headline word never sits
+   on a pink cloud. */
 .hero--full { position: relative; overflow: hidden; isolation: isolate; }
 .hero--full > .wrap { position: relative; z-index: 1; }
 
@@ -239,56 +240,66 @@ a { color: inherit; text-decoration: none; }
 }
 .blob {
   position: absolute;
-  width: 65vw;
-  height: 65vw;
+  width: 55vw;
+  height: 55vw;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(95px);
   will-change: transform;
-  mix-blend-mode: multiply;
-  opacity: 0.9;
+  opacity: 0.6;
 }
+/* top-left — soft mid pink */
 .blob--1 {
-  top: -15%; left: -10%;
-  background: radial-gradient(circle at center, var(--pink) 0%, rgba(255,0,200,0) 65%);
-  animation: blob1 18s ease-in-out infinite alternate;
+  top: -22%; left: -18%;
+  background: radial-gradient(circle at center, #ff5fc4 0%, rgba(255,95,196,0) 64%);
+  animation: blob1 24s ease-in-out infinite alternate;
 }
+/* top-right — light pink */
 .blob--2 {
-  top: -5%; right: -15%;
-  background: radial-gradient(circle at center, #ffd23b 0%, rgba(255,210,59,0) 65%);
-  animation: blob2 22s ease-in-out infinite alternate;
+  top: -25%; right: -20%;
+  background: radial-gradient(circle at center, #ff9bdb 0%, rgba(255,155,219,0) 62%);
+  animation: blob2 30s ease-in-out infinite alternate;
 }
+/* bottom-left — vivid brand pink, kept low + small so it stays in the corner */
 .blob--3 {
-  bottom: -25%; left: 15%;
-  background: radial-gradient(circle at center, var(--pink) 0%, rgba(255,0,200,0) 62%);
-  animation: blob3 26s ease-in-out infinite alternate;
+  bottom: -30%; left: -15%;
+  width: 45vw; height: 45vw;
+  background: radial-gradient(circle at center, var(--pink) 0%, rgba(255,0,200,0) 60%);
+  opacity: 0.4;
+  animation: blob3 28s ease-in-out infinite alternate;
 }
+/* bottom-right — light pink */
 .blob--4 {
-  bottom: -20%; right: 5%;
-  width: 50vw; height: 50vw;
-  background: radial-gradient(circle at center, var(--underline) 0%, rgba(236,238,0,0) 60%);
-  animation: blob4 20s ease-in-out infinite alternate;
+  bottom: -28%; right: -18%;
+  background: radial-gradient(circle at center, #ff9bdb 0%, rgba(255,155,219,0) 62%);
+  animation: blob4 26s ease-in-out infinite alternate;
 }
+/* Yellow shield: keeps the centre (and the pink headline) on pure yellow */
 .hero-ambient__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.30) 100%);
+  background: radial-gradient(75% 65% at 50% 58%,
+    var(--yellow) 0%,
+    rgba(255,229,133,0.92) 30%,
+    rgba(255,229,133,0.55) 52%,
+    rgba(255,229,133,0) 78%);
 }
 
+/* Small, gentle drifts that keep each cloud within its corner */
 @keyframes blob1 {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(35vw, 25vh, 0) scale(1.25); }
+  100% { transform: translate3d(8vw, 6vh, 0) scale(1.15); }
 }
 @keyframes blob2 {
   0%   { transform: translate3d(0, 0, 0) scale(1.1); }
-  100% { transform: translate3d(-28vw, 30vh, 0) scale(0.85); }
+  100% { transform: translate3d(-7vw, 7vh, 0) scale(0.95); }
 }
 @keyframes blob3 {
-  0%   { transform: translate3d(0, 0, 0) scale(0.9); }
-  100% { transform: translate3d(25vw, -28vh, 0) scale(1.2); }
+  0%   { transform: translate3d(0, 0, 0) scale(0.95); }
+  100% { transform: translate3d(6vw, -5vh, 0) scale(1.12); }
 }
 @keyframes blob4 {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(-30vw, -22vh, 0) scale(1.15); }
+  100% { transform: translate3d(-7vw, -6vh, 0) scale(1.1); }
 }
 
 /* The crisp photo reads as a floating card on top */
