@@ -822,11 +822,13 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .section > .label { width: auto; }
   .section > .content { width: 100%; }
   .about-cols { flex-direction: column; gap: 24px; }
-  /* What I do — stack head + tags, drop the divider */
-  .services { grid-template-columns: 1fr; row-gap: 40px; }
+  /* What I do — stack head + tags, drop the divider.
+     Tight gap between a category's head and its badges, bigger gap between categories. */
+  .services { grid-template-columns: 1fr; row-gap: 14px; }
   .services::after { display: none; }
   .svc-head, .svc-tags { grid-column: 1; }
-  .svc-tags { padding-top: 18px; }
+  .svc-tags { padding-top: 0; }
+  .svc-tags:not(:last-child) { margin-bottom: 44px; }
   .svc-title { font-size: 28px; letter-spacing: -0.7px; }
   main.body { gap: 150px; padding-top: 112px; padding-bottom: 140px; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
