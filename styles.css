@@ -830,14 +830,8 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .svc-tags { padding-top: 0; }
   .svc-tags:not(:last-child) { margin-bottom: 44px; }
   .svc-title { font-size: 28px; letter-spacing: -0.7px; }
-  /* "What I do" → small eyebrow so the big category titles clearly lead the hierarchy
-     (ID beats .section>.label, incl. the 25px phone rule below). Scoped to this section only. */
-  #services > .label {
-    font-size: 13px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--gray);
-  }
+  /* Bigger gap between the "What I do" label and the first category (ID beats .section gap) */
+  #services { gap: 48px; }
   main.body { gap: 150px; padding-top: 112px; padding-bottom: 140px; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
   .case-layout { grid-template-columns: 1fr; }
