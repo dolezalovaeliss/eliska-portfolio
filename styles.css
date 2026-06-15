@@ -304,6 +304,50 @@ main.body {
   white-space: nowrap;
 }
 
+/* What I do — service categories (head left, tags right, continuous divider) */
+.services {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 113px;        /* the divider sits in this gap */
+  row-gap: 64px;
+  align-items: start;
+}
+/* Single continuous divider down the centre — robust to any number of rows */
+.services::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--line);
+}
+.svc-head { grid-column: 1; }
+.svc-tags {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: start;
+  padding-top: 6px;       /* optically align tags with the big title */
+}
+.svc-title {
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -1.1px;
+  color: var(--ink);
+}
+.svc-desc {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: -0.16px;
+  color: var(--gray);
+  max-width: 380px;
+}
+
 /* Contact block (About page) */
 .contact-title { font-size: 24px; letter-spacing: -0.48px; margin-bottom: 24px; }
 .contact-links { display: flex; gap: 48px; flex-wrap: wrap; }
@@ -778,6 +822,12 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .section > .label { width: auto; }
   .section > .content { width: 100%; }
   .about-cols { flex-direction: column; gap: 24px; }
+  /* What I do — stack head + tags, drop the divider */
+  .services { grid-template-columns: 1fr; row-gap: 40px; }
+  .services::after { display: none; }
+  .svc-head, .svc-tags { grid-column: 1; }
+  .svc-tags { padding-top: 18px; }
+  .svc-title { font-size: 28px; letter-spacing: -0.7px; }
   main.body { gap: 150px; padding-top: 112px; padding-bottom: 140px; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
   .case-layout { grid-template-columns: 1fr; }
