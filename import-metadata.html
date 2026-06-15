@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Import metadata to platform — Eliška Doležalová</title>
+<title>Importing metadata in 3 clicks instead of 10 — Eliška Doležalová</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Import metadata to platform — Eliška Doležalová" />
-<meta property="og:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
+<meta property="og:title" content="Importing metadata in 3 clicks instead of 10 — Eliška Doležalová" />
+<meta property="og:description" content="Redesigning Ataccama ONE's metadata import. Designed in Figma, validated with consultants, then prototyped in code to test it for real." />
 <meta property="og:image" content="https://elisdolezalova.cz/images/og-image.png" />
 <meta property="og:image:width" content="960" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://elisdolezalova.cz/import-metadata.html" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Import metadata to platform — Eliška Doležalová" />
-<meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
+<meta name="twitter:title" content="Importing metadata in 3 clicks instead of 10 — Eliška Doležalová" />
+<meta name="twitter:description" content="Redesigning Ataccama ONE's metadata import. Designed in Figma, validated with consultants, then prototyped in code to test it for real." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
 <link rel="stylesheet" href="styles.css?v=20260607g" />
 </head>
@@ -41,95 +41,82 @@
   <header class="case-hero">
     <div class="wrap">
       <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Import metadata to platform</h1>
-      <p class="case-subtitle">From a six-click, source-by-source journey to one shared surface.</p>
+      <h1 class="case-title">Importing metadata in 3 clicks instead of 10</h1>
+      <p class="case-subtitle">Designed in Figma, validated with consultants, then prototyped in code to test it for real.</p>
       <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer (intern) at Ataccama</div></div>
-        <div class="case-meta-item"><div class="k">Timeline</div><div class="v">~3 weeks</div></div>
+        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer (intern) at Ataccama, owned the design end to end</div></div>
         <div class="case-meta-item"><div class="k">Surface</div><div class="v">Ataccama ONE · Data Catalog</div></div>
-        <div class="case-meta-item"><div class="k">Output</div><div class="v">Figma · Engineering handoff</div></div>
+        <div class="case-meta-item"><div class="k">Output</div><div class="v">Figma · code prototype · Engineering handoff</div></div>
+        <div class="case-meta-item"><div class="k">Impact</div><div class="v">6–10 clicks → 3 (measured)</div></div>
       </div>
     </div>
   </header>
 
   <!-- BODY -->
   <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/import-metadata/cover.png" alt="Import metadata to platform" /></div>
+    <div class="case-cover reveal"><img src="images/projects/import-metadata/import-asset-modal.png" alt="The redesigned one-view import modal" /></div>
 
     <div class="case-layout">
       <aside class="case-index">
-        <a href="#context" class="active">Context</a>
-        <a href="#problem">The problem</a>
-        <a href="#before-after">Before / after</a>
-        <a href="#designed">What I designed</a>
-        <a href="#moves">The four moves</a>
-        <a href="#process">Process</a>
-        <a href="#learned">What I learned</a>
+        <a href="#problem" class="active">The problem</a>
+        <a href="#how">How I worked</a>
+        <a href="#pov">Point of view</a>
+        <a href="#work">The work</a>
+        <a href="#killed">What I killed</a>
+        <a href="#impact">Impact</a>
       </aside>
 
       <div class="case-main">
-        <section id="context" class="case-section reveal">
-          <div class="section-label">CONTEXT</div>
-          <h3 class="case-headline">The Data Catalog is where it all begins.</h3>
-          <p>Ataccama ONE is an enterprise data governance platform. The Data Catalog is where data stewards, analysts, and consultants discover what data the organization owns. Before they can govern data, they need to import its metadata, schema, types, structure, from a connected database.</p>
-          <p>It&rsquo;s a high-frequency action performed by the same handful of people, over and over. It was also one of the most fragmented flows in the product.</p>
-        </section>
-
         <section id="problem" class="case-section reveal">
           <div class="section-label">THE PROBLEM</div>
-          <h3 class="case-headline">Six clicks. One source at a time. Zero visibility.</h3>
-          <p>To import metadata, a user had to leave the catalog, navigate to a source, open its Connections tab, expand a tree, select tables, and click Import. The flow was technically possible, but forced users into mental bookkeeping the product should have done for them.</p>
+          <h3 class="case-headline">Six clicks, sometimes ten, and no sense of where you were.</h3>
+          <p>Before anyone can govern data in Ataccama ONE, they have to import its metadata. It is the first real action a customer takes after buying the platform, and it keeps happening for the life of the deployment. So a rough import flow is a rough first impression of the whole product.</p>
+          <p>The old flow made you go into a specific source, then its Connections tab, then deeper into the connection's structure, one connection at a time. There was no breadcrumb inside that structure, so the further you drilled, the less you could tell where you were. And the Data Catalog listing, the page where people actually browse their data, had no way to start an import at all.</p>
+          <div class="case-figure"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source's Connections tab, one connection expanded" loading="lazy" /></div>
+          <p class="case-aside">Before: import lived one connection at a time, reached by drilling into a single source's Connections tab.</p>
         </section>
 
-        <section id="before-after" class="case-section reveal">
-          <div class="section-label">BEFORE / AFTER</div>
-          <h3 class="case-headline">From source-by-source to one canonical entry point.</h3>
+        <section id="how" class="case-section reveal">
+          <div class="section-label">HOW I WORKED</div>
+          <h3 class="case-headline">Designed in Figma, then rebuilt in code to test it.</h3>
+          <p>I designed the whole flow in Figma, by hand. At the time there was no Claude Code connection into Figma, so the prototype, the documentation, and the interaction model were all mine. I consulted a developer and other designers as I went, then ran usability testing with consultants, including interviews, to pressure-test the flow against how data people actually import.</p>
+          <p>Once the design held up in testing, I rebuilt it as a working prototype in code with Claude Code. I directed the implementation and made the design calls. The agent generated the React. The point was to test the real thing with consultants instead of a Figma click-through, so the feedback came from a flow people could actually click.</p>
+        </section>
+
+        <section id="pov" class="case-section reveal">
+          <div class="section-label">POINT OF VIEW</div>
+          <h3 class="case-headline">A prototype in real code beats a Figma mockup.</h3>
+          <p>For work like this, a code prototype wins for three reasons. I can see the design in its actual context, with real structure around it, instead of guessing how it sits in the product. I can present it to a PM or an engineer and have them react to the real thing rather than a click-through. And I can test it properly, including handing it to engineers to try. That is why I did not stop at Figma. I designed there, then rebuilt it in code so the decisions were tested where they would actually live.</p>
+        </section>
+
+        <section id="work" class="case-section reveal">
+          <div class="section-label">THE WORK</div>
+          <h3 class="case-headline">Full context in one view, without drilling blind.</h3>
+          <p>The hard part was not adding a button. It was orientation: letting people see and select across their data without losing track of where they were. Three moves did that.</p>
+          <div class="steps">
+            <div class="step"><div class="step-n">01</div><div><div class="step-t">Import where people browse</div><div class="step-d">The Data Catalog listing had no import action. I added an entry point there that opens the one-view tree, so you start importing from where you already look at your data.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">One view instead of one connection at a time</div><div class="step-d">A single modal shows the whole source, connection, schema, and table tree. You browse and select across multiple sources and connections together, then import in one pass, with indeterminate states for partial selection and a running summary of what you picked.</div></div></div>
+            <div class="step"><div class="step-n">03</div><div><div class="step-t">Source and connection creation, out of hiding</div><div class="step-d">Creating a source or connection was the first thing a new customer touched, and it was buried. The redesign gives it a prominent, dedicated path.</div></div></div>
+          </div>
+          <div class="case-figure"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></div>
+          <p class="case-aside">The discoverability change: an "Import asset" button on the Data Catalog listing, where there was no import action before.</p>
+        </section>
+
+        <section id="killed" class="case-section reveal">
+          <div class="section-label">WHAT I EXPLORED AND KILLED</div>
+          <h3 class="case-headline">An earlier version had a preview step. Testing killed it.</h3>
+          <p>The first version was a three-step wizard: select asset, preview the import, then import the metadata. Testing with consultants killed the middle step. People did not need to preview their selection before importing. The preview added a screen without adding confidence, so I cut it and imported the selected tables directly. The flow went from select, preview, import down to select and import.</p>
+        </section>
+
+        <section id="impact" class="case-section reveal">
+          <div class="section-label">IMPACT</div>
+          <h3 class="case-headline">From 6 clicks, sometimes 10, down to 3.</h3>
           <div class="feature-list">
-            <div class="feature"><h4>Before — six steps to a single import</h4><p>Leave the Data Catalog → Navigate to Sources → Open a specific source → Open Connections tab → Expand a connection → Select tables, click Import.</p></div>
+            <div class="feature"><h4>Before</h4><p>6 clicks to import from an existing source and connection. Up to ~10 if the source and connection had to be created first.</p></div>
             <div class="feature-divider"></div>
-            <div class="feature"><h4>After — one modal, every source</h4><p>An &quot;Import asset&quot; button opens a modal rooted at Source level. One session can span the entire catalog.</p></div>
+            <div class="feature"><h4>After</h4><p>3 clicks, measured in the working prototype.</p></div>
           </div>
-          <div class="case-figure"><img src="images/projects/import-metadata/catalog-with-modal.png" alt="Import metadata to platform" loading="lazy" /></div>
-        </section>
-
-        <section id="designed" class="case-section reveal">
-          <div class="section-label">WHAT I DESIGNED</div>
-          <h3 class="case-headline">A single modal triggered from the catalog listing.</h3>
-          <p>Rooted at Source level so one session can span multiple sources. Lazy-loaded children with indeterminate-state checkboxes for partial selection. A real-language selection summary that counts only the leaves that actually import.</p>
-          <div class="case-figure"><img src="images/projects/import-metadata/modal-workflow.gif" alt="Import metadata to platform" loading="lazy" /></div>
-        </section>
-
-        <section id="moves" class="case-section reveal">
-          <div class="section-label">THE FOUR MOVES</div>
-          <h3 class="case-headline">Each decision rebuilt an assumption the old flow was making.</h3>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">Tree starts at Source, not Connection</div><div class="step-d">Rooting the tree at the system level meant a single import session could span the entire catalog.</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">Lazy-loaded children with indeterminate checkboxes</div><div class="step-d">Enterprise tenants have thousands of tables. The tree fetches children only on expand, with a spinner-in-chevron loading state.</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">Selection summary in real language</div><div class="step-d">&quot;X tables from Y connections from Z sources&quot;, counts only the leaves that actually import, qualified by their parents.</div></div></div>
-            <div class="step"><div class="step-n">04</div><div><div class="step-t">Always-visible primary action</div><div class="step-d">SplitButton + Cancel always visible. The modal exists for importing, the primary action shouldn&rsquo;t hide.</div></div></div>
-          </div>
-          <p class="case-aside">Every &quot;small&quot; UI decision was implicitly making a load-bearing assumption about how customers use the product.</p>
-        </section>
-
-        <section id="process" class="case-section reveal">
-          <div class="section-label">PROCESS</div>
-          <h3 class="case-headline">Four passes, and a crit session that reshaped half the design.</h3>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">Current-state mapping</div><div class="step-d">Walked through the existing flow as a user. Documented the six-click sequence. Identified that the existing ConnectionBrowseTree could be the foundation, but its root level was wrong for the new flow.</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">First draft modal</div><div class="step-d">Designed in Figma with Flamingo primitives. Built five states: Initial, Browsing, Selected, Show Selected Only, Loading.</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">Cross-functional design crit</div><div class="step-d">Five reviewers across design and frontend. Ten pieces of feedback. Selection-counter language, toolbar placement, modal density, and pagination model all changed.</div></div></div>
-            <div class="step"><div class="step-n">04</div><div><div class="step-t">Final design and handoff</div><div class="step-d">Refined typography, density, paginator scope. Wrote a full handoff doc enumerating every element, state, interaction, components used, and open engineering questions.</div></div></div>
-          </div>
-        </section>
-
-        <section id="learned" class="case-section reveal">
-          <div class="section-label">WHAT I LEARNED</div>
-          <h3 class="case-headline">Three principles I took into the next project.</h3>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">Clarify the unit of measurement</div><div class="step-d">&quot;Items&quot; is ambiguous when one item could be one connection or one table, and they don&rsquo;t equal each other.</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">Progressive disclosure + pagination = complexity explosion</div><div class="step-d">Pick one. Combining them creates an interaction model engineers can&rsquo;t ship and users can&rsquo;t predict.</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">For bulk actions, ask: what&rsquo;s the worst case?</div><div class="step-d">This modal can spawn thousands of background jobs. Safeguards belong in the UI, not bolted on after.</div></div></div>
-          </div>
+          <p>I counted the before-flow on the live application and measured the after-flow in the prototype, so both numbers are observed, not estimated. A note on measurement: the product tracks events, but it is hard to detect when a user intends to start an import, so true completion rate is hard to measure cleanly. I treated the click count as the honest, defensible evidence rather than chasing a noisy funnel.</p>
         </section>
 
         <div class="case-next reveal">
