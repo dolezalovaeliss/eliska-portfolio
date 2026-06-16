@@ -292,9 +292,11 @@ main.body {
 .section > .label {
   width: var(--label-col);
   flex: none;
-  font-size: 20px;
-  letter-spacing: -0.4px;
-  color: var(--ink);
+  font-size: 13px;
+  font-weight: 510;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #9e9e9e;
 }
 .section > .content { flex: 1 1 0; min-width: 0; }
 
@@ -946,7 +948,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   main.body { gap: 72px; padding-top: 56px; padding-bottom: 80px; }
   .section { gap: 12px; }
   .section { gap: 28px; }
-  .section > .label { font-size: 25px; letter-spacing: -0.5px; line-height: 1.1; }
+  .section > .label { font-size: 13px; letter-spacing: 1.2px; line-height: 1.3; }
   .about-cols p { font-size: 17px; }
   .trow {
     display: grid;
