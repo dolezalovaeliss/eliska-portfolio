@@ -283,10 +283,43 @@ a { color: inherit; text-decoration: none; }
 main.body {
   padding-top: 160px;
   padding-bottom: 200px;
+}
+
+/* ---------- HOMEPAGE STICKY OUTLINE (mirrors the case-study index) ---------- */
+.home-layout {
+  display: grid;
+  grid-template-columns: var(--label-col) 1fr;
+  gap: var(--gap-col);
+  align-items: start;
+}
+.home-main {
   display: flex;
   flex-direction: column;
   gap: 220px;
+  min-width: 0;
 }
+.home-index {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.home-index a {
+  font-size: 13px;
+  font-weight: 510;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #9e9e9e;
+  transition: color 0.25s ease;
+}
+.home-index a.active { color: var(--ink); }
+.home-index a:hover { color: var(--pink); }
+/* On desktop the sticky outline IS the label — hide the inline per-section labels,
+   let content fill the right column. */
+.home-main .section { display: block; }
+.home-main .section > .label { display: none; }
+.home-main .section > .content { width: 100%; }
 
 .section { display: flex; gap: var(--gap-col); align-items: flex-start; }
 .section > .label {
@@ -868,7 +901,13 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .svc-title { font-size: 18px; letter-spacing: -0.36px; }
   /* Bigger gap between the "What I do" label and the first category (ID beats .section gap) */
   #services { gap: 48px; }
-  main.body { gap: 150px; padding-top: 112px; padding-bottom: 140px; }
+  /* Mobile: drop the sticky outline, bring the inline section labels back (like case studies) */
+  .home-layout { display: block; }
+  .home-index { display: none; }
+  .home-main { gap: 150px; }
+  .home-main .section { display: flex; flex-direction: column; gap: 18px; }
+  .home-main .section > .label { display: block; }
+  main.body { padding-top: 112px; padding-bottom: 140px; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
   .case-layout { grid-template-columns: 1fr; }
   .case-index { display: none; }
@@ -945,7 +984,8 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .work-title { font-size: 30px; letter-spacing: -0.9px; }
 
   /* Body — tighter rhythm on small screens */
-  main.body { gap: 72px; padding-top: 56px; padding-bottom: 80px; }
+  main.body { padding-top: 56px; padding-bottom: 80px; }
+  .home-main { gap: 72px; }
   .section { gap: 12px; }
   .section { gap: 28px; }
   .section > .label { font-size: 13px; letter-spacing: 1.2px; line-height: 1.3; }
