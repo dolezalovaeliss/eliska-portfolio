@@ -75,23 +75,6 @@
     document.querySelectorAll('.case-section[id]').forEach(function (s) { spy.observe(s); });
   }
 
-  // ---- Homepage: highlight the sticky outline while scrolling ----
-  var homeIndex = document.querySelector('.home-index');
-  if (homeIndex) {
-    var hLinks = homeIndex.querySelectorAll('a');
-    var hMap = {};
-    hLinks.forEach(function (a) { hMap[a.getAttribute('href').slice(1)] = a; });
-    var hSpy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          hLinks.forEach(function (a) { a.classList.remove('active'); });
-          var a = hMap[entry.target.id];
-          if (a) a.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-    document.querySelectorAll('.home-main .section[id]').forEach(function (s) { hSpy.observe(s); });
-  }
 
   // ---- Sticky header: hide on scroll down, reveal on scroll up ----
   var header = document.getElementById('site-header');
