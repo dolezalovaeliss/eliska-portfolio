@@ -20,7 +20,7 @@
     if (el.hasAttribute('data-stagger')) {
       var items = el.querySelectorAll(STAGGER_SEL);
       for (var i = 0; i < items.length; i++) {
-        items[i].style.transitionDelay = (i * 75) + 'ms';
+        items[i].style.transitionDelay = (i * 95) + 'ms';
         items[i].classList.add('anim-in');
       }
     }
