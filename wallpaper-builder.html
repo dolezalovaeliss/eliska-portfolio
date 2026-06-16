@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wallpaper Builder — Eliška Doležalová</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
+<meta property="og:title" content="Wallpaper Builder — Eliška Doležalová" />
+<meta property="og:url" content="https://elisdolezalova.cz/wallpaper-builder.html" />
+<style>
+  :root {
+    --yellow: #ffe585; --pink: #ff00c8; --ink: #1d1d1d; --gray: #8a8a8a; --line: #2a2a2a;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { font-family: var(--sans); color: #fff; background: #000; overflow: hidden; }
+
+  #stage { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; z-index: 0; cursor: grab; }
+  #stage:active { cursor: grabbing; }
+
+  #loading { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 5; font-family: var(--mono); font-size: 12px; color: var(--gray); letter-spacing: .4px; }
+
+  .wb-home {
+    position: fixed; top: 22px; left: 24px; z-index: 20;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .3px; color: #fff;
+    background: rgba(255,255,255,.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 9px 14px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(255,255,255,.14);
+    transition: transform .15s; }
+  .wb-home:hover { transform: translateY(-1px); }
+
+  .wb-panel {
+    position: fixed; top: 22px; right: 24px; z-index: 20; width: 320px;
+    max-height: calc(100vh - 44px); overflow-y: auto;
+    background: rgba(20,20,22,.72); backdrop-filter: blur(20px) saturate(1.2); -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid rgba(255,255,255,.12); border-radius: 22px; padding: 22px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5); font-family: var(--mono); color: #fff; }
+  .wb-panel::-webkit-scrollbar { width: 0; }
+  .wb-ptitle { font-size: 13px; font-weight: 500; letter-spacing: .3px; }
+  .wb-ptitle .name { color: var(--pink); }
+  .wb-psub { font-size: 11px; color: var(--gray); margin-top: 3px; }
+
+  .wb-group { padding: 16px 0; border-top: 1px solid var(--line); }
+  .wb-group:first-of-type { border-top: 0; }
+  .wb-glabel { font-size: 11px; letter-spacing: .4px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+
+  .wb-seg { display: flex; border: 1.5px solid rgba(255,255,255,.5); border-radius: 999px; overflow: hidden; }
+  .wb-seg button { flex: 1; font: inherit; font-size: 12px; padding: 8px 6px; background: none; border: 0; cursor: pointer; color: #fff; }
+  .wb-seg button[aria-pressed="true"] { background: #fff; color: #000; }
+
+  .wb-shapes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .wb-shapes button { aspect-ratio: 1; font-size: 18px; background: rgba(255,255,255,.06); border: 1.5px solid transparent; border-radius: 10px; cursor: pointer; color: #fff; }
+  .wb-shapes button[aria-pressed="true"] { border-color: #fff; background: rgba(255,255,255,.14); }
+
+  .wb-swatches { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .wb-swatch { display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 9.5px; color: var(--gray); }
+  .wb-swatch input[type="color"] { -webkit-appearance: none; appearance: none; width: 36px; height: 36px; border: 1.5px solid var(--line); border-radius: 10px; padding: 0; cursor: pointer; background: none; }
+  .wb-swatch input[type="color"]::-webkit-color-swatch-wrapper { padding: 3px; }
+  .wb-swatch input[type="color"]::-webkit-color-swatch { border: none; border-radius: 7px; }
+
+  .wb-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .wb-row:last-child { margin-bottom: 0; }
+  .wb-row label { font-size: 12px; }
+  .wb-row .val { font-size: 11px; color: var(--gray); min-width: 30px; text-align: right; }
+  input[type="range"].wb-range { -webkit-appearance: none; appearance: none; flex: 1; max-width: 150px; height: 2px; background: rgba(255,255,255,.5); border-radius: 2px; outline: none; }
+  input[type="range"].wb-range::-webkit-slider-thumb { -webkit-appearance: none; width: 15px; height: 15px; border-radius: 50%; background: var(--pink); cursor: pointer; border: 2px solid #fff; }
+  input[type="range"].wb-range::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%; background: var(--pink); cursor: pointer; border: 2px solid #fff; }
+
+  .wb-text-input { width: 100%; font: inherit; font-size: 14px; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.06); color: #fff; }
+  .wb-text-input:focus { outline: none; border-color: rgba(255,255,255,.5); }
+
+  .wb-actions { display: flex; flex-direction: column; gap: 9px; margin-top: 18px; }
+  .wb-btn { font: inherit; font-family: var(--mono); font-size: 13px; padding: 13px 16px; border-radius: 999px; cursor: pointer; border: 1.5px solid rgba(255,255,255,.5); background: transparent; color: #fff; transition: transform .12s, background .15s; }
+  .wb-btn:hover { transform: translateY(-2px); }
+  .wb-btn--primary { background: #fff; color: #000; border-color: #fff; }
+  .wb-btn--shuffle { background: var(--yellow); color: #000; border-color: var(--yellow); }
+  .wb-note { font-size: 10.5px; color: var(--gray); margin-top: 4px; text-align: center; }
+  .hidden { display: none !important; }
+
+  @media (max-width: 720px) {
+    .wb-panel { left: 12px; right: 12px; width: auto; top: auto; bottom: 12px; max-height: 56vh; }
+    .wb-home { top: 12px; left: 12px; }
+  }
+</style>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+  <div id="loading">loading 3D engine…</div>
+  <a class="wb-home" href="index.html">← Eliška Doležalová</a>
+
+  <aside class="wb-panel" aria-label="Wallpaper controls">
+    <div class="wb-group">
+      <div class="wb-ptitle">Wallpaper <span class="name">Builder</span></div>
+      <div class="wb-psub">3D chrome &amp; liquid-glass · full screen</div>
+    </div>
+
+    <div class="wb-group">
+      <div class="wb-glabel">Export size</div>
+      <div class="wb-seg" role="group">
+        <button id="exp-screen" aria-pressed="true">This screen</button>
+        <button id="exp-mac" aria-pressed="false">Mac</button>
+        <button id="exp-iphone" aria-pressed="false">iPhone</button>
+      </div>
+    </div>
+
+    <div class="wb-group">
+      <div class="wb-glabel">Subject</div>
+      <div class="wb-seg" role="group" style="margin-bottom:12px">
+        <button id="mode-text" aria-pressed="true">Text</button>
+        <button id="mode-shape" aria-pressed="false">Shape</button>
+      </div>
+      <input class="wb-text-input" id="text" type="text" value="9" maxlength="14" placeholder="Type…" />
+      <div class="wb-shapes hidden" id="shapes" style="margin-top:4px">
+        <button data-s="bolt" aria-pressed="true" title="Bolt">⚡</button>
+        <button data-s="star" aria-pressed="false" title="Star">★</button>
+        <button data-s="heart" aria-pressed="false" title="Heart">♥</button>
+        <button data-s="blob" aria-pressed="false" title="Blob">●</button>
+        <button data-s="knot" aria-pressed="false" title="Knot">⊗</button>
+      </div>
+    </div>
+
+    <div class="wb-group">
+      <div class="wb-glabel">Material</div>
+      <div class="wb-seg" role="group">
+        <button id="mat-chrome" aria-pressed="true">Chrome</button>
+        <button id="mat-glass" aria-pressed="false">Glass</button>
+      </div>
+    </div>
+
+    <div class="wb-group">
+      <div class="wb-glabel">Reflection colours</div>
+      <div class="wb-swatches" id="envswatches">
+        <label class="wb-swatch">1<input type="color" data-i="0" value="#3b6bff" /></label>
+        <label class="wb-swatch">2<input type="color" data-i="1" value="#ff3db0" /></label>
+        <label class="wb-swatch">3<input type="color" data-i="2" value="#34e2e2" /></label>
+        <label class="wb-swatch">bg<input type="color" id="bgcolor" value="#000000" /></label>
+      </div>
+    </div>
+
+    <div class="wb-group">
+      <div class="wb-glabel">Look</div>
+      <div class="wb-row"><label for="gloss">Gloss</label><input class="wb-range" type="range" id="gloss" min="0" max="100" step="1" value="90" /><span class="val" id="gloss-val">90</span></div>
+      <div class="wb-row" id="irid-row"><label for="irid">Iridescence</label><input class="wb-range" type="range" id="irid" min="0" max="100" step="1" value="70" /><span class="val" id="irid-val">70</span></div>
+      <div class="wb-row"><label for="thick">Inflate</label><input class="wb-range" type="range" id="thick" min="10" max="100" step="1" value="45" /><span class="val" id="thick-val">45</span></div>
+      <div class="wb-row"><label for="spin">Auto-spin</label><input class="wb-range" type="range" id="spin" min="0" max="100" step="1" value="25" /><span class="val" id="spin-val">25</span></div>
+    </div>
+
+    <div class="wb-actions">
+      <button class="wb-btn wb-btn--shuffle" id="shuffle">Shuffle ✦</button>
+      <button class="wb-btn wb-btn--primary" id="download">Download PNG</button>
+      <p class="wb-note" id="res-note">This screen</p>
+      <p class="wb-note">Drag to rotate · scroll to zoom</p>
+    </div>
+  </aside>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+    import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+
+    const state = {
+      exportTarget: 'screen', mode: 'text', text: '9', shape: 'bolt', material: 'chrome',
+      env: ['#3b6bff', '#ff3db0', '#34e2e2'], bg: '#000000',
+      gloss: 90, irid: 70, thick: 45, spin: 25
+    };
+
+    const canvas = document.getElementById('stage');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 6);
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true; controls.enablePan = false;
+    controls.autoRotate = true; controls.autoRotateSpeed = 1;
+
+    // lights (highlights on top of env reflections)
+    scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+    const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 4, 5); scene.add(key);
+    const rim = new THREE.DirectionalLight(0xffffff, 1.4); rim.position.set(-4, -2, -3); scene.add(rim);
+
+    // environment (what the chrome/glass reflects = your colours)
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    let envRT = null;
+    function buildEnv() {
+      const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+      const x = c.getContext('2d');
+      // colourful gradient bands + bright streaks for crisp reflections
+      const g = x.createLinearGradient(0, 0, 0, 512);
+      g.addColorStop(0.0, '#0b0b14');
+      g.addColorStop(0.28, state.env[0]);
+      g.addColorStop(0.5, state.env[1]);
+      g.addColorStop(0.72, state.env[2]);
+      g.addColorStop(1.0, '#0b0b14');
+      x.fillStyle = g; x.fillRect(0, 0, 1024, 512);
+      // a couple of bright bars → sharp specular streaks
+      x.globalAlpha = 0.9; x.fillStyle = '#ffffff';
+      x.fillRect(0, 120, 1024, 14); x.fillRect(0, 360, 1024, 8);
+      x.globalAlpha = 1;
+      const tex = new THREE.CanvasTexture(c);
+      tex.mapping = THREE.EquirectangularReflectionMapping;
+      tex.colorSpace = THREE.SRGBColorSpace;
+      if (envRT) envRT.dispose();
+      envRT = pmrem.fromEquirectangular(tex);
+      scene.environment = envRT.texture;
+      tex.dispose();
+    }
+
+    function makeMaterial() {
+      const gloss = state.gloss / 100;
+      if (state.material === 'glass') {
+        return new THREE.MeshPhysicalMaterial({
+          color: 0xffffff, metalness: 0, roughness: (1 - gloss) * 0.25,
+          transmission: 1, thickness: 1.6, ior: 1.5,
+          dispersion: 4.0, iridescence: state.irid / 100, iridescenceIOR: 1.32,
+          iridescenceThicknessRange: [120, 520], envMapIntensity: 1.4, clearcoat: 1, clearcoatRoughness: 0.05
+        });
+      }
+      return new THREE.MeshStandardMaterial({
+        color: 0xeef0f4, metalness: 1, roughness: (1 - gloss) * 0.35, envMapIntensity: 1.5
+      });
+    }
+
+    // ---------- geometry ----------
+    let font = null, mesh = null;
+
+    function shapePath(kind) {
+      const s = new THREE.Shape();
+      if (kind === 'bolt') {
+        const p = [[0.15,1],[0.62,1],[0.40,0.30],[0.78,0.30],[0.20,-1],[0.34,-0.10],[-0.02,-0.10]];
+        s.moveTo(p[0][0], p[0][1]); for (let i=1;i<p.length;i++) s.lineTo(p[i][0], p[i][1]); s.closePath();
+      } else if (kind === 'star') {
+        const spikes=5, outer=1, inner=0.45;
+        for (let i=0;i<spikes*2;i++){ const r=i%2?inner:outer; const a=Math.PI/2 + i*Math.PI/spikes; const x=Math.cos(a)*r, y=Math.sin(a)*r; i?s.lineTo(x,y):s.moveTo(x,y);} s.closePath();
+      } else if (kind === 'heart') {
+        s.moveTo(0,0.35); s.bezierCurveTo(0,0.7,0.55,0.95,0.55,0.4); s.bezierCurveTo(0.55,0.05,0,-0.25,0,-0.6);
+        s.bezierCurveTo(0,-0.25,-0.55,0.05,-0.55,0.4); s.bezierCurveTo(-0.55,0.95,0,0.7,0,0.35);
+      }
+      return s;
+    }
+
+    function disposeMesh() { if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); if (mesh.material.dispose) mesh.material.dispose(); mesh = null; } }
+
+    function build() {
+      disposeMesh();
+      const inflate = state.thick / 100;
+      let geo;
+      if (state.mode === 'text') {
+        if (!font) return;
+        const txt = state.text || '9';
+        geo = new TextGeometry(txt, {
+          font, size: 1, depth: 0.45 + inflate * 0.9, curveSegments: 14,
+          bevelEnabled: true, bevelThickness: 0.12 + inflate * 0.4, bevelSize: 0.06 + inflate * 0.35, bevelSegments: 12
+        });
+      } else if (state.shape === 'blob') {
+        geo = new THREE.IcosahedronGeometry(1, 24);
+      } else if (state.shape === 'knot') {
+        geo = new THREE.TorusKnotGeometry(0.7, 0.28 + inflate * 0.18, 220, 40);
+      } else {
+        geo = new THREE.ExtrudeGeometry(shapePath(state.shape), {
+          depth: 0.45 + inflate * 0.9, bevelEnabled: true,
+          bevelThickness: 0.12 + inflate * 0.5, bevelSize: 0.08 + inflate * 0.4, bevelSegments: 12, steps: 1
+        });
+      }
+      geo.center();
+      mesh = new THREE.Mesh(geo, makeMaterial());
+      scene.add(mesh);
+      frame(geo);
+    }
+
+    function frame(geo) {
+      geo.computeBoundingSphere();
+      const r = geo.boundingSphere.radius;
+      const dist = r / Math.sin((camera.fov * Math.PI / 180) / 2) * 1.15;
+      camera.position.set(0, 0, dist); controls.minDistance = dist * 0.4; controls.maxDistance = dist * 2.4;
+      controls.target.set(0, 0, 0); controls.update();
+    }
+
+    function refreshMaterial() { if (mesh) { if (mesh.material.dispose) mesh.material.dispose(); mesh.material = makeMaterial(); } }
+
+    // ---------- render loop ----------
+    function resize() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      renderer.setPixelRatio(dpr);
+      renderer.setSize(innerWidth, innerHeight, false);
+      camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    }
+    function loop() {
+      requestAnimationFrame(loop);
+      controls.autoRotateSpeed = state.spin / 12;
+      controls.autoRotate = state.spin > 0;
+      controls.update();
+      renderer.setClearColor(new THREE.Color(state.bg), 1);
+      renderer.render(scene, camera);
+    }
+
+    // ---------- export ----------
+    function exportSize() {
+      if (state.exportTarget === 'iphone') return { w: 1290, h: 2796, label: 'iPhone · 1290 × 2796 px' };
+      if (state.exportTarget === 'mac')    return { w: 2880, h: 1800, label: 'Mac · 2880 × 1800 px' };
+      const dpr = devicePixelRatio || 1, w = Math.round(screen.width * dpr), h = Math.round(screen.height * dpr);
+      return { w, h, label: 'This screen · ' + w + ' × ' + h + ' px' };
+    }
+    function download() {
+      const s = exportSize();
+      const oldW = canvas.width, oldH = canvas.height, oldPR = renderer.getPixelRatio();
+      renderer.setPixelRatio(1); renderer.setSize(s.w, s.h, false);
+      camera.aspect = s.w / s.h; camera.updateProjectionMatrix();
+      renderer.render(scene, camera);
+      canvas.toBlob((blob) => {
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = 'eliska-wallpaper-' + state.exportTarget + '-' + Date.now() + '.png';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        // restore live preview size
+        renderer.setPixelRatio(oldPR); resize();
+      }, 'image/png');
+    }
+
+    // ---------- UI ----------
+    const $ = (id) => document.getElementById(id);
+    function press(ids, on) { ids.forEach(id => $(id).setAttribute('aria-pressed', id === on)); }
+
+    $('mode-text').onclick = () => { state.mode = 'text'; press(['mode-text','mode-shape'],'mode-text'); $('text').classList.remove('hidden'); $('shapes').classList.add('hidden'); build(); };
+    $('mode-shape').onclick = () => { state.mode = 'shape'; press(['mode-text','mode-shape'],'mode-shape'); $('text').classList.add('hidden'); $('shapes').classList.remove('hidden'); build(); };
+    $('text').oninput = (e) => { state.text = e.target.value; build(); };
+    document.querySelectorAll('#shapes button').forEach(b => b.onclick = () => {
+      state.shape = b.dataset.s;
+      document.querySelectorAll('#shapes button').forEach(x => x.setAttribute('aria-pressed', x === b)); build();
+    });
+
+    $('mat-chrome').onclick = () => { state.material='chrome'; press(['mat-chrome','mat-glass'],'mat-chrome'); $('irid-row').classList.add('hidden'); refreshMaterial(); };
+    $('mat-glass').onclick  = () => { state.material='glass';  press(['mat-chrome','mat-glass'],'mat-glass');  $('irid-row').classList.remove('hidden'); refreshMaterial(); };
+    $('irid-row').classList.add('hidden'); // chrome default
+
+    document.querySelectorAll('#envswatches input[data-i]').forEach(inp => inp.oninput = () => { state.env[+inp.dataset.i] = inp.value; buildEnv(); });
+    $('bgcolor').oninput = () => { state.bg = $('bgcolor').value; };
+
+    function bindRange(id, key, after) { const el=$(id), out=$(id+'-val'); el.oninput=()=>{ state[key]=+el.value; out.textContent=el.value; if(after)after(); }; }
+    bindRange('gloss','gloss', refreshMaterial);
+    bindRange('irid','irid', refreshMaterial);
+    bindRange('thick','thick', build);
+    bindRange('spin','spin');
+
+    ['screen','mac','iphone'].forEach(k => $('exp-'+k).onclick = () => { state.exportTarget=k; press(['exp-screen','exp-mac','exp-iphone'],'exp-'+k); $('res-note').textContent = exportSize().label; });
+    $('download').onclick = download;
+
+    $('shuffle').onclick = () => {
+      const rand = () => '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');
+      state.env = [rand(), rand(), rand()];
+      document.querySelectorAll('#envswatches input[data-i]').forEach(inp => inp.value = state.env[+inp.dataset.i]);
+      buildEnv();
+      mesh && mesh.rotation.set(Math.random()*0.6-0.3, Math.random()*Math.PI*2, Math.random()*0.4-0.2);
+    };
+
+    addEventListener('resize', resize);
+
+    // ---------- boot ----------
+    resize(); buildEnv();
+    new FontLoader().load('https://cdn.jsdelivr.net/npm/three@0.169.0/examples/fonts/helvetiker_bold.typeface.json', (f) => {
+      font = f; $('loading').classList.add('hidden'); build(); loop();
+    }, undefined, () => { $('loading').textContent = 'font failed to load — check connection'; });
+  </script>
+</body>
+</html>
