@@ -334,10 +334,10 @@ main.body {
   padding-top: 6px;       /* optically align tags with the big title */
 }
 .svc-title {
-  font-size: 38px;
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -1.1px;
+  font-size: 20px;
+  font-weight: 450;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
   color: var(--ink);
 }
 .svc-desc {
@@ -830,7 +830,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .svc-head, .svc-tags { grid-column: 1; }
   .svc-tags { padding-top: 0; }
   .svc-tags:not(:last-child) { margin-bottom: 44px; }
-  .svc-title { font-size: 28px; letter-spacing: -0.7px; }
+  .svc-title { font-size: 18px; letter-spacing: -0.36px; }
   /* Bigger gap between the "What I do" label and the first category (ID beats .section gap) */
   #services { gap: 48px; }
   main.body { gap: 150px; padding-top: 112px; padding-bottom: 140px; }
