@@ -2,8 +2,13 @@
   var els = document.querySelectorAll('.reveal');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Items revealed in sequence inside a [data-stagger] section.
+  var STAGGER_SEL = '.label, .trow, .about-cols p, .svc-head, .svc-tags';
+
   if (reduce || !('IntersectionObserver' in window)) {
     els.forEach(function (el) { el.classList.add('is-visible'); });
+    document.querySelectorAll('[data-stagger] ' + STAGGER_SEL.split(', ').join(', [data-stagger] '))
+      .forEach(function (it) { it.classList.add('anim-in'); });
     return;
   }
 
@@ -11,6 +16,14 @@
     var delay = el.getAttribute('data-delay');
     if (delay) el.style.transitionDelay = delay + 'ms';
     el.classList.add('is-visible');
+    // Stagger the children of a [data-stagger] section, one after another.
+    if (el.hasAttribute('data-stagger')) {
+      var items = el.querySelectorAll(STAGGER_SEL);
+      for (var i = 0; i < items.length; i++) {
+        items[i].style.transitionDelay = (i * 75) + 'ms';
+        items[i].classList.add('anim-in');
+      }
+    }
   }
 
   var io = new IntersectionObserver(function (entries) {
