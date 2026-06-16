@@ -289,7 +289,8 @@ main.body {
 .trow .dates   { flex: 1 1 0; min-width: 0; font-family: var(--mono); font-size: 13px; color: var(--gray); text-align: right; }
 
 .edu .trow { padding: 15px 0; }
-.edu .company { font-size: 20px; letter-spacing: -0.4px; }
+.edu .company { font-size: 20px; letter-spacing: -0.4px; display: flex; flex-direction: column; gap: 4px; }
+.edu .school { font-size: 13px; letter-spacing: -0.1px; line-height: 1.35; color: var(--gray); font-weight: 400; }
 .edu .role { font-size: 14px; letter-spacing: -0.14px; color: var(--gray); }
 
 /* Pills */
