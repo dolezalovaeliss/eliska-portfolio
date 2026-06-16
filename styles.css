@@ -288,10 +288,10 @@ main.body {
 .trow .role    { flex: 1 1 0; min-width: 0; font-size: 15px; letter-spacing: -0.15px; }
 .trow .dates   { flex: 1 1 0; min-width: 0; font-family: var(--mono); font-size: 13px; color: var(--gray); text-align: right; }
 
-.edu .trow { padding: 15px 0; gap: 56px; }
-.edu .company { flex: 0 0 250px; font-size: 20px; letter-spacing: -0.4px; display: flex; flex-direction: column; gap: 4px; }
+.edu .trow { padding: 15px 0; }
+.edu .company { flex: 1 1 0; font-size: 20px; letter-spacing: -0.4px; display: flex; flex-direction: column; gap: 4px; }
 .edu .school { font-size: 13px; letter-spacing: -0.1px; line-height: 1.35; color: var(--gray); font-weight: 400; }
-.edu .role { font-size: 14px; letter-spacing: -0.14px; color: var(--gray); }
+.edu .dates { flex: 0 0 auto; }
 
 /* Pills */
 .pills { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -927,7 +927,6 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   .trow .dates { grid-column: 2; grid-row: 1; text-align: right; white-space: nowrap; }
   .trow .role { grid-column: 1 / -1; grid-row: 2; }
   .edu .company { font-size: 18px; }
-  .edu .trow { column-gap: 16px; row-gap: 3px; }
   .contact-title { font-size: 21px; }
   .contact-links { flex-direction: column; gap: 28px; }
 
