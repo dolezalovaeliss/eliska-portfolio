@@ -408,8 +408,8 @@ main.body {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(40px, 4vw, 56px) clamp(24px, 2.4vw, 40px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(48px, 5vw, 72px) clamp(32px, 3vw, 56px);
   align-items: start;
 }
 
@@ -430,11 +430,11 @@ main.body {
 .work-tile:hover .work-tile-card img { transform: scale(1.05); }
 
 .work-tile h3 {
-  margin-top: 14px;
-  font-size: 18px;
+  margin-top: 16px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: -0.36px;
-  line-height: 1.15;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
   color: var(--ink);
   transition: color 0.2s ease;
 }
@@ -887,6 +887,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
 
 @media (max-width: 560px) {
   :root { --pad: 22px; }
+  .work-grid { grid-template-columns: 1fr; }
 
   /* Header — hamburger menu */
   .site-header { padding: 16px 0; }
