@@ -440,10 +440,7 @@ main.body {
 }
 .work-tile:hover h3 { color: var(--pink); }
 .work-tile-meta {
-  margin-top: 4px;
-  font-size: 16px;
-  letter-spacing: -0.16px;
-  color: var(--gray);
+  display: none;
 }
 
 /* ---------- CONTACT PAGE ---------- */
