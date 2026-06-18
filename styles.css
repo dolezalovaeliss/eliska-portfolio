@@ -1080,8 +1080,8 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 112px;   /* clear the fixed site-header */
-  padding-bottom: 40px;
+  padding-top: 112px;          /* clear the fixed site-header */
+  padding-bottom: var(--pad);  /* bottom gap matches the side padding */
 }
 .lhero-top { display: flex; flex-direction: column; gap: 28px; }
 
