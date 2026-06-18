@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="Eliška Doležalová — Product &amp; Visual Designer" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20260617cols2" />
+<link rel="stylesheet" href="styles.css?v=20260618mob" />
 <script>document.documentElement.classList.add('has-js')</script>
 </head>
 <body>
@@ -28,10 +28,13 @@
   <header class="site-header" id="site-header">
     <div class="bar">
       <nav class="nav">
-        <a href="index.html" class="wordmark">Eliška<br />Doležalová</a>
+        <a href="index.html" class="wordmark">
+          <span class="wm-avatar"><img src="profile.jpg" alt="Eliška Doležalová" /><span class="wm-dot" aria-hidden="true"></span></span>
+          <span class="wm-id"><span class="wm-name">Eliška Doležalová</span><span class="wm-mail">hello@eliskadolezalova.cz</span></span>
+        </a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="nav-links" id="nav-links">
-          <a href="index.html" class="active">ABOUT ME</a>
+          <a href="about.html">ABOUT ME</a>
           <a href="work.html">WORK</a>
           <a href="contact.html">CONTACT</a>
         </div>
@@ -40,144 +43,44 @@
   </header>
 
   <!-- HERO -->
-  <header class="hero hero--full">
-    <div class="wrap">
-      <div class="hero-content" id="hero-content">
-        <img class="photo hero-photo-anim" src="profile.jpg" alt="Eliška Doležalová" />
-        <h1 class="hero-title">Hi, I&rsquo;m <span class="name">Eliška</span>! A product &amp; visual designer based in Prague.</h1>
+  <header class="lhero">
+    <div class="wrap lhero-wrap">
+
+      <div class="lhero-top">
+        <div class="lhero-carousel reveal" data-reveal-now>
+          <div class="lhero-track" id="lhero-track">
+            <a class="ctile ctile--wide" href="asset-layout-editor.html"><img src="images/projects/asset-layout-editor/cover.png" alt="Asset Layout Editor" /></a>
+            <a class="ctile ctile--mid" href="project-dluhopisomat.html"><img src="images/projects/dluhopisomat/cover.jpg" alt="Dluhopisomat" /></a>
+            <a class="ctile ctile--tall" href="project-prague-pride.html"><img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" style="object-position: 34% center;" /></a>
+            <a class="ctile ctile--wide" href="project-esens.html"><img src="images/projects/esens/cover.jpg" alt="Esens Letná" /></a>
+            <a class="ctile ctile--port" href="project-odstrcil.html"><img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery" /></a>
+            <a class="ctile ctile--mid" href="project-rezidence.html"><img src="images/projects/rezidence/cover.png" alt="Rezidence" /></a>
+            <a class="ctile ctile--wide" href="project-elspace.html"><img src="images/projects/elspace/cover.png" alt="Elspace" /></a>
+            <a class="ctile ctile--tall" href="project-duhova-stuzka.html"><img src="images/projects/duhova-stuzka/cover.png" alt="Duhová stužka" /></a>
+            <a class="ctile ctile--mid" href="project-1webit.html"><img src="images/projects/1webit/cover.png" alt="1. Web IT" /></a>
+            <a class="ctile ctile--port" href="project-prague-pride-merch.html"><img src="images/projects/prague-pride-merch/cover.png" alt="Prague Pride Merch" /></a>
+          </div>
+        </div>
       </div>
+
+      <h1 class="lhero-title reveal" data-reveal-now>A product &amp; visual <span class="name">designer</span><br class="lbr" /> based in Prague.</h1>
+
     </div>
   </header>
 
-  <!-- BODY -->
-  <main class="body wrap">
-
-    <section class="reveal section" id="about" data-stagger>
-      <div class="label">About</div>
-      <div class="content">
-        <div class="about-cols">
-          <p>I&rsquo;m Eliška, a designer based in Prague. I started in graphic design, doing brands and websites, and spent a lot of those years around culture — working with festivals like KVIFF and Prague Pride.</p>
-          <p>Later I moved into UX, studied it during my master&rsquo;s, and ended up in product design. I like it because I get to understand the whole problem, not just one screen, and help decide where a product should go — based on its vision and what&rsquo;s actually happening in the market.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal section" id="work" data-stagger>
-      <div class="label">Work Experience</div>
-      <div class="content">
-        <div class="trow"><span class="company">Ataccama</span><span class="role">Product Designer</span><span class="dates">Jan 2026 – Present</span></div>
-        <div class="trow"><span class="company">Shoptet</span><span class="role">UX Designer</span><span class="dates">Apr 2026 – Present</span></div>
-        <div class="trow"><span class="company">1. Web IT</span><span class="role">Visual Identity Lead, UX/UI Designer</span><span class="dates">Apr 2025 – Present</span></div>
-        <div class="trow"><span class="company">Apadore</span><span class="role">B2B Web Designer</span><span class="dates">Apr 2025 – Feb 2026</span></div>
-        <div class="trow"><span class="company">Jitro / KVIFF</span><span class="role">Apprenticeship</span><span class="dates">Feb – Jun 2025</span></div>
-        <div class="trow"><span class="company">Nanook</span><span class="role">Graphic Designer</span><span class="dates">Feb – Jun 2025</span></div>
-        <div class="trow"><span class="company">Prague Pride</span><span class="role">Visual Identity Lead</span><span class="dates">Jul 2022 – Aug 2025</span></div>
-      </div>
-    </section>
-
-    <section class="reveal section edu" id="education" data-stagger>
-      <div class="label">Education</div>
-      <div class="content">
-        <div class="trow"><span class="company">UX Design &amp; Research<small class="school">Prague University of Economics and Business &middot; Faculty of Informatics and Statistics</small></span><span class="role">Master&rsquo;s degree</span><span class="dates">2022 – 2025</span></div>
-        <div class="trow"><span class="company">Multimedia Communication<small class="school">Prague University of Economics and Business &middot; Faculty of Informatics and Statistics</small></span><span class="role">Master&rsquo;s studies</span><span class="dates">2022 – 2024</span></div>
-        <div class="trow"><span class="company">Information Media &amp; Services<small class="school">Prague University of Economics and Business &middot; Faculty of Informatics and Statistics</small></span><span class="role">Bachelor&rsquo;s degree</span><span class="dates">2018 – 2022</span></div>
-        <div class="trow"><span class="company">Web Design course</span><span class="role">Bont Academy</span><span class="dates">—</span></div>
-      </div>
-    </section>
-
-    <section class="reveal section" id="services" data-stagger>
-      <div class="label">What I do</div>
-      <div class="content">
-        <div class="services">
-          <div class="svc-head">
-            <h3 class="svc-title">Product Design</h3>
-            <p class="svc-desc">Understanding the whole problem, not just one screen. From research and structure to flows that ship.</p>
-          </div>
-          <div class="svc-tags">
-            <span class="pill">UX Research</span>
-            <span class="pill">Information Architecture</span>
-            <span class="pill">Prototyping</span>
-            <span class="pill">Usability Testing</span>
-            <span class="pill">Design Systems</span>
-          </div>
-
-          <div class="svc-head">
-            <h3 class="svc-title">AI-leveraged workflow</h3>
-            <p class="svc-desc">I build my own AI skills and a context system in Obsidian, a knowledge base where I keep research, reports and reusable context. So the tools work the way I do and I can prototype in real code.</p>
-          </div>
-          <div class="svc-tags">
-            <span class="pill">Custom AI Skills</span>
-            <span class="pill">Context Engineering</span>
-            <span class="pill">Obsidian Knowledge Base</span>
-            <span class="pill">Reports &amp; Research</span>
-            <span class="pill">AI Prototyping</span>
-            <span class="pill">Claude Code</span>
-          </div>
-
-          <div class="svc-head">
-            <h3 class="svc-title">Web Design</h3>
-            <p class="svc-desc">Designing and shipping responsive websites, from a single landing page to a full site.</p>
-          </div>
-          <div class="svc-tags">
-            <span class="pill">Web Design</span>
-            <span class="pill">Landing Pages</span>
-            <span class="pill">Figma</span>
-            <span class="pill">Responsive Design</span>
-            <span class="pill">Prototyping</span>
-          </div>
-
-          <div class="svc-head">
-            <h3 class="svc-title">Brand &amp; Visual Identity</h3>
-            <p class="svc-desc">Logos, colour and type systems, and the visual language that makes a brand feel like itself.</p>
-          </div>
-          <div class="svc-tags">
-            <span class="pill">Brand Strategy</span>
-            <span class="pill">Visual Identity</span>
-            <span class="pill">Logo Design</span>
-            <span class="pill">Typography</span>
-            <span class="pill">Art Direction</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-    <footer class="site-footer">
-    <div class="wrap">
-      <div class="ft-cta reveal">
-        <div class="ft-cta-text">
-          <span class="ft-eyebrow">Let’s work together</span>
-          <a class="ft-email" href="mailto:hello@eliskadolezalova.cz">hello@eliskadolezalova.cz</a>
-        </div>
-        <img class="ft-sun" src="sun.svg" alt="" aria-hidden="true" />
-      </div>
-
-      <div class="ft-cols reveal">
-        <div class="ft-col">
-          <h4>Menu</h4>
-          <a href="index.html">Home</a>
-          <a href="work.html">Work</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="ft-col">
-          <h4>Elsewhere</h4>
-          <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="images/eliska-dolezalova-cv.pdf" target="_blank" rel="noopener">CV ↗</a>
-        </div>
-        <div class="ft-col">
-          <h4>Based in</h4>
-          <span>Prague,<br />Czech Republic</span>
-        </div>
-      </div>
-
-      <div class="ft-bottom">
-        <span>© 2026 Ing. Eliška Doležalová</span>
-        <a href="#top" class="ft-back">Back to top ↑</a>
-      </div>
-    </div>
-  </footer>
-
   <script src="reveal.js?v=20260616stick"></script>
+  <script>
+    // Duplicate the carousel tiles so the marquee loops seamlessly
+    (function () {
+      var t = document.getElementById('lhero-track');
+      if (!t) return;
+      var clone = t.cloneNode(true);
+      clone.removeAttribute('id');
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a').forEach(function (a) { a.setAttribute('tabindex', '-1'); });
+      // append the clone's children into the same track for one continuous flex row
+      while (clone.firstChild) t.appendChild(clone.firstChild);
+    })();
+  </script>
 </body>
 </html>
