@@ -868,6 +868,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   width: clamp(96px, 13vw, 188px);
   height: auto;
   flex: none;
+  filter: brightness(0);
   animation: ft-spin 22s linear infinite;
 }
 @keyframes ft-spin { to { transform: rotate(360deg); } }
