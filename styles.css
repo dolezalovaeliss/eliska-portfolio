@@ -838,8 +838,8 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
 
 /* ---------- FOOTER (redesigned — dark, oversized, sun-forward) ---------- */
 .site-footer {
-  background: #161616;
-  color: #fff;
+  background: var(--yellow);
+  color: var(--ink);
   padding: clamp(72px, 9vw, 130px) 0 40px;
   overflow: hidden;
 }
@@ -850,7 +850,7 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   font-weight: 510;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(29, 29, 29, 0.55);
   margin-bottom: 18px;
 }
 .ft-email {
@@ -858,12 +858,12 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1;
-  color: #fff;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  color: var(--ink);
+  border-bottom: 2px solid rgba(29, 29, 29, 0.3);
   padding-bottom: 8px;
   transition: color 0.25s ease, border-color 0.25s ease;
 }
-.ft-email:hover { color: var(--yellow); border-color: var(--yellow); }
+.ft-email:hover { color: var(--ink); border-color: var(--ink); }
 .ft-sun {
   width: clamp(96px, 13vw, 188px);
   height: auto;
@@ -879,17 +879,17 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   font-weight: 510;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(29, 29, 29, 0.5);
   margin-bottom: 6px;
 }
 .ft-col a, .ft-col span {
   font-size: 16px;
   letter-spacing: -0.01em;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(29, 29, 29, 0.85);
   transition: color 0.2s ease;
 }
-.ft-col a:hover { color: var(--yellow); }
+.ft-col a:hover { color: var(--ink); }
 
 .ft-wordmark {
   margin-top: clamp(64px, 9vw, 120px);
@@ -907,12 +907,12 @@ footer { background: var(--footer-bg); padding-top: 84px; padding-bottom: 34px; 
   justify-content: space-between;
   margin-top: clamp(40px, 5vw, 64px);
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(29, 29, 29, 0.15);
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(29, 29, 29, 0.6);
 }
-.ft-back { color: rgba(255, 255, 255, 0.5); transition: color 0.2s ease; }
-.ft-back:hover { color: var(--yellow); }
+.ft-back { color: rgba(29, 29, 29, 0.6); transition: color 0.2s ease; }
+.ft-back:hover { color: var(--ink); }
 
 @media (max-width: 860px) {
   .ft-cta { flex-direction: column; align-items: flex-start; gap: 32px; }
