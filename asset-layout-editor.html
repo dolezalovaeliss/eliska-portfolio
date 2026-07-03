@@ -47,17 +47,17 @@
       <h1 class="case-title">Asset Layout Editor</h1>
       <p class="case-subtitle">Replacing a hidden JSON editor with a research-grounded pin model.</p>
       <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer (intern) at Ataccama</div></div>
+        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer at Ataccama</div></div>
         <div class="case-meta-item"><div class="k">Timeline</div><div class="v">6 weeks</div></div>
         <div class="case-meta-item"><div class="k">Surface</div><div class="v">Metadata Model · Page layout</div></div>
-        <div class="case-meta-item"><div class="k">Output</div><div class="v">V5 prototype · Three-audience handoff</div></div>
+        <div class="case-meta-item"><div class="k">Output</div><div class="v">Working prototype · Three-audience handoff</div></div>
       </div>
     </div>
   </header>
 
   <!-- BODY -->
   <main class="case-body wrap">
-    <div class="case-cover case-cover--sm reveal"><img src="images/projects/asset-layout-editor/pinned-properties-flow.gif" alt="Pinning properties in action: curating which fields appear in the pinned-properties band" /></div>
+    <div class="case-cover case-cover--sm reveal"><img src="images/projects/asset-layout-editor/pinned-properties-flow.gif" alt="Pinning properties in action: curating which properties surface at the top of the entity page" /></div>
 
     <div class="case-layout">
       <aside class="case-index">
@@ -75,7 +75,6 @@
           <h3 class="case-headline">The JSON editor was technically usable. Nobody could actually use it.</h3>
           <p>Customers routinely extend Ataccama ONE&rsquo;s metadata model with custom properties, Region, Data Owner, Classification. The historical way to surface them on entity detail pages was a Monaco-based JSON editor hidden behind a feature flag, unusable by anyone who didn&rsquo;t write code.</p>
           <p>Customer-facing teams complained when the flag came off. The brief: remove the JSON editor entirely and replace it with something an admin or a consultant could actually use.</p>
-          <div class="case-figure"><img src="images/projects/asset-layout-editor/page-layout-empty.png" alt="Asset Layout Editor" loading="lazy" /></div>
         </section>
 
         <section id="problem" class="case-section reveal">
@@ -88,9 +87,13 @@
         <section id="designed" class="case-section reveal">
           <div class="section-label">WHAT I DESIGNED</div>
           <h3 class="case-headline">One escape hatch. Everything else locked.</h3>
-          <p>A two-zone model: a full-width pinned-properties band where admins curate which fields appear at the top, sitting above a locked default layout that Ataccama owns.</p>
+          <p>A model with a single customizable surface. Admins pick which properties matter most, and those properties surface at the top of every entity page of that type, pinned into the Summary. Everything else stays on a default layout that Ataccama curates and locks.</p>
           <p>The pattern is &quot;shell-plus-accent&quot;, universal across every competitor I studied (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
-          <div class="case-figure"><img src="images/projects/asset-layout-editor/page-layout-pinned.png" alt="Asset Layout Editor" loading="lazy" /></div>
+          <p>The whole thing is configured in one place: Settings, Metadata Model, the entity type&rsquo;s Pinned properties tab. The admin picks individual properties from a searchable list, scoped to the tenant, and every instance of that entity type inherits them. No JSON, no code.</p>
+          <div class="case-figure"><img src="images/projects/asset-layout-editor/pin-config.jpg" alt="The Pinned properties configuration: a Pick properties to pin list on the left, the pinned set on the right" loading="lazy" /></div>
+          <p class="case-aside">Config: the admin picks properties to pin to the Summary, per entity type, in Settings.</p>
+          <div class="case-figure"><img src="images/projects/asset-layout-editor/overview-pinned.jpg" alt="A real entity Overview page with the pinned properties surfaced at the top" loading="lazy" /></div>
+          <p class="case-aside">Result: the pinned properties surface at the top of every entity page of that type.</p>
         </section>
 
         <section id="principles" class="case-section reveal">
@@ -98,7 +101,7 @@
           <h3 class="case-headline">Each one came from a finding in the research.</h3>
           <div class="steps">
             <div class="step"><div class="step-n">01</div><div><div class="step-t">Lock the structural scaffolding</div><div class="step-d">Header, widgets, column structure, all curated by Ataccama. Matches Collibra&rsquo;s &quot;system content controlled by Collibra.&quot;</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">One escape hatch, not a full editor</div><div class="step-d">A single pinned-properties band. Admin curates which fields appear there. Everything else stays where Ataccama designed it.</div></div></div>
+            <div class="step"><div class="step-n">02</div><div><div class="step-t">One escape hatch, not a full editor</div><div class="step-d">A single pinned surface at the top of the page. Admin curates which properties appear there. Everything else stays where Ataccama designed it.</div></div></div>
             <div class="step"><div class="step-n">03</div><div><div class="step-t">Tenant-scoped, not per-user</div><div class="step-d">Every data-catalog peer is tenant-scoped. Per-user pins would have broken consultant-shares-screens consistency.</div></div></div>
             <div class="step"><div class="step-n">04</div><div><div class="step-t">Pin individual properties</div><div class="step-d">The real customer use case is field-level. Section-level customization was over-coarse for the actual need.</div></div></div>
           </div>
