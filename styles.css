@@ -679,6 +679,7 @@ body.cv-open { overflow: hidden; }
   background: #dbdbd6;
 }
 .case-cover img { width: 100%; height: auto; display: block; }
+.case-cover--sm { max-width: 760px; margin-left: auto; margin-right: auto; }
 
 .case-layout { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
 .case-index { position: sticky; top: 120px; display: flex; flex-direction: column; gap: 20px; }
@@ -735,6 +736,7 @@ body.cv-open { overflow: hidden; }
   background: #dbdbd6;
 }
 .case-figure img { width: 100%; height: auto; display: block; }
+.case-figure--sm { max-width: 760px; margin-left: auto; margin-right: auto; }
 .case-figures-2 { display: flex; gap: 32px; align-items: start; }
 .case-figures-2 .case-figure { flex: 1 1 0; min-width: 0; }
 
