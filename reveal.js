@@ -289,6 +289,9 @@
     function build() {
       if (!img.naturalWidth) return;
       var dist = Math.max(0, fig.clientWidth * img.naturalHeight / img.naturalWidth - fig.clientHeight);
+      // Page shorter than the window: show it whole, nothing to scroll
+      fig.classList.toggle('is-short', dist === 0);
+      if (dist === 0) { if (anim) anim.cancel(); anim = null; return; }
       var scroll = Math.max(1500, dist / SPEED * 1000);
       var total = START + scroll + HOLD + scroll;
       var t = function (ms) { return ms / total; };
