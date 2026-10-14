@@ -1592,3 +1592,6 @@ body.lb-open { overflow: hidden; }
   .pj-gallery--pages.pj-gallery--n2 { grid-template-columns: 1fr; }
   .pj-gallery--n2 .pj-fig--page, .pj-gallery--n1 .pj-fig--page { aspect-ratio: 4 / 5; }
 }
+/* Two previews: tall enough to fill the screen height */
+.pj-gallery--n2 .pj-fig--page { aspect-ratio: auto; height: calc(100vh - 96px); height: calc(100svh - 96px); min-height: 480px; max-height: 1100px; }
+@media (max-width: 560px) { .pj-gallery--n2 .pj-fig--page { height: auto; min-height: 0; aspect-ratio: 4 / 5; } }
