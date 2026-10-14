@@ -1504,3 +1504,81 @@ body.lb-open { overflow: hidden; }
 @media (max-width: 560px) { .pj-gallery--video { grid-template-columns: 1fr; } }
 .pj-gallery--video.pj-gallery--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 560px) { .pj-gallery--video.pj-gallery--even { grid-template-columns: 1fr; } }
+
+/* ---------- Full-page website screenshots (tall images) ---------- */
+/* Slider: show the top of the page, desktop fills the frame, mobile as a phone column */
+.pj-slide--desk img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; object-position: top; }
+.pj-slide--mob img { height: 100%; width: auto; aspect-ratio: 9 / 19.5; max-width: none; object-fit: cover; object-position: top; }
+.pj-thumb--page img { object-position: top; }
+
+/* Gallery: cover full width, then pages side by side as scroll-on-hover windows */
+.pj-gallery--pages { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pj-gallery--pages .pj-fig:first-child { grid-column: 1 / -1; }
+.pj-gallery--pages .pj-fig:last-child:nth-child(even) { grid-column: auto; }
+.pj-fig--page { aspect-ratio: 4 / 5; position: relative; }
+.pj-fig--page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: object-position var(--scroll, 8s) linear;
+}
+.pj-fig--page:hover img { transform: none; object-position: bottom; }
+@media (hover: none) { .pj-fig--page img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .pj-fig--page img { transition: none; } }
+@media (max-width: 860px) { .pj-gallery--pages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pj-gallery--pages { grid-template-columns: 1fr; } }
+
+/* Lightbox: tall pages scroll vertically at readable width */
+.pj-lb.is-tall { align-items: flex-start; overflow-y: auto; padding: 64px 96px; }
+.pj-lb.is-tall img { max-height: none; width: min(1200px, 100%); height: auto; margin: 0 auto; }
+.pj-lb.is-tall.is-narrow img { width: min(420px, 100%); }
+.pj-lb.is-tall button, .pj-lb.is-tall .pj-lb-count { position: fixed; }
+@media (max-width: 560px) { .pj-lb.is-tall { padding: 64px 16px 80px; } }
+
+/* Scroll hint on full-page previews */
+.pj-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(29, 29, 29, 0.85);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.pj-hint svg { animation: hintNudge 1.6s ease-in-out infinite; }
+@keyframes hintNudge { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(2px); } }
+.pj-hint-touch { display: none; }
+.pj-fig--page:hover .pj-hint { opacity: 0; transform: translateX(-50%) translateY(8px); }
+@media (hover: none) {
+  .pj-hint-hover { display: none; }
+  .pj-hint-touch { display: inline; }
+  /* Touch: the preview scrolls itself while it's on screen; tap opens the full page */
+  .pj-fig--page.in-view img { animation: pageScroll var(--scroll, 8s) ease-in-out 1s infinite alternate; }
+}
+@keyframes pageScroll { from { object-position: top; } to { object-position: bottom; } }
+@media (prefers-reduced-motion: reduce) { .pj-hint svg, .pj-fig--page.in-view img { animation: none; } }
+.pj-slider--single { margin-bottom: 40px; }
+.pj-gallery--pages .pj-fig--page:first-child { grid-column: auto; }
+
+/* Full-page previews scroll on their own while on screen (all devices); hover pauses */
+.pj-fig--page img { transition: none; }
+.pj-fig--page:hover img { object-position: top; }
+.pj-fig--page.in-view img { animation: pageScroll var(--scroll, 8s) ease-in-out 0.6s infinite alternate; }
+.pj-fig--page.in-view:hover img { animation-play-state: paused; }
+.pj-fig--page:hover .pj-hint { opacity: 1; transform: translateX(-50%); }
+@media (prefers-reduced-motion: reduce) { .pj-fig--page.in-view img { animation: none; } }
+/* Preview scrolling is driven by JS (scroll → 3s hold → jump to top) */
+.pj-fig--page img, .pj-fig--page.in-view img, .pj-fig--page:hover img { animation: none; transition: none; }
+/* Regular images followed by a row of page previews */
+.pj-gallery + .pj-gallery--pages { margin-top: 24px; }
+.pj-gallery--single + .pj-gallery--pages { margin-top: 24px; }

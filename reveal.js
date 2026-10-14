@@ -190,9 +190,7 @@
 
 // ---- Project detail: gallery lightbox (click, arrows, swipe, Esc) ----
 (function () {
-  var gal = document.querySelector('[data-gallery]');
-  if (!gal) return;
-  var figs = gal.querySelectorAll('.pj-fig');
+  var figs = document.querySelectorAll('[data-gallery] .pj-fig');
   if (figs.length < 2) return;
   var srcs = Array.prototype.map.call(figs, function (f) { return f.querySelector('img'); });
   var lb = document.createElement('div');
@@ -209,6 +207,11 @@
     i = (n + srcs.length) % srcs.length;
     img.src = srcs[i].currentSrc || srcs[i].src;
     img.alt = srcs[i].alt;
+    // Full-page screenshots: let them scroll instead of shrinking to fit
+    var r = srcs[i].naturalHeight / Math.max(1, srcs[i].naturalWidth);
+    lb.classList.toggle('is-tall', r > 1.6);
+    lb.classList.toggle('is-narrow', r > 1.6 && srcs[i].naturalWidth < 800);
+    lb.scrollTop = 0;
     count.textContent = (i + 1) + ' of ' + srcs.length;
   }
   function open(n) { show(n); lb.classList.add('open'); document.body.classList.add('lb-open'); }
@@ -264,5 +267,51 @@
     });
     window.addEventListener('resize', function () { track.style.scrollBehavior = 'auto'; go(i); track.style.scrollBehavior = ''; });
     sync();
+  });
+})();
+
+// ---- Full-page previews: scroll down at one speed, hold 3s at the bottom, scroll back up ----
+(function () {
+  var figs = document.querySelectorAll('.pj-fig--page');
+  if (!figs.length || !Element.prototype.animate) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var SPEED = 90;          // px per second, same for every page
+  var START = 1000;        // pause on the top before scrolling (ms)
+  var HOLD = 3000;         // stay on the bottom (ms)
+
+  figs.forEach(function (fig) {
+    var img = fig.querySelector('img');
+    var anim = null, visible = false, hovered = false;
+    function sync() {
+      if (!anim) return;
+      if (visible && !hovered) anim.play(); else anim.pause();
+    }
+    function build() {
+      if (!img.naturalWidth) return;
+      var dist = Math.max(0, fig.clientWidth * img.naturalHeight / img.naturalWidth - fig.clientHeight);
+      var scroll = Math.max(1500, dist / SPEED * 1000);
+      var total = START + scroll + HOLD + scroll;
+      var t = function (ms) { return ms / total; };
+      if (anim) anim.cancel();
+      // Top pause → scroll down → 3s on the bottom → scroll back up at the same speed
+      anim = img.animate([
+        { objectPosition: '50% 0%', offset: 0 },
+        { objectPosition: '50% 0%', offset: t(START), easing: 'ease-in-out' },
+        { objectPosition: '50% 100%', offset: t(START + scroll) },
+        { objectPosition: '50% 100%', offset: t(START + scroll + HOLD), easing: 'ease-in-out' },
+        { objectPosition: '50% 0%', offset: 1 }
+      ], { duration: total, iterations: Infinity });
+      anim.pause();
+      sync();
+    }
+    if (img.complete) build(); else img.addEventListener('load', build);
+    window.addEventListener('resize', build);
+    fig.addEventListener('mouseenter', function () { hovered = true; sync(); });
+    fig.addEventListener('mouseleave', function () { hovered = false; sync(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { visible = e.isIntersecting; sync(); });
+      }, { threshold: 0.5 }).observe(fig);
+    } else { visible = true; sync(); }
   });
 })();
