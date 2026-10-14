@@ -1642,3 +1642,6 @@ body.lb-open { overflow: hidden; }
 /* Page shorter than its window: whole page centred on its own background */
 .pj-fig--page.is-short { background: var(--page-fill, #121212); }
 .pj-fig--page.is-short img { object-fit: contain; object-position: center; animation: none; }
+
+/* Two galleries stacked in one project (pages, then animations) */
+.pj-gallery + .pj-gallery { margin-top: 24px; }
