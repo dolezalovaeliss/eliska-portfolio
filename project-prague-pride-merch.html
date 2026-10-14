@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Prague Pride Merch — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,46 +40,77 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Prague Pride Merch</h1>
-      <p class="case-subtitle">An &lsquo;Equality&rsquo; merchandise line, designed, produced and shipped.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Creative director, designer</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2025</div></div>
-        <div class="case-meta-item"><div class="k">Client</div><div class="v">Prague Pride</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Branding · Photography · Merch</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Prague Pride Merch</span>
+        <span class="pj-bar-year">2025</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Prague Pride Merch images">
+          <figure class="pj-slide"><img src="images/projects/prague-pride-merch/cover.png" alt="Prague Pride Merch" /></figure>
+          <figure class="pj-slide"><img src="images/projects/prague-pride-merch/01.png" alt="Prague Pride Merch" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/prague-pride-merch/02.png" alt="Prague Pride Merch" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/prague-pride-merch/03.png" alt="Prague Pride Merch" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 4</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/prague-pride-merch/cover.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/prague-pride-merch/01.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/prague-pride-merch/02.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 4"><img src="images/projects/prague-pride-merch/03.png" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Prague Pride Merch</h1>
+          <div class="pj-meta-item"><div class="pj-k">Client</div><div class="pj-v">Prague Pride</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Creative director, designer</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2025</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#brand">Brand design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Branding</span>
+            <span class="chip chip--static">Photography</span>
+            <span class="chip chip--static">Merch</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Creative direction and design for the official Prague Pride Festival merchandise. I led the complete creative agenda, art direction, design, production, budget coordination, end to end.</p>
+          <p class="pj-more">The &lsquo;Equality&rsquo; line combines distinctive visual design with authentic storytelling: celebrating diversity and supporting the community through merchandise that means something.</p>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+        <button class="pj-fig" type="button" data-index="0"><img src="images/projects/prague-pride-merch/cover.png" alt="Prague Pride Merch" /></button>
+        <button class="pj-fig" type="button" data-index="1"><img src="images/projects/prague-pride-merch/01.png" alt="Prague Pride Merch" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="2"><img src="images/projects/prague-pride-merch/02.png" alt="Prague Pride Merch" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="3"><img src="images/projects/prague-pride-merch/03.png" alt="Prague Pride Merch" loading="lazy" /></button>
+    </div>
+  </section>
+
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/prague-pride-merch/cover.png" alt="Prague Pride Merch" /></div>
-
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-        <a href="#gallery">Gallery</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Creative direction and design for the official Prague Pride Festival merchandise. I led the complete creative agenda, art direction, design, production, budget coordination, end to end.</p>
-          <p>The &lsquo;Equality&rsquo; line combines distinctive visual design with authentic storytelling: celebrating diversity and supporting the community through merchandise that means something.</p>
-        </section>
-
-        <section id="gallery" class="case-section reveal">
-          <div class="section-label">GALLERY</div>
-          <div class="case-gallery">
-            <div class="case-figure"><img src="images/projects/prague-pride-merch/01.png" alt="Prague Pride Merch" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/prague-pride-merch/02.png" alt="Prague Pride Merch" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/prague-pride-merch/03.png" alt="Prague Pride Merch" loading="lazy" /></div>
-          </div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -91,8 +122,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -131,6 +160,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

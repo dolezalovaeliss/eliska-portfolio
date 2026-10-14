@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Importing metadata in 3 clicks instead of 10 — Eliška Doležalová" />
 <meta name="twitter:description" content="Redesigning Ataccama ONE's metadata import. Designed in Figma, validated with consultants, then prototyped in code to test it for real." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,89 +40,77 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Importing metadata in 3 clicks instead of 10</h1>
-      <p class="case-subtitle">Designed in Figma, validated with consultants, then prototyped in code to test it for real.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer at Ataccama, owned the design end to end</div></div>
-        <div class="case-meta-item"><div class="k">Surface</div><div class="v">Ataccama ONE · Data Catalog</div></div>
-        <div class="case-meta-item"><div class="k">Output</div><div class="v">Figma · code prototype · Engineering handoff</div></div>
-        <div class="case-meta-item"><div class="k">Impact</div><div class="v">6–10 clicks → 3 (measured)</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Importing metadata in 3 clicks instead of 10</span>
+        <span class="pj-bar-year"></span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Importing metadata in 3 clicks instead of 10 images">
+          <figure class="pj-slide"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view" /></figure>
+          <figure class="pj-slide"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source's Connections tab, one connection expanded" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/import-metadata/figma-import-design.png" alt="The redesigned one-view import modal, designed in Figma" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 4</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/import-metadata/before-connections.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/import-metadata/figma-import-design.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 4"><img src="images/projects/import-metadata/catalog-import-button.png" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Importing metadata in 3 clicks instead of 10</h1>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Product designer at Ataccama, owned the design end to end</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Surface</div><div class="pj-v">Ataccama ONE · Data Catalog</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Impact</div><div class="pj-v">6–10 clicks → 3 (measured)</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#product">Product design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Figma</span>
+            <span class="chip chip--static">code prototype</span>
+            <span class="chip chip--static">Engineering handoff</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Importing metadata is the first real thing a customer does in Ataccama ONE, and it took 6 clicks, sometimes 10, drilling into one connection at a time with no sense of where you were. I redesigned it as a single view of the whole source, connection, schema and table tree, with an import entry point right in the Data Catalog.</p>
+          <p class="pj-more">Designed in Figma, validated with consultants, then rebuilt as a working code prototype. Testing removed a preview step, and the measured flow went from 6&ndash;10 clicks down to 3.</p>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover case-cover--sm reveal"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view" /></div>
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source's Connections tab, one connection expanded" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/figma-import-design.png" alt="The redesigned one-view import modal, designed in Figma" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></button>
+    </div>
+  </section>
 
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#problem" class="active">The problem</a>
-        <a href="#how">How I worked</a>
-        <a href="#pov">Point of view</a>
-        <a href="#work">The work</a>
-        <a href="#killed">What I killed</a>
-        <a href="#impact">Impact</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="problem" class="case-section reveal">
-          <div class="section-label">THE PROBLEM</div>
-          <h3 class="case-headline">Six clicks, sometimes ten, and no sense of where you were.</h3>
-          <p>Before anyone can govern data in Ataccama ONE, they have to import its metadata. It is the first real action a customer takes after buying the platform, and it keeps happening for the life of the deployment. So a rough import flow is a rough first impression of the whole product.</p>
-          <p>The old flow made you go into a specific source, then its Connections tab, then deeper into the connection's structure, one connection at a time. There was no breadcrumb inside that structure, so the further you drilled, the less you could tell where you were. And the Data Catalog listing, the page where people actually browse their data, had no way to start an import at all.</p>
-          <div class="case-figure"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source's Connections tab, one connection expanded" loading="lazy" /></div>
-          <p class="case-aside">Before: import lived one connection at a time, reached by drilling into a single source's Connections tab.</p>
-        </section>
-
-        <section id="how" class="case-section reveal">
-          <div class="section-label">HOW I WORKED</div>
-          <h3 class="case-headline">Designed in Figma, then rebuilt in code to test it.</h3>
-          <p>I designed the whole flow in Figma, by hand. At the time there was no Claude Code connection into Figma, so the prototype, the documentation, and the interaction model were all mine. I consulted a developer and other designers as I went, then ran usability testing with consultants, including interviews, to pressure-test the flow against how data people actually import.</p>
-          <p>Once the design held up in testing, I rebuilt it as a working prototype in code with Claude Code. I directed the implementation and made the design calls. The agent generated the React. The point was to test the real thing with consultants instead of a Figma click-through, so the feedback came from a flow people could actually click.</p>
-          <div class="case-figure"><img src="images/projects/import-metadata/figma-import-design.png" alt="The redesigned one-view import modal, designed in Figma" loading="lazy" /></div>
-          <p class="case-aside">The one-view import modal as designed in Figma, before it was rebuilt in code.</p>
-        </section>
-
-        <section id="pov" class="case-section reveal">
-          <div class="section-label">POINT OF VIEW</div>
-          <h3 class="case-headline">A prototype in real code beats a Figma mockup.</h3>
-          <p>For work like this, a code prototype wins for three reasons. I can see the design in its actual context, with real structure around it, instead of guessing how it sits in the product. I can present it to a PM or an engineer and have them react to the real thing rather than a click-through. And I can test it properly, including handing it to engineers to try. That is why I did not stop at Figma. I designed there, then rebuilt it in code so the decisions were tested where they would actually live.</p>
-        </section>
-
-        <section id="work" class="case-section reveal">
-          <div class="section-label">THE WORK</div>
-          <h3 class="case-headline">Full context in one view, without drilling blind.</h3>
-          <p>The hard part was not adding a button. It was orientation: letting people see and select across their data without losing track of where they were. Three moves did that.</p>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">Import where people browse</div><div class="step-d">The Data Catalog listing had no import action. I added an entry point there that opens the one-view tree, so you start importing from where you already look at your data.</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">One view instead of one connection at a time</div><div class="step-d">A single modal shows the whole source, connection, schema, and table tree. You browse and select across multiple sources and connections together, then import in one pass, with indeterminate states for partial selection and a running summary of what you picked.</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">Source and connection creation, out of hiding</div><div class="step-d">Creating a source or connection was the first thing a new customer touched, and it was buried. The redesign gives it a prominent, dedicated path.</div></div></div>
-          </div>
-          <div class="case-figure"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></div>
-          <p class="case-aside">The discoverability change: an "Import asset" button on the Data Catalog listing, where there was no import action before.</p>
-        </section>
-
-        <section id="killed" class="case-section reveal">
-          <div class="section-label">WHAT I EXPLORED AND KILLED</div>
-          <h3 class="case-headline">An earlier version had a preview step. Testing killed it.</h3>
-          <p>The first version was a three-step wizard: select asset, preview the import, then import the metadata. Testing with consultants killed the middle step. People did not need to preview their selection before importing. The preview added a screen without adding confidence, so I cut it and imported the selected tables directly. The flow went from select, preview, import down to select and import.</p>
-        </section>
-
-        <section id="impact" class="case-section reveal">
-          <div class="section-label">IMPACT</div>
-          <h3 class="case-headline">From 6 clicks, sometimes 10, down to 3.</h3>
-          <div class="feature-list">
-            <div class="feature"><h4>Before</h4><p>6 clicks to import from an existing source and connection. Up to ~10 if the source and connection had to be created first.</p></div>
-            <div class="feature-divider"></div>
-            <div class="feature"><h4>After</h4><p>3 clicks, measured in the working prototype.</p></div>
-          </div>
-          <p>I counted the before-flow on the live application and measured the after-flow in the prototype, so both numbers are observed, not estimated. A note on measurement: the product tracks events, but it is hard to detect when a user intends to start an import, so true completion rate is hard to measure cleanly. I treated the click count as the honest, defensible evidence rather than chasing a noisy funnel.</p>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -134,8 +122,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -174,6 +160,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

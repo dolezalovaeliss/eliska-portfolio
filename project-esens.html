@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Esens Letná — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,45 +40,74 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Esens Letná</h1>
-      <p class="case-subtitle">A premium real-estate website built around confident typography and full-bleed photography.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Web designer</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2026</div></div>
-        <div class="case-meta-item"><div class="k">Studio</div><div class="v">Apadore · for Daramis</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Web Design · UX/UI · Typography</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Esens Letná</span>
+        <span class="pj-bar-year">2026</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Esens Letná images">
+          <figure class="pj-slide"><img src="images/projects/esens/cover.jpg" alt="Esens Letná" /></figure>
+          <figure class="pj-slide"><img src="images/projects/esens/01-lokalita.jpg" alt="Esens Letná" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/esens/02-kontakt.jpg" alt="Esens Letná" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 3</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/esens/cover.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/esens/01-lokalita.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/esens/02-kontakt.jpg" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Esens Letná</h1>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Web designer</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2026</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Studio</div><div class="pj-v">Apadore · for Daramis</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#web">Web design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Web Design</span>
+            <span class="chip chip--static">UX/UI</span>
+            <span class="chip chip--static">Typography</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Esens Letná is a new residential development in Prague&rsquo;s Letná district. The brief was to translate that premium location into a web experience as confident as the apartments themselves. The design leans on three things: confident typography, full-bleed location photography, and generous whitespace that lets each section breathe.</p>
+          <p class="pj-more">The site is built around three pillars — Lokalita (location), Služby (services), and Byty (apartments). Each is treated as its own editorial chapter: location reads like a magazine spread, services like a curated menu, contact like a quiet conversation. Same brand voice, different rhythms.</p>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+        <button class="pj-fig" type="button" data-index="0"><img src="images/projects/esens/cover.jpg" alt="Esens Letná" /></button>
+        <button class="pj-fig" type="button" data-index="1"><img src="images/projects/esens/01-lokalita.jpg" alt="Esens Letná" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="2"><img src="images/projects/esens/02-kontakt.jpg" alt="Esens Letná" loading="lazy" /></button>
+    </div>
+  </section>
+
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/esens/cover.jpg" alt="Esens Letná" /></div>
-
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-        <a href="#gallery">Gallery</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Esens Letná is a new residential development in Prague&rsquo;s Letná district. The brief was to translate that premium location into a web experience as confident as the apartments themselves. The design leans on three things: confident typography, full-bleed location photography, and generous whitespace that lets each section breathe.</p>
-          <p>The site is built around three pillars — Lokalita (location), Služby (services), and Byty (apartments). Each is treated as its own editorial chapter: location reads like a magazine spread, services like a curated menu, contact like a quiet conversation. Same brand voice, different rhythms.</p>
-        </section>
-
-        <section id="gallery" class="case-section reveal">
-          <div class="section-label">GALLERY</div>
-          <div class="case-gallery">
-            <div class="case-figure"><img src="images/projects/esens/01-lokalita.jpg" alt="Esens Letná" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/esens/02-kontakt.jpg" alt="Esens Letná" loading="lazy" /></div>
-          </div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -90,8 +119,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -130,6 +157,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

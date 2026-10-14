@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Asset Layout Editor — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,95 +40,73 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Asset Layout Editor</h1>
-      <p class="case-subtitle">Replacing a hidden JSON editor with a research-grounded pin model.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer at Ataccama</div></div>
-        <div class="case-meta-item"><div class="k">Timeline</div><div class="v">6 weeks</div></div>
-        <div class="case-meta-item"><div class="k">Surface</div><div class="v">Metadata Model · Page layout</div></div>
-        <div class="case-meta-item"><div class="k">Output</div><div class="v">Working prototype · Three-audience handoff</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Asset Layout Editor</span>
+        <span class="pj-bar-year">6 weeks</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Asset Layout Editor images">
+          <figure class="pj-slide"><img src="images/projects/asset-layout-editor/pinned-properties-flow.gif" alt="Pinning properties in action: curating which properties surface at the top of the entity page" /></figure>
+          <figure class="pj-slide"><img src="images/projects/asset-layout-editor/pin-config.jpg" alt="The Pinned properties configuration: a Pick properties to pin list on the left, the pinned set on the right" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/asset-layout-editor/overview-pinned.jpg" alt="A real entity Overview page with the pinned properties surfaced at the top" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 3</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/asset-layout-editor/pinned-properties-flow.gif" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/asset-layout-editor/pin-config.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/asset-layout-editor/overview-pinned.jpg" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Asset Layout Editor</h1>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Product designer at Ataccama</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Timeline</div><div class="pj-v">6 weeks</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Surface</div><div class="pj-v">Metadata Model · Page layout</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#product">Product design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Working prototype</span>
+            <span class="chip chip--static">Three-audience handoff</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Customers extend Ataccama ONE&rsquo;s metadata model with custom properties, but the only way to surface them was a hidden JSON editor nobody outside engineering could use. I replaced it with a pin model: admins pick the properties that matter, and they appear at the top of every entity page of that type.</p>
+          <p class="pj-more">Grounded in research across 22 sources and six competitors, the layout stays locked with one clear escape hatch. No JSON, no code, delivered as a working prototype in six weeks.</p>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover case-cover--sm reveal"><img src="images/projects/asset-layout-editor/pinned-properties-flow.gif" alt="Pinning properties in action: curating which properties surface at the top of the entity page" /></div>
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+      <button class="pj-fig" type="button"><img src="images/projects/asset-layout-editor/pinned-properties-flow.gif" alt="Pinning properties in action: curating which properties surface at the top of the entity page" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/asset-layout-editor/pin-config.jpg" alt="The Pinned properties configuration: a Pick properties to pin list on the left, the pinned set on the right" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/asset-layout-editor/overview-pinned.jpg" alt="A real entity Overview page with the pinned properties surfaced at the top" loading="lazy" /></button>
+    </div>
+  </section>
 
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#context" class="active">Context</a>
-        <a href="#problem">The problem</a>
-        <a href="#designed">What I designed</a>
-        <a href="#principles">Principles</a>
-        <a href="#process">Process</a>
-        <a href="#learned">What I learned</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="context" class="case-section reveal">
-          <div class="section-label">CONTEXT</div>
-          <h3 class="case-headline">The JSON editor was technically usable. Nobody could actually use it.</h3>
-          <p>Customers routinely extend Ataccama ONE&rsquo;s metadata model with custom properties, Region, Data Owner, Classification. The historical way to surface them on entity detail pages was a Monaco-based JSON editor hidden behind a feature flag, unusable by anyone who didn&rsquo;t write code.</p>
-          <p>Customer-facing teams complained when the flag came off. The brief: remove the JSON editor entirely and replace it with something an admin or a consultant could actually use.</p>
-        </section>
-
-        <section id="problem" class="case-section reveal">
-          <div class="section-label">THE PROBLEM</div>
-          <h3 class="case-headline">Real demand, no real solution.</h3>
-          <p>The product inbox held the evidence, concentrated demand across DG, DQ, ONE Platform, and Agentic, going unaddressed because the existing solution was developer-only.</p>
-          <p>The audience was specific: tenant admins and consultants, people who understand the metadata model conceptually but don&rsquo;t write code. Explicitly not for end users or developers.</p>
-        </section>
-
-        <section id="designed" class="case-section reveal">
-          <div class="section-label">WHAT I DESIGNED</div>
-          <h3 class="case-headline">One escape hatch. Everything else locked.</h3>
-          <p>A model with a single customizable surface. Admins pick which properties matter most, and those properties surface at the top of every entity page of that type, pinned into the Summary. Everything else stays on a default layout that Ataccama curates and locks.</p>
-          <p>The pattern is &quot;shell-plus-accent&quot;, universal across every competitor I studied (Jira, Collibra, Salesforce, Atlan, Harness, ServiceNow). A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</p>
-          <p>The whole thing is configured in one place: Settings, Metadata Model, the entity type&rsquo;s Pinned properties tab. The admin picks individual properties from a searchable list, scoped to the tenant, and every instance of that entity type inherits them. No JSON, no code.</p>
-          <div class="case-figure"><img src="images/projects/asset-layout-editor/pin-config.jpg" alt="The Pinned properties configuration: a Pick properties to pin list on the left, the pinned set on the right" loading="lazy" /></div>
-          <p class="case-aside">Config: the admin picks properties to pin to the Summary, per entity type, in Settings.</p>
-          <div class="case-figure"><img src="images/projects/asset-layout-editor/overview-pinned.jpg" alt="A real entity Overview page with the pinned properties surfaced at the top" loading="lazy" /></div>
-          <p class="case-aside">Result: the pinned properties surface at the top of every entity page of that type.</p>
-        </section>
-
-        <section id="principles" class="case-section reveal">
-          <div class="section-label">THE FOUR DESIGN PRINCIPLES</div>
-          <h3 class="case-headline">Each one came from a finding in the research.</h3>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">Lock the structural scaffolding</div><div class="step-d">Header, widgets, column structure, all curated by Ataccama. Matches Collibra&rsquo;s &quot;system content controlled by Collibra.&quot;</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">One escape hatch, not a full editor</div><div class="step-d">A single pinned surface at the top of the page. Admin curates which properties appear there. Everything else stays where Ataccama designed it.</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">Tenant-scoped, not per-user</div><div class="step-d">Every data-catalog peer is tenant-scoped. Per-user pins would have broken consultant-shares-screens consistency.</div></div></div>
-            <div class="step"><div class="step-n">04</div><div><div class="step-t">Pin individual properties</div><div class="step-d">The real customer use case is field-level. Section-level customization was over-coarse for the actual need.</div></div></div>
-          </div>
-          <p class="case-aside">V5 wasn&rsquo;t my first idea, it was synthesis. Without V1–V4 showing what didn&rsquo;t work, V5 would have looked like V1.</p>
-        </section>
-
-        <section id="process" class="case-section reveal">
-          <div class="section-label">PROCESS</div>
-          <h3 class="case-headline">Three inflection points across six weeks.</h3>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">The PM pivot, April 15</div><div class="step-d">I brought a full layout-editor prototype to my first PM meeting, expecting feedback on interactions. Matej proposed the pin concept in five minutes. Customization has a cost, product identity, test stability, upgrade path.</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">The 22-source research</div><div class="step-d">Going deep on six competitors surfaced one universal pattern: shell-plus-accent. A dominant, system-controlled layout with one explicit surface for promoting individually-important content.</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">The buddy meeting</div><div class="step-d">I brought a lean recommendation on each of six open decisions, not open exploration, &quot;take this position and tell me why I&rsquo;m wrong.&quot; We closed all six in 30 minutes.</div></div></div>
-          </div>
-        </section>
-
-        <section id="learned" class="case-section reveal">
-          <div class="section-label">WHAT I LEARNED</div>
-          <h3 class="case-headline">Five principles that travel beyond this project.</h3>
-          <div class="steps">
-            <div class="step"><div class="step-n">01</div><div><div class="step-t">Bring problem + evidence early</div><div class="step-d">Let PM bring constraints. Don&rsquo;t fall in love with your prototype.</div></div></div>
-            <div class="step"><div class="step-n">02</div><div><div class="step-t">Research turns proposals into arguments</div><div class="step-d">&quot;12+ upvotes, Collibra 46% → 74%&quot; is a different conversation than &quot;I think we need this.&quot;</div></div></div>
-            <div class="step"><div class="step-n">03</div><div><div class="step-t">Sketch before prototyping in code</div><div class="step-d">Code iteration is fast but expensive when the direction isn&rsquo;t validated.</div></div></div>
-            <div class="step"><div class="step-n">04</div><div><div class="step-t">Five variants were not waste</div><div class="step-d">V5 was synthesis. Without exploration, &quot;first idea&quot; is rarely the answer.</div></div></div>
-            <div class="step"><div class="step-n">05</div><div><div class="step-t">Fast convergence needs lean recommendations</div><div class="step-d">Strong defaults invite quick critique. Open questions invite long meetings.</div></div></div>
-          </div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -140,8 +118,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -180,6 +156,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

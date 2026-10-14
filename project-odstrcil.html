@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Odstrčil, Craft Jewellery — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,46 +40,78 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Odstrčil, Craft Jewellery</h1>
-      <p class="case-subtitle">A craft jeweller&rsquo;s site that reads more like a gallery than an e-shop.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">UX/UI designer</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2025</div></div>
-        <div class="case-meta-item"><div class="k">Client</div><div class="v">Odstrčil</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Web Design · UX/UI · Branding</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Odstrčil, Craft Jewellery</span>
+        <span class="pj-bar-year">2025</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Odstrčil, Craft Jewellery images">
+          <figure class="pj-slide"><img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery" /></figure>
+          <figure class="pj-slide"><img src="images/projects/odstrcil/01.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/odstrcil/02.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/odstrcil/03.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 4</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/odstrcil/cover.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/odstrcil/01.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/odstrcil/02.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 4"><img src="images/projects/odstrcil/03.png" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Odstrčil, Craft Jewellery</h1>
+          <div class="pj-meta-item"><div class="pj-k">Client</div><div class="pj-v">Odstrčil</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">UX/UI designer</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2025</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#web">Web design</a>
+            <a class="chip" href="work.html#brand">Brand design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Web Design</span>
+            <span class="chip chip--static">UX/UI</span>
+            <span class="chip chip--static">Branding</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Complete UX/UI design for a craft jewellery maker&rsquo;s website. The design emphasises visual cleanliness and elegance, a reflection of the precision and uniqueness of the work itself. Minimalism and air around each piece let the jewellery photography do the talking.</p>
+          <p class="pj-more">I conceived it primarily as a gallery experience rather than a traditional e-shop. The purchasing workflow stays intuitive without compromising the brand&rsquo;s exclusivity or aesthetic.</p>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+        <button class="pj-fig" type="button" data-index="0"><img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery" /></button>
+        <button class="pj-fig" type="button" data-index="1"><img src="images/projects/odstrcil/01.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="2"><img src="images/projects/odstrcil/02.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="3"><img src="images/projects/odstrcil/03.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></button>
+    </div>
+  </section>
+
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/odstrcil/cover.png" alt="Odstrčil, Craft Jewellery" /></div>
-
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-        <a href="#gallery">Gallery</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Complete UX/UI design for a craft jewellery maker&rsquo;s website. The design emphasises visual cleanliness and elegance, a reflection of the precision and uniqueness of the work itself. Minimalism and air around each piece let the jewellery photography do the talking.</p>
-          <p>I conceived it primarily as a gallery experience rather than a traditional e-shop. The purchasing workflow stays intuitive without compromising the brand&rsquo;s exclusivity or aesthetic.</p>
-        </section>
-
-        <section id="gallery" class="case-section reveal">
-          <div class="section-label">GALLERY</div>
-          <div class="case-gallery">
-            <div class="case-figure"><img src="images/projects/odstrcil/01.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/odstrcil/02.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/odstrcil/03.png" alt="Odstrčil, Craft Jewellery" loading="lazy" /></div>
-          </div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -91,8 +123,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -131,6 +161,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

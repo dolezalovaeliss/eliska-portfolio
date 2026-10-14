@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Pandaride — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,37 +40,71 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Pandaride</h1>
-      <p class="case-subtitle">Two apps for getting kids safely from A to B.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Product designer (mobile)</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2024</div></div>
-        <div class="case-meta-item"><div class="k">Client</div><div class="v">Panda Ride</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">App Design · UX/UI · Mobile</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Pandaride</span>
+        <span class="pj-bar-year">2024</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Pandaride images">
+          <figure class="pj-slide"><img src="images/projects/pandaride/cover.png" alt="Pandaride" /></figure>
+          <figure class="pj-slide"><img src="images/projects/pandaride/01.png" alt="Pandaride" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 2</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/pandaride/cover.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/pandaride/01.png" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Pandaride</h1>
+          <div class="pj-meta-item"><div class="pj-k">Client</div><div class="pj-v">Panda Ride</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Product designer (mobile)</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2024</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#product">Product design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">App Design</span>
+            <span class="chip chip--static">UX/UI</span>
+            <span class="chip chip--static">Mobile</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Comprehensive app design for Panda Ride, a child transportation service. The project covered two distinct user interfaces: a parent-facing client app for booking and tracking, and a driver app for trip execution.</p>
+          <p class="pj-more">The focus throughout was an intuitive, quick, and maximally clear interface, designed to be used during stressful daily routines where every second of friction matters.</p>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+        <button class="pj-fig" type="button" data-index="0"><img src="images/projects/pandaride/cover.png" alt="Pandaride" /></button>
+        <button class="pj-fig" type="button" data-index="1"><img src="images/projects/pandaride/01.png" alt="Pandaride" loading="lazy" /></button>
+    </div>
+  </section>
+
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/pandaride/cover.png" alt="Pandaride" /></div>
-
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Comprehensive app design for Panda Ride, a child transportation service. The project covered two distinct user interfaces: a parent-facing client app for booking and tracking, and a driver app for trip execution.</p>
-          <p>The focus throughout was an intuitive, quick, and maximally clear interface, designed to be used during stressful daily routines where every second of friction matters.</p>
-          <div class="case-figure"><img src="images/projects/pandaride/01.png" alt="Pandaride" loading="lazy" /></div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -82,8 +116,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -122,6 +154,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

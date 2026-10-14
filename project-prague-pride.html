@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Prague Pride Festival — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,47 +40,78 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Prague Pride Festival</h1>
-      <p class="case-subtitle">Five years of visual identity for Prague&rsquo;s diversity festival.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Graphic designer, art director</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2021–2025</div></div>
-        <div class="case-meta-item"><div class="k">Client</div><div class="v">Prague Pride</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Branding · Campaign · Art Direction</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Prague Pride Festival</span>
+        <span class="pj-bar-year">2021–2025</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Prague Pride Festival images">
+          <figure class="pj-slide"><img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" /></figure>
+          <figure class="pj-slide"><img src="images/projects/prague-pride/01.jpg" alt="Prague Pride Festival" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/prague-pride/02.jpg" alt="Prague Pride Festival" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/prague-pride/03.jpg" alt="Prague Pride Festival" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 4</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/prague-pride/cover.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/prague-pride/01.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/prague-pride/02.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 4"><img src="images/projects/prague-pride/03.jpg" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Prague Pride Festival</h1>
+          <div class="pj-meta-item"><div class="pj-k">Client</div><div class="pj-v">Prague Pride</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Graphic designer, art director</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2021–2025</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#brand">Brand design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Branding</span>
+            <span class="chip chip--static">Campaign</span>
+            <span class="chip chip--static">Art Direction</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Over five years I contributed to the visual identity and graphics for Prague Pride Festival. The work evolved from agency collaboration to in-house development, encompassing complete campaign aesthetics across every media format.</p>
+          <p class="pj-more">Outputs spanned online campaigns, print, branded installations, stage designs, merchandise and spatial applications. The visual communication had to be both distinctive and flexible enough to adapt across surfaces. My thesis project went further: a comprehensive website redesign that examined nonprofit web patterns and optimised the festival&rsquo;s communication and presentation.</p>
+          <p class="pj-more">Each year was an opportunity to advance the visual narrative around diversity, visibility and belonging through design.</p>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+        <button class="pj-fig" type="button" data-index="0"><img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" /></button>
+        <button class="pj-fig" type="button" data-index="1"><img src="images/projects/prague-pride/01.jpg" alt="Prague Pride Festival" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="2"><img src="images/projects/prague-pride/02.jpg" alt="Prague Pride Festival" loading="lazy" /></button>
+        <button class="pj-fig" type="button" data-index="3"><img src="images/projects/prague-pride/03.jpg" alt="Prague Pride Festival" loading="lazy" /></button>
+    </div>
+  </section>
+
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" /></div>
-
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-        <a href="#gallery">Gallery</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Over five years I contributed to the visual identity and graphics for Prague Pride Festival. The work evolved from agency collaboration to in-house development, encompassing complete campaign aesthetics across every media format.</p>
-          <p>Outputs spanned online campaigns, print, branded installations, stage designs, merchandise and spatial applications. The visual communication had to be both distinctive and flexible enough to adapt across surfaces. My thesis project went further: a comprehensive website redesign that examined nonprofit web patterns and optimised the festival&rsquo;s communication and presentation.</p>
-          <p>Each year was an opportunity to advance the visual narrative around diversity, visibility and belonging through design.</p>
-        </section>
-
-        <section id="gallery" class="case-section reveal">
-          <div class="section-label">GALLERY</div>
-          <div class="case-gallery">
-            <div class="case-figure"><img src="images/projects/prague-pride/01.jpg" alt="Prague Pride Festival" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/prague-pride/02.jpg" alt="Prague Pride Festival" loading="lazy" /></div>
-            <div class="case-figure"><img src="images/projects/prague-pride/03.jpg" alt="Prague Pride Festival" loading="lazy" /></div>
-          </div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -92,8 +123,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -132,6 +161,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

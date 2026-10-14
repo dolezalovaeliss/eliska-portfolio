@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Comfort Finance Group — Eliška Doležalová" />
 <meta name="twitter:description" content="A unified web presence for a Czech financial group and its family of fintech brands." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,63 +40,75 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Comfort Finance Group</h1>
-      <p class="case-subtitle">A unified web presence for a Czech financial group and its family of fintech brands.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">Brand &amp; web designer</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2026</div></div>
-        <div class="case-meta-item"><div class="k">Client</div><div class="v">Comfort Finance Group (CFG)</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Visual direction · Web design · Design system</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Comfort Finance Group</span>
+        <span class="pj-bar-year">2026</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Comfort Finance Group images">
+          <figure class="pj-slide"><img src="images/projects/cfg/cover-mockup.png" alt="Comfort Finance Group homepage shown on a laptop mockup" /></figure>
+          <figure class="pj-slide"><img src="images/projects/cfg/homepage.png" alt="The full Comfort Finance Group homepage" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/cfg/kariera.png" alt="The full Comfort Finance Group careers page" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 3</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/cfg/cover-mockup.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/cfg/homepage.png" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/cfg/kariera.png" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Comfort Finance Group</h1>
+          <div class="pj-meta-item"><div class="pj-k">Client</div><div class="pj-v">Comfort Finance Group (CFG)</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Brand &amp; web designer</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2026</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#web">Web design</a>
+            <a class="chip" href="work.html#brand">Brand design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Visual direction</span>
+            <span class="chip chip--static">Web design</span>
+            <span class="chip chip--static">Design system</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Comfort Finance Group is a Czech investment group spanning investing, secured products, real estate and fintech. I redesigned its website to present CFG as one confident, modern financial group, while giving each sub-brand, Comfort Money, Dluhopisomat, Srovnávač and more, a clear place in the story.</p>
+          <p class="pj-more">A system of deep forest green, warm cream and a single violet accent reserved for actions, set in Manrope and carried from the homepage through to the careers page.</p>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/cfg/cover-mockup.png" alt="Comfort Finance Group homepage shown on a laptop mockup" /></div>
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+      <button class="pj-fig" type="button"><img src="images/projects/cfg/cover-mockup.png" alt="Comfort Finance Group homepage shown on a laptop mockup" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/cfg/homepage.png" alt="The full Comfort Finance Group homepage" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/cfg/kariera.png" alt="The full Comfort Finance Group careers page" loading="lazy" /></button>
+    </div>
+  </section>
 
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-        <a href="#direction">Direction</a>
-        <a href="#homepage">Homepage</a>
-        <a href="#careers">Careers</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Comfort Finance Group is a Czech investment group working across investing, secured products, real estate, and fintech. Under one roof it holds a family of brands, Comfort Money, Dluhopisomat, Srovnávač, and more, each with its own audience. The group had grown faster than its web presence, and the old site no longer carried the weight or clarity the business had earned.</p>
-          <p>I redesigned the site to do two jobs at once: present CFG as one confident, modern financial group, and give each sub-brand a clear place inside that story.</p>
-        </section>
-
-        <section id="direction" class="case-section reveal">
-          <div class="section-label">DIRECTION</div>
-          <h3 class="case-headline">Serious, human, and impossible to mistake the action.</h3>
-          <p>The system is built on a deep forest green, a warm cream, and a single violet accent reserved for actions. Green carries the seriousness a financial group needs, cream keeps it human and readable, and violet marks every place a visitor can act, so the call to action is never in doubt.</p>
-          <p>Typography is Manrope throughout, one family working across the whole ramp from oversized display headlines down to the mono-styled eyebrows, so the type never competes with the message. Sections alternate between dark green and cream in a steady rhythm that paces the long pages and keeps each block distinct.</p>
-        </section>
-
-        <section id="homepage" class="case-section reveal">
-          <div class="section-label">HOMEPAGE</div>
-          <h3 class="case-headline">Lead with the promise, then earn it.</h3>
-          <p>The homepage opens on the group&rsquo;s promise, <em>Měníme svět financí</em>, then backs it up. A pick-your-area module lets visitors enter through the part of the group that fits them, investing, loans, real estate, or technology, each tied to the right sub-brand.</p>
-          <p>A stats band states the scale in plain numbers, 67+ billion CZK under management, 100+ financed projects, 5,000+ returning investors. Below it, client stories, press logos, and the latest articles do the trust-building work a financial brand lives or dies on, before the closing contact block.</p>
-          <div class="case-figure"><img src="images/projects/cfg/homepage.png" alt="The full Comfort Finance Group homepage" loading="lazy" /></div>
-          <p class="case-aside">The full homepage: hero, explore-by-area, scale, client stories, press, and articles.</p>
-        </section>
-
-        <section id="careers" class="case-section reveal">
-          <div class="section-label">CAREERS</div>
-          <h3 class="case-headline">The same system, put to work on hiring.</h3>
-          <p>The careers page carries the system into a different job. It opens with an invitation, <em>Přidej se k nám</em>, and a live list of open roles filterable by team. A values diagram, a benefits grid, and a warm join-the-team block make the group feel like somewhere worth working, not just a list of vacancies.</p>
-          <div class="case-figure"><img src="images/projects/cfg/kariera.png" alt="The full Comfort Finance Group careers page" loading="lazy" /></div>
-          <p class="case-aside">The careers page: open roles, values, benefits, and a spontaneous-application path.</p>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -108,8 +120,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -148,6 +158,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>

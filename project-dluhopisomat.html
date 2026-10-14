@@ -19,9 +19,9 @@
 <meta name="twitter:title" content="Dluhopisomat — Eliška Doležalová" />
 <meta name="twitter:description" content="Product &amp; visual designer based in Prague — brand, web and product design." />
 <meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261014c" />
+<link rel="stylesheet" href="styles.css?v=20261014h" />
 </head>
-<body>
+<body class="page-project">
 
   <header class="site-header" id="site-header">
     <div class="bar">
@@ -40,63 +40,78 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- PROJECT DETAILS -->
+  <header class="pj-head">
     <div class="wrap">
-      <a href="work.html" class="case-back">← Back to work</a>
-      <h1 class="case-title">Dluhopisomat</h1>
-      <p class="case-subtitle">A strategy-led brand and product redesign for a Czech corporate bond platform.</p>
-      <div class="case-meta">
-        <div class="case-meta-item"><div class="k">Role</div><div class="v">UX/Product designer &amp; brand designer</div></div>
-        <div class="case-meta-item"><div class="k">Year</div><div class="v">2026</div></div>
-        <div class="case-meta-item"><div class="k">Client</div><div class="v">Dluhopisomat</div></div>
-        <div class="case-meta-item"><div class="k">Outputs</div><div class="v">Brand Strategy · Visual Identity · Web Design</div></div>
+      <div class="pj-topbar">
+        <a href="work.html" class="pj-crumb">← Work</a>
+        <span class="pj-bar-title">Dluhopisomat</span>
+        <span class="pj-bar-year">2026</span>
+      </div>
+
+      <div class="pj-slider" data-slider>
+        <div class="pj-track" tabindex="0" aria-label="Dluhopisomat images">
+          <figure class="pj-slide"><img src="images/projects/dluhopisomat/cover.jpg" alt="Dluhopisomat" /></figure>
+          <figure class="pj-slide"><img src="images/projects/dluhopisomat/01-exploration.jpg" alt="Dluhopisomat brand exploration" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/dluhopisomat/02-final-brand.jpg" alt="Dluhopisomat final brand" loading="lazy" /></figure>
+          <figure class="pj-slide"><img src="images/projects/dluhopisomat/03-homepage.jpg" alt="Dluhopisomat homepage" loading="lazy" /></figure>
+        </div>
+        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
+        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
+      </div>
+      <div class="pj-slider-ui">
+        <span class="pj-count"><span class="pj-cur">1</span> of 4</span>
+        <div class="pj-thumbs">
+          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/dluhopisomat/cover.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/dluhopisomat/01-exploration.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/dluhopisomat/02-final-brand.jpg" alt="" loading="lazy" /></button>
+          <button class="pj-thumb" type="button" aria-label="Image 4"><img src="images/projects/dluhopisomat/03-homepage.jpg" alt="" loading="lazy" /></button>
+        </div>
+      </div>
+
+      <div class="pj-rule" id="details"></div>
+      <div class="pj-grid">
+        <div class="pj-info">
+          <h1 class="pj-title">Dluhopisomat</h1>
+          <div class="pj-meta-item"><div class="pj-k">Client</div><div class="pj-v">Dluhopisomat</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">UX/Product designer &amp; brand designer</div></div>
+          <div class="pj-meta-item"><div class="pj-k">Year</div><div class="pj-v">2026</div></div>
+          <div class="pj-tags">
+            <div class="pj-k">Disciplines</div>
+            <div class="chips">
+            <a class="chip" href="work.html#brand">Brand design</a>
+            <a class="chip" href="work.html#web">Web design</a>
+            </div>
+          </div>
+          <div class="pj-tags">
+            <div class="pj-k">Outputs</div>
+            <div class="chips">
+            <span class="chip chip--static">Brand Strategy</span>
+            <span class="chip chip--static">Visual Identity</span>
+            <span class="chip chip--static">Web Design</span>
+            </div>
+          </div>
+        </div>
+        <div class="pj-desc">
+          <p class="pj-lead">Dluhopisomat opens corporate bonds to retail investors, a category long reserved for institutions. The product worked, but the brand wasn&rsquo;t keeping up. I led a strategy-led redesign of the identity and the homepage, built around how trust is communicated to first-time investors.</p>
+          <p class="pj-more">After twelve directions across three palette families, the brand landed on deep teal with a confident green accent, everyday Czech photography, and a homepage that answers the trust questions before asking for anything.</p>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- BODY -->
-  <main class="case-body wrap">
-    <div class="case-cover reveal"><img src="images/projects/dluhopisomat/cover.jpg" alt="Dluhopisomat" /></div>
+  <!-- GALLERY -->
+  <section class="pj-gallery-wrap wrap">
+    <div class="pj-gallery" data-gallery>
+      <button class="pj-fig" type="button"><img src="images/projects/dluhopisomat/cover.jpg" alt="Dluhopisomat" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/dluhopisomat/01-exploration.jpg" alt="Dluhopisomat brand exploration" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/dluhopisomat/02-final-brand.jpg" alt="Dluhopisomat final brand" loading="lazy" /></button>
+      <button class="pj-fig" type="button"><img src="images/projects/dluhopisomat/03-homepage.jpg" alt="Dluhopisomat homepage" loading="lazy" /></button>
+    </div>
+  </section>
 
-    <div class="case-layout">
-      <aside class="case-index">
-        <a href="#about" class="active">About</a>
-        <a href="#brand-exploration">Brand exploration</a>
-        <a href="#final-brand">Final brand</a>
-        <a href="#homepage">Homepage</a>
-      </aside>
-
-      <div class="case-main">
-        <section id="about" class="case-section reveal">
-          <div class="section-label">ABOUT</div>
-          <p>Dluhopisomat lets retail investors access corporate bonds, a category historically reserved for institutions. The product worked; the brand wasn&rsquo;t keeping up. I led a redesign anchored in strategy: who the platform serves, how trust is communicated visually, and what &quot;modern Czech investing&quot; should look and feel like in 2026.</p>
-          <p>The brief covered both halves of the system: a brand foundation that could hold up in regulated financial context, and a homepage that translates the promise into a real conversion surface.</p>
-        </section>
-
-        <section id="brand-exploration" class="case-section reveal">
-          <div class="section-label">BRAND EXPLORATION</div>
-          <h3 class="case-headline">Twelve directions, three palette families.</h3>
-          <p>To find the right voice, I explored across three palette families in parallel: dark + vibrant (institutional trust with a kick of growth), light + pastel (accessibility, friendly), and high-contrast neon (modern fintech). Each board tested type, photography, and layout against the same brand promise so we could compare like with like.</p>
-          <p>The early dark + vibrant directions felt premium but cold. The pastel options were warm but read more lifestyle than financial. The high-contrast neon felt punchy but undermined the credibility a regulated bond platform needs. The middle ground, dark teal with a confident green accent, landed: serious enough for the asset class, approachable enough for first-time bond investors.</p>
-          <div class="case-figure"><img src="images/projects/dluhopisomat/01-exploration.jpg" alt="Dluhopisomat brand exploration" loading="lazy" /></div>
-        </section>
-
-        <section id="final-brand" class="case-section reveal">
-          <div class="section-label">FINAL BRAND</div>
-          <h3 class="case-headline">Trust as a system, not a tagline.</h3>
-          <p>The final identity is anchored by deep teal and a single confident green. Photography is everyday Czech life, not stock-finance imagery, so the brand reads human before it reads institutional. Type is a clean sans for legibility; the wordmark doubles as a recognition symbol that scales from favicon to billboard.</p>
-          <p>Every element earns its place: the palette signals trust + growth, the type signals clarity, the imagery signals &quot;this is for you.&quot; Together, the brand finally matches the product underneath it.</p>
-          <div class="case-figure"><img src="images/projects/dluhopisomat/02-final-brand.jpg" alt="Dluhopisomat final brand" loading="lazy" /></div>
-        </section>
-
-        <section id="homepage" class="case-section reveal">
-          <div class="section-label">HOMEPAGE</div>
-          <h3 class="case-headline">A homepage that answers the trust questions first.</h3>
-          <p>The homepage opens with the headline promise, a fixed yield up to 11.5% p.a., and immediately answers the questions a first-time investor brings: Is this regulated? How are projects rated? Can I do this from my phone? The hero pairs the offer with three trust badges (ČNB regulation, internal rating, mobile app) before asking for anything.</p>
-          <p>From there: portfolio composition, return calculator, project-owner videos, app preview, a three-step onboarding flow, testimonials, news, and a FAQ block. Every section earns the next, building toward a single CTA that&rsquo;s been derisked by everything above it.</p>
-          <div class="case-figure"><img src="images/projects/dluhopisomat/03-homepage.jpg" alt="Dluhopisomat homepage" loading="lazy" /></div>
-        </section>
+  <main class="pj-end wrap">
 
         <div class="case-next reveal">
           <div class="rule"></div>
@@ -108,8 +123,6 @@
             <div class="np-arrow">↗</div>
           </a>
         </div>
-      </div>
-    </div>
   </main>
 
     <footer class="site-footer">
@@ -148,6 +161,6 @@
     </div>
   </footer>
 
-  <script src="reveal.js?v=20260607g"></script>
+  <script src="reveal.js?v=20261014f"></script>
 </body>
 </html>
