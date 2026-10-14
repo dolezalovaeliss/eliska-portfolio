@@ -84,6 +84,7 @@
     var update = function () {
       var y = window.scrollY;
       header.classList.toggle('scrolled', y > 40); // mobile: name hides, hamburger → yellow circle
+      header.classList.toggle('is-floating', y >= 80); // desktop: header over content blends (difference)
       if (y < 80) {
         header.classList.remove('is-hidden');      // always visible near the top
       } else if (y > lastY + 4) {

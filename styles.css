@@ -1645,3 +1645,21 @@ body.lb-open { overflow: hidden; }
 
 /* Two galleries stacked in one project (pages, then animations) */
 .pj-gallery + .pj-gallery { margin-top: 24px; }
+
+/* Header over scrolled content (it slides back in on scroll up): name and links
+   switch to white + difference blend so they invert against whatever is behind.
+   The avatar photo stays out of the blend. Desktop only. */
+@media (min-width: 561px) {
+  .site-header .wm-name, .site-header .wm-mail, .site-header .nav a { transition: color 0.3s ease, opacity 0.2s ease; }
+  /* the blend must sit on the header itself (it's its own layer); the avatar
+     photo would invert, so it folds away while the header floats */
+  .site-header.is-floating { mix-blend-mode: difference; }
+  .site-header .wm-avatar { transition: opacity 0.3s ease, width 0.3s ease, margin 0.3s ease; }
+  .site-header.is-floating .wm-avatar { opacity: 0; width: 0; margin-right: -12px; }
+  .site-header.is-floating .wm-name,
+  .site-header.is-floating .nav a,
+  .site-header.is-floating .nav a.active { color: #fff; }
+  .site-header.is-floating .wm-mail { color: rgba(255, 255, 255, 0.6); }
+  .site-header.is-floating .nav a:hover { color: #fff; opacity: 0.6; }
+  .site-header.is-floating .nav a.active::before { filter: brightness(0) invert(1); }
+}
