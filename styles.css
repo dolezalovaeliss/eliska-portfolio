@@ -1582,3 +1582,13 @@ body.lb-open { overflow: hidden; }
 /* Regular images followed by a row of page previews */
 .pj-gallery + .pj-gallery--pages { margin-top: 24px; }
 .pj-gallery--single + .pj-gallery--pages { margin-top: 24px; }
+
+/* Page previews always fill the row: 2 → halves, 1 → full width in a wider window */
+.pj-gallery--pages.pj-gallery--n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pj-gallery--pages.pj-gallery--n1 { grid-template-columns: 1fr; }
+.pj-gallery--n2 .pj-fig--page { aspect-ratio: 4 / 3; }
+.pj-gallery--n1 .pj-fig--page { aspect-ratio: 16 / 9; }
+@media (max-width: 560px) {
+  .pj-gallery--pages.pj-gallery--n2 { grid-template-columns: 1fr; }
+  .pj-gallery--n2 .pj-fig--page, .pj-gallery--n1 .pj-fig--page { aspect-ratio: 4 / 5; }
+}
