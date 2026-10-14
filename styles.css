@@ -1663,3 +1663,26 @@ body.lb-open { overflow: hidden; }
   .site-header.is-floating .nav a:hover { color: #fff; opacity: 0.6; }
   .site-header.is-floating .nav a.active::before { filter: brightness(0) invert(1); }
 }
+
+/* Discipline tags on Work previews */
+.work-tile-card { position: relative; }
+.work-tile-tags {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  pointer-events: none;
+}
+.work-tile-tags span {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+}
