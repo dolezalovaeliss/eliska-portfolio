@@ -1744,3 +1744,7 @@ body.lb-open { overflow: hidden; }
 }
 .ft-btn:hover, .ft-btn--solid { background: var(--ink); color: var(--yellow); }
 .ft-btn--solid:hover { background: transparent; color: var(--ink); }
+
+/* Two images side by side (e.g. logo wordmark + symbol) */
+.pj-gallery--pair .pj-fig { grid-column: auto !important; }
+@media (max-width: 560px) { .pj-gallery + .pj-gallery { margin-top: 16px; } }
