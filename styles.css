@@ -1714,3 +1714,33 @@ body.lb-open { overflow: hidden; }
   .mw-grid::-webkit-scrollbar { display: none; }
   .mw-grid .work-tile { scroll-snap-align: start; }
 }
+
+/* Project pages: footer CTA — question in grey, email in ink, two actions
+   (refs: basement.studio contact footer, Aino Agency "Open Gmail / Copy email") */
+.ft-cta--project .ft-ask {
+  font-size: clamp(30px, 5.5vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: rgba(29, 29, 29, 0.4);
+  margin-bottom: 8px;
+}
+.ft-cta--project .ft-email { display: inline-block; }
+.ft-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+.ft-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.ft-btn:hover, .ft-btn--solid { background: var(--ink); color: var(--yellow); }
+.ft-btn--solid:hover { background: transparent; color: var(--ink); }

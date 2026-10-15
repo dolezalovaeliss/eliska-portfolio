@@ -319,3 +319,12 @@
     } else { visible = true; sync(); }
   });
 })();
+
+// ---- Copy-to-clipboard buttons (footer "Copy email") ----
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  var label = b.textContent;
+  b.addEventListener('click', function () {
+    var done = function () { b.textContent = b.dataset.copied || 'Copied'; setTimeout(function () { b.textContent = label; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(b.dataset.copy).then(done, function () {});
+  });
+});
