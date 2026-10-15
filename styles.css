@@ -1686,3 +1686,31 @@ body.lb-open { overflow: hidden; }
   backdrop-filter: blur(8px);
   color: var(--ink);
 }
+
+/* Detail pages: three more projects at the bottom (replaces the single "Next project" link) */
+.more-work { padding-top: 32px; border-top: 1px solid var(--line); }
+.mw-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.mw-title { font-size: clamp(24px, 3vw, 32px); font-weight: 400; letter-spacing: -0.8px; line-height: 1.1; }
+.mw-all { font-size: 15px; color: var(--ink); transition: color 0.2s ease; white-space: nowrap; }
+.mw-all:hover { color: var(--pink); }
+.mw-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.mw-grid .work-tile-card { aspect-ratio: 3 / 2; }
+.mw-grid .work-tile h3 { display: block; margin-top: 16px; }
+.mw-grid .work-tile-tags { top: 8px; left: 8px; }
+/* Phones: swipe through the three cards */
+@media (max-width: 560px) {
+  .mw-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 80%;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * var(--pad));
+    padding: 0 var(--pad);
+    scroll-padding: 0 var(--pad);
+  }
+  .mw-grid::-webkit-scrollbar { display: none; }
+  .mw-grid .work-tile { scroll-snap-align: start; }
+}
