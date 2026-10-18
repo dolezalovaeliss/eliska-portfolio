@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018s'
+V = '20261018t'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -368,8 +368,8 @@ for p in P:
     pics = [m for m in rest if m['type'] != 'page']
     pages = [m for m in rest if m['type'] == 'page']
     # Greedy justified rows: pictures of similar shape (within 3x aspect) share a row while it stays
-    # at least 300px tall at 1120px wide; any row taller than 720px is narrowed and centred.
-    W, GAP, MIN_H, MAX_H = 1120, 24, 300, 720
+    # at least 300px tall at 1120px wide; only very tall rows (over 1000px, i.e. portraits) are narrowed and centred, so everything else lines up with the full content width.
+    W, GAP, MIN_H, MAX_H = 1120, 24, 300, 1000
     def row_h(r): return (W - GAP * (len(r) - 1)) / sum(ratio(x) for x in r)
     rows, cur = [], []
     for m in pics:
@@ -382,10 +382,14 @@ for p in P:
     if cur: rows.append(cur)
     out = []
     for r in rows:
-        cap = ''
+        row = '\n'.join(fig(m) for m in r)
         if row_h(r) > MAX_H:
-            cap = f' style="max-width: {round(MAX_H * sum(ratio(x) for x in r) + GAP * (len(r) - 1))}px"'
-        out.append(f'      <div class="g-row"{cap}>\n' + '\n'.join(fig(m) for m in r) + '\n      </div>')
+            # very tall pictures sit centred on a full-width panel in their own edge colour, so the edges still line up
+            fill = edge_fill(r[0]['poster'] if r[0]['type'] == 'video' else r[0]['src'])
+            inner = round(MAX_H * sum(ratio(x) for x in r) + GAP * (len(r) - 1))
+            out.append(f'      <div class="g-panel" style="--fill: {fill}">\n      <div class="g-row" style="max-width: {inner}px">\n{row}\n      </div>\n      </div>')
+        else:
+            out.append(f'      <div class="g-row">\n{row}\n      </div>')
     rows = out
     for r in chunk(pages):
         rows.append('      <div class="g-row g-row--screens">\n' + '\n'.join(screen(m) for m in r) + '\n      </div>')

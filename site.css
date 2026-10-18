@@ -236,7 +236,9 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 /* Justified rows: width share = aspect ratio, so all pictures in a row end up the same height */
 .g-row { display: flex; gap: 24px; align-items: flex-start; }
 .g-row > .g-img { flex: var(--r, 1.5) 1 0; min-width: 0; }
-.gallery > .g-row { width: 100%; margin: 0 auto; }
+.g-panel { padding: 40px; border-radius: var(--r-img); background: var(--fill); }
+.g-panel > .g-row { margin: 0 auto; }
+@media (max-width: 640px) { .g-panel { padding: 16px; } }
 .g-row--screens > .screen { flex: 1 1 0; min-width: 0; }
 .g-img { display: block; width: 100%; border-radius: var(--r-img); overflow: hidden; cursor: zoom-in; }
 .g-img img, .g-img video { width: 100%; height: auto; }
