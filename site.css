@@ -591,14 +591,11 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .list-group .block-title { margin-bottom: 0; }
 .clients { gap: 0 16px; }
 
-/* Services — numbered rows: big index, name, description; hover lifts the row onto a soft panel */
+/* Services — rows: icon, name, description; hover lifts the row onto a soft panel */
 .services { display: flex; flex-direction: column; margin: 0 -16px; }
-.svc { position: relative; display: grid; grid-template-columns: 40px 24px minmax(0, 1fr); column-gap: 16px; row-gap: 0; align-items: start;
-  padding: 16px; border-radius: var(--r-img); transition: background-color 150ms ease-out; counter-increment: svc; }
-.services { counter-reset: svc; }
-.svc::before { content: counter(svc, decimal-leading-zero); grid-row: 1 / span 2; color: var(--text-2); font-variant-numeric: tabular-nums; }
-.svc .i { grid-row: 1; grid-column: 2; margin-top: 1px; }
-.svc h3 { grid-column: 3; font-weight: 500; }
-.svc p { grid-column: 3; color: var(--text-2); }
+.svc { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 16px; align-items: start;
+  padding: 16px; border-radius: var(--r-img); transition: background-color 150ms ease-out; }
+.svc .i { grid-row: 1; margin-top: 1px; }
+.svc h3 { grid-column: 2; font-weight: 500; }
+.svc p { grid-column: 2; color: var(--text-2); }
 .svc:hover { background: var(--tint); }
-@media (max-width: 640px) { .svc { grid-template-columns: 32px minmax(0, 1fr); } .svc .i { display: none; } .svc h3, .svc p { grid-column: 2; } }
