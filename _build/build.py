@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018m'
+V = '20261018n'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -33,9 +33,7 @@ CATS = [
     ('motion', 'Animations', 'work-animations.html', 'Motion design, UI animation and brand motion.'),
 ]
 CAT = {c[0]: c for c in CATS}
-# Smaller projects show as text-only entries, like Odstrčil / Rezidence & Elspace / 1. Web IT / Duhová stužka in the design
-COMPACT = {'project-odstrcil.html', 'project-rezidence.html', 'project-elspace.html', 'project-geomap.html',
-           'project-1webit.html', 'project-duhova-stuzka.html', 'project-prague-pride-merch.html'}
+COMPACT = set()  # every Work entry shows its image
 PRIMARY = {'project-1webit.html': 'brand', 'project-dluhopisomat.html': 'web'}
 
 work_src = re.sub(r'<!--.*?-->', '', (ROOT / '_build' / 'work-old.html').read_text(), flags=re.S)
@@ -288,9 +286,9 @@ def entry(p, n, cat):
         if cat == 'product':
             img = f'<a class="entry-img entry-img--shot" href="{href}" tabindex="-1" aria-hidden="true"><img src="{p["cover"]}" alt="" loading="lazy" /></a>'
         elif p.get('cover_video'):
-            img = f'<a class="entry-img" href="{href}" tabindex="-1" aria-hidden="true"><video src="{p["cover_video"]}" poster="{p["cover"]}" autoplay muted loop playsinline preload="metadata"></video></a>'
+            img = f'<a class="entry-img" style="--fill: {edge_fill(p["cover"])}" href="{href}" tabindex="-1" aria-hidden="true"><video src="{p["cover_video"]}" poster="{p["cover"]}" autoplay muted loop playsinline preload="metadata"></video></a>'
         else:
-            img = f'<a class="entry-img" href="{href}" tabindex="-1" aria-hidden="true"><img src="{p["cover"]}" alt="" loading="lazy" /></a>'
+            img = f'<a class="entry-img" style="--fill: {edge_fill(p["cover"])}" href="{href}" tabindex="-1" aria-hidden="true"><img src="{p["cover"]}" alt="" loading="lazy" /></a>'
     btn = '' if cat == 'product' else f'<a class="btn-details" href="{href}" aria-label="{title} details">Details {icon("arrow-up-right", 20)}</a>'
     return f'''      <article class="entry">
         {img}
