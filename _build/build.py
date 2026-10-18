@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018u'
+V = '20261018v'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -105,8 +105,8 @@ def nav(page, cat=None):
         cmd = f'<button class="d-cmd" type="button" data-cmdk aria-label="Search">{icon("search", 18)}<span aria-hidden="true">⌘K</span></button>'
     dock = f'''
   <nav class="dock" aria-label="Main">
-    <a href="index.html" aria-label="Index"><img class="avatar" src="{AVATAR}" alt="" width="32" height="32" /></a>
-    {item('index', 'Index', 'index.html')}
+    <a href="index.html" aria-label="Home"><img class="avatar" src="{AVATAR}" alt="" width="32" height="32" /></a>
+    {item('index', 'Home', 'index.html')}
     {work}
     {item('about', 'About', 'about.html')}
     {item('contact', 'Contact', 'contact.html')}
@@ -114,13 +114,13 @@ def nav(page, cat=None):
     {cmd}
     <button class="d-cmd icon-only d-theme" type="button" data-theme-toggle aria-label="Switch light or dark mode">{icon('moon', 18)}{icon('sun', 18)}</button>
   </nav>'''
-    label = {'index': 'Index', 'about': 'About me', 'contact': 'Contact', 'work': 'Work'}[page]
+    label = {'index': 'Home', 'about': 'About me', 'contact': 'Contact', 'work': 'Work'}[page]
     ctx_text = f'<span>Work</span><b>{CAT[cat][1]}</b>' if cat else f'<b>{label}</b>'
     sheet_work = ''.join(
         f'<a class="s-item{" is-on" if k == cat else ""}" href="{h}"><span>{l}</span><small>{len(in_cat(k))} projects</small>{icon("check-sheet", 18)}</a>'
         for k, l, h, _ in CATS)
     pages = ''.join(f'<a class="s-item{" is-on" if page == k else ""}" href="{h}"><span>{l}</span>{icon("check-sheet", 18)}</a>'
-                    for k, l, h in (('index', 'Index', 'index.html'), ('about', 'About me', 'about.html'), ('contact', 'Contact', 'contact.html')))
+                    for k, l, h in (('index', 'Home', 'index.html'), ('about', 'About me', 'about.html'), ('contact', 'Contact', 'contact.html')))
     return dock + f'''
   <button class="ctx" type="button" aria-expanded="false" aria-controls="sheet"><img class="avatar" src="{AVATAR}" alt="" width="32" height="32" />{ctx_text}{icon("up", 18)}</button>
   <div class="scrim" aria-hidden="true"></div>
@@ -228,7 +228,7 @@ WHAT = [
 write('about.html', head('About — Eliška Doležalová', 'About Eliška Doležalová, product & visual designer based in Prague.', 'about.html') + f'''
   <main class="col">
     <div class="page-head">
-      <a class="back" href="index.html">← Index</a>
+      <a class="back" href="index.html">← Home</a>
       <h1 class="h1">About me</h1>
     </div>
 
@@ -426,8 +426,8 @@ for p in P:
     <section class="outro" aria-label="Contact">
       <p class="sentence">
         <span>Like what you see?</span>
-        <a class="cta cta--dark" href="mailto:{EMAIL}?subject=Project%20inquiry"><img class="avatar" src="{AVATAR}" alt="" width="40" height="40" />Write me</a>
-        <a class="cta cta--icon" href="tel:{PHONE.replace(' ', '')}">{icon("phone-lg", 28)}call me</a>
+        <a class="cta cta--dark" href="mailto:{EMAIL}?subject=Project%20inquiry" data-tip="{EMAIL}"><img class="avatar" src="{AVATAR}" alt="" width="40" height="40" />Write me</a>
+        <a class="cta cta--icon" href="tel:{PHONE.replace(' ', '')}" data-tip="{PHONE}">{icon("phone-lg", 28)}call me</a>
         <span>or</span>
         <a class="cta" href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn ↗</a>
       </p>
@@ -438,7 +438,7 @@ for p in P:
 # ---------- Search index ----------
 TEL = 'tel:' + PHONE.replace(' ', '')
 idx = [
-    {'t': 'Index', 's': 'Page', 'h': 'index.html', 'k': 'home start intro uvod domu'},
+    {'t': 'Home', 's': 'Page', 'h': 'index.html', 'k': 'index start intro uvod domu'},
     {'t': 'About me', 's': 'Page', 'h': 'about.html', 'k': 'about bio experience education cv resume work history skills o mne zkusenosti vzdelani'},
     {'t': 'Contact', 's': 'Page', 'h': 'contact.html', 'k': 'contact email mail phone number call telephone tel linkedin cv kontakt telefon cislo'},
     {'t': 'Call ' + PHONE, 's': 'Phone', 'h': TEL, 'k': 'phone number call telephone mobile tel contact zavolat telefon cislo'},
