@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018w'
+V = '20261018x'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -28,7 +28,7 @@ PRODUCT = [
 # Category intros reuse the "What I do" lines from the current About page
 CATS = [
     ('product', 'Product design', 'work-product.html', PRODUCT_INTRO),
-    ('web', 'Web design', 'work.html', 'Designing and shipping responsive websites, from a single landing page to a full site.'),
+    ('web', 'Web design', 'work-web.html', 'Designing and shipping responsive websites, from a single landing page to a full site.'),
     ('brand', 'Branding', 'work-branding.html', 'Logos, colour and type systems, and the visual language that makes a brand feel like itself.'),
     ('motion', 'Visual & motion', 'work-visual-motion.html', 'Visuals and motion for existing brands: animations, key visuals and the graphics around them.'),
 ]
@@ -48,6 +48,7 @@ def first_sentence(s):
 def esc(s): return html.escape(s, quote=True)
 def primary(p): return PRIMARY.get(p['href']) or next(t for t in ('web', 'product', 'brand', 'motion') if t in p['tags'])
 P = [p for p in P if 'product' not in p['tags']]
+TOTAL = len(PRODUCT) + len(P)
 def in_cat(key): return PRODUCT if key == 'product' else [p for p in P if key in p['tags']]
 
 def edge_fill(src):
@@ -98,7 +99,7 @@ def nav(page, cat=None):
         subs = ''.join(
             f'<a class="d-sub{" is-on" if k == cat else ""}" href="{h}"{CUR if k == cat and page == "work" else ""}>{l} <small>{len(in_cat(k))}</small></a>'
             for k, l, h, _ in CATS)
-        work = f'<div class="d-work"><a class="d-item is-on" href="work.html">Work</a><span class="sep" aria-hidden="true"></span>{subs}</div>'
+        work = f'<div class="d-work"><a class="d-item is-on" href="work.html"{CUR if cat == "all" else ""}>Work</a><span class="sep" aria-hidden="true"></span>{subs}</div>'
         cmd = f'<button class="d-cmd icon-only" type="button" data-cmdk aria-label="Search (⌘K)">{icon("search", 18)}</button>'
     else:
         work = item('work', 'Work', 'work.html')
@@ -115,8 +116,8 @@ def nav(page, cat=None):
     <button class="d-cmd icon-only d-theme" type="button" data-theme-toggle aria-label="Switch light or dark mode">{icon('moon', 18)}{icon('sun', 18)}</button>
   </nav>'''
     label = {'index': 'Home', 'about': 'About me', 'contact': 'Contact', 'work': 'Work'}[page]
-    ctx_text = f'<span>Work</span><b>{CAT[cat][1]}</b>' if cat else f'<b>{label}</b>'
-    sheet_work = ''.join(
+    ctx_text = f'<span>Work</span><b>{CAT[cat][1]}</b>' if cat in CAT else f'<b>{label}</b>'
+    sheet_work = f'<a class="s-item{" is-on" if cat == "all" else ""}" href="work.html"><span>All work</span><small>{TOTAL} projects</small>{icon("check-sheet", 18)}</a>' + ''.join(
         f'<a class="s-item{" is-on" if k == cat else ""}" href="{h}"><span>{l}</span><small>{len(in_cat(k))} projects</small>{icon("check-sheet", 18)}</a>'
         for k, l, h, _ in CATS)
     pages = ''.join(f'<a class="s-item{" is-on" if page == k else ""}" href="{h}"><span>{l}</span>{icon("check-sheet", 18)}</a>'
@@ -195,7 +196,7 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
 
     <div class="bio">
       <p>I’m a product &amp; visual designer based in Prague. I design digital products, websites and brand visuals for tech companies, startups and cultural organisations, from the structure of a complex tool to the way a brand looks and moves.</p>
-      <p>I like understanding the whole problem, not just one screen. My work spans <a class="u" href="work-product.html">data and security products</a>, healthcare software, <a class="u" href="work.html">websites</a> and festivals like <a class="u" href="project-kviff.html">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>.</p>
+      <p>I like understanding the whole problem, not just one screen. My work spans <a class="u" href="work-product.html">data and security products</a>, healthcare software, <a class="u" href="work-web.html">websites</a> and festivals like <a class="u" href="project-kviff.html">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>.</p>
       <p>I’m open to new collaborations. Reach me via <a class="u" href="mailto:{EMAIL}">email</a>, find me on <a class="u" href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a> or download my <a class="u" href="{CV}" target="_blank" rel="noopener">CV</a>.</p>
     </div>
 
@@ -305,7 +306,7 @@ def entry(p, n, cat):
 
 def product_entry(e, n):
     title, client, img, desc = e
-    return f'''      <article class="entry">
+    return f'''      <article class="entry" id="{img}">
         <div class="entry-img entry-img--figma"><img src="images/projects/product/{img}.png" alt="{esc(title)}" loading="lazy" width="560" height="413" /></div>
         <div class="entry-title"><h2>{esc(title)}</h2><span class="client">{esc(client)}</span><span class="num">{n:02d}</span></div>
         <p class="entry-desc">{esc(desc)}</p>
@@ -320,7 +321,7 @@ for key, label, href, intro in CATS:
     write(href, head(f'{label} — Eliška Doležalová', intro, href) + f'''
   <main class="col">
     <div class="page-head page-head--work">
-      <a class="back" href="index.html">← Work</a>
+      <a class="back" href="work.html">← Work</a>
       <p class="crumb"><span>Work</span>{icon("chev", 14)}<b>{label}</b></p>
       <h1 class="h1">{label}</h1>
       <p class="intro">{intro}</p>
@@ -330,6 +331,39 @@ for key, label, href, intro in CATS:
     </div>
   </main>
 ''' + nav('work', key))
+
+# ---------- Work overview: every project as a photo tile ----------
+def tile(href, img, title, cat_label, video=None, contain=False):
+    fill = f' style="--fill: {edge_fill(img)}"' if contain else ''
+    media_html = (f'<video src="{video}" poster="{img}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>' if video
+                  else f'<img src="{img}" alt="" loading="lazy" />')
+    return f'''      <a class="tile{' is-contain' if contain else ''}" href="{href}"{fill}>
+        {media_html}
+        <span class="tile-label"><b>{esc(title)}</b><span>{cat_label}</span></span>
+      </a>'''
+groups = {k: [] for k, *_ in CATS}
+for t, c, img, d in PRODUCT:
+    groups['product'].append(tile(f'work-product.html#{img}', f'images/projects/product/{img}.png', t, 'Product design'))
+for p in P:
+    k = primary(p)
+    groups[k].append(tile(p['href'], p['cover'], p['title'], CAT[k][1], p.get('cover_video'), p.get('fit') == 'contain'))
+# interleave categories so the wall mixes products, websites, brand and visual work
+tiles, order = [], ['web', 'product', 'motion', 'brand']
+while any(groups[k] for k in order):
+    for k in order:
+        if groups[k]: tiles.append(groups[k].pop(0))
+write('work.html', head('Work — Eliška Doležalová', 'All projects by Eliška Doležalová: product design, web design, branding, visual & motion.', 'work.html') + f'''
+  <main class="overview">
+    <div class="page-head">
+      <a class="back" href="index.html">← Home</a>
+      <h1 class="h1">Work</h1>
+      <p class="intro">Everything in one place: product design, websites, branding and visual &amp; motion work.</p>
+    </div>
+    <div class="tiles">
+{chr(10).join(tiles)}
+    </div>
+  </main>
+''' + nav('work', 'all'))
 
 # ---------- Project details ----------
 def media(m, cls=''):
@@ -450,6 +484,7 @@ idx = [
     {'t': 'Download CV', 's': 'PDF', 'h': CV, 'k': 'cv resume curriculum pdf download zivotopis'},
     {'t': 'Switch light / dark mode', 's': 'Appearance', 'a': 'theme', 'k': 'dark light mode theme night appearance tmavy svetly rezim'},
 ]
+idx += [{'t': 'All work', 's': f'{TOTAL} projects', 'h': 'work.html', 'k': 'work overview projects portfolio all'}]
 idx += [{'t': l, 's': f'{len(in_cat(k))} projects', 'h': h, 'k': 'work category ' + intro} for k, l, h, intro in CATS]
 idx += [{'t': p['title'], 's': CAT[primary(p)][1], 'h': p['href'],
          'k': ' '.join([p.get('client') or CLIENT.get(p['href'], ''), ' '.join(CAT[t][1] for t in p['tags']), ' '.join(p['outputs']), strip(p['lead'])])} for p in P]

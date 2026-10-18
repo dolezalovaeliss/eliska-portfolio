@@ -542,3 +542,29 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
   .js .enter, .js img.fade { opacity: 1; transform: none; filter: none; }
   .first-visit .dock, .first-visit .ctx { animation: none; }
 }
+
+/* ---------- Work overview: photo tiles ---------- */
+.overview { width: 100%; max-width: calc(1120px + 2 * var(--pad)); margin: 0 auto; padding: 120px var(--pad) 200px; display: flex; flex-direction: column; gap: 80px; }
+.overview .page-head { max-width: 560px; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tile { position: relative; display: block; aspect-ratio: 4 / 3; border-radius: var(--r-img); overflow: hidden; background: var(--img-bg); }
+.tile img, .tile video { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms cubic-bezier(0.2, 0, 0, 1); }
+.tile.is-contain { background: var(--fill); }
+.tile.is-contain img { object-fit: contain; }
+.tile:hover img, .tile:hover video { transform: scale(1.03); }
+.tile-label {
+  position: absolute; left: 8px; bottom: 8px;
+  display: flex; align-items: baseline; gap: 8px;
+  max-width: calc(100% - 16px);
+  padding: 8px 16px; border-radius: 999px;
+  background: var(--ink); color: var(--on-dark);
+  font-size: var(--fs-small); line-height: var(--lh-small); white-space: nowrap;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+.tile-label b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; }
+.tile-label span { color: var(--on-dark-2); }
+.tile:hover .tile-label, .tile:focus-visible .tile-label { opacity: 1; transform: none; }
+@media (hover: none) { .tile-label { opacity: 1; transform: none; } .tile-label span { display: none; } }
+@media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .overview { padding-top: 24px; gap: 40px; } .tiles { gap: 8px; } .tile-label { left: 4px; bottom: 4px; padding: 4px 8px; font-size: 12px; line-height: 16px; } }

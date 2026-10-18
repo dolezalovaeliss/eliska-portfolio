@@ -159,7 +159,7 @@
   if (!document.documentElement.classList.contains('js')) return;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var sel = [
-    '.col > *:not(.entries)', '.entries > .entry', '.contact-wrap .card',
+    '.col > *:not(.entries)', '.entries > .entry', '.overview .page-head', '.tiles > .tile', '.contact-wrap .card',
     '.hero-top', '.hero-text > .lead', '.hero-text > .more', '.facts', '.cover',
     '.gallery > *', '.outro'
   ].join(',');
