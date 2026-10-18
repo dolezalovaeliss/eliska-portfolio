@@ -590,3 +590,15 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .list-group { display: flex; flex-direction: column; gap: 8px; }
 .list-group .block-title { margin-bottom: 0; }
 .clients { gap: 0 16px; }
+
+/* Services — 2-column grid with hairlines (Figma 121:18240): 24px cell padding, icon 24, 16px gap to title */
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.svc { display: flex; flex-direction: column; gap: 8px; padding: 24px 24px 24px 0; border-top: 1px solid var(--line); }
+.svc:nth-child(even) { padding: 24px 0 24px 24px; border-left: 1px solid var(--line); }
+.svc .i { margin-bottom: 8px; }
+.svc h3 { font-weight: 500; }
+.svc p { color: var(--text-2); }
+@media (max-width: 640px) {
+  .services { grid-template-columns: 1fr; }
+  .svc, .svc:nth-child(even) { padding: 24px 0; border-left: 0; }
+}

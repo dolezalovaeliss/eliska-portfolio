@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261019c'
+V = '20261019d'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -211,6 +211,22 @@ INDUSTRIES = ['Technology & Software', 'Cybersecurity & Insurance', 'Data & AI',
 def inline(items):
     return '\n        '.join(f'<span>{esc(n)}</span>' for n in items)
 
+# Services grid — Figma "Services / A — Grid with hairlines" (121:18240)
+SERVICES = [
+    ('product', 'Product design', 'Complex tools made clear and calm. From structure and flows to a design system the team can ship with.'),
+    ('research', 'UX research & strategy', 'Talking to users, mapping the problem and deciding where the product should go next.'),
+    ('web', 'Websites', 'Landing pages and full sites that explain the offer fast and look sharp on every screen.'),
+    ('brand', 'Brand & identity', 'Logos, colour and type systems, and the visual language that makes a brand feel like itself.'),
+    ('motion', 'Visual & motion', 'Campaigns, key visuals, social and UI animation. Ideas with a pulse.'),
+    ('ai', 'AI-assisted prototyping', 'Custom AI skills and real-code prototypes, so ideas get tested in days, not weeks.'),
+]
+def services_html():
+    return '\n'.join(f'''          <div class="svc">
+            {icon('svc-' + k, 24)}
+            <h3>{esc(t)}</h3>
+            <p>{esc(d)}</p>
+          </div>''' for k, t, d in SERVICES)
+
 def clients_html():
     out = []
     for n, h, img in CLIENTS:
@@ -265,6 +281,12 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       <div class="list-group">
         <h2 class="block-title">Industries</h2>
         <p class="clients">{inline(INDUSTRIES)}</p>
+      </div>
+      <div class="list-group">
+        <h2 class="block-title">Services</h2>
+        <div class="services">
+{services_html()}
+        </div>
       </div>
       <div class="list-group">
         <h2 class="block-title">Elsewhere</h2>
