@@ -522,3 +522,23 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .s-theme-d, :root[data-theme="dark"] .s-theme-l { display: none; }
 :root[data-theme="dark"] .s-theme-d { display: inline; }
 .s-item { width: 100%; text-align: left; }
+
+/* ---------- Entrance motion ----------
+   Content arrives in semantic chunks: a short fade, 8px rise and 4px blur that clears, staggered
+   ~70ms on load; further down the page each block reveals as it scrolls in. Images fade in once
+   decoded. Only with JS (so nothing stays hidden without it) and never with reduced motion. */
+.js .enter { opacity: 0; transform: translateY(8px); filter: blur(4px); }
+.js .enter.is-in {
+  opacity: 1; transform: none; filter: none;
+  transition: opacity 600ms cubic-bezier(0.2, 0, 0, 1), transform 600ms cubic-bezier(0.2, 0, 0, 1), filter 600ms cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: var(--d, 0ms);
+}
+.js img.fade { opacity: 0; transition: opacity 500ms cubic-bezier(0.2, 0, 0, 1); }
+.js img.fade.is-loaded { opacity: 1; }
+/* The dock rises in once per visit, not on every page */
+@keyframes dockIn { from { opacity: 0; transform: translate(-50%, 24px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.first-visit .dock, .first-visit .ctx { animation: dockIn 700ms cubic-bezier(0.2, 0, 0, 1) 300ms both; }
+@media (prefers-reduced-motion: reduce) {
+  .js .enter, .js img.fade { opacity: 1; transform: none; filter: none; }
+  .first-visit .dock, .first-visit .ctx { animation: none; }
+}

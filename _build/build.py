@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018v'
+V = '20261018w'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -83,7 +83,7 @@ def head(title, desc, url, extra=''):
 <meta property="og:url" content="https://elisdolezalova.cz/{url}" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="stylesheet" href="site.css?v={V}" />{extra}
-<script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark'}}catch(e){{}}</script>
+<script>document.documentElement.classList.add('js');try{{if(!sessionStorage.getItem('seen'))document.documentElement.classList.add('first-visit');sessionStorage.setItem('seen','1')}}catch(e){{}}try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark'}}catch(e){{}}</script>
 </head>
 <body>
 '''
