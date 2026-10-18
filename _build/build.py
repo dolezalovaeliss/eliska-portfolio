@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018x'
+V = '20261018y'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -176,6 +176,13 @@ def write(name, s):
     (ROOT / name).write_text(s)
     print('wrote', name)
 
+# Home client wall: in-house teams in ink, clients in grey
+TEAMS = ['Cybertrends', 'Ataccama', 'Shoptet']
+CLIENTS = ['Startaiming', 'Altoa', 'KVIFF', 'Prague Pride', 'Comfort Finance Group', 'Dluhopisomat', 'Atelier3',
+           'Esens Letná', 'Daramis', 'Geomap', 'Elspace', 'Odstrčil', '1. Web IT', 'Avon', 'Uniqway', 'Meffert']
+def clients_html():
+    return ' '.join(f'<span class="c-team">{esc(n)}</span>' for n in TEAMS) + ' ' + ' '.join(f'<span>{esc(n)}</span>' for n in CLIENTS)
+
 # ---------- Index ----------
 STACK_IMGS = {
     'product': ['images/projects/product/armacover-app.png', 'images/projects/product/wsp-dashboard.png', 'images/projects/product/asset-layout-editor.png'],
@@ -207,9 +214,9 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       </div>
     </section>
 
-    <section class="block block--rows">
-      <h2 class="block-title">Experience</h2>
-{rows(EXPERIENCE)}
+    <section class="block">
+      <h2 class="block-title">Clients</h2>
+      <p class="clients">{clients_html()}</p>
     </section>
 
     <section class="block">
