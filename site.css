@@ -125,8 +125,8 @@ p { text-wrap: pretty; }
 /* Work entries */
 .entries { display: flex; flex-direction: column; }
 .entry { display: flex; flex-direction: column; gap: 16px; padding: 40px 0; border-top: 1px solid var(--line); }
-.entry-img { display: block; width: 100%; aspect-ratio: 560 / 366; border-radius: 16px; overflow: hidden; background: var(--fill, #efeae3); }
-.entry-img img, .entry-img video { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.entry-img { display: block; width: 100%; aspect-ratio: 3 / 2; border-radius: 16px; overflow: hidden; background: var(--fill, #efeae3); }
+.entry-img img, .entry-img video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 .entry-img:hover img, .entry-img:hover video { transform: scale(1.02); }
 .entry-img--figma { aspect-ratio: 560 / 413; background: none; }
 .entry-img--figma img { width: 100%; height: 100%; object-fit: cover; }
@@ -222,9 +222,10 @@ p { text-wrap: pretty; }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .pill { padding: 8px 16px; border: 1px solid var(--pill-line); border-radius: 999px; font-size: var(--fs-small); line-height: var(--lh-small); white-space: nowrap; }
 a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-/* Cover: one fixed 4:3 frame for every project; the whole image fits inside, the edge colour fills any gap */
-.cover { width: 600px; aspect-ratio: 4 / 3; overflow: hidden; background: var(--fill, #000); }
-.cover img, .cover video { width: 100%; height: 100%; object-fit: contain; }
+/* Cover and Work images: one 3:2 frame everywhere (the middle of the mockups' 4:3–16:9 range),
+   filled edge to edge so there are never side bars; the most any image loses is ~16% of its width */
+.cover { width: 600px; aspect-ratio: 3 / 2; overflow: hidden; background: #000; }
+.cover img, .cover video { width: 100%; height: 100%; object-fit: cover; }
 
 .gallery { display: grid; grid-template-columns: repeat(2, 520px); justify-content: space-between; row-gap: 80px; margin-top: 120px; }
 .gallery > .solo { grid-column: 1 / -1; }
