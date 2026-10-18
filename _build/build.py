@@ -19,7 +19,7 @@ AVATAR = 'profile.jpg'
 PRODUCT_INTRO = 'Data tools, security products and internal systems. Work where the hard part is the structure, not the screen.'
 PRODUCT = [
     ('Altoa — Healthcare platform', 'Altoa', 'altoa-orders', 'Back office for a premium healthcare service. Exam orders, patient escorts to clinics, clients, company contracts, cards and vouchers live in one system, together with the product catalogue and the website content in several language versions.'),
-    ('Asset Layout Editor', 'Ataccama', 'asset-layout-editor', 'A layout editor inside the data catalog. Admins decide which properties, relations and sections each asset page shows, and in what order.'),
+    ('Ataccama ONE — Data catalog', 'Ataccama', 'asset-layout-editor', 'Ataccama ONE is a platform for data quality, governance and observability that large companies use to find, understand and trust their data. I was a product designer in the Product Catalog team, working on the catalog where every dataset, table and business term lives. Shown here is the Asset Layout Editor, which lets admins decide what each asset page shows and in what order.'),
     ('WebScannerPro — Dashboard', 'WebScannerPro', 'wsp-dashboard', 'Home for a browser security product. Protection score, filters and alerts in one calm overview, with clear steps to fix what’s off.'),
     ('WebScannerPro — Browser extension', 'WebScannerPro', 'wsp-extension', 'Where the protection actually runs. Blocking, Browser VPN and dark web monitoring, each one click away from the toolbar.'),
     ('ArmaCover — Mobile app', 'ArmaCover', 'armacover-app', 'Cyber insurance in your pocket. Sign in, see that you’re covered, and get help fast when something goes wrong.'),
