@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018z'
+V = '20261019a'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -176,15 +176,40 @@ def write(name, s):
     (ROOT / name).write_text(s)
     print('wrote', name)
 
-# Home client wall: in-house teams in ink, clients in grey
-TEAMS = ['Cybertrends', 'Ataccama', 'Shoptet']
-CLIENTS = ['Startaiming', 'Altoa', 'KVIFF', 'Prague Pride', 'Comfort Finance Group', 'Dluhopisomat', 'Atelier3',
-           'Esens Letná', 'Daramis', 'Geomap', 'Elspace', 'Odstrčil', '1. Web IT', 'Apadore', 'ZeroOne Company', 'Nanook',
-           'Avon', 'Uniqway', 'Meffert']
+# Home client list: one colour, no separators; names with work on the site show its image on hover
+def _cover(href):
+    p = next((x for x in P if x['href'] == href), None)
+    return p['cover'] if p else None
+CLIENTS = [
+    ('Cybertrends', 'project-cybertrends.html', _cover('project-cybertrends.html')),
+    ('Ataccama', 'work-product.html#asset-layout-editor', 'images/projects/product/asset-layout-editor.png'),
+    ('Shoptet', None, None),
+    ('Apadore', 'project-esens.html', _cover('project-esens.html')),
+    ('ZeroOne Company', 'project-startaiming.html', _cover('project-startaiming.html')),
+    ('Nanook design studio', None, None),
+    ('KVIFF', 'project-kviff.html', _cover('project-kviff.html')),
+    ('Startaiming', 'project-startaiming.html', _cover('project-startaiming.html')),
+    ('Altoa', 'work-product.html#altoa-orders', 'images/projects/product/altoa-orders.png'),
+    ('Prague Pride', 'project-prague-pride.html', _cover('project-prague-pride.html')),
+    ('Comfort Finance Group', 'project-cfg.html', _cover('project-cfg.html')),
+    ('Dluhopisomat', 'project-dluhopisomat.html', _cover('project-dluhopisomat.html')),
+    ('Atelier3', 'project-atelier3.html', _cover('project-atelier3.html')),
+    ('Esens Letná', 'project-esens.html', _cover('project-esens.html')),
+    ('Daramis', 'project-esens.html', _cover('project-esens.html')),
+    ('Geomap', 'project-geomap.html', _cover('project-geomap.html')),
+    ('Elspace', 'project-elspace.html', _cover('project-elspace.html')),
+    ('Odstrčil', 'project-odstrcil.html', _cover('project-odstrcil.html')),
+    ('1. Web IT', 'project-1webit.html', _cover('project-1webit.html')),
+    ('Avon', None, None), ('Uniqway', None, None), ('Meffert', None, None),
+]
 def clients_html():
-    # one body-size sentence (jakub.kr): in-house teams in ink, clients in grey, commas carry the rhythm
-    names = [f'<span class="c-team">{esc(n)}</span>' for n in TEAMS] + [f'<span>{esc(n)}</span>' for n in CLIENTS]
-    return ', '.join(names) + '.'
+    out = []
+    for n, h, img in CLIENTS:
+        if h:
+            out.append(f'<a href="{h}" data-peek="{img}">{esc(n)}</a>')
+        else:
+            out.append(f'<span>{esc(n)}</span>')
+    return '\n        '.join(out)
 
 # ---------- Index ----------
 STACK_IMGS = {
@@ -219,7 +244,9 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
 
     <section class="block">
       <h2 class="block-title">Clients</h2>
-      <p class="clients">{clients_html()}</p>
+      <p class="clients">
+        {clients_html()}
+      </p>
     </section>
 
     <section class="block">

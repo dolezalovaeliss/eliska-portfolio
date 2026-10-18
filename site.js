@@ -186,3 +186,23 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   requestAnimationFrame(function () { els.forEach(function (el) { io.observe(el); }); });
 })();
+
+// ---- Client list: hovering a name with work on the site shows its image next to the cursor ----
+(function () {
+  var links = document.querySelectorAll('[data-peek]');
+  if (!links.length || !matchMedia('(hover: hover)').matches) return;
+  var peek = document.createElement('div'); peek.className = 'peek'; peek.setAttribute('aria-hidden', 'true');
+  var img = document.createElement('img'); img.alt = ''; peek.appendChild(img); document.body.appendChild(peek);
+  links.forEach(function (a) { var pre = new Image(); pre.src = a.dataset.peek; });
+  function move(e) {
+    var w = peek.offsetWidth, h = peek.offsetHeight;
+    var x = Math.min(e.clientX + 24, innerWidth - w - 16), y = e.clientY - h - 16;
+    if (y < 16) y = e.clientY + 24;
+    peek.style.setProperty('--x', x + 'px'); peek.style.setProperty('--y', y + 'px');
+  }
+  links.forEach(function (a) {
+    a.addEventListener('mouseenter', function (e) { img.src = a.dataset.peek; move(e); peek.classList.add('is-on'); });
+    a.addEventListener('mousemove', move);
+    a.addEventListener('mouseleave', function () { peek.classList.remove('is-on'); });
+  });
+})();

@@ -569,7 +569,18 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 @media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .overview { padding-top: 24px; gap: 40px; } .tiles { gap: 8px; } .tile-label { left: 4px; bottom: 4px; padding: 4px 8px; font-size: 12px; line-height: 16px; } }
 
-/* Home client list: body size, hierarchy by colour and weight (jakub.kr) */
-.clients { color: var(--text-2); text-wrap: pretty; }
-.clients span { white-space: nowrap; }
-.clients .c-team { color: var(--text); font-weight: 500; }
+/* Home client list: one colour, spacing instead of commas; hover shows the project image */
+.clients { display: flex; flex-wrap: wrap; gap: 0 16px; color: var(--text); }
+.clients > * { white-space: nowrap; }
+.clients a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color 150ms ease-out; }
+.clients a:hover, .clients a:focus-visible { text-decoration-color: currentColor; }
+.peek {
+  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
+  width: 280px; border-radius: var(--r-img); overflow: hidden;
+  background: var(--img-bg); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  opacity: 0; transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(0.96);
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+.peek.is-on { opacity: 1; transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(1); }
+.peek img { width: 100%; height: auto; }
+@media (hover: none), (prefers-reduced-motion: reduce) { .peek { display: none; } }
