@@ -569,7 +569,7 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 @media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .overview { padding-top: 24px; gap: 40px; } .tiles { gap: 8px; } .tile-label { left: 4px; bottom: 4px; padding: 4px 8px; font-size: 12px; line-height: 16px; } }
 
-/* Home client wall (inline, large): in-house teams in ink, clients in grey */
-.clients { font-size: var(--fs-display); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em; color: var(--text-2); text-wrap: wrap; }
-.clients span { white-space: nowrap; margin-right: 0.35em; }
-.clients .c-team { color: var(--text); }
+/* Home client list: body size, hierarchy by colour and weight (jakub.kr) */
+.clients { color: var(--text-2); text-wrap: pretty; }
+.clients span { white-space: nowrap; }
+.clients .c-team { color: var(--text); font-weight: 500; }

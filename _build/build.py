@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018y'
+V = '20261018z'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -179,9 +179,12 @@ def write(name, s):
 # Home client wall: in-house teams in ink, clients in grey
 TEAMS = ['Cybertrends', 'Ataccama', 'Shoptet']
 CLIENTS = ['Startaiming', 'Altoa', 'KVIFF', 'Prague Pride', 'Comfort Finance Group', 'Dluhopisomat', 'Atelier3',
-           'Esens Letná', 'Daramis', 'Geomap', 'Elspace', 'Odstrčil', '1. Web IT', 'Avon', 'Uniqway', 'Meffert']
+           'Esens Letná', 'Daramis', 'Geomap', 'Elspace', 'Odstrčil', '1. Web IT', 'Apadore', 'ZeroOne Company', 'Nanook',
+           'Avon', 'Uniqway', 'Meffert']
 def clients_html():
-    return ' '.join(f'<span class="c-team">{esc(n)}</span>' for n in TEAMS) + ' ' + ' '.join(f'<span>{esc(n)}</span>' for n in CLIENTS)
+    # one body-size sentence (jakub.kr): in-house teams in ink, clients in grey, commas carry the rhythm
+    names = [f'<span class="c-team">{esc(n)}</span>' for n in TEAMS] + [f'<span>{esc(n)}</span>' for n in CLIENTS]
+    return ', '.join(names) + '.'
 
 # ---------- Index ----------
 STACK_IMGS = {
