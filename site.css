@@ -55,12 +55,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .bio { display: flex; flex-direction: column; gap: 16px; font-size: 17px; line-height: 1.65; }
 
 .block { display: flex; flex-direction: column; gap: 16px; }
-.block-title { font-weight: 500; }
+.block-title { font-size: 14px; font-weight: 400; line-height: 20px; color: var(--ink-50); margin-bottom: 8px; }
+/* Section labels sit quieter than the content they label: small grey label, ink entries */
 /* Lists (Experience, Education, What I do): two-line items after jakub.kr —
    title in ink at 450, detail underneath in grey, count inline after the title */
 .block { gap: 24px; }
 .li p { line-height: 26px; }
-.li-t { font-weight: 450; }
+.li-t { font-weight: 400; }
 .li-s { color: var(--ink-60); }
 
 /* Experience / Education as columns: name · role · years */
@@ -76,6 +77,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Selected work: three stacks of tilted cards */
 .sel-head { display: flex; align-items: baseline; justify-content: space-between; }
+.sel-head h2 { font-size: 14px; font-weight: 400; color: var(--ink-50); }
+.sel-head a { font-size: 14px; }
 .sel-head a { color: var(--ink-60); }
 .sel-head a:hover { color: var(--ink); }
 .stacks { display: grid; grid-template-columns: repeat(3, 176px); justify-content: space-between; padding-top: 24px; }
