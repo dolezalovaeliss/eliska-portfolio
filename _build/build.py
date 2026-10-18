@@ -5,7 +5,7 @@ import re, json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018k'
+V = '20261018l'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -336,7 +336,7 @@ for p in P:
         if m['type'] == 'page':
             figs.append(f'''      <div class="screen">
         <div class="screen-scroll" tabindex="0" aria-label="{esc(m["alt"])}, scrollable"><img src="{m["src"]}" alt="{esc(m["alt"])}" loading="lazy" /></div>
-        <p class="hint"><b>Scroll to explore</b><i>·</i><button type="button" data-full="{m["src"]}" data-alt="{esc(m["alt"])}">View full page ↗</button></p>
+        <p class="hint"><button type="button" data-full="{m["src"]}" data-alt="{esc(m["alt"])}">View full page ↗</button></p>
       </div>''')
         elif m['type'] == 'video':
             figs.append(f'      <div class="g-img g-vid">{media(m)}</div>')

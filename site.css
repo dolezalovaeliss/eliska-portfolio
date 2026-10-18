@@ -252,8 +252,9 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 }
 .hint b { font-weight: 500; color: var(--on-dark); }
 .hint i { font-style: normal; color: var(--on-dark-2); }
-.hint button { color: var(--on-dark-2); }
-.hint button:hover { color: var(--on-dark); }
+.hint button { color: var(--on-dark); font-weight: 500; }
+.hint button::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.hint button:hover { color: var(--on-dark-2); }
 
 .outro { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--line); }
 .sentence { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; padding: 40px 0; font-size: var(--fs-display); font-weight: 500; line-height: 1.5; letter-spacing: -0.02em; }
