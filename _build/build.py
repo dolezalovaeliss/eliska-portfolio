@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018o'
+V = '20261018p'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -279,7 +279,7 @@ write('contact.html', head('Contact — Eliška Doležalová', 'Get in touch wit
 def entry(p, n, cat):
     href = p['href']
     title = esc(p['title'])
-    client = esc(CLIENT.get(href, ''))
+    client = esc(p.get('client') or CLIENT.get(href, ''))
     desc = esc(first_sentence(p['lead']))
     img = ''
     if href not in COMPACT:
@@ -288,7 +288,7 @@ def entry(p, n, cat):
         elif p.get('cover_video'):
             img = f'<a class="entry-img" style="--fill: {edge_fill(p["cover"])}" href="{href}" tabindex="-1" aria-hidden="true"><video src="{p["cover_video"]}" poster="{p["cover"]}" autoplay muted loop playsinline preload="metadata"></video></a>'
         else:
-            img = f'<a class="entry-img" style="--fill: {edge_fill(p["cover"])}" href="{href}" tabindex="-1" aria-hidden="true"><img src="{p["cover"]}" alt="" loading="lazy" /></a>'
+            img = f'<a class="entry-img{" is-contain" if p.get("fit") == "contain" else ""}" style="--fill: {edge_fill(p["cover"])}" href="{href}" tabindex="-1" aria-hidden="true"><img src="{p["cover"]}" alt="" loading="lazy" /></a>'
     btn = '' if cat == 'product' else f'<a class="btn-details" href="{href}" aria-label="{title} details">Details {icon("arrow-up-right", 20)}</a>'
     return f'''      <article class="entry">
         {img}
@@ -375,7 +375,7 @@ for p in P:
           {f'<div class="pills-block"><p>Outputs</p><div class="pills">{outs}</div></div>' if outs else ''}
         </div>
       </div>
-      <div class="cover" style="--fill: {edge_fill(cover["poster"] if cover["type"] == "video" else cover["src"])}">{media(cover)}</div>
+      <div class="cover{" is-contain" if p.get("fit") == "contain" else ""}" style="--fill: {edge_fill(cover["poster"] if cover["type"] == "video" else cover["src"])}">{media(cover)}</div>
     </section>
 {gallery}
     <section class="outro" aria-label="Contact">

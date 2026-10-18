@@ -311,6 +311,69 @@
   "cover_video": "images/projects/webscannerpro/scam-protection.mp4"
  },
  {
+  "href": "project-kviff.html",
+  "tags": [
+   "motion"
+  ],
+  "title": "KVIFF Group",
+  "client": "KVIFF Group",
+  "lead": "Presentation visuals for KVIFF Group, the family of brands around the Karlovy Vary International Film Festival. Each of its year-round projects gets its own slide, built from its logotype and typography in its own colour.",
+  "more": [
+   "The series covers KVIFF.TV, KVIFF Talents, Prague Shorts, Aerofilms and KVIFF Classics. Every slide keeps the same grid, with the name, a one-line description and when it runs along the bottom, so five very different brands read as one group."
+  ],
+  "meta": [
+   [
+    "Client",
+    "KVIFF Group"
+   ],
+   [
+    "Role",
+    "Graphic designer"
+   ],
+   [
+    "Year",
+    "2025"
+   ]
+  ],
+  "outputs": [
+   "Presentation design",
+   "Key visuals",
+   "Typography"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/kviff/kviff-tv.jpg",
+    "alt": "KVIFF.TV slide: white logotype on dark navy"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/kviff/kviff-talents.jpg",
+    "alt": "KVIFF Talents slide on green"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/kviff/prague-shorts.jpg",
+    "alt": "Prague Shorts slide on pink"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/kviff/aerofilms.jpg",
+    "alt": "Aerofilms slide on yellow"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/kviff/kviff-classics.jpg",
+    "alt": "KVIFF Classics slide with halftone type on black"
+   }
+  ],
+  "cover": "images/projects/kviff/kviff-tv.jpg",
+  "cover_video": null,
+  "fit": "contain"
+ },
+ {
   "href": "project-atelier3.html",
   "tags": [
    "web"
