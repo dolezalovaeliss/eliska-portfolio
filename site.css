@@ -13,6 +13,7 @@
   --shot: #cecece;
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --pad: 24px;
+  --r-img: 16px; /* one corner radius for every image on the site */
   /* Type system (after jakub.kr): one body size, one small size, one display size;
      two weights (400/500); two text colours per surface. Hierarchy comes from colour and weight. */
   --fs-display: 32px;
@@ -99,7 +100,7 @@ p { text-wrap: pretty; }
   height: 104px;
   object-fit: cover;
   border: 1px solid rgba(29, 29, 29, 0.1);
-  border-radius: 16px;
+  border-radius: var(--r-img);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   background: #efeae3;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -125,7 +126,7 @@ p { text-wrap: pretty; }
 /* Work entries */
 .entries { display: flex; flex-direction: column; }
 .entry { display: flex; flex-direction: column; gap: 16px; padding: 40px 0; border-top: 1px solid var(--line); }
-.entry-img { display: block; width: 100%; aspect-ratio: 3 / 2; border-radius: 16px; overflow: hidden; background: var(--fill, #efeae3); }
+.entry-img { display: block; width: 100%; aspect-ratio: 3 / 2; border-radius: var(--r-img); overflow: hidden; background: var(--fill, #efeae3); }
 .entry-img img, .entry-img video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 .entry-img:hover img, .entry-img:hover video { transform: scale(1.02); }
 .entry-img--figma { aspect-ratio: 560 / 413; background: none; }
@@ -224,7 +225,7 @@ p { text-wrap: pretty; }
 a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 /* Cover and Work images: one 3:2 frame everywhere (the middle of the mockups' 4:3–16:9 range),
    filled edge to edge so there are never side bars; the most any image loses is ~16% of its width */
-.cover { width: 600px; aspect-ratio: 3 / 2; overflow: hidden; background: #000; }
+.cover { width: 600px; aspect-ratio: 3 / 2; border-radius: var(--r-img); overflow: hidden; background: #000; }
 .cover img, .cover video { width: 100%; height: 100%; object-fit: cover; }
 /* Flat graphics with type to the edges (e.g. KVIFF slides): show whole, solid edge colour fills the frame */
 .cover.is-contain { background: var(--fill); aspect-ratio: auto; }
@@ -233,10 +234,10 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 
 .gallery { display: grid; grid-template-columns: repeat(2, 520px); justify-content: space-between; row-gap: 80px; margin-top: 120px; }
 .gallery > .solo { grid-column: 1 / -1; }
-.g-img { display: block; width: 100%; border-radius: 16px; overflow: hidden; cursor: zoom-in; }
+.g-img { display: block; width: 100%; border-radius: var(--r-img); overflow: hidden; cursor: zoom-in; }
 .g-img img, .g-img video { width: 100%; height: auto; }
 .g-vid { cursor: default; }
-.screen { position: relative; height: 720px; border-radius: 24px; overflow: hidden; background: rgba(255, 255, 255, 0.5); }
+.screen { position: relative; height: 720px; border-radius: var(--r-img); overflow: hidden; background: rgba(255, 255, 255, 0.5); }
 .screen-scroll { height: 100%; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
 .screen-scroll::-webkit-scrollbar { display: none; }
 .screen-scroll img { width: 100%; height: auto; }
@@ -398,7 +399,7 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 /* Lightbox */
 .lb { position: fixed; inset: 0; z-index: 80; display: none; overflow-y: auto; background: rgba(29, 29, 29, 0.92); padding: 64px var(--pad); }
 .lb.is-open { display: block; }
-.lb img { width: min(1200px, 100%); height: auto; margin: 0 auto; border-radius: 8px; }
+.lb img { width: min(1200px, 100%); height: auto; margin: 0 auto; border-radius: var(--r-img); }
 .lb-close { position: fixed; top: 16px; right: 16px; padding: 8px 16px; border-radius: 999px; background: var(--bg); color: var(--ink); font-size: var(--fs-small); font-weight: 500; }
 
 /* ---------- Responsive ---------- */
@@ -433,7 +434,6 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
   .page-head--work .crumb b { font-weight: 500; color: var(--ink); }
   .page-head--work .crumb img { width: 14px; height: 14px; }
   .entry { padding: 16px 0 16px; border-top: 0; }
-  .entry-img, .entry-img--shot img { border-radius: 8px; }
   .entry-title .client { display: none; }
   .entry-title .num { display: inline; }
   .detail { padding-top: 24px; }
