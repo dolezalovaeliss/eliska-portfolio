@@ -34,7 +34,7 @@ CATS = [
 ]
 CAT = {c[0]: c for c in CATS}
 COMPACT = set()  # every Work entry shows its image
-PRIMARY = {'project-1webit.html': 'brand', 'project-dluhopisomat.html': 'web'}
+PRIMARY = {}
 
 work_src = re.sub(r'<!--.*?-->', '', (ROOT / '_build' / 'work-old.html').read_text(), flags=re.S)
 CLIENT = {h: html.unescape(m.split('·')[0].strip()) for h, m in re.findall(
@@ -175,7 +175,7 @@ def write(name, s):
 STACK_IMGS = {
     'product': ['images/projects/product/armacover-app.png', 'images/projects/product/wsp-dashboard.png', 'images/projects/product/asset-layout-editor.png'],
     'web': ['images/projects/atelier3/cover.jpg', 'images/projects/esens/cover.jpg', 'images/projects/cybertrends/cover.jpg'],
-    'brand': ['images/projects/duhova-stuzka/cover.png', 'images/projects/prague-pride/cover.jpg', 'images/projects/cybertrends-logo/symbol.png'],
+    'brand': ['images/projects/armacover-logo/symbol.png', 'images/projects/cybertrends-logo/wordmark.png', 'images/projects/cybertrends-logo/symbol.png'],
 }
 def stack_imgs(k): return ''.join('<img src="%s" alt="" loading="lazy" />' % s for s in STACK_IMGS[k])
 stacks = '\n'.join(f'''        <a class="stack" href="{CAT[k][2]}">
