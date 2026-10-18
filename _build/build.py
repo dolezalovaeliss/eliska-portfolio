@@ -194,9 +194,9 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
     </div>
 
     <div class="bio">
-      <p>I’m a product &amp; visual designer based in Prague, currently Head of Design at <a class="u" href="project-cybertrends.html">Cybertrends</a>. I like understanding the whole problem, not just one screen, and helping decide where a product should go.</p>
-      <p>I started in graphic design, doing brands and websites, and spent a lot of those years around culture, working with festivals like <a class="u" href="https://www.kviff.com" target="_blank" rel="noopener">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>. Later I moved into UX during my master’s.</p>
-      <p>You can reach me via <a class="u" href="mailto:{EMAIL}">email</a>, find me on <a class="u" href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a> or download my <a class="u" href="{CV}" target="_blank" rel="noopener">CV</a>.</p>
+      <p>I’m a product &amp; visual designer based in Prague. I design digital products, websites and brand visuals for tech companies, startups and cultural organisations, from the structure of a complex tool to the way a brand looks and moves.</p>
+      <p>I like understanding the whole problem, not just one screen. My work spans <a class="u" href="work-product.html">data and security products</a>, healthcare software, <a class="u" href="work.html">websites</a> and festivals like <a class="u" href="project-kviff.html">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>.</p>
+      <p>I’m open to new collaborations. Reach me via <a class="u" href="mailto:{EMAIL}">email</a>, find me on <a class="u" href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a> or download my <a class="u" href="{CV}" target="_blank" rel="noopener">CV</a>.</p>
     </div>
 
     <section>
@@ -233,9 +233,11 @@ write('about.html', head('About — Eliška Doležalová', 'About Eliška Dolež
     </div>
 
     <div class="bio">
-      <p>I’m Eliška, a designer based in Prague. I started in graphic design, doing brands and websites, and spent a lot of those years around culture, working with festivals like <a class="u" href="https://www.kviff.com" target="_blank" rel="noopener">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>.</p>
-      <p>Later I moved into UX, studied it during my master’s, and ended up in product design. I like it because I get to understand the whole problem, not just one screen, and help decide where a product should go, based on its vision and what’s actually happening in the market.</p>
-      <p>I build my own AI skills and a context system in <a class="u" href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a>, a knowledge base where I keep research, reports and reusable context. So the tools work the way I do and I can prototype in real code.</p>
+      <p>I’m Eliška, a product &amp; visual designer based in Prague. I help teams turn complex products into clear, calm interfaces, and give brands a visual language that holds together across web, print, social and motion.</p>
+      <p>I work with tech companies and startups, agencies and studios, and cultural organisations. Usually on product design, websites and visual identity, often all three for the same client.</p>
+      <p>I started in graphic design, doing brands and websites, and spent a lot of those years around culture, working with festivals like <a class="u" href="project-kviff.html">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>. Later I moved into UX, studied it during my master’s, and ended up in product design, where I get to understand the whole problem and help decide where a product should go.</p>
+      <p>I build my own AI skills and a context system in <a class="u" href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a>, so the tools work the way I do and I can prototype in real code.</p>
+      <p>I’m open to new collaborations. <a class="u" href="mailto:{EMAIL}">Write me</a> and tell me what you’re working on.</p>
     </div>
 
     <section class="block">
