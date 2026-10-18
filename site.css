@@ -302,9 +302,12 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .d-item.is-on { background: var(--bg); color: var(--ink); font-weight: 500; }
 /* Work group: one yellow segment; the current category is a raised light chip inside it
    (elevation by shadow, not a dark fill that merges into the dark bar at the group's ends) */
-.d-work { display: flex; align-items: center; border-radius: 999px; background: var(--bg); }
+/* Inset 4px so the chip sits inside the group with even air on all sides (concentric pills).
+   Exception to the 8px spacing scale: 8px here would make the bar taller than its other items. */
+.d-work { display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: var(--bg); }
+.d-work .d-item, .d-work .d-sub { padding-top: 4px; padding-bottom: 4px; }
 .d-work .d-item.is-on { background: none; }
-.d-work .sep { width: 1px; height: 16px; background: rgba(29, 29, 29, 0.2); }
+.d-work .sep { flex: none; width: 1px; height: 16px; margin: 0 8px; background: rgba(29, 29, 29, 0.2); }
 .d-sub { display: flex; gap: 8px; align-items: baseline; padding: 8px 16px; border-radius: 999px; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }
 .d-sub small { font-size: inherit; color: var(--text-2); font-variant-numeric: tabular-nums; }
 .d-sub:hover { color: var(--ink); background: rgba(29, 29, 29, 0.06); }
