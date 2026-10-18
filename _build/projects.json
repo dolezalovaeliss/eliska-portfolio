@@ -1,0 +1,1275 @@
+[
+ {
+  "href": "project-cybertrends.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Cybertrends",
+  "lead": "Website for Cybertrends, a company building digital protection products that help people move through the online world with more confidence. The site speaks to partners such as telcos, banks and membership programmes, and shows how products like WebScannerPro and ArmaCover can sit inside the services their customers already use.",
+  "more": [
+   "A dark, calm base with a particle globe in the hero, soft teal and peach gradients, and quiet black and white photography. Each solution page follows the same rhythm: use cases, commercial value, partnership models and the products, so a partner finds their answer fast."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Web design",
+   "UX/UI",
+   "Visual direction"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends/cover.jpg",
+    "alt": "Cybertrends website on a laptop"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "page",
+    "src": "images/projects/cybertrends/homepage.jpg",
+    "alt": "Cybertrends homepage, full page on desktop"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/cybertrends/telco-mobile.jpg?v=2",
+    "alt": "Cybertrends Telco & mobile solution page"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/cybertrends/home-animation.mp4",
+    "poster": "images/projects/cybertrends/home-animation.jpg",
+    "alt": "Cybertrends homepage hero animation: a rotating particle globe lit in teal and copper"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/cybertrends/contact-animation.mp4",
+    "poster": "images/projects/cybertrends/contact-animation.jpg",
+    "alt": "Cybertrends contact page hero animation: soft light moving behind the ways to reach the team"
+   }
+  ],
+  "cover": "images/projects/cybertrends/cover.jpg",
+  "cover_video": null
+ },
+ {
+  "href": "project-cybertrends-logo.html",
+  "tags": [
+   "brand"
+  ],
+  "title": "Cybertrends Logomark",
+  "lead": "Logomark for Cybertrends, a company building digital protection products that help people move through the online world with more confidence.",
+  "more": [
+   "The symbol turns the C into a shield that opens into rays of light: protection that stays calm and lets people move forward. It sits in front of a bold, compact wordmark and works on its own as the app icon and favicon."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Logomark",
+   "Symbol",
+   "Wordmark"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-logo/wordmark.png",
+    "alt": "Cybertrends wordmark in white on black"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-logo/symbol.png",
+    "alt": "Cybertrends symbol: a C made of a solid arc and rays of light"
+   }
+  ],
+  "cover": "images/projects/cybertrends-logo/wordmark.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-armacover.html",
+  "tags": [
+   "motion"
+  ],
+  "title": "ArmaCover",
+  "lead": "Brand animations for ArmaCover, consumer cyber insurance by Cybertrends. Each loop turns one promise into a few seconds of motion: a protective sphere around everyday life covering identity theft, scams, cyber extortion and cyberbullying, a dark web alert that warns you early, and recovery experts available 24/7.",
+  "more": [
+   "Warm sand and a single orange glow carry the identity from the product UI into photography, so the protection feels calm rather than alarming."
+  ],
+  "meta": [
+   [
+    "Client",
+    "ArmaCover · Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Motion design",
+   "UI animation",
+   "Brand motion"
+  ],
+  "slides": [
+   {
+    "type": "video",
+    "src": "images/projects/armacover/identity.mp4",
+    "poster": "images/projects/armacover/identity.jpg",
+    "alt": "An ArmaCover notification warning that personal information may have been exposed on the dark web"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/armacover/confidence.mp4",
+    "poster": "images/projects/armacover/confidence.jpg",
+    "alt": "A protective orange sphere around a person crossing the street, covering identity theft, scams and fraud, cyber extortion and cyberbullying"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/armacover/recovery.mp4",
+    "poster": "images/projects/armacover/recovery.jpg",
+    "alt": "A 24/7 clock for always-available recovery experts, marked live"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "video",
+    "src": "images/projects/armacover/confidence.mp4",
+    "poster": "images/projects/armacover/confidence.jpg",
+    "alt": "A protective orange sphere around a person crossing the street, covering identity theft, scams and fraud, cyber extortion and cyberbullying"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/armacover/identity.mp4",
+    "poster": "images/projects/armacover/identity.jpg",
+    "alt": "An ArmaCover notification warning that personal information may have been exposed on the dark web"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/armacover/recovery.mp4",
+    "poster": "images/projects/armacover/recovery.jpg",
+    "alt": "A 24/7 clock for always-available recovery experts, marked live"
+   }
+  ],
+  "cover": "images/projects/armacover/identity.jpg",
+  "cover_video": "images/projects/armacover/identity.mp4"
+ },
+ {
+  "href": "project-armacover-logo.html",
+  "tags": [
+   "brand"
+  ],
+  "title": "ArmaCover Logomark",
+  "lead": "Logomark for ArmaCover, consumer cyber insurance by Cybertrends that covers identity theft, scams, cyber extortion and cyberbullying.",
+  "more": [
+   "The symbol is an A built from two folded planes, like armour plates that overlap to cover what is underneath. Sharp and steady, it pairs with a heavy wordmark and stands on its own as the app icon."
+  ],
+  "meta": [
+   [
+    "Client",
+    "ArmaCover · Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Logomark",
+   "Symbol",
+   "Wordmark"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/armacover-logo/wordmark.png",
+    "alt": "ArmaCover wordmark in white on black"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/armacover-logo/symbol.png",
+    "alt": "ArmaCover symbol: an A made of two folded planes"
+   }
+  ],
+  "cover": "images/projects/armacover-logo/wordmark.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-webscannerpro.html",
+  "tags": [
+   "motion"
+  ],
+  "title": "WebScannerPro",
+  "lead": "Feature animations for WebScannerPro, a browser extension by Cybertrends. Each loop explains one feature in a few seconds: scam and phishing sites stopped before they load, pop-up ads blocked, trackers counted as they&rsquo;re blocked, and your IP hidden behind private browsing.",
+  "more": [
+   "Built from the extension&rsquo;s own UI in a soft blue palette with a single indigo accent, so every loop reads like the product itself."
+  ],
+  "meta": [
+   [
+    "Client",
+    "WebScannerPro · Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Motion design",
+   "UI animation",
+   "Feature explainers"
+  ],
+  "slides": [
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/scam-protection.mp4",
+    "poster": "images/projects/webscannerpro/scam-protection.jpg",
+    "alt": "A scam site is blocked and replaced with a This site is unsafe warning"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/ad-blocking.mp4",
+    "poster": "images/projects/webscannerpro/ad-blocking.jpg",
+    "alt": "Ad blocking switched on in the extension and a pop-up ad removed from the page"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/tracker-blocking.mp4",
+    "poster": "images/projects/webscannerpro/tracker-blocking.jpg",
+    "alt": "The extension counts and blocks trackers as the page loads"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/private-browsing.mp4",
+    "poster": "images/projects/webscannerpro/private-browsing.jpg",
+    "alt": "Private browsing routes the connection through New York and hides your IP"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/scam-protection.mp4",
+    "poster": "images/projects/webscannerpro/scam-protection.jpg",
+    "alt": "A scam site is blocked and replaced with a This site is unsafe warning"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/ad-blocking.mp4",
+    "poster": "images/projects/webscannerpro/ad-blocking.jpg",
+    "alt": "Ad blocking switched on in the extension and a pop-up ad removed from the page"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/tracker-blocking.mp4",
+    "poster": "images/projects/webscannerpro/tracker-blocking.jpg",
+    "alt": "The extension counts and blocks trackers as the page loads"
+   },
+   {
+    "type": "video",
+    "src": "images/projects/webscannerpro/private-browsing.mp4",
+    "poster": "images/projects/webscannerpro/private-browsing.jpg",
+    "alt": "Private browsing routes the connection through New York and hides your IP"
+   }
+  ],
+  "cover": "images/projects/webscannerpro/scam-protection.jpg",
+  "cover_video": "images/projects/webscannerpro/scam-protection.mp4"
+ },
+ {
+  "href": "project-atelier3.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Atelier3",
+  "lead": "Creative concept and website for Atelier3, an architectural design and engineering practice. The whole concept grew from one idea: thoughtful details make a complete whole. Precision, expertise and fair partnership became the backbone of the site, with large photography and generous space so the buildings can breathe.",
+  "more": [
+   "As art director I set the visual language: black and white with a bolder signature green for courage and growth, and a clean geometric bold typeface with architecture in every stroke. No decoration, just legibility and strength."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Atelier3"
+   ],
+   [
+    "Role",
+    "Art director &amp; web designer"
+   ],
+   [
+    "Studio",
+    "1. Web IT"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Art direction",
+   "Creative concept",
+   "Web design",
+   "UX/UI"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/atelier3/cover.jpg",
+    "alt": "Atelier3 website on a laptop"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "page",
+    "src": "images/projects/atelier3/home-desktop.jpg",
+    "alt": "Atelier3 homepage, full page on desktop"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/atelier3/project-detail.jpg",
+    "alt": "Atelier3 project detail page: Bytový dům Baronka"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/atelier3/contact.jpg?v=2",
+    "alt": "Atelier3 contact page: form, founders, office map"
+   }
+  ],
+  "cover": "images/projects/atelier3/cover.jpg",
+  "cover_video": null
+ },
+ {
+  "href": "asset-layout-editor.html",
+  "tags": [
+   "product"
+  ],
+  "title": "Asset Layout Editor",
+  "lead": "Customers extend Ataccama ONE&rsquo;s metadata model with custom properties, but the only way to surface them was a hidden JSON editor nobody outside engineering could use. I replaced it with a pin model: admins pick the properties that matter, and they appear at the top of every entity page of that type.",
+  "more": [
+   "Grounded in research across 22 sources and six competitors, the layout stays locked with one clear escape hatch. No JSON, no code, delivered as a working prototype in six weeks."
+  ],
+  "meta": [
+   [
+    "Role",
+    "Product designer at Ataccama"
+   ],
+   [
+    "Timeline",
+    "6 weeks"
+   ],
+   [
+    "Surface",
+    "Metadata Model · Page layout"
+   ]
+  ],
+  "outputs": [
+   "Working prototype",
+   "Three-audience handoff"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/asset-layout-editor/pinned-properties-flow.gif",
+    "alt": "Pinning properties in action: curating which properties surface at the top of the entity page"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/asset-layout-editor/pin-config.jpg",
+    "alt": "The Pinned properties configuration: a Pick properties to pin list on the left, the pinned set on the right"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/asset-layout-editor/overview-pinned.jpg",
+    "alt": "A real entity Overview page with the pinned properties surfaced at the top"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/asset-layout-editor/pinned-properties-flow.gif",
+    "alt": "Pinning properties in action: curating which properties surface at the top of the entity page"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/asset-layout-editor/pin-config.jpg",
+    "alt": "The Pinned properties configuration: a Pick properties to pin list on the left, the pinned set on the right"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/asset-layout-editor/overview-pinned.jpg",
+    "alt": "A real entity Overview page with the pinned properties surfaced at the top"
+   }
+  ],
+  "cover": "images/projects/asset-layout-editor/overview-pinned.jpg",
+  "cover_video": null
+ },
+ {
+  "href": "project-esens.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Esens Letná",
+  "lead": "Esens Letná is a new residential development in Prague&rsquo;s Letná district. The brief was to translate that premium location into a web experience as confident as the apartments themselves. The design leans on three things: confident typography, full-bleed location photography, and generous whitespace that lets each section breathe.",
+  "more": [
+   "The site is built around three pillars — Lokalita (location), Služby (services), and Byty (apartments). Each is treated as its own editorial chapter: location reads like a magazine spread, services like a curated menu, contact like a quiet conversation. Same brand voice, different rhythms."
+  ],
+  "meta": [
+   [
+    "Role",
+    "Web designer"
+   ],
+   [
+    "Year",
+    "2026"
+   ],
+   [
+    "Studio",
+    "Apadore · for Daramis"
+   ]
+  ],
+  "outputs": [
+   "Web Design",
+   "UX/UI",
+   "Typography"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/esens/cover.jpg",
+    "alt": "Esens Letná"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "page",
+    "src": "images/projects/esens/01-lokalita.jpg",
+    "alt": "Esens Letná"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/esens/02-kontakt.jpg",
+    "alt": "Esens Letná"
+   }
+  ],
+  "cover": "images/projects/esens/cover.jpg",
+  "cover_video": null
+ },
+ {
+  "href": "project-cfg.html",
+  "tags": [
+   "web",
+   "brand"
+  ],
+  "title": "Comfort Finance Group",
+  "lead": "Comfort Finance Group is a Czech investment group spanning investing, secured products, real estate and fintech. I redesigned its website to present CFG as one confident, modern financial group, while giving each sub-brand, Comfort Money, Dluhopisomat, Srovnávač and more, a clear place in the story.",
+  "more": [
+   "A system of deep forest green, warm cream and a single violet accent reserved for actions, set in Manrope and carried from the homepage through to the careers page."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Comfort Finance Group (CFG)"
+   ],
+   [
+    "Role",
+    "Brand &amp; web designer"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Visual direction",
+   "Web design",
+   "Design system"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/cfg/cover-mockup.png",
+    "alt": "Comfort Finance Group homepage shown on a laptop mockup"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "page",
+    "src": "images/projects/cfg/homepage.png",
+    "alt": "The full Comfort Finance Group homepage"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/cfg/kariera.png",
+    "alt": "The full Comfort Finance Group careers page"
+   }
+  ],
+  "cover": "images/projects/cfg/tile-mockup.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-dluhopisomat.html",
+  "tags": [
+   "brand",
+   "web"
+  ],
+  "title": "Dluhopisomat",
+  "lead": "Dluhopisomat opens corporate bonds to retail investors, a category long reserved for institutions. The product worked, but the brand wasn&rsquo;t keeping up. I led a strategy-led redesign of the identity and the homepage, built around how trust is communicated to first-time investors.",
+  "more": [
+   "After twelve directions across three palette families, the brand landed on deep teal with a confident green accent, everyday Czech photography, and a homepage that answers the trust questions before asking for anything."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Dluhopisomat"
+   ],
+   [
+    "Role",
+    "UX/Product designer &amp; brand designer"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Brand Strategy",
+   "Visual Identity",
+   "Web Design"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/dluhopisomat/cover.jpg",
+    "alt": "Dluhopisomat"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/dluhopisomat/01-exploration.jpg",
+    "alt": "Dluhopisomat brand exploration"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/dluhopisomat/02-final-brand.jpg",
+    "alt": "Dluhopisomat final brand"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/dluhopisomat/cover.jpg",
+    "alt": "Dluhopisomat"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/dluhopisomat/01-exploration.jpg",
+    "alt": "Dluhopisomat brand exploration"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/dluhopisomat/02-final-brand.jpg",
+    "alt": "Dluhopisomat final brand"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/dluhopisomat/03-homepage.jpg",
+    "alt": "Dluhopisomat homepage"
+   }
+  ],
+  "cover": "images/projects/dluhopisomat/cover.jpg",
+  "cover_video": null
+ },
+ {
+  "href": "import-metadata.html",
+  "tags": [
+   "product"
+  ],
+  "title": "Importing metadata in 3 clicks instead of 10",
+  "lead": "Importing metadata is the first real thing a customer does in Ataccama ONE, and it took 6 clicks, sometimes 10, drilling into one connection at a time with no sense of where you were. I redesigned it as a single view of the whole source, connection, schema and table tree, with an import entry point right in the Data Catalog.",
+  "more": [
+   "Designed in Figma, validated with consultants, then rebuilt as a working code prototype. Testing removed a preview step, and the measured flow went from 6&ndash;10 clicks down to 3."
+  ],
+  "meta": [
+   [
+    "Role",
+    "Product designer at Ataccama, owned the design end to end"
+   ],
+   [
+    "Surface",
+    "Ataccama ONE · Data Catalog"
+   ],
+   [
+    "Impact",
+    "6–10 clicks → 3 (measured)"
+   ]
+  ],
+  "outputs": [
+   "Figma",
+   "code prototype",
+   "Engineering handoff"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/import-asset-flow.gif",
+    "alt": "The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/before-connections.png",
+    "alt": "The old import path: a single source's Connections tab, one connection expanded"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/figma-import-design.png",
+    "alt": "The redesigned one-view import modal, designed in Figma"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/catalog-import-button.png",
+    "alt": "Data Catalog listing with the new Import asset button"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/import-asset-flow.gif",
+    "alt": "The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/before-connections.png",
+    "alt": "The old import path: a single source's Connections tab, one connection expanded"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/figma-import-design.png",
+    "alt": "The redesigned one-view import modal, designed in Figma"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/import-metadata/catalog-import-button.png",
+    "alt": "Data Catalog listing with the new Import asset button"
+   }
+  ],
+  "cover": "images/projects/import-metadata/figma-import-design.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-prague-pride.html",
+  "tags": [
+   "brand"
+  ],
+  "title": "Prague Pride Festival",
+  "lead": "Over five years I contributed to the visual identity and graphics for Prague Pride Festival. The work evolved from agency collaboration to in-house development, encompassing complete campaign aesthetics across every media format.",
+  "more": [
+   "Outputs spanned online campaigns, print, branded installations, stage designs, merchandise and spatial applications. The visual communication had to be both distinctive and flexible enough to adapt across surfaces. My thesis project went further: a comprehensive website redesign that examined nonprofit web patterns and optimised the festival&rsquo;s communication and presentation.",
+   "Each year was an opportunity to advance the visual narrative around diversity, visibility and belonging through design."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Prague Pride"
+   ],
+   [
+    "Role",
+    "Graphic designer, art director"
+   ],
+   [
+    "Year",
+    "2021–2025"
+   ]
+  ],
+  "outputs": [
+   "Branding",
+   "Campaign",
+   "Art Direction"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/cover.jpg",
+    "alt": "Prague Pride Festival"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/01.jpg",
+    "alt": "Prague Pride Festival"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/02.jpg",
+    "alt": "Prague Pride Festival"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/03.jpg",
+    "alt": "Prague Pride Festival"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/cover.jpg",
+    "alt": "Prague Pride Festival"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/01.jpg",
+    "alt": "Prague Pride Festival"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/02.jpg",
+    "alt": "Prague Pride Festival"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/03.jpg",
+    "alt": "Prague Pride Festival"
+   }
+  ],
+  "cover": "images/projects/prague-pride/cover.jpg",
+  "cover_video": null
+ },
+ {
+  "href": "project-rezidence.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Rezidence",
+  "lead": "I designed a website for the sale of residential apartments, working closely with the art director. The core challenge was getting both the visual style and information architecture exactly right, meeting the developer&rsquo;s brand requirements while staying attractive and clear for end clients.",
+  "more": [
+   "The result reads as confident and editorial: clean typography, generous imagery, and a structure that lets prospective buyers find what they need without effort."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Confidential developer"
+   ],
+   [
+    "Role",
+    "UX/UI designer"
+   ],
+   [
+    "Year",
+    "2024"
+   ]
+  ],
+  "outputs": [
+   "Web Design",
+   "UX/UI",
+   "Residential"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/rezidence/cover.png",
+    "alt": "Rezidence"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "page",
+    "src": "images/projects/rezidence/o-projektu.jpg",
+    "alt": "Rezidence"
+   }
+  ],
+  "cover": "images/projects/rezidence/cover.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-geomap.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Geomap",
+  "lead": "Complete website design for a geodetic office that builds on existing branding while establishing a distinct online presence. The challenge: addressing two audiences, end customers and corporate partners, with the same site.",
+  "more": [
+   "Clarity, credibility, and professional brand representation were the through-lines across both B2C and B2B contexts."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Geomap"
+   ],
+   [
+    "Role",
+    "UX/UI designer (Apadore Studio)"
+   ],
+   [
+    "Year",
+    "2025"
+   ]
+  ],
+  "outputs": [
+   "Web Design",
+   "UX/UI",
+   "B2B/B2C"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/geomap/cover.png",
+    "alt": "Geomap"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/geomap/02.png",
+    "alt": "Geomap"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/geomap/03.png",
+    "alt": "Geomap"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/geomap/cover.png",
+    "alt": "Geomap"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/geomap/02.png",
+    "alt": "Geomap"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/geomap/03.png",
+    "alt": "Geomap"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/geomap/01.png",
+    "alt": "Geomap"
+   }
+  ],
+  "cover": "images/projects/geomap/cover.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-elspace.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Elspace",
+  "lead": "Elspace asked for a redesign to simplify content and clarify their services. The original site lacked clear navigation, and prospective clients were leaving without understanding what was on offer.",
+  "more": [
+   "The new design streamlined the offering, explained the collaboration process up front, and made it easy to evaluate whether Elspace was the right fit."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Elspace"
+   ],
+   [
+    "Role",
+    "UX/UI designer"
+   ],
+   [
+    "Year",
+    "2023"
+   ]
+  ],
+  "outputs": [
+   "Web Design",
+   "UX/UI"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/elspace/cover.png",
+    "alt": "Elspace"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/elspace/01.png",
+    "alt": "Elspace"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/elspace/02.png",
+    "alt": "Elspace"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/elspace/03.png",
+    "alt": "Elspace"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/elspace/cover.png",
+    "alt": "Elspace"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/elspace/01.png",
+    "alt": "Elspace"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/elspace/02.png",
+    "alt": "Elspace"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/elspace/03.png",
+    "alt": "Elspace"
+   }
+  ],
+  "cover": "images/projects/elspace/cover.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-1webit.html",
+  "tags": [
+   "brand",
+   "web"
+  ],
+  "title": "1. Web IT",
+  "lead": "A complete website redesign and brand refresh for 1. Web IT s.r.o., a development-first IT company. I drew from the company&rsquo;s developer DNA, using IT-world visual metaphors: browser dialog boxes repurposed as CTA sections, code-styled accents, terminal-inspired typography.",
+  "more": [
+   "The updated identity gave the brand a contemporary direction and a clearer voice. Collaboration continues to support the brand&rsquo;s evolution while keeping it authentic."
+  ],
+  "meta": [
+   [
+    "Client",
+    "1. Web IT s.r.o."
+   ],
+   [
+    "Role",
+    "UX/UI designer &amp; brand designer"
+   ],
+   [
+    "Year",
+    "2025"
+   ]
+  ],
+  "outputs": [
+   "Branding",
+   "Web Design",
+   "UX/UI"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/1webit/cover.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/01.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/02.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/03.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/04.png",
+    "alt": "1. Web IT"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/1webit/cover.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/01.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/02.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/03.png",
+    "alt": "1. Web IT"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/1webit/04.png",
+    "alt": "1. Web IT"
+   }
+  ],
+  "cover": "images/projects/1webit/cover.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-odstrcil.html",
+  "tags": [
+   "web",
+   "brand"
+  ],
+  "title": "Odstrčil, Craft Jewellery",
+  "lead": "Complete UX/UI design for a craft jewellery maker&rsquo;s website. The design emphasises visual cleanliness and elegance, a reflection of the precision and uniqueness of the work itself. Minimalism and air around each piece let the jewellery photography do the talking.",
+  "more": [
+   "I conceived it primarily as a gallery experience rather than a traditional e-shop. The purchasing workflow stays intuitive without compromising the brand&rsquo;s exclusivity or aesthetic."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Odstrčil"
+   ],
+   [
+    "Role",
+    "UX/UI designer"
+   ],
+   [
+    "Year",
+    "2025"
+   ]
+  ],
+  "outputs": [
+   "Web Design",
+   "UX/UI",
+   "Branding"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/odstrcil/cover.png",
+    "alt": "Odstrčil, Craft Jewellery"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/odstrcil/03.png",
+    "alt": "Odstrčil, Craft Jewellery"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/odstrcil/cover.png",
+    "alt": "Odstrčil, Craft Jewellery"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/odstrcil/03.png",
+    "alt": "Odstrčil, Craft Jewellery"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/odstrcil/01.png",
+    "alt": "Odstrčil, Craft Jewellery"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/odstrcil/02.png",
+    "alt": "Odstrčil, Craft Jewellery"
+   }
+  ],
+  "cover": "images/projects/odstrcil/cover.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-duhova-stuzka.html",
+  "tags": [
+   "brand"
+  ],
+  "title": "Duhová stužka",
+  "lead": "Visual identity and applications across formats, from web and print to social, for a Prague Pride campaign. The aim was a unified, clean visual with a clear message.",
+  "more": [
+   "Restraint was the discipline: keep the system simple enough to scale, distinctive enough to recognise on any surface."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Prague Pride"
+   ],
+   [
+    "Role",
+    "Brand designer"
+   ],
+   [
+    "Year",
+    "2024"
+   ]
+  ],
+  "outputs": [
+   "Branding",
+   "UX/UI",
+   "Campaign"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/cover.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/01.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/02.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/03.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/04.png",
+    "alt": "Duhová stužka"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/cover.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/01.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/02.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/03.png",
+    "alt": "Duhová stužka"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/duhova-stuzka/04.png",
+    "alt": "Duhová stužka"
+   }
+  ],
+  "cover": "images/projects/duhova-stuzka/cover.png",
+  "cover_video": null
+ },
+ {
+  "href": "project-prague-pride-merch.html",
+  "tags": [
+   "brand"
+  ],
+  "title": "Prague Pride Merch",
+  "lead": "Creative direction and design for the official Prague Pride Festival merchandise. I led the complete creative agenda, art direction, design, production, budget coordination, end to end.",
+  "more": [
+   "The &lsquo;Equality&rsquo; line combines distinctive visual design with authentic storytelling: celebrating diversity and supporting the community through merchandise that means something."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Prague Pride"
+   ],
+   [
+    "Role",
+    "Creative director, designer"
+   ],
+   [
+    "Year",
+    "2025"
+   ]
+  ],
+  "outputs": [
+   "Branding",
+   "Photography",
+   "Merch"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/cover.png",
+    "alt": "Prague Pride Merch"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/01.png",
+    "alt": "Prague Pride Merch"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/02.png",
+    "alt": "Prague Pride Merch"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/03.png",
+    "alt": "Prague Pride Merch"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/cover.png",
+    "alt": "Prague Pride Merch"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/01.png",
+    "alt": "Prague Pride Merch"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/02.png",
+    "alt": "Prague Pride Merch"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride-merch/03.png",
+    "alt": "Prague Pride Merch"
+   }
+  ],
+  "cover": "images/projects/prague-pride-merch/cover.png",
+  "cover_video": null
+ }
+]

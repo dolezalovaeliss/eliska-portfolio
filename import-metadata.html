@@ -4,178 +4,83 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Importing metadata in 3 clicks instead of 10 — Eliška Doležalová</title>
+<meta name="description" content="Importing metadata is the first real thing a customer does in Ataccama ONE, and it took 6 clicks, sometimes 10, drilling into one connection at a time with no sense of where you were." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Importing metadata in 3 clicks instead of 10 — Eliška Doležalová" />
-<meta property="og:description" content="Redesigning Ataccama ONE's metadata import. Designed in Figma, validated with consultants, then prototyped in code to test it for real." />
+<meta property="og:description" content="Importing metadata is the first real thing a customer does in Ataccama ONE, and it took 6 clicks, sometimes 10, drilling into one connection at a time with no sense of where you were." />
 <meta property="og:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<meta property="og:image:width" content="960" />
-<meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://elisdolezalova.cz/import-metadata.html" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Importing metadata in 3 clicks instead of 10 — Eliška Doležalová" />
-<meta name="twitter:description" content="Redesigning Ataccama ONE's metadata import. Designed in Figma, validated with consultants, then prototyped in code to test it for real." />
-<meta name="twitter:image" content="https://elisdolezalova.cz/images/og-image.png" />
-<link rel="stylesheet" href="styles.css?v=20261015e" />
+<link rel="stylesheet" href="site.css?v=20261018a" />
 </head>
-<body class="page-project">
+<body>
 
-  <header class="site-header" id="site-header">
-    <div class="bar">
-      <nav class="nav">
-        <a href="index.html" class="wordmark">
-          <span class="wm-avatar"><img src="profile.jpg" alt="Eliška Doležalová" /><span class="wm-dot" aria-hidden="true"></span></span>
-          <span class="wm-id"><span class="wm-name">Eliška Doležalová</span><span class="wm-mail">hello@eliskadolezalova.cz</span></span>
-        </a>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        <div class="nav-links" id="nav-links">
-          <a href="about.html">ABOUT ME</a>
-          <a href="work.html" class="active">WORK</a>
-          <a href="contact.html">CONTACT</a>
+  <main class="detail">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-top">
+          <a class="back" href="work-product.html">← Product design</a>
+          <h1 class="h1">Importing metadata in 3 clicks instead of 10</h1>
         </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- PROJECT DETAILS -->
-  <header class="pj-head">
-    <div class="wrap">
-      <div class="pj-topbar">
-        <a href="work.html" class="pj-crumb">← Work</a>
-      </div>
-
-      <div class="pj-hero">
-        <div class="pj-hero-text" id="details">
-          <h1 class="pj-title">Importing metadata in 3 clicks instead of 10</h1>
-          <div class="pj-desc">
-            <p class="pj-lead">Importing metadata is the first real thing a customer does in Ataccama ONE, and it took 6 clicks, sometimes 10, drilling into one connection at a time with no sense of where you were. I redesigned it as a single view of the whole source, connection, schema and table tree, with an import entry point right in the Data Catalog.</p>
-            <p class="pj-more">Designed in Figma, validated with consultants, then rebuilt as a working code prototype. Testing removed a preview step, and the measured flow went from 6&ndash;10 clicks down to 3.</p>
+        <p class="lead">Importing metadata is the first real thing a customer does in Ataccama ONE, and it took 6 clicks, sometimes 10, drilling into one connection at a time with no sense of where you were. I redesigned it as a single view of the whole source, connection, schema and table tree, with an import entry point right in the Data Catalog.</p>
+        <p class="more">Designed in Figma, validated with consultants, then rebuilt as a working code prototype. Testing removed a preview step, and the measured flow went from 6&ndash;10 clicks down to 3.</p>
+        <div class="facts">
+          <div>
+          <div class="meta-row"><span class="k">Role</span><span>Product designer at Ataccama, owned the design end to end</span></div>
+          <div class="meta-row"><span class="k">Surface</span><span>Ataccama ONE · Data Catalog</span></div>
+          <div class="meta-row"><span class="k">Impact</span><span>6–10 clicks → 3 (measured)</span></div>
           </div>
-          <div class="pj-info">
-          <div class="pj-meta-item"><div class="pj-k">Role</div><div class="pj-v">Product designer at Ataccama, owned the design end to end</div></div>
-          <div class="pj-meta-item"><div class="pj-k">Surface</div><div class="pj-v">Ataccama ONE · Data Catalog</div></div>
-          <div class="pj-meta-item"><div class="pj-k">Impact</div><div class="pj-v">6–10 clicks → 3 (measured)</div></div>
-          <div class="pj-tags">
-            <div class="pj-k">Disciplines</div>
-            <div class="chips">
-            <a class="chip" href="work.html#product">Product design</a>
-            </div>
-          </div>
-          <div class="pj-tags">
-            <div class="pj-k">Outputs</div>
-            <div class="chips">
-            <span class="chip chip--static">Figma</span>
-            <span class="chip chip--static">code prototype</span>
-            <span class="chip chip--static">Engineering handoff</span>
-            </div>
-          </div>
-          </div>
-        </div>
-        <div class="pj-hero-media">
-      <div class="pj-slider" data-slider>
-        <div class="pj-track" tabindex="0" aria-label="Importing metadata in 3 clicks instead of 10 images">
-          <figure class="pj-slide"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view" /></figure>
-          <figure class="pj-slide"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source's Connections tab, one connection expanded" loading="lazy" /></figure>
-          <figure class="pj-slide"><img src="images/projects/import-metadata/figma-import-design.png" alt="The redesigned one-view import modal, designed in Figma" loading="lazy" /></figure>
-          <figure class="pj-slide"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></figure>
-        </div>
-        <button class="pj-arrow pj-prev" type="button" aria-label="Previous image">←</button>
-        <button class="pj-arrow pj-next" type="button" aria-label="Next image">→</button>
-      </div>
-      <div class="pj-slider-ui">
-        <span class="pj-count"><span class="pj-cur">1</span> of 4</span>
-        <div class="pj-thumbs">
-          <button class="pj-thumb is-active" type="button" aria-label="Image 1"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="" loading="lazy" /></button>
-          <button class="pj-thumb" type="button" aria-label="Image 2"><img src="images/projects/import-metadata/before-connections.png" alt="" loading="lazy" /></button>
-          <button class="pj-thumb" type="button" aria-label="Image 3"><img src="images/projects/import-metadata/figma-import-design.png" alt="" loading="lazy" /></button>
-          <button class="pj-thumb" type="button" aria-label="Image 4"><img src="images/projects/import-metadata/catalog-import-button.png" alt="" loading="lazy" /></button>
+          <div class="pills-block"><p>Disciplines</p><div class="pills"><a class="pill" href="work-product.html">Product design</a></div></div>
+          <div class="pills-block"><p>Outputs</p><div class="pills"><span class="pill">Figma</span><span class="pill">code prototype</span><span class="pill">Engineering handoff</span></div></div>
         </div>
       </div>
-        </div>
-      </div>
-    </div>
-  </header>
+      <div class="cover"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view" /></div>
+    </section>
 
-  <!-- BODY -->
-  <!-- GALLERY -->
-  <section class="pj-gallery-wrap wrap">
-    <div class="pj-gallery" data-gallery>
-      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/import-asset-flow.gif" alt="The redesigned import flow in action: opening Import asset from the Data Catalog and selecting metadata in one view" loading="lazy" /></button>
-      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source's Connections tab, one connection expanded" loading="lazy" /></button>
-      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/figma-import-design.png" alt="The redesigned one-view import modal, designed in Figma" loading="lazy" /></button>
-      <button class="pj-fig" type="button"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></button>
-    </div>
-  </section>
-
-  <main class="pj-end wrap">
-
-        <section class="more-work reveal">
-      <div class="mw-head">
-        <h2 class="mw-title">More projects</h2>
-        <a class="mw-all" href="work.html">All work →</a>
-      </div>
-      <div class="mw-grid">
-        <a class="work-tile" href="project-prague-pride.html">
-          <div class="work-tile-card"><img src="images/projects/prague-pride/cover.jpg" alt="Prague Pride Festival" loading="lazy" /><div class="work-tile-tags" aria-hidden="true"><span>Brand design</span></div></div>
-          <h3>Prague Pride Festival</h3>
-        </a>
-        <a class="work-tile" href="project-rezidence.html">
-          <div class="work-tile-card"><img src="images/projects/rezidence/cover.png" alt="Rezidence" loading="lazy" /><div class="work-tile-tags" aria-hidden="true"><span>Web design</span></div></div>
-          <h3>Rezidence</h3>
-        </a>
-        <a class="work-tile" href="project-geomap.html">
-          <div class="work-tile-card"><img src="images/projects/geomap/cover.png" alt="Geomap" loading="lazy" /><div class="work-tile-tags" aria-hidden="true"><span>Web design</span></div></div>
-          <h3>Geomap</h3>
-        </a>
-      </div>
+    <section class="gallery">
+      <button class="g-img" type="button" data-full="images/projects/import-metadata/before-connections.png" data-alt="The old import path: a single source&#x27;s Connections tab, one connection expanded"><img src="images/projects/import-metadata/before-connections.png" alt="The old import path: a single source&#x27;s Connections tab, one connection expanded" loading="lazy" /></button>
+      <button class="g-img" type="button" data-full="images/projects/import-metadata/figma-import-design.png" data-alt="The redesigned one-view import modal, designed in Figma"><img src="images/projects/import-metadata/figma-import-design.png" alt="The redesigned one-view import modal, designed in Figma" loading="lazy" /></button>
+      <button class="g-img" type="button" data-full="images/projects/import-metadata/catalog-import-button.png" data-alt="Data Catalog listing with the new Import asset button"><img src="images/projects/import-metadata/catalog-import-button.png" alt="Data Catalog listing with the new Import asset button" loading="lazy" /></button>
+    </section>
+    <section class="outro" aria-label="Contact">
+      <p class="sentence">
+        <span>Like what you see?</span>
+        <a class="cta cta--dark" href="mailto:hello@eliskadolezalova.cz?subject=Project%20inquiry"><img class="avatar" src="profile.jpg" alt="" width="40" height="40" />Write me</a>
+        <a class="cta cta--icon" href="tel:+420778036943"><img src="images/icons/phone-lg.svg" width="28" height="28" alt="" />call me</a>
+        <span>or</span>
+        <a class="cta" href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </p>
     </section>
   </main>
 
-    <footer class="site-footer">
-    <div class="wrap">
-      <div class="ft-cta reveal">
-        <div class="ft-cta-text ft-cta--project">
-          <span class="ft-eyebrow">Contact</span>
-          <p class="ft-ask">Have a project in mind?<br />Let&rsquo;s make it together.</p>
-          <a class="ft-email" href="mailto:hello@eliskadolezalova.cz?subject=Project%20inquiry">hello@eliskadolezalova.cz</a>
-          <div class="ft-actions">
-            <a class="ft-btn ft-btn--solid" href="mailto:hello@eliskadolezalova.cz?subject=Project%20inquiry">Write me <span aria-hidden="true">↗</span></a>
-            <button class="ft-btn" type="button" data-copy="hello@eliskadolezalova.cz" data-copied="Copied">Copy email</button>
-          </div>
-        </div>
-        <img class="ft-sun" src="sun.svg" alt="" aria-hidden="true" />
-      </div>
-
-      <div class="ft-cols reveal">
-        <div class="ft-col">
-          <h4>Menu</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="work.html">Work</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="ft-col">
-          <h4>Elsewhere</h4>
-          <a href="https://www.linkedin.com/in/eliška-doležalová-1101631a1/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="images/eliska-dolezalova-cv.pdf" target="_blank" rel="noopener">CV ↗</a>
-        </div>
-        <div class="ft-col">
-          <h4>Based in</h4>
-          <span>Prague,<br />Czech Republic</span>
-        </div>
-      </div>
-
-
-      <div class="ft-bottom">
-        <span>© 2026 Ing. Eliška Doležalová</span>
-        <a href="#top" class="ft-back">Back to top ↑</a>
-      </div>
+  <nav class="dock" aria-label="Main">
+    <a href="index.html" aria-label="Index"><img class="avatar" src="profile.jpg" alt="" width="32" height="32" /></a>
+    <a class="d-item" href="index.html">Index</a>
+    <div class="d-work"><a class="d-item is-on" href="work.html">Work</a><span class="sep" aria-hidden="true"></span><a class="d-sub is-on" href="work-product.html" aria-current="page">Product design <small>2</small></a><a class="d-sub" href="work.html">Web design <small>10</small></a><a class="d-sub" href="work-branding.html">Branding <small>9</small></a><a class="d-sub" href="work-animations.html">Animations <small>2</small></a></div>
+    <a class="d-item" href="about.html">About</a>
+    <a class="d-item" href="contact.html">Contact</a>
+    <span class="d-div" aria-hidden="true"></span>
+    <button class="d-cmd icon-only" type="button" data-cmdk aria-label="Search (⌘K)"><img src="images/icons/search.svg" width="18" height="18" alt="" /></button>
+  </nav>
+  <button class="ctx" type="button" aria-expanded="false" aria-controls="sheet"><img class="avatar" src="profile.jpg" alt="" width="32" height="32" /><span>Work</span><b>Product design</b><img src="images/icons/up.svg" width="18" height="18" alt="" /></button>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-label="Menu">
+    <span class="grab" aria-hidden="true"></span>
+    <div class="s-group"><p class="s-label">Work</p><a class="s-item is-on" href="work-product.html"><span>Product design</span><small>2 projects</small><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a><a class="s-item" href="work.html"><span>Web design</span><small>10 projects</small><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a><a class="s-item" href="work-branding.html"><span>Branding</span><small>9 projects</small><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a><a class="s-item" href="work-animations.html"><span>Animations</span><small>2 projects</small><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a></div>
+    <div class="s-group"><p class="s-label">Pages</p><a class="s-item" href="index.html"><span>Index</span><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a><a class="s-item" href="about.html"><span>About me</span><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a><a class="s-item" href="contact.html"><span>Contact</span><img src="images/icons/check-sheet.svg" width="18" height="18" alt="" /></a></div>
+  </div>
+  <div class="cmdk" role="dialog" aria-label="Search">
+    <div class="cmdk-box">
+      <label class="cmdk-input"><img src="images/icons/search.svg" width="18" height="18" alt="" /><input type="text" placeholder="Search projects and pages" aria-label="Search projects and pages" /></label>
+      <div class="cmdk-list"></div>
     </div>
-  </footer>
-
-  <script src="reveal.js?v=20261015a"></script>
+  </div>
+  <div class="lb" role="dialog" aria-label="Full image"><button class="lb-close" type="button">Close</button><img src="" alt="" /></div>
+  <script src="site-data.js?v=20261018a"></script>
+  <script src="site.js?v=20261018a"></script>
 </body>
 </html>
