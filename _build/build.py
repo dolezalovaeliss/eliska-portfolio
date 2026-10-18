@@ -5,7 +5,7 @@ import re, json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018f'
+V = '20261018g'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -14,9 +14,19 @@ LINKEDIN = 'https://www.linkedin.com/in/eliška-doležalová-1101631a1/'
 CV = 'images/eliska-dolezalova-cv.pdf'
 AVATAR = 'profile.jpg'
 
+# Product design: exact content of Figma frame "Work — Product design" (62:19832); images exported from it, no detail pages
+PRODUCT_INTRO = 'Data tools, security products and internal systems. Work where the hard part is the structure, not the screen.'
+PRODUCT = [
+    ('Asset Layout Editor', 'Ataccama', 'asset-layout-editor', 'A layout editor inside the data catalog. Admins decide which properties, relations and sections each asset page shows, and in what order.'),
+    ('WebScannerPro — Dashboard', 'WebScannerPro', 'wsp-dashboard', 'Home for a browser security product. Protection score, filters and alerts in one calm overview, with clear steps to fix what’s off.'),
+    ('WebScannerPro — Browser extension', 'WebScannerPro', 'wsp-extension', 'Where the protection actually runs. Blocking, Browser VPN and dark web monitoring, each one click away from the toolbar.'),
+    ('ArmaCover — Mobile app', 'ArmaCover', 'armacover-app', 'Cyber insurance in your pocket. Sign in, see that you’re covered, and get help fast when something goes wrong.'),
+    ('ArmaCover — Dark web monitoring', 'ArmaCover', 'armacover-dwm', 'Dashboard that watches leaked data across the whole account and turns every breach into a few concrete next steps.'),
+    ('Altoa — Orders admin', 'Altoa', 'altoa-orders', 'Internal system for orders, clients and reports. Dense tables kept readable with filters, bulk actions and a simple export.'),
+]
 # Category intros reuse the "What I do" lines from the current About page
 CATS = [
-    ('product', 'Product design', 'work-product.html', 'Understanding the whole problem, not just one screen. From research and structure to flows that ship.'),
+    ('product', 'Product design', 'work-product.html', PRODUCT_INTRO),
     ('web', 'Web design', 'work.html', 'Designing and shipping responsive websites, from a single landing page to a full site.'),
     ('brand', 'Branding', 'work-branding.html', 'Logos, colour and type systems, and the visual language that makes a brand feel like itself.'),
     ('motion', 'Animations', 'work-animations.html', 'Motion design, UI animation and brand motion.'),
@@ -38,7 +48,8 @@ def first_sentence(s):
     return (m.group(1) + '.') if m else t
 def esc(s): return html.escape(s, quote=True)
 def primary(p): return PRIMARY.get(p['href']) or next(t for t in ('web', 'product', 'brand', 'motion') if t in p['tags'])
-def in_cat(key): return [p for p in P if key in p['tags']]
+P = [p for p in P if 'product' not in p['tags']]
+def in_cat(key): return PRODUCT if key == 'product' else [p for p in P if key in p['tags']]
 
 def icon(name, w=16, alt=''):
     return f'<img src="images/icons/{name}.svg" width="{w}" height="{w}" alt="{alt}" />'
@@ -154,7 +165,7 @@ def write(name, s):
 
 # ---------- Index ----------
 STACK_IMGS = {
-    'product': ['images/projects/import-metadata/figma-import-design.png', 'images/projects/asset-layout-editor/pin-config.jpg', 'images/projects/asset-layout-editor/overview-pinned.jpg'],
+    'product': ['images/projects/product/armacover-app.png', 'images/projects/product/wsp-dashboard.png', 'images/projects/product/asset-layout-editor.png'],
     'web': ['images/projects/atelier3/cover.jpg', 'images/projects/esens/cover.jpg', 'images/projects/cybertrends/cover.jpg'],
     'brand': ['images/projects/duhova-stuzka/cover.png', 'images/projects/prague-pride/cover.jpg', 'images/projects/cybertrends-logo/symbol.png'],
 }
@@ -278,8 +289,20 @@ def entry(p, n, cat):
         {btn}
       </article>'''
 
+def product_entry(e, n):
+    title, client, img, desc = e
+    return f'''      <article class="entry">
+        <div class="entry-img entry-img--figma"><img src="images/projects/product/{img}.png" alt="{esc(title)}" loading="lazy" width="560" height="413" /></div>
+        <div class="entry-title"><h2>{esc(title)}</h2><span class="client">{esc(client)}</span><span class="num">{n:02d}</span></div>
+        <p class="entry-desc">{esc(desc)}</p>
+      </article>'''
+
 for key, label, href, intro in CATS:
     items = in_cat(key)
+    if key == 'product':
+        body = chr(10).join(product_entry(e, i + 1) for i, e in enumerate(items))
+    else:
+        body = chr(10).join(entry(p, i + 1, key) for i, p in enumerate(items))
     write(href, head(f'{label} — Eliška Doležalová', intro, href) + f'''
   <main class="col">
     <div class="page-head page-head--work">
@@ -289,7 +312,7 @@ for key, label, href, intro in CATS:
       <p class="intro">{intro}</p>
     </div>
     <div class="entries">
-{chr(10).join(entry(p, i + 1, key) for i, p in enumerate(items))}
+{body}
     </div>
   </main>
 ''' + nav('work', key))
