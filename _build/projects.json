@@ -8,7 +8,8 @@
   "client": "Startaiming",
   "lead": "Website for Aim by Startaiming, a market-data product made for people and their AI agents. Think Bloomberg Terminal, but for your competitors, the people shaping your market and your prospects.",
   "more": [
-   "The site explains a new kind of product in a few calm steps: data organised into spaces, then you just ask. A single blue sphere carries the idea of all that context in one place, and the same clean system runs through pricing and the in-product prompts to install Aim or book a call."
+   "The site explains a new kind of product in a few calm steps: data organised into spaces, then you just ask. A single blue sphere carries the idea of all that context in one place, and the same clean system runs through pricing and the in-product prompts to install Aim or book a call.",
+   "Made in collaboration with ZeroOne Company, with Aleš as art director."
   ],
   "meta": [
    [
@@ -18,6 +19,14 @@
    [
     "Role",
     "Web designer"
+   ],
+   [
+    "Art direction",
+    "Aleš"
+   ],
+   [
+    "Agency",
+    "ZeroOne Company"
    ],
    [
     "Year",
