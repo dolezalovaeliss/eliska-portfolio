@@ -196,7 +196,7 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
 
     <section class="block block--rows">
       <h2 class="block-title">Experience</h2>
-{rows(EXPERIENCE[:4] + [EXPERIENCE[7]])}
+{rows(EXPERIENCE)}
     </section>
 
     <section class="block">
