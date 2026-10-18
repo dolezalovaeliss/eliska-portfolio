@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018r'
+V = '20261018s'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -339,20 +339,57 @@ for p in P:
     for m in p['slides'][1:] + p['gallery']:
         if m['src'] in seen: continue
         seen.add(m['src']); rest.append(m)
-    figs = []
-    for m in rest:
-        if m['type'] == 'page':
-            figs.append(f'''      <div class="screen">
-        <div class="screen-scroll" tabindex="0" aria-label="{esc(m["alt"])}, scrollable"><img src="{m["src"]}" alt="{esc(m["alt"])}" loading="lazy" /></div>
-        <p class="hint"><button type="button" data-full="{m["src"]}" data-alt="{esc(m["alt"])}">View full page ↗</button></p>
-      </div>''')
-        elif m['type'] == 'video':
-            figs.append(f'      <div class="g-img g-vid">{media(m)}</div>')
+    # Gallery layout: pictures in justified rows (each item's width follows its aspect ratio,
+    # so every picture in a row has the same height and the row fills the width);
+    # full-page website previews in their own rows of equal scroll windows.
+    def ratio(m):
+        try:
+            w, h = Image.open(ROOT / (m['poster'] if m['type'] == 'video' else m['src'])).size
+            return round(w / h, 4)
+        except Exception:
+            return 1.5
+    def fig(m):
+        r = ratio(m)
+        if m['type'] == 'video':
+            return f'        <div class="g-img g-vid" style="--r: {r}">{media(m)}</div>'
+        return f'        <button class="g-img" type="button" style="--r: {r}" data-full="{m["src"]}" data-alt="{esc(m["alt"])}">{media(m, LAZY)}</button>'
+    def screen(m):
+        return f'''        <div class="screen">
+          <div class="screen-scroll" tabindex="0" aria-label="{esc(m["alt"])}, scrollable"><img src="{m["src"]}" alt="{esc(m["alt"])}" loading="lazy" /></div>
+          <p class="hint"><button type="button" data-full="{m["src"]}" data-alt="{esc(m["alt"])}">View full page ↗</button></p>
+        </div>'''
+    def chunk(items):
+        # rows of two; an odd leftover joins the last row (three) unless it is alone
+        n = len(items)
+        if n <= 2: return [items] if items else []
+        rows = [items[i:i + 2] for i in range(0, n - 3 if n % 2 else n, 2)]
+        if n % 2: rows.append(items[n - 3:])
+        return rows
+    pics = [m for m in rest if m['type'] != 'page']
+    pages = [m for m in rest if m['type'] == 'page']
+    # Greedy justified rows: pictures of similar shape (within 3x aspect) share a row while it stays
+    # at least 300px tall at 1120px wide; any row taller than 720px is narrowed and centred.
+    W, GAP, MIN_H, MAX_H = 1120, 24, 300, 720
+    def row_h(r): return (W - GAP * (len(r) - 1)) / sum(ratio(x) for x in r)
+    rows, cur = [], []
+    for m in pics:
+        trial = cur + [m]
+        rs = [ratio(x) for x in trial]
+        if cur and (row_h(trial) < MIN_H or max(rs) / min(rs) > 3):
+            rows.append(cur); cur = [m]
         else:
-            figs.append(f'      <button class="g-img" type="button" data-full="{m["src"]}" data-alt="{esc(m["alt"])}">{media(m, LAZY)}</button>')
-    if len(figs) == 1:
-        figs[0] = figs[0].replace('class="', 'class="solo ', 1)
-    gallery = f'\n    <section class="gallery">\n' + '\n'.join(figs) + '\n    </section>' if figs else ''
+            cur = trial
+    if cur: rows.append(cur)
+    out = []
+    for r in rows:
+        cap = ''
+        if row_h(r) > MAX_H:
+            cap = f' style="max-width: {round(MAX_H * sum(ratio(x) for x in r) + GAP * (len(r) - 1))}px"'
+        out.append(f'      <div class="g-row"{cap}>\n' + '\n'.join(fig(m) for m in r) + '\n      </div>')
+    rows = out
+    for r in chunk(pages):
+        rows.append('      <div class="g-row g-row--screens">\n' + '\n'.join(screen(m) for m in r) + '\n      </div>')
+    gallery = '\n    <section class="gallery">\n' + '\n'.join(rows) + '\n    </section>' if rows else ''
     meta = '\n'.join(f'          <div class="meta-row"><span class="k">{k}</span><span>{v}</span></div>' for k, v in p['meta'])
     disc = ''.join(f'<a class="pill" href="{CAT[t][2]}">{"Brand design" if t == "brand" else CAT[t][1]}</a>' for t in p['tags'])
     outs = ''.join(f'<span class="pill">{esc(o)}</span>' for o in p['outputs'])
