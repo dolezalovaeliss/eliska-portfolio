@@ -584,3 +584,8 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .peek.is-on { opacity: 1; transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(1); }
 .peek img { width: 100%; height: auto; }
 @media (hover: none), (prefers-reduced-motion: reduce) { .peek { display: none; } }
+
+/* Expertise: same inline list as Clients, grouped under small arrow labels */
+.exp-group { display: flex; flex-direction: column; gap: 8px; }
+.exp-group + .exp-group { margin-top: 16px; }
+.exp-label { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }

@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261019a'
+V = '20261019b'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -202,6 +202,15 @@ CLIENTS = [
     ('1. Web IT', 'project-1webit.html', _cover('project-1webit.html')),
     ('Avon', None, None), ('Uniqway', None, None), ('Meffert', None, None),
 ]
+DISCIPLINES = ['Product Design', 'UX Research', 'Information Architecture', 'Design Systems', 'Prototyping',
+               'Usability Testing', 'Web Design', 'Landing Pages', 'Brand Identity', 'Logo Design', 'Art Direction',
+               'Typography', 'Motion Design', 'Campaigns', 'AI Prototyping', 'Context Engineering']
+INDUSTRIES = ['Technology & Software', 'Cybersecurity & Insurance', 'Data & AI', 'Finance & Investment',
+              'Real Estate & Architecture', 'Healthcare', 'Film & Culture', 'Non-profit & Advocacy',
+              'Retail & Jewellery', 'Beauty', 'Mobility']
+def inline(items):
+    return '\n        '.join(f'<span>{esc(n)}</span>' for n in items)
+
 def clients_html():
     out = []
     for n, h, img in CLIENTS:
@@ -247,6 +256,18 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       <p class="clients">
         {clients_html()}
       </p>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Expertise</h2>
+      <div class="exp-group">
+        <p class="exp-label">↓ Disciplines</p>
+        <p class="clients">{inline(DISCIPLINES)}</p>
+      </div>
+      <div class="exp-group">
+        <p class="exp-label">↓ Industries</p>
+        <p class="clients">{inline(INDUSTRIES)}</p>
+      </div>
     </section>
 
     <section class="block">
