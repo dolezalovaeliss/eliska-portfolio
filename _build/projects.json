@@ -1,5 +1,67 @@
 [
  {
+  "href": "project-startaiming.html",
+  "tags": [
+   "web"
+  ],
+  "title": "Aim",
+  "client": "Startaiming",
+  "lead": "Website for Aim by Startaiming, a market-data product made for people and their AI agents. Think Bloomberg Terminal, but for your competitors, the people shaping your market and your prospects.",
+  "more": [
+   "The site explains a new kind of product in a few calm steps: data organised into spaces, then you just ask. A single blue sphere carries the idea of all that context in one place, and the same clean system runs through pricing and the in-product prompts to install Aim or book a call."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Startaiming"
+   ],
+   [
+    "Role",
+    "Web designer"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Landing page",
+   "Pricing",
+   "UI design"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/startaiming/cover.jpg",
+    "alt": "Aim website on a laptop: The full market context. For you and your agent."
+   }
+  ],
+  "gallery": [
+   {
+    "type": "page",
+    "src": "images/projects/startaiming/home.jpg",
+    "alt": "Aim homepage, full page"
+   },
+   {
+    "type": "page",
+    "src": "images/projects/startaiming/pricing.jpg",
+    "alt": "Aim pricing page with four plans and FAQ"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/startaiming/ask-aim.jpg",
+    "alt": "Ask Aim: answer with sources and a prompt to install Aim into your own agent"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/startaiming/custom-space.jpg",
+    "alt": "Custom space preview: Fintech founders in LATAM, with a call to book access"
+   }
+  ],
+  "cover": "images/projects/startaiming/cover.jpg",
+  "cover_video": null
+ },
+ {
   "href": "project-cybertrends.html",
   "tags": [
    "web"
