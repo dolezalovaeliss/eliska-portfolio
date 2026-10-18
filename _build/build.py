@@ -2,10 +2,11 @@
 Run: python3 _build/extract.py  (once, on the old pages)  then  python3 _build/build.py
 """
 import re, json, html, pathlib
+from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018l'
+V = '20261018m'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -50,6 +51,15 @@ def esc(s): return html.escape(s, quote=True)
 def primary(p): return PRIMARY.get(p['href']) or next(t for t in ('web', 'product', 'brand', 'motion') if t in p['tags'])
 P = [p for p in P if 'product' not in p['tags']]
 def in_cat(key): return PRODUCT if key == 'product' else [p for p in P if key in p['tags']]
+
+def edge_fill(src):
+    # Colour behind a 'contain'-fitted cover: average of the image's four corners, so letterboxing blends in
+    try:
+        im = Image.open(ROOT / src).convert('RGB'); w, h = im.size
+        px = [im.getpixel((x, y)) for x in (2, w - 3) for y in (2, h - 3)]
+        return '#%02x%02x%02x' % tuple(sum(c[i] for c in px) // 4 for i in range(3))
+    except Exception:
+        return '#000000'
 
 def icon(name, w=16, alt=''):
     return f'<img src="images/icons/{name}.svg" width="{w}" height="{w}" alt="{alt}" />'
@@ -367,7 +377,7 @@ for p in P:
           {f'<div class="pills-block"><p>Outputs</p><div class="pills">{outs}</div></div>' if outs else ''}
         </div>
       </div>
-      <div class="cover">{media(cover)}</div>
+      <div class="cover" style="--fill: {edge_fill(cover["poster"] if cover["type"] == "video" else cover["src"])}">{media(cover)}</div>
     </section>
 {gallery}
     <section class="outro" aria-label="Contact">
