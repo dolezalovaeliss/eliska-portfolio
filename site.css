@@ -591,14 +591,14 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .list-group .block-title { margin-bottom: 0; }
 .clients { gap: 0 16px; }
 
-/* Services — 2-column grid with hairlines (Figma 121:18240): 24px cell padding, icon 24, 16px gap to title */
-.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.svc { display: flex; flex-direction: column; gap: 8px; padding: 24px 24px 24px 0; border-top: 1px solid var(--line); }
-.svc:nth-child(even) { padding: 24px 0 24px 24px; border-left: 1px solid var(--line); }
-.svc .i { margin-bottom: 8px; }
-.svc h3 { font-weight: 500; }
-.svc p { color: var(--text-2); }
-@media (max-width: 640px) {
-  .services { grid-template-columns: 1fr; }
-  .svc, .svc:nth-child(even) { padding: 24px 0; border-left: 0; }
-}
+/* Services — numbered rows: big index, name, description; hover lifts the row onto a soft panel */
+.services { display: flex; flex-direction: column; margin: 0 -16px; }
+.svc { position: relative; display: grid; grid-template-columns: 40px 24px minmax(0, 1fr); column-gap: 16px; row-gap: 0; align-items: start;
+  padding: 16px; border-radius: var(--r-img); transition: background-color 150ms ease-out; counter-increment: svc; }
+.services { counter-reset: svc; }
+.svc::before { content: counter(svc, decimal-leading-zero); grid-row: 1 / span 2; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.svc .i { grid-row: 1; grid-column: 2; margin-top: 1px; }
+.svc h3 { grid-column: 3; font-weight: 500; }
+.svc p { grid-column: 3; color: var(--text-2); }
+.svc:hover { background: var(--tint); }
+@media (max-width: 640px) { .svc { grid-template-columns: 32px minmax(0, 1fr); } .svc .i { display: none; } .svc h3, .svc p { grid-column: 2; } }
