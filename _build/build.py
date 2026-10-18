@@ -5,7 +5,7 @@ import re, json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018b'
+V = '20261018c'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -54,7 +54,7 @@ def head(title, desc, url, extra=''):
 <meta name="description" content="{esc(desc)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..500&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{t}" />
@@ -124,11 +124,13 @@ def links_row():
     return f'''<div class="links"><a href="mailto:{EMAIL}">Email ↗</a><a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn ↗</a><a href="{CV}" target="_blank" rel="noopener">CV ↗</a></div>'''
 
 def rows(items):
-    return '\n'.join(f'      <div class="row"><p>{a}</p><p>{b}</p><p>{c}</p></div>' for a, b, c in items)
+    # Two-line items (jakub.kr): name + years on top, role underneath in grey
+    def years(c): return f' <span class="li-n">{c}</span>' if c else ''
+    return '\n'.join(f'      <div class="li"><p class="li-t">{a}{years(c)}</p><p class="li-s">{b}</p></div>' for a, b, c in items)
 
 EXPERIENCE = [
-    ('Cybertrends', 'Head of Design', '2026 —'),
-    ('Shoptet', 'UX Designer', '2026 —'),
+    ('Cybertrends', 'Head of Design', '2026'),
+    ('Shoptet', 'UX Designer', '2026'),
     ('Ataccama', 'Product Designer', '2026'),
     ('1. Web IT', 'Visual Identity Lead, UX/UI Designer', '2025 – 26'),
     ('Apadore', 'B2B Web Designer', '2025 – 26'),
@@ -214,9 +216,9 @@ write('about.html', head('About — Eliška Doležalová', 'About Eliška Dolež
       <p>I build my own AI skills and a context system in <a class="u" href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a>, a knowledge base where I keep research, reports and reusable context. So the tools work the way I do and I can prototype in real code.</p>
     </div>
 
-    <section class="whatido">
+    <section class="block">
       <h2 class="block-title">What I do</h2>
-{chr(10).join(f'      <div class="item"><p>{a}</p><p>{b}</p></div>' for a, b in WHAT)}
+{chr(10).join(f'      <div class="li"><p class="li-t">{a}</p><p class="li-s">{b}</p></div>' for a, b in WHAT)}
     </section>
 
     <section class="block">
@@ -224,7 +226,7 @@ write('about.html', head('About — Eliška Doležalová', 'About Eliška Dolež
 {rows(EXPERIENCE)}
     </section>
 
-    <section class="block block--edu">
+    <section class="block">
       <h2 class="block-title">Education</h2>
 {rows(EDUCATION)}
     </section>
