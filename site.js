@@ -85,3 +85,45 @@
     lb.addEventListener('click', function (e) { if (e.target === lb) lightbox(null); });
   }
 })();
+
+// ---- Full-page previews scroll themselves (same rhythm as the live site):
+// 1s on the top, down at 90px/s, 3s on the bottom, back up at the same speed.
+// Runs only while on screen; hovering or touching hands control to the visitor.
+(function () {
+  var screens = document.querySelectorAll('.screen-scroll');
+  if (!screens.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var SPEED = 90, TOP = 1000, BOTTOM = 3000;
+  screens.forEach(function (el) {
+    var pos = 0, dir = 1, holdUntil = 0, visible = false, held = false, last = 0, raf = 0, touchTimer = 0;
+    function frame(now) {
+      raf = 0;
+      if (!visible || held) return;
+      var dt = last ? Math.min(0.1, (now - last) / 1000) : 0;
+      last = now;
+      var max = el.scrollHeight - el.clientHeight;
+      if (Math.abs(el.scrollTop - pos) > 2) pos = el.scrollTop;   // visitor scrolled: continue from there
+      if (max > 0 && now >= holdUntil) {
+        pos += dir * SPEED * dt;
+        if (pos >= max) { pos = max; dir = -1; holdUntil = now + BOTTOM; }
+        else if (pos <= 0) { pos = 0; dir = 1; holdUntil = now + TOP; }
+        el.scrollTop = pos;
+      }
+      raf = requestAnimationFrame(frame);
+    }
+    function run() { if (!raf && visible && !held) { last = 0; raf = requestAnimationFrame(frame); } }
+    function hold(on) { held = on; if (!on) run(); }
+    holdUntil = performance.now() + TOP;
+    var box = el.closest('.screen') || el;
+    box.addEventListener('mouseenter', function () { hold(true); });
+    box.addEventListener('mouseleave', function () { hold(false); });
+    el.addEventListener('touchstart', function () {
+      hold(true); clearTimeout(touchTimer);
+      touchTimer = setTimeout(function () { hold(false); }, 4000);
+    }, { passive: true });
+    el.addEventListener('focus', function () { hold(true); });
+    el.addEventListener('blur', function () { hold(false); });
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting; run();
+    }, { threshold: 0.5 }).observe(el);
+  });
+})();
