@@ -22,7 +22,7 @@ PRODUCT = [
     ('WebScannerPro — Browser extension', 'WebScannerPro', 'wsp-extension', 'Where the protection actually runs. Blocking, Browser VPN and dark web monitoring, each one click away from the toolbar.'),
     ('ArmaCover — Mobile app', 'ArmaCover', 'armacover-app', 'Cyber insurance in your pocket. Sign in, see that you’re covered, and get help fast when something goes wrong.'),
     ('ArmaCover — Dark web monitoring', 'ArmaCover', 'armacover-dwm', 'Dashboard that watches leaked data across the whole account and turns every breach into a few concrete next steps.'),
-    ('Altoa — Healthcare platform', 'Altoa', 'altoa-orders', 'Back office for a premium healthcare service. Exam orders, patient escorts to clinics, clients, company contracts, cards and vouchers live in one system, together with the product catalogue and the content of the Czech and Austrian websites.'),
+    ('Altoa — Healthcare platform', 'Altoa', 'altoa-orders', 'Back office for a premium healthcare service. Exam orders, patient escorts to clinics, clients, company contracts, cards and vouchers live in one system, together with the product catalogue and the website content in several language versions.'),
 ]
 # Category intros reuse the "What I do" lines from the current About page
 CATS = [
