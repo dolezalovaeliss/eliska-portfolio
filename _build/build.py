@@ -5,7 +5,7 @@ import re, json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018a'
+V = '20261018b'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -141,9 +141,9 @@ EXPERIENCE = [
     ('5DM.cz', 'Graphic Designer', '2019 – 20'),
 ]
 EDUCATION = [
-    ('UX Design &amp; Research', 'Master’s degree, Prague University of Economics and Business', '2022 – 25'),
-    ('Multimedia Communication', 'Master’s studies, Prague University of Economics and Business', '2022 – 24'),
-    ('Information Media &amp; Services', 'Bachelor’s degree, Prague University of Economics and Business', '2018 – 22'),
+    ('UX Design &amp; Research', 'Master’s, VŠE', '2022 – 25'),
+    ('Multimedia Communication', 'Master’s studies, VŠE', '2022 – 24'),
+    ('Information Media &amp; Services', 'Bachelor’s, VŠE', '2018 – 22'),
     ('Web Design', 'Bont Academy', ''),
 ]
 
@@ -224,7 +224,7 @@ write('about.html', head('About — Eliška Doležalová', 'About Eliška Dolež
 {rows(EXPERIENCE)}
     </section>
 
-    <section class="block">
+    <section class="block block--edu">
       <h2 class="block-title">Education</h2>
 {rows(EDUCATION)}
     </section>
