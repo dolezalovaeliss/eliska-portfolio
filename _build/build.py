@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261019b'
+V = '20261019c'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -251,28 +251,25 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       </div>
     </section>
 
-    <section class="block">
-      <h2 class="block-title">Clients</h2>
-      <p class="clients">
+    <section class="lists" aria-label="Clients and expertise">
+      <div class="list-group">
+        <h2 class="block-title">Clients</h2>
+        <p class="clients">
         {clients_html()}
-      </p>
-    </section>
-
-    <section class="block">
-      <h2 class="block-title">Expertise</h2>
-      <div class="exp-group">
-        <p class="exp-label">↓ Disciplines</p>
+        </p>
+      </div>
+      <div class="list-group">
+        <h2 class="block-title">Disciplines</h2>
         <p class="clients">{inline(DISCIPLINES)}</p>
       </div>
-      <div class="exp-group">
-        <p class="exp-label">↓ Industries</p>
+      <div class="list-group">
+        <h2 class="block-title">Industries</h2>
         <p class="clients">{inline(INDUSTRIES)}</p>
       </div>
-    </section>
-
-    <section class="block">
-      <h2 class="block-title">Elsewhere</h2>
-      {links_row()}
+      <div class="list-group">
+        <h2 class="block-title">Elsewhere</h2>
+        {links_row()}
+      </div>
     </section>
   </main>
 ''' + nav('index'))

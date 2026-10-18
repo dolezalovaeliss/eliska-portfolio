@@ -585,7 +585,8 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .peek img { width: 100%; height: auto; }
 @media (hover: none), (prefers-reduced-motion: reduce) { .peek { display: none; } }
 
-/* Expertise: same inline list as Clients, grouped under small arrow labels */
-.exp-group { display: flex; flex-direction: column; gap: 8px; }
-.exp-group + .exp-group { margin-top: 16px; }
-.exp-label { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }
+/* Clients / Disciplines / Industries: three equal groups, label tight to its list, 40px between groups */
+.lists { display: flex; flex-direction: column; gap: 40px; }
+.list-group { display: flex; flex-direction: column; gap: 8px; }
+.list-group .block-title { margin-bottom: 0; }
+.clients { gap: 0 16px; }
