@@ -295,20 +295,23 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 }
 .dock > * { flex: none; }
 .dock .avatar { width: 32px; height: 32px; }
-.d-item { padding: 8px 16px; border-radius: 999px; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--on-dark-2); transition: color 150ms, background-color 150ms; }
+.d-item, .d-sub, .d-cmd { transition: color 150ms ease-out, background-color 150ms ease-out, box-shadow 150ms ease-out, transform 150ms ease-out; }
+.d-item:active, .d-sub:active, .d-cmd:active { transform: scale(0.96); }
+.d-item { padding: 8px 16px; border-radius: 999px; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--on-dark-2); }
 .d-item:hover { color: var(--on-dark); }
 .d-item.is-on { background: var(--bg); color: var(--ink); font-weight: 500; }
+/* Work group: one yellow segment; the current category is a raised light chip inside it
+   (elevation by shadow, not a dark fill that merges into the dark bar at the group's ends) */
 .d-work { display: flex; align-items: center; border-radius: 999px; background: var(--bg); }
 .d-work .d-item.is-on { background: none; }
 .d-work .sep { width: 1px; height: 16px; background: rgba(29, 29, 29, 0.2); }
 .d-sub { display: flex; gap: 8px; align-items: baseline; padding: 8px 16px; border-radius: 999px; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }
-.d-sub small { font-size: inherit; color: var(--text-2); }
-.d-sub:hover { background: rgba(29, 29, 29, 0.08); }
-.d-sub.is-on { background: var(--ink); color: var(--on-dark); font-weight: 500; }
-.d-sub.is-on small { color: var(--on-dark-2); font-weight: 400; }
+.d-sub small { font-size: inherit; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.d-sub:hover { color: var(--ink); background: rgba(29, 29, 29, 0.06); }
+.d-sub.is-on { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.08); }
 .d-div { width: 1px; height: 24px; background: rgba(255, 255, 255, 0.2); }
 .d-cmd { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); color: var(--on-dark-2); font-size: var(--fs-small); line-height: var(--lh-small); font-weight: 500; }
-.d-cmd:hover { background: rgba(255, 255, 255, 0.14); }
+.d-cmd:hover { background: rgba(255, 255, 255, 0.14); color: var(--on-dark); }
 .d-cmd img { width: 18px; height: 18px; }
 .d-cmd.icon-only { padding: 8px 16px; }
 
