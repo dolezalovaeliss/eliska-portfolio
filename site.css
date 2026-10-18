@@ -61,8 +61,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .block { gap: 24px; }
 .li p { line-height: 26px; }
 .li-t { font-weight: 450; }
-.li-n { margin-left: 8px; font-weight: 400; color: var(--ink-60); font-variant-numeric: tabular-nums; }
 .li-s { color: var(--ink-60); }
+
+/* Experience / Education as columns: name · role · years */
+.block--rows { gap: 16px; --name-col: 152px; }
+.block--edu { --name-col: 232px; }
+.row { display: grid; grid-template-columns: var(--name-col) minmax(0, 1fr) auto; column-gap: 16px; align-items: baseline; }
+.row p { line-height: 26px; }
+.li-n { color: var(--ink-60); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 
 .links { display: flex; flex-wrap: wrap; gap: 24px; color: var(--ink-60); }
 .links a:hover { color: var(--ink); }
@@ -413,6 +419,9 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
   .card-top { padding: 0 8px 8px; }
   .card-row { padding: 16px 8px; }
   .card-row .k { width: 72px; }
+  /* Columns collapse: name + years on top, role underneath */
+  .row { grid-template-columns: minmax(0, 1fr) auto; }
+  .row .li-s { grid-column: 1 / -1; grid-row: 2; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }

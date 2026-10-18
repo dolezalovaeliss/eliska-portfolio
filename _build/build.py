@@ -5,7 +5,7 @@ import re, json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018c'
+V = '20261018d'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -124,9 +124,8 @@ def links_row():
     return f'''<div class="links"><a href="mailto:{EMAIL}">Email ↗</a><a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn ↗</a><a href="{CV}" target="_blank" rel="noopener">CV ↗</a></div>'''
 
 def rows(items):
-    # Two-line items (jakub.kr): name + years on top, role underneath in grey
-    def years(c): return f' <span class="li-n">{c}</span>' if c else ''
-    return '\n'.join(f'      <div class="li"><p class="li-t">{a}{years(c)}</p><p class="li-s">{b}</p></div>' for a, b, c in items)
+    # Columns: name · role · years, typography after jakub.kr (title 450 ink, details grey)
+    return '\n'.join(f'      <div class="row"><p class="li-t">{a}</p><p class="li-s">{b}</p><p class="li-n">{c}</p></div>' for a, b, c in items)
 
 EXPERIENCE = [
     ('Cybertrends', 'Head of Design', '2026'),
@@ -184,7 +183,7 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       </div>
     </section>
 
-    <section class="block">
+    <section class="block block--rows">
       <h2 class="block-title">Experience</h2>
 {rows(EXPERIENCE[:4] + [EXPERIENCE[7]])}
     </section>
@@ -221,12 +220,12 @@ write('about.html', head('About — Eliška Doležalová', 'About Eliška Dolež
 {chr(10).join(f'      <div class="li"><p class="li-t">{a}</p><p class="li-s">{b}</p></div>' for a, b in WHAT)}
     </section>
 
-    <section class="block">
+    <section class="block block--rows">
       <h2 class="block-title">Experience</h2>
 {rows(EXPERIENCE)}
     </section>
 
-    <section class="block">
+    <section class="block block--rows block--edu">
       <h2 class="block-title">Education</h2>
 {rows(EDUCATION)}
     </section>
