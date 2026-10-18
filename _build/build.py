@@ -30,7 +30,7 @@ CATS = [
     ('product', 'Product design', 'work-product.html', PRODUCT_INTRO),
     ('web', 'Web design', 'work.html', 'Designing and shipping responsive websites, from a single landing page to a full site.'),
     ('brand', 'Branding', 'work-branding.html', 'Logos, colour and type systems, and the visual language that makes a brand feel like itself.'),
-    ('motion', 'Animations', 'work-animations.html', 'Motion design, UI animation and brand motion.'),
+    ('motion', 'Visual & motion', 'work-visual-motion.html', 'Visuals and motion for existing brands: animations, key visuals and the graphics around them.'),
 ]
 CAT = {c[0]: c for c in CATS}
 COMPACT = set()  # every Work entry shows its image
