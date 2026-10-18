@@ -12,19 +12,44 @@
   if (ctx) ctx.addEventListener('click', function () { sheet(!root.classList.contains('sheet-open')); });
   if (scrim) scrim.addEventListener('click', function () { sheet(false); });
 
+  // ---- Light / dark mode (saved per visitor; follows the system until chosen) ----
+  function toggleTheme() {
+    var dark = root.dataset.theme !== 'dark';
+    if (dark) root.dataset.theme = 'dark'; else delete root.dataset.theme;
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+  }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (b) { b.addEventListener('click', toggleTheme); });
+
   // ---- Command palette (⌘K) ----
   var cmdk = document.querySelector('.cmdk');
   var input = cmdk && cmdk.querySelector('input');
   var list = cmdk && cmdk.querySelector('.cmdk-list');
   var items = (window.SITE_INDEX || []);
   var active = 0;
+  // Search: every word of the query must appear in the title, subtitle or keywords (accents ignored)
+  function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+  var hits = [];
   function render() {
-    var q = input.value.trim().toLowerCase();
-    var hits = items.filter(function (i) { return !q || (i.t + ' ' + i.s).toLowerCase().indexOf(q) > -1; });
+    var words = norm(input.value).split(/\s+/).filter(Boolean);
+    hits = items.filter(function (i) {
+      var hay = norm(i.t + ' ' + i.s + ' ' + (i.k || ''));
+      // loose stems so 'architecture' finds 'architectural', 'designs' finds 'design'
+      return words.every(function (w) { return hay.indexOf(w) > -1 || (w.length > 5 && hay.indexOf(w.slice(0, -2)) > -1); });
+    });
     active = Math.min(active, Math.max(0, hits.length - 1));
     list.innerHTML = hits.map(function (i, n) {
-      return '<a href="' + i.h + '"' + (n === active ? ' class="is-active"' : '') + '><span>' + i.t + '</span><small>' + i.s + '</small></a>';
-    }).join('') || '<a href="#" onclick="return false"><span>Nothing found</span></a>';
+      return '<a href="' + (i.h || '#') + '" data-n="' + n + '"' + (n === active ? ' class="is-active"' : '') + '><span>' + i.t + '</span><small>' + i.s + '</small></a>';
+    }).join('') || '<p class="cmdk-empty">Nothing found. Try “phone”, “email”, “CV” or a project name.</p>';
+  }
+  function run(i, e) {
+    if (!i) return;
+    if (i.a) {
+      if (e) e.preventDefault();
+      if (i.a === 'copy' && navigator.clipboard) navigator.clipboard.writeText(i.s).then(function () { list.innerHTML = '<p class="cmdk-empty">Copied ' + i.s + '</p>'; setTimeout(function () { palette(false); }, 900); });
+      if (i.a === 'theme') { toggleTheme(); palette(false); }
+      return;
+    }
+    if (!e) location.href = i.h;
   }
   function palette(open) {
     if (!cmdk) return;
@@ -35,11 +60,12 @@
   if (cmdk) {
     cmdk.addEventListener('click', function (e) { if (e.target === cmdk) palette(false); });
     input.addEventListener('input', function () { active = 0; render(); });
+    list.addEventListener('click', function (e) { var a = e.target.closest('a[data-n]'); if (a) run(hits[+a.dataset.n], e); });
     input.addEventListener('keydown', function (e) {
       var links = list.querySelectorAll('a');
       if (e.key === 'ArrowDown') { active = Math.min(active + 1, links.length - 1); render(); e.preventDefault(); }
       if (e.key === 'ArrowUp') { active = Math.max(active - 1, 0); render(); e.preventDefault(); }
-      if (e.key === 'Enter' && links[active]) { location.href = links[active].getAttribute('href'); }
+      if (e.key === 'Enter') { e.preventDefault(); run(hits[active]); }
     });
   }
   document.addEventListener('keydown', function (e) {

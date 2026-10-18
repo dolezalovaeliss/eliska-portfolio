@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261018t'
+V = '20261018u'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@eliskadolezalova.cz'
@@ -60,7 +60,8 @@ def edge_fill(src):
         return '#000000'
 
 def icon(name, w=16, alt=''):
-    return f'<img src="images/icons/{name}.svg" width="{w}" height="{w}" alt="{alt}" />'
+    # Icons are masks filled with currentColor, so they follow the text colour in light and dark mode
+    return f'<span class="i" style="--i: url(images/icons/{name}.svg); --s: {w}px" aria-hidden="true"></span>'
 
 def head(title, desc, url, extra=''):
     t = esc(title)
@@ -82,6 +83,7 @@ def head(title, desc, url, extra=''):
 <meta property="og:url" content="https://elisdolezalova.cz/{url}" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="stylesheet" href="site.css?v={V}" />{extra}
+<script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark'}}catch(e){{}}</script>
 </head>
 <body>
 '''
@@ -110,6 +112,7 @@ def nav(page, cat=None):
     {item('contact', 'Contact', 'contact.html')}
     <span class="d-div" aria-hidden="true"></span>
     {cmd}
+    <button class="d-cmd icon-only d-theme" type="button" data-theme-toggle aria-label="Switch light or dark mode">{icon('moon', 18)}{icon('sun', 18)}</button>
   </nav>'''
     label = {'index': 'Index', 'about': 'About me', 'contact': 'Contact', 'work': 'Work'}[page]
     ctx_text = f'<span>Work</span><b>{CAT[cat][1]}</b>' if cat else f'<b>{label}</b>'
@@ -125,6 +128,7 @@ def nav(page, cat=None):
     <span class="grab" aria-hidden="true"></span>
     <div class="s-group"><p class="s-label">Work</p>{sheet_work}</div>
     <div class="s-group"><p class="s-label">Pages</p>{pages}</div>
+    <div class="s-group"><button class="s-item" type="button" data-theme-toggle><span class="s-theme-l">Dark mode</span><span class="s-theme-d">Light mode</span></button></div>
   </div>
   <div class="cmdk" role="dialog" aria-label="Search">
     <div class="cmdk-box">
@@ -432,7 +436,20 @@ for p in P:
 ''' + nav('work', cat))
 
 # ---------- Search index ----------
-idx = [{'t': 'Index', 's': 'Page', 'h': 'index.html'}, {'t': 'About me', 's': 'Page', 'h': 'about.html'}, {'t': 'Contact', 's': 'Page', 'h': 'contact.html'}]
-idx += [{'t': l, 's': f'{len(in_cat(k))} projects', 'h': h} for k, l, h, _ in CATS]
-idx += [{'t': p['title'], 's': CAT[primary(p)][1], 'h': p['href']} for p in P]
+TEL = 'tel:' + PHONE.replace(' ', '')
+idx = [
+    {'t': 'Index', 's': 'Page', 'h': 'index.html', 'k': 'home start intro uvod domu'},
+    {'t': 'About me', 's': 'Page', 'h': 'about.html', 'k': 'about bio experience education cv resume work history skills o mne zkusenosti vzdelani'},
+    {'t': 'Contact', 's': 'Page', 'h': 'contact.html', 'k': 'contact email mail phone number call telephone tel linkedin cv kontakt telefon cislo'},
+    {'t': 'Call ' + PHONE, 's': 'Phone', 'h': TEL, 'k': 'phone number call telephone mobile tel contact zavolat telefon cislo'},
+    {'t': 'Write an email', 's': EMAIL, 'h': 'mailto:' + EMAIL, 'k': 'email mail write message contact napsat'},
+    {'t': 'Copy email address', 's': EMAIL, 'a': 'copy', 'k': 'email mail copy address clipboard kopirovat'},
+    {'t': 'LinkedIn', 's': 'Profile ↗', 'h': LINKEDIN, 'k': 'linkedin profile social contact'},
+    {'t': 'Download CV', 's': 'PDF', 'h': CV, 'k': 'cv resume curriculum pdf download zivotopis'},
+    {'t': 'Switch light / dark mode', 's': 'Appearance', 'a': 'theme', 'k': 'dark light mode theme night appearance tmavy svetly rezim'},
+]
+idx += [{'t': l, 's': f'{len(in_cat(k))} projects', 'h': h, 'k': 'work category ' + intro} for k, l, h, intro in CATS]
+idx += [{'t': p['title'], 's': CAT[primary(p)][1], 'h': p['href'],
+         'k': ' '.join([p.get('client') or CLIENT.get(p['href'], ''), ' '.join(CAT[t][1] for t in p['tags']), ' '.join(p['outputs']), strip(p['lead'])])} for p in P]
+idx += [{'t': t, 's': 'Product design · ' + c, 'h': 'work-product.html', 'k': d} for t, c, _, d in PRODUCT]
 write('site-data.js', 'window.SITE_INDEX = ' + json.dumps(idx, ensure_ascii=False) + ';\n')
