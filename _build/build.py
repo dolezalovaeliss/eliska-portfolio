@@ -9,7 +9,7 @@ P = json.loads((ROOT / '_build' / 'projects.json').read_text())
 V = '20261019f'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
-EMAIL = 'hello@eliskadolezalova.cz'
+EMAIL = 'hello@elisdolezalova.cz'
 PHONE = '+420 778 036 943'
 LINKEDIN = 'https://www.linkedin.com/in/eliška-doležalová-1101631a1/'
 CV = 'images/eliska-dolezalova-cv.pdf'
