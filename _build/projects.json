@@ -170,7 +170,7 @@
   "slides": [
    {
     "type": "img",
-    "src": "images/projects/cybertrends-brand/orb.jpg",
+    "src": "images/projects/cybertrends-brand/cover.jpg",
     "alt": "Cybertrends orb: grain gathering into a sphere on a dark gradient"
    }
   ],
@@ -199,9 +199,14 @@
     "type": "img",
     "src": "images/projects/cybertrends-brand/orb-mono.jpg",
     "alt": "Monochrome orb made of white grain on black"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/orb.jpg",
+    "alt": "Colour orb: sage and peach grain gathering into a sphere"
    }
   ],
-  "cover": "images/projects/cybertrends-brand/orb.jpg",
+  "cover": "images/projects/cybertrends-brand/cover.jpg",
   "cover_video": null
  },
  {
