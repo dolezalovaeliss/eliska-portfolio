@@ -205,9 +205,18 @@ CLIENTS = [
 DISCIPLINES = ['Product Design', 'UX Research', 'Information Architecture', 'Design Systems', 'Prototyping',
                'Usability Testing', 'Web Design', 'Landing Pages', 'Brand Identity', 'Logo Design', 'Art Direction',
                'Typography', 'Motion Design', 'Campaigns', 'AI Prototyping', 'Context Engineering']
-INDUSTRIES = ['Technology & Software', 'Cybersecurity & Insurance', 'Data & AI', 'Finance & Investment',
-              'Real Estate & Architecture', 'Healthcare', 'Film & Culture', 'Non-profit & Advocacy',
-              'Retail & Jewellery', 'Beauty', 'Mobility']
+INDUSTRIES = [
+    ('Technology & Software', 'project-1webit.html', _cover('project-1webit.html')),
+    ('Cybersecurity & Insurance', 'project-armacover.html', _cover('project-armacover.html')),
+    ('Data & AI', 'project-startaiming.html', _cover('project-startaiming.html')),
+    ('Finance & Investment', 'project-dluhopisomat.html', _cover('project-dluhopisomat.html')),
+    ('Real Estate & Architecture', 'project-atelier3.html', _cover('project-atelier3.html')),
+    ('Healthcare', None, None),
+    ('Film & Culture', 'project-kviff.html', _cover('project-kviff.html')),
+    ('Non-profit & Advocacy', 'project-prague-pride.html', _cover('project-prague-pride.html')),
+    ('Retail & Jewellery', 'project-odstrcil.html', _cover('project-odstrcil.html')),
+    ('Beauty', None, None), ('Mobility', None, None),
+]
 def inline(items):
     return '\n        '.join(f'<span>{esc(n)}</span>' for n in items)
 
@@ -227,9 +236,9 @@ def services_html():
             <p>{esc(d)}</p>
           </div>''' for k, t, d in SERVICES)
 
-def clients_html():
+def clients_html(items=CLIENTS):
     out = []
-    for n, h, img in CLIENTS:
+    for n, h, img in items:
         if h:
             out.append(f'<a href="{h}" data-peek="{img}">{esc(n)}</a>')
         else:
@@ -280,7 +289,9 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       </div>
       <div class="list-group">
         <h2 class="block-title">Industries</h2>
-        <p class="clients">{inline(INDUSTRIES)}</p>
+        <p class="clients">
+        {clients_html(INDUSTRIES)}
+        </p>
       </div>
       <div class="list-group">
         <h2 class="block-title">Services</h2>
