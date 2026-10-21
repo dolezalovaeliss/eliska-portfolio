@@ -265,7 +265,8 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .gallery { display: flex; flex-direction: column; gap: 24px; margin-top: 120px; }
 /* Justified rows: width share = aspect ratio, so all pictures in a row end up the same height */
 .g-row { display: flex; gap: 24px; align-items: flex-start; }
-.g-row > .g-img { flex: var(--r, 1.5) 1 0; min-width: 0; }
+/* grow ×100 so a row whose ratios sum below 1 (one portrait) still fills its width */
+.g-row > .g-img { flex: calc(var(--r, 1.5) * 100) 1 0; min-width: 0; }
 .g-panel { padding: 40px; border-radius: var(--r-img); background: var(--fill); }
 .g-panel > .g-row { margin: 0 auto; }
 @media (max-width: 640px) { .g-panel { padding: 16px; } }
