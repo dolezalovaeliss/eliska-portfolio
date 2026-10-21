@@ -484,7 +484,7 @@ for p in P:
         return rows
     pics = [m for m in rest if m['type'] != 'page']
     pages = [m for m in rest if m['type'] == 'page']
-    # Greedy justified rows: pictures of similar shape (within 3x aspect) share a row while it stays
+    # Greedy justified rows ("row": true in the data forces a new row): pictures of similar shape (within 3x aspect) share a row while it stays
     # at least 300px tall at 1120px wide; only very tall rows (over 1000px, i.e. portraits) are narrowed and centred, so everything else lines up with the full content width.
     W, GAP, MIN_H, MAX_H = 1120, 24, 300, 1000
     def row_h(r): return (W - GAP * (len(r) - 1)) / sum(ratio(x) for x in r)
@@ -492,7 +492,7 @@ for p in P:
     for m in pics:
         trial = cur + [m]
         rs = [ratio(x) for x in trial]
-        if cur and (row_h(trial) < MIN_H or max(rs) / min(rs) > 3):
+        if cur and (m.get('row') or row_h(trial) < MIN_H or max(rs) / min(rs) > 3):
             rows.append(cur); cur = [m]
         else:
             cur = trial

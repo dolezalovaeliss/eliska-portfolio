@@ -860,16 +860,6 @@
     "type": "img",
     "src": "images/projects/prague-pride/01.jpg",
     "alt": "Prague Pride Festival"
-   },
-   {
-    "type": "img",
-    "src": "images/projects/prague-pride/02.jpg",
-    "alt": "Prague Pride Festival"
-   },
-   {
-    "type": "img",
-    "src": "images/projects/prague-pride/03.jpg",
-    "alt": "Prague Pride Festival"
    }
   ],
   "gallery": [
@@ -885,13 +875,25 @@
    },
    {
     "type": "img",
-    "src": "images/projects/prague-pride/02.jpg",
-    "alt": "Prague Pride Festival"
+    "src": "images/projects/prague-pride/04.jpg",
+    "alt": "Prague Pride Festival — Kde domov můj? campaign post",
+    "row": true
    },
    {
     "type": "img",
-    "src": "images/projects/prague-pride/03.jpg",
-    "alt": "Prague Pride Festival"
+    "src": "images/projects/prague-pride/05.jpg",
+    "alt": "Prague Pride Festival — Kde domov můj? campaign post"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/06.jpg",
+    "alt": "Prague Pride Festival — Kde domov můj? campaign post",
+    "row": true
+   },
+   {
+    "type": "img",
+    "src": "images/projects/prague-pride/07.jpg",
+    "alt": "Prague Pride Festival — Kde domov můj? campaign post"
    }
   ],
   "cover": "images/projects/prague-pride/cover.jpg",
