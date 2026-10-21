@@ -1402,5 +1402,52 @@
   ],
   "cover": "images/projects/prague-pride-merch/cover.png",
   "cover_video": null
+ },
+ {
+  "href": "project-daramis.html",
+  "tags": [
+   "motion"
+  ],
+  "title": "Ad Campaign – Estate Magazine",
+  "client": "Daramis",
+  "lead": "Full-page print ad for Daramis, a Prague residential developer, celebrating 25 years on the market. One page brings together the developments the company has built, from riverside apartments to green courtyards.",
+  "more": [
+   "A loose grid of architectural photography carries the story, with two numbers set alongside it: over 4,300 homes built and more than 7,500 happy residents. The ad comes in a dark green and a white version so it sits well in different magazine layouts."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Daramis"
+   ],
+   [
+    "Role",
+    "Graphic designer"
+   ],
+   [
+    "Year",
+    "2025"
+   ]
+  ],
+  "outputs": [
+   "Print ad",
+   "Layout",
+   "Typography"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/daramis/cover.jpg",
+    "alt": "Daramis magazine ad in dark green and white versions"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/daramis/ad.jpg",
+    "alt": "This is Daramis: full-page magazine ad, dark green version"
+   }
+  ],
+  "cover": "images/projects/daramis/cover.jpg",
+  "cover_video": null
  }
 ]
