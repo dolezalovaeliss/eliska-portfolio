@@ -134,6 +134,72 @@
   "cover_video": null
  },
  {
+  "href": "project-cybertrends-brand.html",
+  "tags": [
+   "brand"
+  ],
+  "title": "Cybertrends Brand Identity",
+  "client": "Cybertrends",
+  "lead": "Brand identity for Cybertrends, a company building digital protection products. Security is a noisy, fear-driven category, so the identity is built around one idea: clear sight. It turns scattered risk into calm, real protection, without theatre or jargon.",
+  "more": [
+   "The visual language comes from a single metaphor. Noise is the threat landscape, scattered grain with no shape and no meaning. The orb is the protection, grain gathering into a shell around what matters. Sight is the promise: what matters stays sharp and the rest falls back into grain.",
+   "That grain runs through everything, from particle type and the orb to photography treated with the same texture. The voice follows the same rule. Calm, clear and quietly confident: plain words, no dramatised threats, judged by what we remove, not what we add."
+  ],
+  "meta": [
+   [
+    "Client",
+    "Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "outputs": [
+   "Brand idea",
+   "Visual language",
+   "Typography",
+   "Colour",
+   "Photography",
+   "Brand guidelines"
+  ],
+  "slides": [
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/cover.jpg",
+    "alt": "Cybertrends orb: grain gathering into a sphere on a dark gradient"
+   }
+  ],
+  "gallery": [
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/symbol.jpg",
+    "alt": "Cybertrends symbol on a soft dark gradient"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/grainy-type.jpg",
+    "alt": "Grainy particle type: Confidence for an evolving digital world, We turn the noise into confidence, fraud, scams"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/figure.jpg",
+    "alt": "A human figure made of scattered white grain on black"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/photography.jpg",
+    "alt": "Photography style: dark, grainy black and white images of mountains, a phone, a crossing and texture"
+   }
+  ],
+  "cover": "images/projects/cybertrends-brand/cover.jpg",
+  "cover_video": null
+ },
+ {
   "href": "project-cybertrends-logo.html",
   "tags": [
    "brand"
