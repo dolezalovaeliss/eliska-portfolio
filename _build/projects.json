@@ -170,15 +170,15 @@
   "slides": [
    {
     "type": "img",
-    "src": "images/projects/cybertrends-brand/cover.jpg",
+    "src": "images/projects/cybertrends-brand/orb.jpg",
     "alt": "Cybertrends orb: grain gathering into a sphere on a dark gradient"
    }
   ],
   "gallery": [
    {
     "type": "img",
-    "src": "images/projects/cybertrends-brand/symbol.jpg",
-    "alt": "Cybertrends symbol on a soft dark gradient"
+    "src": "images/projects/cybertrends-brand/figure.jpg",
+    "alt": "A human figure made of scattered white grain on black"
    },
    {
     "type": "img",
@@ -187,16 +187,21 @@
    },
    {
     "type": "img",
-    "src": "images/projects/cybertrends-brand/figure.jpg",
-    "alt": "A human figure made of scattered white grain on black"
+    "src": "images/projects/cybertrends-brand/gradients-colour.jpg",
+    "alt": "Four soft grainy gradients in peach, sage and black"
    },
    {
     "type": "img",
-    "src": "images/projects/cybertrends-brand/photography.jpg",
-    "alt": "Photography style: dark, grainy black and white images of mountains, a phone, a crossing and texture"
+    "src": "images/projects/cybertrends-brand/gradients-mono.jpg",
+    "alt": "Four soft grainy gradients in grey and black"
+   },
+   {
+    "type": "img",
+    "src": "images/projects/cybertrends-brand/orb-mono.jpg",
+    "alt": "Monochrome orb made of white grain on black"
    }
   ],
-  "cover": "images/projects/cybertrends-brand/cover.jpg",
+  "cover": "images/projects/cybertrends-brand/orb.jpg",
   "cover_video": null
  },
  {
