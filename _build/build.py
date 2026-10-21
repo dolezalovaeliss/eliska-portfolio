@@ -206,12 +206,12 @@ DISCIPLINES = ['Product Design', 'UX Research', 'Information Architecture', 'Des
                'Usability Testing', 'Web Design', 'Landing Pages', 'Brand Identity', 'Logo Design', 'Art Direction',
                'Typography', 'Motion Design', 'Campaigns', 'AI Prototyping', 'Context Engineering']
 INDUSTRIES = [
-    ('Technology & Software', 'project-1webit.html', _cover('project-1webit.html')),
-    ('Cybersecurity & Insurance', 'project-armacover.html', _cover('project-armacover.html')),
-    ('Data & AI', 'project-startaiming.html', _cover('project-startaiming.html')),
+    ('Technology & Software', 'work-product.html#wsp-extension', 'images/projects/product/wsp-extension.png'),
+    ('Cybersecurity & Insurance', 'work-product.html#armacover-app', 'images/projects/product/armacover-app.png'),
+    ('Data & AI', 'work-product.html#asset-layout-editor', 'images/projects/product/asset-layout-editor.png'),
     ('Finance & Investment', 'project-dluhopisomat.html', _cover('project-dluhopisomat.html')),
     ('Real Estate & Architecture', 'project-atelier3.html', _cover('project-atelier3.html')),
-    ('Healthcare', None, None),
+    ('Healthcare', 'work-product.html#altoa-orders', 'images/projects/product/altoa-orders.png'),
     ('Film & Culture', 'project-kviff.html', _cover('project-kviff.html')),
     ('Non-profit & Advocacy', 'project-prague-pride.html', _cover('project-prague-pride.html')),
     ('Retail & Jewellery', 'project-odstrcil.html', _cover('project-odstrcil.html')),
