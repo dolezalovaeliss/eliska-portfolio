@@ -11,6 +11,7 @@
   }
   if (ctx) ctx.addEventListener('click', function () { sheet(!root.classList.contains('sheet-open')); });
   if (scrim) scrim.addEventListener('click', function () { sheet(false); });
+  document.querySelectorAll('.sheet .grab, .sheet .s-label, .sheet .s-item').forEach(function (el, i) { el.style.setProperty('--n', i); });
 
   // ---- Light / dark mode (saved per visitor; follows the system until chosen) ----
   function toggleTheme() {
@@ -205,4 +206,61 @@
     a.addEventListener('mousemove', move);
     a.addEventListener('mouseleave', function () { peek.classList.remove('is-on'); });
   });
+})();
+
+// ---- Dock motion: the bar keeps its shape across page loads ----
+// Pages are static, so the Work group arrives already open or closed. Before a dock link navigates we
+// save the Work segment's width and the category chip's position; the next page animates from them.
+(function () {
+  var dock = document.querySelector('.dock');
+  if (!dock || !dock.animate) return;
+  var KEY = 'dock', EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+  function seg() { return dock.querySelector('.d-work') || dock.querySelector('.d-item[href="work.html"]'); }
+  function box(el, ref) { var r = el.getBoundingClientRect(); return { x: r.left - ref.left, w: r.width }; }
+
+  dock.addEventListener('click', function (e) {
+    if (!e.target.closest('a[href]') || !dock.offsetWidth) return;
+    var w = seg(), r = w.getBoundingClientRect(), chip = w.querySelector('.d-sub.is-on');
+    var s = { w: r.width, open: w.classList.contains('d-work'), t: Date.now() };
+    if (chip) s.chip = box(chip, r);
+    try { sessionStorage.setItem(KEY, JSON.stringify(s)); } catch (err) {}
+  });
+
+  var s;
+  try { s = JSON.parse(sessionStorage.getItem(KEY)); sessionStorage.removeItem(KEY); } catch (err) {}
+  if (!s || Date.now() - s.t > 10000 || !dock.offsetWidth || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var w = seg(), open = w.classList.contains('d-work'), cs = getComputedStyle(w);
+  var css = getComputedStyle(document.documentElement);
+  var yellow = css.getPropertyValue('--bg').trim(), ink = css.getPropertyValue('--ink').trim();
+  var label = open ? w.querySelector('.d-item') : w;
+
+  if (open && !s.open) {
+    // Expand: the yellow segment grows out of the Work label, the categories follow in a short stagger
+    var dim = getComputedStyle(dock.querySelector('.d-item:not(.is-on)') || label).color;
+    w.style.overflow = 'hidden';
+    w.animate([{ width: s.w + 'px', backgroundColor: 'transparent' }, { width: cs.width, backgroundColor: cs.backgroundColor }],
+      { duration: 800, easing: EASE }).onfinish = function () { w.style.overflow = ''; };
+    label.animate([{ color: dim }, { color: getComputedStyle(label).color }], { duration: 500, easing: EASE });
+    w.querySelectorAll('.sep, .d-sub').forEach(function (el, i) {
+      el.animate([{ opacity: 0, transform: 'translateX(-8px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 600, delay: 150 + i * 60, easing: EASE, fill: 'backwards' });
+    });
+  } else if (!open && s.open) {
+    // Collapse: the segment shrinks back into the Work label and its yellow fades out
+    w.animate([{ width: s.w + 'px', backgroundColor: yellow, color: ink }, { width: cs.width, backgroundColor: cs.backgroundColor, color: cs.color }],
+      { duration: 700, easing: EASE });
+  } else if (open && s.open) {
+    // Category switch: the light chip slides from the old category to the new one (or into the Work label)
+    var r = w.getBoundingClientRect(), chip = w.querySelector('.d-sub.is-on');
+    var from = s.chip || box(label, r), to = chip ? box(chip, r) : box(label, r);
+    if (from.x === to.x && from.w === to.w) return;
+    var g = document.createElement('span');
+    g.className = 'd-ghost';
+    w.appendChild(g);
+    w.classList.add('is-sliding');
+    g.animate([{ transform: 'translateX(' + from.x + 'px)', width: from.w + 'px', opacity: s.chip ? 1 : 0 },
+               { transform: 'translateX(' + to.x + 'px)', width: to.w + 'px', opacity: chip ? 1 : 0 }],
+      { duration: 700, easing: EASE, fill: 'both' }).onfinish = function () { w.classList.remove('is-sliding'); g.remove(); };
+  }
 })();

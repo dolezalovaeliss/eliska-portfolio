@@ -373,7 +373,10 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
    (elevation by shadow, not a dark fill that merges into the dark bar at the group's ends) */
 /* Inset 4px so the chip sits inside the group with even air on all sides (concentric pills).
    Exception to the 8px spacing scale: 8px here would make the bar taller than its other items. */
-.d-work { display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: var(--bg); }
+.d-work { display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: var(--bg); position: relative; isolation: isolate; }
+/* Sliding chip used by site.js when switching category; the real chip hides while it moves */
+.d-ghost { position: absolute; left: 0; top: 4px; bottom: 4px; z-index: -1; border-radius: 999px; background: var(--chip); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.08); pointer-events: none; }
+.d-work.is-sliding .d-sub.is-on { background: none; box-shadow: none; }
 .d-work .d-item, .d-work .d-sub { padding-top: 4px; padding-bottom: 4px; }
 .d-work .d-item.is-on { background: none; }
 .d-work .sep { flex: none; width: 1px; height: 16px; margin: 0 8px; background: var(--pill-line); }
@@ -410,7 +413,8 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .ctx .avatar { width: 32px; height: 32px; }
 .ctx span { color: var(--on-dark-2); }
 .ctx b { font-weight: 500; }
-.ctx .i { width: 18px; height: 18px; }
+.ctx .i { width: 18px; height: 18px; transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1); }
+.sheet-open .ctx .i { transform: rotate(180deg); }
 .scrim { position: fixed; inset: 0; z-index: 60; background: var(--scrim); opacity: 0; pointer-events: none; transition: opacity 200ms; }
 .sheet {
   position: fixed;
@@ -442,6 +446,13 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 .s-item.is-on { background: var(--bg); color: var(--ink); font-weight: 500; }
 .s-item.is-on small { color: var(--text-2); font-weight: 400; }
 .s-item.is-on .i { display: block; }
+/* Sheet rows rise in one after another as it opens; on close they just fade with the sheet */
+.js .sheet .grab, .js .sheet .s-label, .js .sheet .s-item { opacity: 0; transform: translateY(8px); transition: opacity 150ms ease-out, transform 150ms ease-out; }
+.sheet-open .sheet .grab, .sheet-open .sheet .s-label, .sheet-open .sheet .s-item {
+  opacity: 1; transform: none;
+  transition: opacity 450ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(90ms + var(--n, 0) * 40ms);
+}
 
 /* Command palette (opened from the dock's search button) */
 .cmdk { position: fixed; inset: 0; z-index: 70; display: none; align-items: flex-start; justify-content: center; padding: 15vh var(--pad) var(--pad); background: var(--scrim); }
