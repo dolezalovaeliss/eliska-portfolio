@@ -264,3 +264,26 @@
       { duration: 700, easing: EASE, fill: 'both' }).onfinish = function () { w.classList.remove('is-sliding'); g.remove(); };
   }
 })();
+
+/* Selected work folders: on hover, pull the next image up out of the pocket every second */
+(function () {
+  document.querySelectorAll('.folder').forEach(function (f) {
+    var imgs = f.querySelectorAll('.folder-img'), i = 0, t = null, first = null;
+    if (imgs.length < 2) return;
+    function show(n) {
+      imgs.forEach(function (im) { im.classList.remove('is-prev'); });
+      imgs[i].classList.remove('is-on');
+      imgs[i].classList.add('is-prev');
+      i = n;
+      imgs[i].classList.add('is-on');
+    }
+    function next() { show((i + 1) % imgs.length); }
+    f.addEventListener('mouseenter', function () {
+      first = setTimeout(function () { next(); t = setInterval(next, 1100); }, 150);
+    });
+    f.addEventListener('mouseleave', function () {
+      clearTimeout(first); clearInterval(t);
+      if (i !== 0) show(0);
+    });
+  });
+})();

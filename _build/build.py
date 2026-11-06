@@ -140,6 +140,7 @@ def nav(page, cat=None):
   <div class="lb" role="dialog" aria-label="Full image"><button class="lb-close" type="button">Close</button><img src="" alt="" /></div>
   <script src="site-data.js?v={V}"></script>
   <script src="site.js?v={V}"></script>
+  <script data-goatcounter="https://elisdolezalova.goatcounter.com/count" async src="count.js"></script>
 </body>
 </html>
 '''
@@ -202,9 +203,23 @@ CLIENTS = [
     ('1. Web IT', 'project-1webit.html', _cover('project-1webit.html')),
     ('Avon', None, None), ('Uniqway', None, None), ('Meffert', None, None),
 ]
-DISCIPLINES = ['Product Design', 'UX Research', 'Information Architecture', 'Design Systems', 'Prototyping',
-               'Usability Testing', 'Web Design', 'Landing Pages', 'Brand Identity', 'Logo Design', 'Art Direction',
-               'Typography', 'Motion Design', 'Campaigns', 'AI Prototyping', 'Context Engineering']
+DISCIPLINES = [
+    ('Product Design', 'work-product.html#wsp-dashboard', 'images/projects/product/wsp-dashboard.png'),
+    ('UX Research', 'import-metadata.html', 'images/projects/import-metadata/figma-import-design.png'),
+    ('Information Architecture', 'asset-layout-editor.html', 'images/projects/asset-layout-editor/overview-pinned.jpg'),
+    ('Design Systems', 'work-product.html#armacover-dwm', 'images/projects/product/armacover-dwm.png'),
+    ('Prototyping', 'work-product.html#wsp-extension', 'images/projects/product/wsp-extension.png'),
+    ('Usability Testing', None, None),
+    ('Web Design', 'project-startaiming.html', _cover('project-startaiming.html')),
+    ('Landing Pages', 'project-esens.html', _cover('project-esens.html')),
+    ('Brand Identity', 'project-cybertrends-brand.html', _cover('project-cybertrends-brand.html')),
+    ('Logo Design', 'project-armacover-logo.html', _cover('project-armacover-logo.html')),
+    ('Art Direction', 'project-prague-pride-merch.html', _cover('project-prague-pride-merch.html')),
+    ('Typography', 'project-1webit.html', _cover('project-1webit.html')),
+    ('Motion Design', 'project-webscannerpro.html', _cover('project-webscannerpro.html')),
+    ('Campaigns', 'project-cybertrends-ooh.html', _cover('project-cybertrends-ooh.html')),
+    ('AI Prototyping', None, None), ('Context Engineering', None, None),
+]
 INDUSTRIES = [
     ('Technology & Software', 'work-product.html#wsp-extension', 'images/projects/product/wsp-extension.png'),
     ('Cybersecurity & Insurance', 'work-product.html#armacover-app', 'images/projects/product/armacover-app.png'),
@@ -246,15 +261,19 @@ def clients_html(items=CLIENTS):
     return '\n        '.join(out)
 
 # ---------- Index ----------
-STACK_IMGS = {
-    'product': ['images/projects/product/armacover-app.png', 'images/projects/product/wsp-dashboard.png', 'images/projects/product/asset-layout-editor.png'],
-    'web': ['images/projects/atelier3/cover.jpg', 'images/projects/esens/cover.jpg', 'images/projects/cybertrends/cover.jpg'],
-    'brand': ['images/projects/armacover-logo/symbol.png', 'images/projects/cybertrends-logo/wordmark.png', 'images/projects/cybertrends-logo/symbol.png'],
+FOLDERS = {
+    'product': ['images/projects/product/asset-layout-editor.png', 'images/projects/product/wsp-dashboard.png', 'images/projects/product/armacover-app.png'],
+    'web': ['images/projects/cybertrends/cover.jpg', 'images/projects/atelier3/cover.jpg', 'images/projects/esens/cover.jpg'],
+    'brand': ['images/projects/cybertrends-logo/symbol.png', 'images/projects/cybertrends-logo/wordmark.png', 'images/projects/armacover-logo/symbol.png'],
 }
-def stack_imgs(k): return ''.join('<img src="%s" alt="" loading="lazy" />' % s for s in STACK_IMGS[k])
-stacks = '\n'.join(f'''        <a class="stack" href="{CAT[k][2]}">
-          <div class="stack-cards" aria-hidden="true">{stack_imgs(k)}</div>
-          <div class="stack-label"><b>{CAT[k][1]}</b><span>{len(in_cat(k))} projects</span></div>
+def folder_imgs(k):
+    c = ' folder-img--center' if k == 'brand' else ''
+    return ''.join(f'<img class="folder-img{c}{" is-on" if i == 0 else ""}" src="{src}" alt="" loading="lazy" />' for i, src in enumerate(FOLDERS[k]))
+stacks = '\n'.join(f'''        <a class="folder" href="{CAT[k][2]}">
+          <div class="folder-imgs" aria-hidden="true">{folder_imgs(k)}</div>
+          <div class="folder-pocket">
+            <div class="folder-name"><b>{CAT[k][1]}</b></div>
+          </div>
         </a>''' for k in ('product', 'web', 'brand'))
 write('index.html', head('Eliška Doležalová — Product & Visual Designer', 'Product & visual designer based in Prague.', '') + f'''
   <main class="col">
@@ -271,7 +290,7 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
 
     <section>
       <div class="sel-head"><h2 class="medium">Selected work</h2><a href="work.html">View all →</a></div>
-      <div class="stacks">
+      <div class="folders">
 {stacks}
       </div>
     </section>
@@ -285,7 +304,9 @@ write('index.html', head('Eliška Doležalová — Product & Visual Designer', '
       </div>
       <div class="list-group">
         <h2 class="block-title">Disciplines</h2>
-        <p class="clients">{inline(DISCIPLINES)}</p>
+        <p class="clients">
+        {clients_html(DISCIPLINES)}
+        </p>
       </div>
       <div class="list-group">
         <h2 class="block-title">Industries</h2>

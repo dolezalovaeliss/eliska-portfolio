@@ -117,33 +117,68 @@ p { text-wrap: pretty; }
 .links a:hover { color: var(--ink); }
 
 
-/* Selected work: three stacks of tilted cards */
+/* Selected work: three folders. A project image sits in the back, a dark pocket with a tab in front. */
 .sel-head { display: flex; align-items: baseline; justify-content: space-between; }
 .sel-head { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }
 .sel-head a:hover { color: var(--ink); }
-.stacks { display: grid; grid-template-columns: repeat(3, 176px); justify-content: space-between; padding-top: 24px; }
-.stack { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-.stack-cards { position: relative; width: 176px; height: 150px; }
-.stack-cards img {
-  position: absolute;
-  width: 152px;
-  height: 104px;
-  object-fit: cover;
-  border: 1px solid var(--img-line);
-  border-radius: var(--r-img);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  background: var(--img-bg);
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+.folders { display: grid; grid-template-columns: repeat(3, 176px); justify-content: space-between; padding-top: 24px; }
+.folder {
+  --frame: #141414;
+  --pocket: #232323;
+  --f-text: #fff;
+  position: relative;
+  display: block;
+  aspect-ratio: 176 / 168;
+  border: 5px solid var(--frame);
+  border-radius: 20px;
+  background: var(--frame);
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.stack-cards img:nth-child(1) { left: 3px; top: 34px; transform: rotate(5deg); }
-.stack-cards img:nth-child(2) { left: 28px; top: 0; transform: rotate(-5deg); }
-.stack-cards img:nth-child(3) { left: 12px; top: 16px; }
-.stack:hover .stack-cards img:nth-child(1) { transform: rotate(9deg) translate(4px, 4px); }
-.stack:hover .stack-cards img:nth-child(2) { transform: rotate(-9deg) translate(4px, -4px); }
-.stack:hover .stack-cards img:nth-child(3) { transform: translateY(-4px); }
-.stack-label { display: flex; flex-direction: column; align-items: center; white-space: nowrap; }
-.stack-label b { font-weight: 500; }
-.stack-label span { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }
+/* Images are sheets inside the folder: the active one is up, the rest wait down behind the pocket.
+   On hover, site.js pulls the next sheet up over the previous one. */
+.folder-imgs { position: absolute; inset: 0 0 auto; height: 72%; }
+.folder-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transform: translateY(70%) scale(0.94);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease-out;
+}
+.folder-img.is-on { z-index: 2; opacity: 1; transform: none; }
+.folder-img.is-prev { z-index: 1; opacity: 1; transform: translateY(-6%) scale(0.96); filter: brightness(0.7); transition-duration: 600ms, 0ms; }
+.folder-pocket {
+  position: absolute;
+  inset: auto 0 0;
+  height: 45.6%; /* 72 / 158 of the inner box, matches the mask's viewBox */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 16px 16px; /* text starts under the tab step */
+  background: var(--pocket);
+  color: var(--f-text);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 166 72' preserveAspectRatio='none'%3E%3Cpath d='M0 12Q0 0 12 0H64C77 0 78 16 92 16H154Q166 16 166 28V72H0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 166 72' preserveAspectRatio='none'%3E%3Cpath d='M0 12Q0 0 12 0H64C77 0 78 16 92 16H154Q166 16 166 28V72H0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.folder-img--center { object-position: center 40%; }
+.folder-name { display: flex; flex-direction: column; font-size: var(--fs-small); line-height: var(--lh-small); white-space: nowrap; }
+.folder-name b { font-weight: 500; }
+.folder:hover .folder-pocket { transform: translateY(8px); }
+.folder:active { transform: scale(0.97); }
+.folder:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+:root[data-theme="dark"] .folder {
+  --frame: #0f0f0f;
+  --pocket: #2a2924;
+  --f-text: #fae58c;
+  box-shadow: 0 0 0 1px var(--img-line);
+}
 
 /* Page header (About, Work categories) */
 .page-head { display: flex; flex-direction: column; gap: 16px; }
@@ -496,12 +531,10 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
 }
 @media (max-width: 640px) {
   .col { padding-top: 24px; gap: 56px; padding-bottom: 160px; }
-  .stacks { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-  .stack-cards { width: 100%; height: auto; aspect-ratio: 176 / 150; }
-  .stack-cards img { width: 86%; height: auto; aspect-ratio: 152 / 104; }
-  .stack-cards img:nth-child(1) { left: 2%; top: 23%; }
-  .stack-cards img:nth-child(2) { left: 16%; top: 0; }
-  .stack-cards img:nth-child(3) { left: 7%; top: 11%; }
+  /* Folders keep their desktop size and scroll sideways instead of shrinking */
+  .folders { grid-template-columns: repeat(3, 176px); justify-content: start; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 calc(-1 * var(--pad)); padding: 24px var(--pad) 16px; scroll-padding: 0 var(--pad); }
+  .folders::-webkit-scrollbar { display: none; }
+  .folder { scroll-snap-align: start; }
   /* Work pages: page note (breadcrumb + short intro) instead of the big header */
   .page-head--work { gap: 16px; }
   .page-head--work .back, .page-head--work .h1 { display: none; }
@@ -525,6 +558,8 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
   .row .li-s { grid-column: 1 / -1; grid-row: 2; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .folder, .folder-pocket { transition: none; }
+  .folder-img, .folder-img.is-prev { transform: none; filter: none; transition: opacity 300ms; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
