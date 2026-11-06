@@ -117,68 +117,48 @@ p { text-wrap: pretty; }
 .links a:hover { color: var(--ink); }
 
 
-/* Selected work: three folders. A project image sits in the back, a dark pocket with a tab in front. */
+/* Selected work: three folders. Two project sheets stick out of a frosted front flap; on hover they lift and fan out. */
 .sel-head { display: flex; align-items: baseline; justify-content: space-between; }
 .sel-head { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); }
 .sel-head a:hover { color: var(--ink); }
 .folders { display: grid; grid-template-columns: repeat(3, 176px); justify-content: space-between; padding-top: 24px; }
-.folder {
-  --frame: #141414;
-  --pocket: #232323;
-  --f-text: #fff;
-  position: relative;
-  display: block;
-  aspect-ratio: 176 / 168;
-  border: 5px solid var(--frame);
-  border-radius: 20px;
-  background: var(--frame);
-  overflow: hidden;
-  isolation: isolate;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-/* Images are sheets inside the folder: the active one is up, the rest wait down behind the pocket.
-   On hover, site.js pulls the next sheet up over the previous one. */
-.folder-imgs { position: absolute; inset: 0 0 auto; height: 72%; }
-.folder-img {
+.folder { --f-back: #e8cf62; --f-front: rgba(253, 245, 206, 0.55); display: flex; flex-direction: column; align-items: center; gap: 16px; }
+:root[data-theme="dark"] .folder { --f-back: #3a3832; --f-front: rgba(58, 56, 50, 0.6); }
+.folder-art { position: relative; width: 100%; aspect-ratio: 176 / 136; margin-top: 12px; transition: transform 200ms ease-out; }
+.folder-back { position: absolute; inset: 0; background: var(--f-back); border-radius: 14px; }
+.folder-back::before { content: ""; position: absolute; left: 0; top: -12px; width: 72px; height: 24px; background: var(--f-back); border-radius: 10px 10px 0 0; }
+.folder-sheet {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 12%;
+  top: 8%;
+  width: 76%;
+  height: 72%;
   object-fit: cover;
   object-position: top;
-  opacity: 0;
-  transform: translateY(70%) scale(0.94);
-  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease-out;
+  border-radius: 8px;
+  background: var(--img-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.folder-img.is-on { z-index: 2; opacity: 1; transform: none; }
-.folder-img.is-prev { z-index: 1; opacity: 1; transform: translateY(-6%) scale(0.96); filter: brightness(0.7); transition-duration: 600ms, 0ms; }
-.folder-pocket {
+.folder-sheet--center { object-position: center; }
+.folder-sheet:nth-of-type(1) { transform: rotate(-5deg); }
+.folder-sheet:nth-of-type(2) { transform: rotate(3deg) translateY(4px); }
+.folder-front {
   position: absolute;
   inset: auto 0 0;
-  height: 45.6%; /* 72 / 158 of the inner box, matches the mask's viewBox */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px 16px 16px; /* text starts under the tab step */
-  background: var(--pocket);
-  color: var(--f-text);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 166 72' preserveAspectRatio='none'%3E%3Cpath d='M0 12Q0 0 12 0H64C77 0 78 16 92 16H154Q166 16 166 28V72H0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 166 72' preserveAspectRatio='none'%3E%3Cpath d='M0 12Q0 0 12 0H64C77 0 78 16 92 16H154Q166 16 166 28V72H0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  height: 44%;
+  border-radius: 14px;
+  background: var(--f-front);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
-.folder-img--center { object-position: center 40%; }
-.folder-name { display: flex; flex-direction: column; font-size: var(--fs-small); line-height: var(--lh-small); white-space: nowrap; }
-.folder-name b { font-weight: 500; }
-.folder:hover .folder-pocket { transform: translateY(8px); }
-.folder:active { transform: scale(0.97); }
-.folder:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-:root[data-theme="dark"] .folder {
-  --frame: #0f0f0f;
-  --pocket: #2a2924;
-  --f-text: #fae58c;
-  box-shadow: 0 0 0 1px var(--img-line);
-}
+.folder:hover .folder-sheet:nth-of-type(1) { transform: rotate(-9deg) translate(-8px, -16px); }
+.folder:hover .folder-sheet:nth-of-type(2) { transform: rotate(7deg) translate(8px, -12px); }
+.folder:active .folder-art { transform: scale(0.97); }
+.folder:focus-visible { outline: none; }
+.folder:focus-visible .folder-art { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: 14px; }
+.folder-name { font-weight: 500; white-space: nowrap; }
 
 /* Page header (About, Work categories) */
 .page-head { display: flex; flex-direction: column; gap: 16px; }
@@ -558,8 +538,7 @@ a.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink
   .row .li-s { grid-column: 1 / -1; grid-row: 2; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .folder, .folder-pocket { transition: none; }
-  .folder-img, .folder-img.is-prev { transform: none; filter: none; transition: opacity 300ms; }
+  .folder-art, .folder-sheet { transition: none; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 

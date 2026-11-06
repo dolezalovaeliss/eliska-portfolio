@@ -262,18 +262,19 @@ def clients_html(items=CLIENTS):
 
 # ---------- Index ----------
 FOLDERS = {
-    'product': ['images/projects/product/asset-layout-editor.png', 'images/projects/product/wsp-dashboard.png', 'images/projects/product/armacover-app.png'],
-    'web': ['images/projects/cybertrends/cover.jpg', 'images/projects/atelier3/cover.jpg', 'images/projects/esens/cover.jpg'],
-    'brand': ['images/projects/cybertrends-logo/symbol.png', 'images/projects/cybertrends-logo/wordmark.png', 'images/projects/armacover-logo/symbol.png'],
+    'product': ['images/projects/product/asset-layout-editor.png', 'images/projects/product/wsp-dashboard.png'],  # front sheet, back sheet
+    'web': ['images/projects/cybertrends/cover.jpg', 'images/projects/atelier3/cover.jpg'],  # front sheet, back sheet
+    'brand': ['images/projects/cybertrends-logo/symbol.png', 'images/projects/cybertrends-logo/wordmark.png'],  # front sheet, back sheet
 }
-def folder_imgs(k):
-    c = ' folder-img--center' if k == 'brand' else ''
-    return ''.join(f'<img class="folder-img{c}{" is-on" if i == 0 else ""}" src="{src}" alt="" loading="lazy" />' for i, src in enumerate(FOLDERS[k]))
+def folder_art(k):
+    c = ' folder-sheet--center' if k == 'brand' else ''
+    front, back = FOLDERS[k]
+    return (f'<div class="folder-art" aria-hidden="true"><div class="folder-back"></div>'
+            f'<img class="folder-sheet{c}" src="{back}" alt="" loading="lazy" /><img class="folder-sheet{c}" src="{front}" alt="" loading="lazy" />'
+            f'<div class="folder-front"></div></div>')
 stacks = '\n'.join(f'''        <a class="folder" href="{CAT[k][2]}">
-          <div class="folder-imgs" aria-hidden="true">{folder_imgs(k)}</div>
-          <div class="folder-pocket">
-            <div class="folder-name"><b>{CAT[k][1]}</b></div>
-          </div>
+          {folder_art(k)}
+          <span class="folder-name">{CAT[k][1]}</span>
         </a>''' for k in ('product', 'web', 'brand'))
 write('index.html', head('Eliška Doležalová — Product & Visual Designer', 'Product & visual designer based in Prague.', '') + f'''
   <main class="col">
