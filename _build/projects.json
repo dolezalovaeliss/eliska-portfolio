@@ -134,62 +134,6 @@
   "cover_video": null
  },
  {
-  "title": "WebScannerPro Website",
-  "href": "project-webscannerpro-web.html",
-  "tags": [
-   "web"
-  ],
-  "cover": "images/projects/webscannerpro-web/cover.jpg",
-  "cover_video": null,
-  "lead": "Website for WebScannerPro, a browser extension by Cybertrends that blocks trackers, scams and intrusive ads, and keeps browsing private. The site explains what the extension does in seconds, walks people from the free Essentials plan to Premium, and shows how it sits next to ArmaCover, its sister product for identity and financial protection.",
-  "meta": [
-   [
-    "Client",
-    "WebScannerPro · Cybertrends"
-   ],
-   [
-    "Role",
-    "Head of Design"
-   ],
-   [
-    "Year",
-    "2026"
-   ]
-  ],
-  "more": [
-   "A deep indigo hero with a pixel globe and live product signals, then calm white pages where each feature is shown as a small piece of real UI instead of an illustration. Plans, a feature-by-feature comparison with ArmaCover and short FAQs answer the upgrade questions before they are asked."
-  ],
-  "outputs": [
-   "Web design",
-   "UX/UI",
-   "Visual direction"
-  ],
-  "slides": [
-   {
-    "alt": "WebScannerPro website on a laptop",
-    "src": "images/projects/webscannerpro-web/cover.jpg",
-    "type": "img"
-   }
-  ],
-  "gallery": [
-   {
-    "alt": "WebScannerPro homepage, full page on desktop",
-    "src": "images/projects/webscannerpro-web/homepage.jpg",
-    "type": "page"
-   },
-   {
-    "alt": "WebScannerPro Premium page with plans, comparison with ArmaCover and FAQs",
-    "src": "images/projects/webscannerpro-web/premium.jpg",
-    "type": "page"
-   },
-   {
-    "alt": "WebScannerPro features page with privacy and security features",
-    "src": "images/projects/webscannerpro-web/features.jpg",
-    "type": "page"
-   }
-  ]
- },
- {
   "href": "project-cybertrends-brand.html",
   "tags": [
    "brand"
@@ -842,6 +786,62 @@
   ],
   "cover": "images/projects/cfg/tile-mockup.png",
   "cover_video": null
+ },
+ {
+  "title": "WebScannerPro Website",
+  "href": "project-webscannerpro-web.html",
+  "tags": [
+   "web"
+  ],
+  "cover": "images/projects/webscannerpro-web/cover.jpg",
+  "cover_video": null,
+  "lead": "Website for WebScannerPro, a browser extension by Cybertrends that blocks trackers, scams and intrusive ads, and keeps browsing private. The site explains what the extension does in seconds, walks people from the free Essentials plan to Premium, and shows how it sits next to ArmaCover, its sister product for identity and financial protection.",
+  "meta": [
+   [
+    "Client",
+    "WebScannerPro · Cybertrends"
+   ],
+   [
+    "Role",
+    "Head of Design"
+   ],
+   [
+    "Year",
+    "2026"
+   ]
+  ],
+  "more": [
+   "A deep indigo hero with a pixel globe and live product signals, then calm white pages where each feature is shown as a small piece of real UI instead of an illustration. Plans, a feature-by-feature comparison with ArmaCover and short FAQs answer the upgrade questions before they are asked."
+  ],
+  "outputs": [
+   "Web design",
+   "UX/UI",
+   "Visual direction"
+  ],
+  "slides": [
+   {
+    "alt": "WebScannerPro website on a laptop",
+    "src": "images/projects/webscannerpro-web/cover.jpg",
+    "type": "img"
+   }
+  ],
+  "gallery": [
+   {
+    "alt": "WebScannerPro homepage, full page on desktop",
+    "src": "images/projects/webscannerpro-web/homepage.jpg",
+    "type": "page"
+   },
+   {
+    "alt": "WebScannerPro Premium page with plans, comparison with ArmaCover and FAQs",
+    "src": "images/projects/webscannerpro-web/premium.jpg",
+    "type": "page"
+   },
+   {
+    "alt": "WebScannerPro features page with privacy and security features",
+    "src": "images/projects/webscannerpro-web/features.jpg",
+    "type": "page"
+   }
+  ]
  },
  {
   "href": "project-dluhopisomat.html",
