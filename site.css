@@ -99,7 +99,13 @@ p { text-wrap: pretty; }
 .bio-lead .avatar--lg { width: 240px; height: 240px; }
 .bio-lead-text { display: flex; flex-direction: column; gap: 16px; }
 .bio-lead .h1 { color: var(--ink); }
-@media (max-width: 600px) { .bio-lead { flex-direction: column; align-items: flex-start; gap: 24px; } .bio-lead .avatar--lg { width: 160px; height: 160px; } }
+@media (max-width: 640px) {
+  .page-head--about { margin-bottom: -24px; }
+  .bio-lead { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 24px; margin-bottom: 0; }
+  .bio-lead-text { display: contents; }
+  .bio-lead p { grid-column: 1 / -1; }
+  .bio-lead .avatar--lg { width: 120px; height: 120px; }
+}
 .identity .avatar { width: 96px; height: 96px; }
 
 .bio { display: flex; flex-direction: column; gap: 16px; color: var(--text-2); }
