@@ -6,14 +6,14 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = json.loads((ROOT / '_build' / 'projects.json').read_text())
-V = '20261106a'
+V = '20261111g'
 CUR = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 EMAIL = 'hello@elisdolezalova.cz'
 PHONE = '+420 778 036 943'
 LINKEDIN = 'https://www.linkedin.com/in/eliška-doležalová-1101631a1/'
 CV = 'images/eliska-dolezalova-cv.pdf'
-AVATAR = 'profile.jpg'
+AVATAR = 'profile.jpg?v=3'
 
 # Product design: exact content of Figma frame "Work — Product design" (62:19832); images exported from it, no detail pages
 PRODUCT_INTRO = 'Data tools, security products and internal systems. Work where the hard part is the structure, not the screen.'
@@ -109,7 +109,7 @@ def nav(page, cat=None):
     <a href="index.html" aria-label="Home"><img class="avatar" src="{AVATAR}" alt="" width="32" height="32" /></a>
     {item('index', 'Home', 'index.html')}
     {work}
-    {item('about', 'About', 'about.html')}
+    {item('about', 'About me', 'about.html')}
     {item('contact', 'Contact', 'contact.html')}
     <span class="d-div" aria-hidden="true"></span>
     {cmd}
@@ -279,7 +279,7 @@ stacks = '\n'.join(f'''        <a class="folder" href="{CAT[k][2]}">
 write('index.html', head('Eliška Doležalová — Product & Visual Designer', 'Product & visual designer based in Prague.', '') + f'''
   <main class="col">
     <div class="identity">
-      <img class="avatar" src="{AVATAR}" alt="Eliška Doležalová" width="48" height="48" />
+      <img class="avatar" src="{AVATAR}" alt="Eliška Doležalová" width="96" height="96" />
       <div><h1 class="medium">Eliška Doležalová</h1><p class="muted">Product &amp; Visual Designer</p></div>
     </div>
 
@@ -338,13 +338,12 @@ WHAT = [
 ]
 write('about.html', head('About — Eliška Doležalová', 'About Eliška Doležalová, product & visual designer based in Prague.', 'about.html') + f'''
   <main class="col">
-    <div class="page-head">
+    <div class="page-head page-head--about">
       <a class="back" href="index.html">← Home</a>
-      <h1 class="h1">About me</h1>
     </div>
 
     <div class="bio">
-      <p>I’m Eliška, a product &amp; visual designer based in Prague. I help teams turn complex products into clear, calm interfaces, and give brands a visual language that holds together across web, print, social and motion.</p>
+      <div class="bio-lead"><img class="avatar avatar--lg" src="{AVATAR}" alt="Eliška Doležalová" width="240" height="240" /><div class="bio-lead-text"><h1 class="h1">About me</h1><p>I’m Eliška, a product &amp; visual designer based in Prague. I help teams turn complex products into clear, calm interfaces, and give brands a visual language that holds together across web, print, social and motion.</p></div></div>
       <p>I work with tech companies and startups, agencies and studios, and cultural organisations. Usually on product design, websites and visual identity, often all three for the same client.</p>
       <p>I started in graphic design, doing brands and websites, and spent a lot of those years around culture, working with festivals like <a class="u" href="project-kviff.html">KVIFF</a> and <a class="u" href="project-prague-pride.html">Prague Pride</a>. Later I moved into UX, studied it during my master’s, and ended up in product design, where I get to understand the whole problem and help decide where a product should go.</p>
       <p>I build my own AI skills and a context system in <a class="u" href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a>, so the tools work the way I do and I can prototype in real code.</p>
